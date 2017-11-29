@@ -4,11 +4,11 @@ import { UserService } from '../users.service';
 
 @Component({
   selector: 'users',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss'],
+  templateUrl: './users-list.component.html',
+  styleUrls: ['./users-list.component.scss'],
   providers: [UserService]
 })
-export class UserProfileComponent implements OnInit {
+export class UsersListComponent implements OnInit {
 
   @Input() users: UserModel;
 
