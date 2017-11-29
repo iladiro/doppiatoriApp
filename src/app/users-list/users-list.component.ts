@@ -16,7 +16,7 @@ export class UsersListComponent implements OnInit {
 
   addUser(name, surname) {
     if (name && surname) {
-      let lengthUsersIndex = this.users.length + 1;
+      let lengthUsersIndex = Math.floor((Math.random() * 1000000) + 1);;
       this.users.push({
         id: lengthUsersIndex,
         name: name,
@@ -26,7 +26,8 @@ export class UsersListComponent implements OnInit {
   };
 
   deleteUser(user) {
-    console.log(user);
+    /*dell'oggetto che restituisco (user) va a fare il match con l'array di oggetti (users) e mi restituisce
+    l'indice della posizione dell'oggetto corrispondente nell'array.*/
     let index = this.users.indexOf(user);
     this.users.splice(index, 1);
   };
