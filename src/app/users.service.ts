@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserModel } from './user-model';
 
-@Injectable();
+@Injectable()
 
 export class UserService {
 
@@ -10,24 +10,29 @@ export class UserService {
   constructor() {
     this.usersList = [
       {
-        name: "Ilaria"
-        // surname: "Di Rosa"
+        id: 1,
+        name: "Ilaria",
+        surname: "Di Rosa"
       },
       {
-        name: "Fabio"
-        // surname: "Petrucci"
+        id: 2,
+        name: "Fabio",
+        surname: "Petrucci"
       },
       {
-        name: "Marika"
-        // surname: "Di Rosa"
+        id: 3,
+        name: "Marika",
+        surname: "Di Rosa"
       },
       {
-        name: "Adele"
-        // surname: "Simone"
+        id: 4,
+        name: "Adele",
+        surname: "Simone"
       },
       {
-        name: "Carmelo"
-        // surname: "Di Rosa"
+        id: 5,
+        name: "Carmelo",
+        surname: "Di Rosa"
       }
     ]
   };

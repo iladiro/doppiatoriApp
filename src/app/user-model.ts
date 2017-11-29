@@ -1,9 +1,11 @@
 export class UserModel {
+  id: number;
   name: string;
-  // surname: string;
+  surname: string;
 
-  constructor(name) {
+  constructor(id, name, surname) {
+    this.id = id;
     this.name = name;
-    // this.surname = surname;
+    this.surname = surname;
   }
 }

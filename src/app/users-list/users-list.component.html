@@ -1,10 +1,31 @@
-<!-- <ng-container *ngFor ="let user of users">
-  <p>{{user.name}} {{user.surname}}</p>
-</ng-container> -->
 <div>
-<ul>
-  <li *ngFor="let user of users">{{user.name}}</li>
-</ul>
-<input #newUser (keyup.enter)="addUser(newUser.value)" (blur)="addUser(newUser.value); newUser.value='' ">
-<button (click)="addUser(newUser.value)">Add</button>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Profile</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.surname}}</td>
+      <td>
+        <a href="">View Profile</a>
+      </td>
+      <td>
+        <button>Modify</button>
+      </td>
+      <td>
+        <button (click)="deleteUser(user)">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <fieldset>
+    <input #name placeholder="name">
+    <input #surname placeholder="surname">
+    <button (click)="addUser(name.value, surname.value)">Add</button>
+  </fieldset>
 </div>

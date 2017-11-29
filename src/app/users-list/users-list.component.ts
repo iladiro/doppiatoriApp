@@ -10,18 +10,26 @@ import { UserService } from '../users.service';
 })
 export class UsersListComponent implements OnInit {
 
-  @Input() users: UserModel;
-
-  userService: UserService;
+  @Input() users: UserModel[];
 
   constructor() { }
 
-  addUser(newUser) {
-    if (newUser) {
-      this.users.push({name: newUser});
-      console.log(this.users);
+  addUser(name, surname) {
+    if (name && surname) {
+      let lengthUsersIndex = this.users.length + 1;
+      this.users.push({
+        id: lengthUsersIndex,
+        name: name,
+        surname: surname
+      });
     }
-  }
+  };
+
+  deleteUser(user) {
+    console.log(user);
+    let index = this.users.indexOf(user);
+    this.users.splice(index, 1);
+  };
 
   ngOnInit() {}
 
