@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserModel } from './user-model';
 import { UserService } from './users.service';
 
@@ -10,12 +10,11 @@ import { UserService } from './users.service';
 })
 
 export class AppComponent {
-  title = 'app';
+  //usersList: UserModel[];
 
-  usersList: UserModel[];
+  // constructor(private userService: UserService) {
+  //   this.usersList = this.userService.getUser();
+  // }
 
-  constructor(private userService: UserService) {
-    //this.userService = userService;
-    this.usersList = this.userService.getUser();
-  }
+  constructor() {}
 }

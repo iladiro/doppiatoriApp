@@ -8,12 +8,12 @@
       <th></th>
       <th></th>
     </tr>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of usersList">
       <td>{{user.id}}</td>
       <td>{{user.name}}</td>
       <td>{{user.surname}}</td>
       <td>
-        <a href="">View Profile</a>
+        <a routerLink="/userProfile">View Profile</a>
       </td>
       <td>
         <button>Modify</button>
