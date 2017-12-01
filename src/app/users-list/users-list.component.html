@@ -1,17 +1,23 @@
 <div>
   <table border="1" cellpadding="5">
     <tr>
-      <th>User ID</th>
+      <th>Photo</th>
       <th>Name</th>
       <th>Surname</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Natianality</th>
       <th>Profile</th>
       <th></th>
       <th></th>
     </tr>
     <tr *ngFor="let user of usersList">
-      <td>{{user.id}}</td>
+      <td><img src="{{user.photo}}" width="40" height="40"></td>
       <td>{{user.name}}</td>
       <td>{{user.surname}}</td>
+      <td>{{user.age}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.natianality}}</td>
       <td>
         <a [routerLink]="['/userProfile', user.id]">
           View Profile
@@ -26,8 +32,18 @@
     </tr>
   </table>
   <fieldset>
-    <input #name placeholder="name">
-    <input #surname placeholder="surname">
-    <button (click)="addUser(name.value, surname.value)">Add</button>
+    <input #name placeholder="Insert Name"><br>
+    <input #surname placeholder="Insert Surname"><br>
+    <input #age placeholder="Insert Age"><br>
+    <input #gender placeholder="Insert Gender"><br>
+    <input #photo placeholder="Insert Photo"><br>
+    <!-- <select #gender>
+      <option selected value="female">Female</option>
+      <option value="male">Male</option>
+    </select><br> -->
+    <input #natianality placeholder="Insert Natianality"><br>
+    <button (click)="addUser(name.value, surname.value, age.value, gender.value, natianality.value, photo.value)">
+      Add
+    </button>
   </fieldset>
 </div>

@@ -17,13 +17,17 @@ export class UsersListComponent implements OnInit {
     this.usersList = this.userService.getUser();
   }
 
-  addUser(name, surname) {
+  addUser(name, surname, age, gender, natianality, photo) {
     if (name && surname) {
       let lengthUsersIndex = Math.floor((Math.random() * 1000000) + 1);;
       this.usersList.push({
         id: lengthUsersIndex,
         name: name,
-        surname: surname
+        surname: surname,
+        age: age,
+        gender: gender,
+        natianality: natianality,
+        photo: photo
       });
       console.log(this.usersList);
     }

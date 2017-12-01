@@ -12,27 +12,47 @@ export class UserService {
       {
         id: 1,
         name: "Ilaria",
-        surname: "Di Rosa"
+        surname: "Di Rosa",
+        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
+        natianality: "Italian",
+        gender: "Female",
+        age: "30"
       },
       {
         id: 2,
         name: "Fabio",
-        surname: "Petrucci"
+        surname: "Petrucci",
+        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
+        natianality: "Italian",
+        gender: "Male",
+        age: "46"
       },
       {
         id: 3,
         name: "Marika",
-        surname: "Di Rosa"
+        surname: "Di Rosa",
+        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
+        natianality: "Italian",
+        gender: "Female",
+        age: "30"
       },
       {
         id: 4,
         name: "Adele",
-        surname: "Simone"
+        surname: "Simone",
+        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
+        natianality: "Italian",
+        gender: "Female",
+        age: "57"
       },
       {
         id: 5,
         name: "Carmelo",
-        surname: "Di Rosa"
+        surname: "Di Rosa",
+        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
+        natianality: "Italian",
+        gender: "Male",
+        age: "61"
       }
     ]
   };
