@@ -13,7 +13,9 @@
       <td>{{user.name}}</td>
       <td>{{user.surname}}</td>
       <td>
-        <a routerLink="/userProfile">View Profile</a>
+        <a [routerLink]="['/userProfile', user.id]">
+          View Profile
+        </a>
       </td>
       <td>
         <button>Modify</button>

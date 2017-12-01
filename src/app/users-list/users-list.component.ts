@@ -8,6 +8,7 @@ import { UserService } from '../users.service';
   styleUrls: ['./users-list.component.scss'],
   providers: [UserService]
 })
+
 export class UsersListComponent implements OnInit {
 
   @Input() usersList: UserModel[];

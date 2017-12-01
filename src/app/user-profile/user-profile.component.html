@@ -1,3 +1,11 @@
-<p>
-  user-profile-component works!
-</p>
+<!-- <div *ngIf="dog">
+  <h2>{{dog.name.$t}}</h2>
+  <img src="{{dog.media.photos.photo[3].$t}}"/>
+  <p><strong>Age: </strong>{{dog.age.$t}}</p>
+  <p><strong>Sex: </strong>{{dog.sex.$t}}</p>
+  <p><strong>Description: </strong>{{dog.description.$t}}</p>
+</div> -->
+
+<div *ngIf="user">
+  <h2>{{user.name}} {{user.surname}}</h2>
+</div>

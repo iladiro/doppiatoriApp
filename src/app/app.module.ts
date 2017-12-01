@@ -12,7 +12,7 @@ const appRoutes: Routes = [
     component: UsersListComponent
   },
   {
-    path: 'userProfile',
+    path: 'userProfile/:id',
     component: UserProfileComponent
   },
   // {
