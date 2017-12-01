@@ -7,13 +7,13 @@ export class UserModel {
   gender: string;
   age: number;
 
-  constructor(id, name, surname) {
+  constructor(id, name, surname, age:number) {
     this.id = id;
     this.name = name;
     this.surname = surname;
     this.photo = "";
     this.natianality = "";
     this.gender = "";
-    this.age = "";
+    this.age = age;
   }
 }

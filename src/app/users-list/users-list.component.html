@@ -1,5 +1,5 @@
-<div>
-  <table border="1" cellpadding="5">
+<div class="container">
+  <table border="1" cellpadding="5" class="table">
     <tr>
       <th>Photo</th>
       <th>Name</th>
@@ -31,19 +31,22 @@
       </td>
     </tr>
   </table>
-  <fieldset>
-    <input #name placeholder="Insert Name"><br>
-    <input #surname placeholder="Insert Surname"><br>
-    <input #age placeholder="Insert Age"><br>
-    <input #gender placeholder="Insert Gender"><br>
-    <input #photo placeholder="Insert Photo"><br>
-    <!-- <select #gender>
-      <option selected value="female">Female</option>
-      <option value="male">Male</option>
-    </select><br> -->
-    <input #natianality placeholder="Insert Natianality"><br>
-    <button (click)="addUser(name.value, surname.value, age.value, gender.value, natianality.value, photo.value)">
-      Add
-    </button>
-  </fieldset>
+  <section>
+    <h3 class="text-center">Add User</h3>
+    <fieldset class="text-center">
+      <input #name placeholder="Insert Name" class="form-control"><br>
+      <input #surname placeholder="Insert Surname" class="form-control"><br>
+      <input #age placeholder="Insert Age" class="form-control"><br>
+      <input #gender placeholder="Insert Gender" class="form-control"><br>
+      <input #photo placeholder="Insert Photo" class="form-control"><br>
+      <!-- <select #gender>
+        <option selected value="female">Female</option>
+        <option value="male">Male</option>
+      </select><br> -->
+      <input #natianality placeholder="Insert Natianality" class="form-control"><br>
+      <button (click)="addUser(name.value, surname.value, age.value, gender.value, natianality.value, photo.value)" class="btn btn-success">
+        Add
+      </button>
+    </fieldset>
+  </section>
 </div>
