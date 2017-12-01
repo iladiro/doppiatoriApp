@@ -4,7 +4,6 @@ import { UserModel } from '../user-model';
 import { UserService } from '../users.service';
 
 @Component({
-  //selector: 'app-user-profile-component',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
   providers: [UserService]
@@ -12,7 +11,7 @@ import { UserService } from '../users.service';
 
 export class UserProfileComponent implements OnInit {
 
-  @Input() usersList: UserModel[];
+  usersList: UserModel[];
 
   @Input() user: {};
 
