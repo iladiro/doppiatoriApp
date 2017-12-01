@@ -5,7 +5,7 @@ import { UserService } from '../users.service';
 
 @Component({
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+  styleUrls: ['./user-profile.component.scss'],
   providers: [UserService]
 })
 
