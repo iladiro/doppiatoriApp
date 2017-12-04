@@ -3,7 +3,7 @@ export class UserModel {
   name: string;
   surname: string;
   photo: string;
-  natianality: string;
+  nationality: string;
   gender: string;
   age: number;
 
@@ -12,7 +12,7 @@ export class UserModel {
     this.name = name;
     this.surname = surname;
     this.photo = "";
-    this.natianality = "";
+    this.nationality = "";
     this.gender = "";
     this.age = age;
   }

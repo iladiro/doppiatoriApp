@@ -14,7 +14,7 @@ export class UserService {
         name: "Ilaria",
         surname: "Di Rosa",
         photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        natianality: "Italian",
+        nationality: "Italian",
         gender: "Female",
         age: 30
       },
@@ -23,7 +23,7 @@ export class UserService {
         name: "Fabio",
         surname: "Petrucci",
         photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        natianality: "Italian",
+        nationality: "Italian",
         gender: "Male",
         age: 46
       },
@@ -32,7 +32,7 @@ export class UserService {
         name: "Marika",
         surname: "Di Rosa",
         photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        natianality: "Italian",
+        nationality: "Italian",
         gender: "Female",
         age: 30
       },
@@ -41,7 +41,7 @@ export class UserService {
         name: "Adele",
         surname: "Simone",
         photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        natianality: "Italian",
+        nationality: "Italian",
         gender: "Female",
         age: 57
       },
@@ -50,19 +50,25 @@ export class UserService {
         name: "Carmelo",
         surname: "Di Rosa",
         photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        natianality: "Italian",
+        nationality: "Italian",
         gender: "Male",
         age: 61
       }
     ]
   };
 
-  getUser(): UserModel[] {
+  getUsers(): UserModel[] {
     return this.usersList;
   };
 
   addUser(user) {
-    this.usersList.push(user)
+    this.usersList.push(user);
+    // console.log("users " + JSON.stringify(this.usersList));
+  };
+
+  deleteUser(user) {
+    let index = this.usersList.indexOf(user);
+    this.usersList.splice(index, 1);
   };
 
 }
