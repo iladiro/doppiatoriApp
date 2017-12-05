@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   //   data: { title: 'Heroes List' }
   // },
   { path: '',
-    redirectTo: '/heroes',
+    redirectTo: '/userProfile',
     pathMatch: 'full'
   }
   // {

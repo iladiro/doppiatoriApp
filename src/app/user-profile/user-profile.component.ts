@@ -19,12 +19,13 @@ export class UserProfileComponent implements OnInit {
   private sub: any;
 
   constructor(private route: ActivatedRoute, private userService: UserService) {
-    this.usersList = this.userService.getUser();
+    this.usersList = this.userService.getUsers();
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
+       console.log(this.usersList);
        for (let item of this.usersList) {
          if(item.id == this.id) {
            this.user = item;
