@@ -12,18 +12,14 @@ import {NgForm} from '@angular/forms';
 
 export class UsersListComponent implements OnInit {
 
-  @Input() usersList: UserModel[];
+  //@Input() usersList: UserModel[];
 
-  user: UserModel{};
-
-  constructor(private userService: UserService) {
-    this.usersList = this.userService.getUsers();
-  }
+  constructor(private userService: UserService) {}
 
   onSubmit(form: NgForm){
     let currentUser = form.value;
     let lengthUsersIndex = Math.floor((Math.random() * 1000000) + 1);
-    this.user = {
+    let user:UserModel{} = {
       id: lengthUsersIndex,
       name: currentUser.name,
       surname: currentUser.surname,
@@ -32,22 +28,15 @@ export class UsersListComponent implements OnInit {
       nationality: currentUser.nationality,
       photo: currentUser.photo
     };
-    this.usersList = this.userService.addUser(this.user);
-    this.usersList = this.userService.getUsers();
+    this.userService.addUser(user);
   }
 
   onDelete(user) {
-    this.usersList = this.userService.deleteUser(user);
-    this.usersList = this.userService.getUsers();
+    this.userService.deleteUser(user);
   }
 
-  // deleteUser(user) {
-  //   /*dell'oggetto che restituisco (user) va a fare il match con l'array di oggetti (users) e mi restituisce
-  //   l'indice della posizione dell'oggetto corrispondente nell'array.*/
-  //   let index = this.usersList.indexOf(user);
-  //   this.usersList.splice(index, 1);
-  // }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.getUsers();
+  }
 
 }

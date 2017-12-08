@@ -11,7 +11,7 @@
       <th></th>
       <th></th>
     </tr>
-    <tr *ngFor="let user of usersList">
+    <tr *ngFor="let user of userService.usersList">
       <td><img src="{{user.photo}}" width="40" height="40"></td>
       <td>{{user.name}}</td>
       <td>{{user.surname}}</td>

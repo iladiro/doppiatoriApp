@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule  // Add this!
+    ReactiveFormsModule,  // Add this!
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

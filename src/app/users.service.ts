@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserModel } from './user-model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 
@@ -7,68 +8,35 @@ export class UserService {
 
   private usersList: UserModel[];
 
-  constructor() {
-    this.usersList = [
-      {
-        id: 1,
-        name: "Ilaria",
-        surname: "Di Rosa",
-        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        nationality: "Italian",
-        gender: "Female",
-        age: 30
-      },
-      {
-        id: 2,
-        name: "Fabio",
-        surname: "Petrucci",
-        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        nationality: "Italian",
-        gender: "Male",
-        age: 46
-      },
-      {
-        id: 3,
-        name: "Marika",
-        surname: "Di Rosa",
-        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        nationality: "Italian",
-        gender: "Female",
-        age: 30
-      },
-      {
-        id: 4,
-        name: "Adele",
-        surname: "Simone",
-        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        nationality: "Italian",
-        gender: "Female",
-        age: 57
-      },
-      {
-        id: 5,
-        name: "Carmelo",
-        surname: "Di Rosa",
-        photo: "http://d33wubrfki0l68.cloudfront.net/73a9e018a16a93b4e19a20db44fbb7cefec939d3/35d92/assets/images/me.jpg",
-        nationality: "Italian",
-        gender: "Male",
-        age: 61
-      }
-    ]
-  };
+  // Inject HttpClient into your component or service.
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {}
 
   getUsers(): UserModel[] {
-    return this.usersList;
+    this.http.get('http://localhost:3000/users').subscribe(
+      data => {
+        this.usersList = data;
+      },
+      err => {
+        console.log("Error occured.")
+      }
+    );
   };
 
   addUser(user) {
-    this.usersList.push(user);
-    // console.log("users " + JSON.stringify(this.usersList));
+    this.http.post('http://localhost:3000/users', user).subscribe(
+      data => {
+        console.log(data);
+        this.usersList.push(data);
+      }
+    );
   };
 
   deleteUser(user) {
     let index = this.usersList.indexOf(user);
     this.usersList.splice(index, 1);
+    // console.log("users " + JSON.stringify(this.usersList));
   };
 
 }
