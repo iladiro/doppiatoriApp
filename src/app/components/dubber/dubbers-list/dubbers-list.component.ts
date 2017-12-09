@@ -30,24 +30,19 @@ export class DubbersListComponent implements OnInit {
       nationality: currentDubber.nationality,
       photo: currentDubber.photo
     };
-    this.dubberService.addDubber(dubber);
-    // if(this.currentItem){
-    //   this.dubberService.updateDubber(this.currentItem);
-    // } else {
-    //   this.dubberService.addDubber(dubber);
-    // }
+    if(this.currentItem) {
+      this.dubberService.updateDubber(this.currentItem);
+    } else {
+      console.log("non ancora presente");
+      this.dubberService.addDubber(dubber);
+    }
   }
 
   onDelete(dubber) {
     this.dubberService.deleteDubber(dubber);
   }
 
-  // modifyItem() {
-  //   this.dubberService.updateDubber(this.currentItem);
-  // }
-
   getSingleItem(dubber) {
-    console.log("dubber " + JSON.stringify(dubber));
     this.currentItem = dubber;
   }
 

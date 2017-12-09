@@ -1,38 +1,20 @@
 {
   "dubbers": [
     {
-      "id": 378219,
-      "name": "maria",
-      "surname": "rosa",
-      "age": "",
-      "gender": "",
-      "nationality": "",
-      "photo": ""
-    },
-    {
-      "id": 317515,
-      "name": "ilari",
+      "id": 247385,
+      "name": "ilaria",
       "surname": "di rosa",
-      "age": "29",
+      "age": "30",
       "gender": "F",
-      "nationality": "",
+      "nationality": "italiana",
       "photo": ""
     },
     {
-      "id": 934051,
+      "id": 794545,
       "name": "fabio",
-      "surname": "prtucci",
-      "age": "36",
+      "surname": "petrucci",
+      "age": "46",
       "gender": "M",
-      "nationality": "",
-      "photo": ""
-    },
-    {
-      "id": 333293,
-      "name": "marika",
-      "surname": "di rosa",
-      "age": "29",
-      "gender": "F",
       "nationality": "italiana",
       "photo": ""
     }

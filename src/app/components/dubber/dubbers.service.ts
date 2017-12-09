@@ -15,6 +15,7 @@ export class DubberService {
   ngOnInit(): void {}
 
   getDubbers(): DubberModel[] {
+    console.log("entrato nel get");
     this.http.get('http://localhost:3000/dubbers').subscribe(
       data => {
         this.dubbersList = data;
@@ -35,7 +36,7 @@ export class DubberService {
 
   deleteDubber(dubber) {
     let index = this.dubbersList.indexOf(dubber);
-    this.http.delete('http://localhost:3000/dubbers/' + dubber.id).subscribe(
+    this.http.delete('http://localhost:3000/dubbers/' + dubber.id.toString()).subscribe(
       data => {
         this.dubbersList.splice(index, 1);
       }
@@ -43,13 +44,9 @@ export class DubberService {
   };
 
   updateDubber(dubber) {
-    console.log(dubber);
-    let index = this.dubbersList.indexOf(dubber);
-    // this.http.put('http://localhost:3000/dubbers/' + dubber.id).subscribe(
-    //   data => {
-    //     this.dubbersList.splice(index, 1);
-    //   }
-    // )
+    this.http.put('http://localhost:3000/dubbers/' + dubber.id.toString(), dubber).subscribe(
+      data => {}
+    );
   };
 
 }
