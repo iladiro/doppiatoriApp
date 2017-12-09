@@ -42,4 +42,14 @@ export class DubberService {
     )
   };
 
+  updateDubber(dubber) {
+    console.log(dubber);
+    let index = this.dubbersList.indexOf(dubber);
+    // this.http.put('http://localhost:3000/dubbers/' + dubber.id).subscribe(
+    //   data => {
+    //     this.dubbersList.splice(index, 1);
+    //   }
+    // )
+  };
+
 }

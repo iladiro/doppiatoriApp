@@ -14,6 +14,8 @@ export class DubbersListComponent implements OnInit {
 
   //@Input() dubbersList: DubberModel[];
 
+  private currentItem;
+
   constructor(private dubberService: DubberService) {}
 
   onSubmit(form: NgForm){
@@ -29,10 +31,24 @@ export class DubbersListComponent implements OnInit {
       photo: currentDubber.photo
     };
     this.dubberService.addDubber(dubber);
+    // if(this.currentItem){
+    //   this.dubberService.updateDubber(this.currentItem);
+    // } else {
+    //   this.dubberService.addDubber(dubber);
+    // }
   }
 
   onDelete(dubber) {
     this.dubberService.deleteDubber(dubber);
+  }
+
+  // modifyItem() {
+  //   this.dubberService.updateDubber(this.currentItem);
+  // }
+
+  getSingleItem(dubber) {
+    console.log("dubber " + JSON.stringify(dubber));
+    this.currentItem = dubber;
   }
 
   ngOnInit() {
