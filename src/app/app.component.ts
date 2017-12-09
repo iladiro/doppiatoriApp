@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserModel } from './user-model';
-import { UserService } from './users.service';
+// import { UserModel } from './components/dubber/dubber-model';
+// import { UserService } from './components/dubber/dubbers.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [UserService]
+  styleUrls: ['./app.component.scss']
+  //providers: [UserService]
 })
 
 export class AppComponent {

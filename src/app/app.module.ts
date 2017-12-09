@@ -5,17 +5,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { UsersListComponent } from './users-list/users-list.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-list.component';
+import { DubberProfileComponent } from './components/dubber/dubber-profile/dubber-profile.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: UsersListComponent
+    component: DubbersListComponent
   },
   {
-    path: 'userProfile/:id',
-    component: UserProfileComponent
+    path: 'dubberProfile/:id',
+    component: DubberProfileComponent
   },
   // {
   //   path: 'hero/:id',
@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   //   data: { title: 'Heroes List' }
   // },
   { path: '',
-    redirectTo: '/userProfile',
+    redirectTo: '/dubberProfile',
     pathMatch: 'full'
   }
   // {
@@ -39,8 +39,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    UsersListComponent,
-    UserProfileComponent
+    DubbersListComponent,
+    DubberProfileComponent
   ],
   imports: [
     RouterModule.forRoot(

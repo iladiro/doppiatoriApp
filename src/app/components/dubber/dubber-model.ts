@@ -1,4 +1,4 @@
-export class UserModel {
+export class DubberModel {
   id: number;
   name: string;
   surname: string;
