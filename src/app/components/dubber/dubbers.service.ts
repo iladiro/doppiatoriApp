@@ -9,16 +9,29 @@ export class DubberService {
 
   private dubbersList: DubberModel[];
 
+  private dubber: DubberModel[];
+
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 
   getDubbers(): DubberModel[] {
-    console.log("entrato nel get");
     this.http.get('http://localhost:3000/dubbers').subscribe(
       data => {
         this.dubbersList = data;
+      },
+      err => {
+        console.log("Error occured.")
+      }
+    );
+  };
+
+  getDubber(idDubber): DubberModel[] {
+    this.http.get('http://localhost:3000/dubbers/' + idDubber.toString()).subscribe(
+      data => {
+        console.log(data);
+        this.dubber = data;
       },
       err => {
         console.log("Error occured.")
