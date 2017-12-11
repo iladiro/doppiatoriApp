@@ -49,11 +49,14 @@ export class DubberService {
 
   deleteDubber(dubber) {
     let index = this.dubbersList.indexOf(dubber);
-    this.http.delete('http://localhost:3000/dubbers/' + dubber.id.toString()).subscribe(
-      data => {
-        this.dubbersList.splice(index, 1);
-      }
-    )
+    var confirmRequest = confirm("Are you sure to delete it?");
+    if (confirmRequest == true) {
+      this.http.delete('http://localhost:3000/dubbers/' + dubber.id.toString()).subscribe(
+        data => {
+          this.dubbersList.splice(index, 1);
+        }
+      )
+    }
   };
 
   updateDubber(dubber) {
