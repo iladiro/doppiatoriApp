@@ -2,19 +2,10 @@
   "dubbers": [
     {
       "id": 247385,
-      "name": "ilaria",
+      "name": "ilaria2",
       "surname": "di rosa",
       "age": "30",
       "gender": "F",
-      "nationality": "italiana",
-      "photo": ""
-    },
-    {
-      "id": 794545,
-      "name": "fabio",
-      "surname": "petrucci",
-      "age": "46",
-      "gender": "M",
       "nationality": "italiana",
       "photo": ""
     }
