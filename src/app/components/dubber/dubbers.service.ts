@@ -60,9 +60,12 @@ export class DubberService {
   };
 
   updateDubber(dubber) {
-    this.http.put('http://localhost:3000/dubbers/' + dubber.id.toString(), dubber).subscribe(
-      data => {}
-    );
+    var confirmRequest = confirm("Are you sure you wanna run the following changes?");
+    if (confirmRequest == true) {
+      this.http.put('http://localhost:3000/dubbers/' + dubber.id.toString(), dubber).subscribe(
+        data => {}
+      );
+    };
   };
 
 }

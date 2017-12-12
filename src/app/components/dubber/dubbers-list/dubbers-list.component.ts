@@ -18,6 +18,12 @@ export class DubbersListComponent implements OnInit {
 
   constructor(private dubberService: DubberService) {}
 
+  // currentItem.name:string;
+  //
+  // clear(){
+  //   this.currentItem.name = '';
+  // }
+
   onSubmit(form: NgForm){
     let currentDubber = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
@@ -36,6 +42,7 @@ export class DubbersListComponent implements OnInit {
       console.log("non ancora presente");
       this.dubberService.addDubber(dubber);
     }
+    this.currentItem = {};
   }
 
   onDelete(dubber) {
