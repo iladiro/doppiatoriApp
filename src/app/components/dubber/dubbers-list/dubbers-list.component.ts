@@ -38,11 +38,11 @@ export class DubbersListComponent implements OnInit {
     };
     if(this.currentItem) {
       this.dubberService.updateDubber(this.currentItem);
+      this.currentItem = undefined;
     } else {
-      console.log("non ancora presente");
+      //console.log("non ancora presente");
       this.dubberService.addDubber(dubber);
     }
-    this.currentItem = {};
   }
 
   onDelete(dubber) {
