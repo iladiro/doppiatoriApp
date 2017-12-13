@@ -13,42 +13,18 @@ export class DubberProfileComponent implements OnInit {
 
   //dubbersList: DubberModel[];
 
-  @Input() dubber: {};
+  dubber: {};
 
   id: number;
   private sub: any;
 
-  constructor(private route: ActivatedRoute, private dubberService: DubberService) {
-    // this.dubbersList = this.dubberService.getDubbers();
-  }
+  constructor(private route: ActivatedRoute, private dubberService: DubberService) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id']; // (+) converts string 'id' to a number
-       this.dubberService.getDubber(this.id);
-       // for (let item of this.dubberService.dubbersList); {
-       //   console.log(this.dubberService.dubbersList);
-       //   if(item.id == this.id) {
-       //     this.dubber = item;
-       //   }
-       // }
-       // In a real app: dispatch action to load the details here.
+      this.id = +params['id']; // (+) converts string 'id' to a number
+      this.dubberService.getDubber(this.id);
     });
   }
-
-  // ngOnInit()
-    //this.dubberService.getDubbers();
-    //console.log(this.dubberService);
-    // this.sub = this.route.params.subscribe(params => {
-    //    this.id = +params['id']; // (+) converts string 'id' to a number
-    //    for (let item of this.dubberService.dubbersList); {
-    //      console.log(this.dubberService.dubbersList);
-    //      if(item.id == this.id) {
-    //        this.dubber = item;
-    //      }
-    //    }
-    //    // In a real app: dispatch action to load the details here.
-    // });
-  // }
 
 }

@@ -7,16 +7,16 @@ import { HttpParams } from '@angular/common/http';
 
 export class DubberService {
 
-  private dubbersList: DubberModel[];
+  private dubbersList;
 
-  private dubber: DubberModel[];
+  private dubber;
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 
-  getDubbers(): DubberModel[] {
+  getDubbers() {
     this.http.get('http://localhost:3000/dubbers').subscribe(
       data => {
         this.dubbersList = data;
@@ -27,7 +27,7 @@ export class DubberService {
     );
   };
 
-  getDubber(idDubber): DubberModel[] {
+  getDubber(idDubber) {
     this.http.get('http://localhost:3000/dubbers/' + idDubber.toString()).subscribe(
       data => {
         console.log(data);
