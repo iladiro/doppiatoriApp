@@ -13,7 +13,7 @@ export class DubberProfileComponent implements OnInit {
 
   //dubbersList: DubberModel[];
 
-  dubber: {};
+  //dubber: {};
 
   id: number;
   private sub: any;
