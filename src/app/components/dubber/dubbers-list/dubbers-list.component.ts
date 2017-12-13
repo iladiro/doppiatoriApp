@@ -18,17 +18,17 @@ export class DubbersListComponent implements OnInit {
 
   constructor(private dubberService: DubberService) {}
 
-  onSubmit(form: NgForm){
-    let currentDubber = form.value;
-    let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
-    currentDubber.id = lengthDubbersIndex;
-    if(this.currentItem) {
-      this.dubberService.updateDubber(this.currentItem);
-      this.currentItem = undefined;
-    } else {
-      this.dubberService.addDubber(currentDubber);
-    }
-  }
+  // onSubmit(form: NgForm){
+  //   let currentDubber = form.value;
+  //   let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
+  //   currentDubber.id = lengthDubbersIndex;
+  //   if(this.currentItem) {
+  //     this.dubberService.updateDubber(this.currentItem);
+  //     this.currentItem = undefined;
+  //   } else {
+  //     this.dubberService.addDubber(currentDubber);
+  //   }
+  // }
 
   onDelete(dubber) {
     this.dubberService.deleteDubber(dubber);
