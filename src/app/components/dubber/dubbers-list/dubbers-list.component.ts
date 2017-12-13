@@ -14,7 +14,7 @@ export class DubbersListComponent implements OnInit {
 
   //@Input() dubbersList: DubberModel[];
 
-  private currentItem;
+  currentItem;
 
   constructor(private dubberService: DubberService) {}
 

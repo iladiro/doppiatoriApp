@@ -33,56 +33,6 @@
   </table>
   <section>
     <h3 class="text-center">Add Dubber</h3>
-     <form #addDubberForm="ngForm" (ngSubmit)="onSubmit(addDubberForm)">
-       <div class="form-group">
-         <label for="name">Name</label>
-         <input *ngIf="currentItem; else elseBlockName" id="name" type="text" class="form-control" placeholder="Name" [(ngModel)]="currentItem.name" name="name">
-         <ng-template #elseBlockName>
-           <input id="name" type="text" class="form-control" placeholder="Name" ngModel name="name">
-         </ng-template>
-       </div>
-       <div class="form-group">
-         <label for="surname">Surname</label>
-         <input *ngIf="currentItem; else elseBlockSurname" id="surname" type="text" class="form-control" placeholder="Surname" name="surname" [(ngModel)]="currentItem.surname">
-         <ng-template #elseBlockSurname>
-           <input id="surname" type="text" class="form-control" placeholder="Surname" ngModel name="surname">
-         </ng-template>
-       </div>
-       <div class="form-group">
-         <label for="age">Age</label>
-         <input *ngIf="currentItem; else elseBlockAge" id="age" type="text" class="form-control" placeholder="Age" name="age" [(ngModel)]="currentItem.age">
-         <ng-template #elseBlockAge>
-           <input id="age" type="text" class="form-control" placeholder="Age" name="age" ngModel>
-         </ng-template>
-       </div>
-       <div class="form-group">
-         <label for="gender">Gender</label>
-         <select class="form-control" id="gender" name="gender" ngModel>
-            <option value="F">F</option>
-            <option value="M">M</option>
-          </select>
-       </div>
-        <div class="form-group">
-          <label for="photo">Photo</label>
-          <input *ngIf="currentItem; else elseBlockPhoto" id="photo" type="text" class="form-control" placeholder="Photo" name="photo" [(ngModel)]="currentItem.photo">
-          <ng-template #elseBlockPhoto>
-            <input id="photo" type="text" class="form-control" placeholder="Photo" name="photo" ngModel>
-          </ng-template>
-        </div>
-        <div class="form-group">
-          <label for="nationality">Nationality</label>
-          <input *ngIf="currentItem; else elseBlockNationality" id="nationality" type="text" class="form-control" placeholder="Nationality" name="nationality" [(ngModel)]="currentItem.nationality">
-          <ng-template #elseBlockNationality>
-            <input id="nationality" type="text" class="form-control" placeholder="Nationality" name="nationality" ngModel>
-          </ng-template>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success" *ngIf="currentItem; else addDubber">Save dubber</button>
-          <ng-template #addDubber>
-            <button type="submit" class="btn btn-success">Add dubber</button>
-          </ng-template>
-          <!-- <button (click)="clear()">Click</button> -->
-        </div>
-    </form>
+    <addForm [dubber]="currentItem"></addForm>
   </section>
 </div>
