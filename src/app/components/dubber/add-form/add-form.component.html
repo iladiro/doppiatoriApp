@@ -22,10 +22,17 @@
   </div>
   <div class="form-group">
     <label for="gender">Gender</label>
-    <select class="form-control" id="gender" name="gender" ngModel>
-       <option value="F">F</option>
-       <option value="M">M</option>
-     </select>
+    <select *ngIf="dubber; else elseBlockGender" class="form-control" [(ngModel)]="dubber.gender" id="gender" name="gender">
+       <option value="F">Female</option>
+       <option value="M">Male</option>
+    </select>
+    <ng-template #elseBlockGender>
+      <select ngModel name="gender" class="form-control">
+         <option value="" disabled selected>Select your option</option>
+         <option value="F">Female</option>
+         <option value="M">Male</option>
+      </select>
+    </ng-template>
   </div>
    <div class="form-group">
      <label for="photo">Photo</label>
@@ -37,12 +44,12 @@
    <div class="form-group">
      <label for="nationality">Nationality</label>
      <select *ngIf="dubber; else elseBlockNationality" [(ngModel)]="dubber.nationality" name="nationality" class="form-control">
-        <option *ngFor="let n of nationality" value="{{n}}">{{n}}</option>
+        <option *ngFor="let n of nationalities" value="{{n}}">{{n}}</option>
       </select>
       <ng-template #elseBlockNationality>
         <select ngModel name="nationality" class="form-control">
            <option value="" disabled selected>Select your option</option>
-           <option *ngFor="let n of nationality" value="{{n}}">{{n}}</option>
+           <option *ngFor="let n of nationalities" value="{{n}}">{{n}}</option>
         </select>
       </ng-template>
    </div>

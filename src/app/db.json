@@ -78,8 +78,26 @@
       "surname": "",
       "age": "23",
       "photo": "",
-      "nationality": "English",
+      "nationality": "Italian",
       "id": 737679
+    },
+    {
+      "gender": "F",
+      "name": "sdads",
+      "surname": "asdsad",
+      "age": "",
+      "photo": "",
+      "nationality": "German",
+      "id": 226636
+    },
+    {
+      "name": "asdas",
+      "surname": "asdasd",
+      "age": "34",
+      "gender": "M",
+      "photo": "",
+      "nationality": "German",
+      "id": 996068
     }
   ],
   "film": [
