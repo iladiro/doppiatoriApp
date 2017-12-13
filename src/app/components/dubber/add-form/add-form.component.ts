@@ -11,6 +11,9 @@ import {NgForm} from '@angular/forms';
 })
 export class AddFormComponent implements OnInit {
 
+  //selectedNationality: string = "Italian";
+  nationality: string[] = ["Italian", "German", "English", "Spanish"]
+
   @Input() dubber;
 
   constructor(private dubberService: DubberService) {}

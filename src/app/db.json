@@ -6,7 +6,7 @@
       "surname": "di rosa",
       "age": "29",
       "gender": "F",
-      "nationality": "Italiana",
+      "nationality": "English",
       "photo": ""
     },
     {
@@ -51,8 +51,35 @@
       "surname": "simone",
       "age": "89",
       "gender": "",
-      "nationality": "",
+      "nationality": "Spanish",
       "photo": ""
+    },
+    {
+      "gender": "",
+      "name": "pietro",
+      "surname": "ciccio",
+      "age": "23",
+      "photo": "",
+      "nationality": "German",
+      "id": 333475
+    },
+    {
+      "gender": "",
+      "name": "carlo",
+      "surname": "conti",
+      "age": "45",
+      "photo": "",
+      "nationality": "English",
+      "id": 917429
+    },
+    {
+      "gender": "",
+      "name": "asfd",
+      "surname": "dfdf",
+      "age": "",
+      "photo": "",
+      "nationality": "German",
+      "id": 132516
     }
   ],
   "film": [
