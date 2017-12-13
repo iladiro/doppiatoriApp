@@ -14,7 +14,7 @@
       "name": "marika",
       "surname": "di rosa",
       "age": "30",
-      "gender": "",
+      "gender": "F",
       "nationality": "Italiana",
       "photo": ""
     },
@@ -23,8 +23,8 @@
       "name": "adele",
       "surname": "simone",
       "age": "58",
-      "gender": "",
-      "nationality": "Italiana",
+      "gender": "F",
+      "nationality": "Italian",
       "photo": ""
     },
     {
@@ -32,8 +32,8 @@
       "name": "carmelo",
       "surname": "di rosa",
       "age": "62",
-      "gender": "",
-      "nationality": "Italiana",
+      "gender": "M",
+      "nationality": "Italian",
       "photo": ""
     },
     {
@@ -41,8 +41,8 @@
       "name": "fabio",
       "surname": "petrucci",
       "age": "46",
-      "gender": "",
-      "nationality": "Italiana",
+      "gender": "M",
+      "nationality": "English",
       "photo": ""
     },
     {
@@ -50,12 +50,12 @@
       "name": "raffaele",
       "surname": "simone",
       "age": "89",
-      "gender": "",
+      "gender": "M",
       "nationality": "Spanish",
       "photo": ""
     },
     {
-      "gender": "",
+      "gender": "M",
       "name": "pietro",
       "surname": "ciccio",
       "age": "23",
@@ -64,40 +64,13 @@
       "id": 333475
     },
     {
-      "gender": "",
+      "gender": "M",
       "name": "carlo",
       "surname": "conti",
       "age": "45",
       "photo": "",
       "nationality": "English",
       "id": 917429
-    },
-    {
-      "gender": "",
-      "name": "sdas",
-      "surname": "",
-      "age": "23",
-      "photo": "",
-      "nationality": "Italian",
-      "id": 737679
-    },
-    {
-      "gender": "F",
-      "name": "sdads",
-      "surname": "asdsad",
-      "age": "",
-      "photo": "",
-      "nationality": "German",
-      "id": 226636
-    },
-    {
-      "name": "asdas",
-      "surname": "asdasd",
-      "age": "34",
-      "gender": "M",
-      "photo": "",
-      "nationality": "German",
-      "id": 996068
     }
   ],
   "film": [
