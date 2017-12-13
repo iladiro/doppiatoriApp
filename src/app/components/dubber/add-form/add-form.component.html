@@ -41,7 +41,7 @@
       </select>
       <ng-template #elseBlockNationality>
         <select ngModel name="nationality" class="form-control">
-           <option value="0" disabled selected>Select your option</option>
+           <option value="" disabled selected>Select your option</option>
            <option *ngFor="let n of nationality" value="{{n}}">{{n}}</option>
         </select>
       </ng-template>
