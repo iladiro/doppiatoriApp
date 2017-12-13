@@ -24,6 +24,7 @@ export class AddFormComponent implements OnInit {
       this.dubber = undefined;
     } else {
       this.dubberService.addDubber(currentDubber);
+      form.reset();
     }
   }
 
