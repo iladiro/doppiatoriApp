@@ -4,6 +4,7 @@ import { DubberService } from '../dubbers.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
+  selector: 'app-root',
   // selector: 'router-outlet',
   templateUrl: './dubbers-list.component.html',
   styleUrls: ['./dubbers-list.component.scss'],

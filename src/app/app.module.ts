@@ -11,7 +11,7 @@ import { AddFormComponent } from './components/dubber/add-form/add-form.componen
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'dubbers',
     component: DubbersListComponent,
     data: { title: 'Heroes List' }
   },
