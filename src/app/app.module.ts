@@ -12,25 +12,17 @@ import { AddFormComponent } from './components/dubber/add-form/add-form.componen
 const appRoutes: Routes = [
   {
     path: '',
-    component: DubbersListComponent
+    component: DubbersListComponent,
+    data: { title: 'Heroes List' }
   },
   {
     path: 'dubberProfile/:id',
     component: DubberProfileComponent
-  },
-  // {
-  //   path: 'hero/:id',
-  //   component: HeroDetailComponent
-  // },
-  // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
-  // },
-  { path: '',
-    redirectTo: '/dubberProfile',
-    pathMatch: 'full'
   }
+  // { path: '',
+  //   redirectTo: '/dubberProfile',
+  //   pathMatch: 'full'
+  // }
   // {
   //   path: '**',
   //   component: PageNotFoundComponent
