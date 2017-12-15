@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-list.component';
 import { DubberProfileComponent } from './components/dubber/dubber-profile/dubber-profile.component';
 import { AddFormComponent } from './components/dubber/add-form/add-form.component';
+import { HeaderComponent } from './components/template/header/header.component';
 
 const appRoutes: Routes = [
   {
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     AppComponent,
     DubbersListComponent,
     DubberProfileComponent,
-    AddFormComponent
+    AddFormComponent,
+    HeaderComponent
   ],
   imports: [
     RouterModule.forRoot(
