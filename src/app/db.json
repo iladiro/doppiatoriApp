@@ -6,7 +6,7 @@
       "surname": "di rosa",
       "age": "29",
       "gender": "F",
-      "nationality": "English",
+      "nationality": "Italian",
       "photo": ""
     },
     {
@@ -15,7 +15,7 @@
       "surname": "di rosa",
       "age": "30",
       "gender": "F",
-      "nationality": "Italiana",
+      "nationality": "German",
       "photo": ""
     },
     {
@@ -26,51 +26,6 @@
       "gender": "F",
       "nationality": "Italian",
       "photo": ""
-    },
-    {
-      "id": 604204,
-      "name": "carmelo",
-      "surname": "di rosa",
-      "age": "62",
-      "gender": "M",
-      "nationality": "Italian",
-      "photo": ""
-    },
-    {
-      "id": 315978,
-      "name": "fabio",
-      "surname": "petrucci",
-      "age": "46",
-      "gender": "M",
-      "nationality": "English",
-      "photo": ""
-    },
-    {
-      "id": 687046,
-      "name": "raffaele",
-      "surname": "simone",
-      "age": "89",
-      "gender": "M",
-      "nationality": "Spanish",
-      "photo": ""
-    },
-    {
-      "gender": "M",
-      "name": "pietro",
-      "surname": "ciccio",
-      "age": "23",
-      "photo": "",
-      "nationality": "German",
-      "id": 333475
-    },
-    {
-      "gender": "M",
-      "name": "carlo",
-      "surname": "conti",
-      "age": "50",
-      "photo": "",
-      "nationality": "English",
-      "id": 917429
     }
   ],
   "film": [
