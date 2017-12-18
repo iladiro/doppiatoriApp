@@ -9,16 +9,22 @@ import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-l
 import { DubberProfileComponent } from './components/dubber/dubber-profile/dubber-profile.component';
 import { AddFormComponent } from './components/dubber/add-form/add-form.component';
 import { HeaderComponent } from './components/template/header/header.component';
+import { FilmListComponent } from './components/film/film-list/film-list.component';
 
 const appRoutes: Routes = [
   {
     path: 'dubbers',
     component: DubbersListComponent,
-    data: { title: 'Heroes List' }
+    data: { title: 'Dubbers List' }
   },
   {
     path: 'dubberProfile/:id',
     component: DubberProfileComponent
+  },
+  {
+    path: 'films',
+    component: FilmListComponent,
+    data: { title: 'Film List' }
   }
   // { path: '',
   //   redirectTo: '/dubberProfile',
@@ -36,7 +42,8 @@ const appRoutes: Routes = [
     DubbersListComponent,
     DubberProfileComponent,
     AddFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    FilmListComponent
   ],
   imports: [
     RouterModule.forRoot(
