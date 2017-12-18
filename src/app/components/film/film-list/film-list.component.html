@@ -1,3 +1,31 @@
-<p>
-  film-list works!
-</p>
+<div class="container">
+  <h2 class="text-center">Film List</h2>
+  <table border="1" cellpadding="5" class="table">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let film of filmService.filmsList">
+      <td><img src="{{dubber.photo}}" width="40" height="40"></td>
+      <td>{{film.title}}</td>
+      <td>{{film.description}}</td>
+      <td>
+        <a [routerLink]="['/filmDetails', film.id]">
+          View details
+        </a>
+      </td>
+      <td>
+        <button (click)="getSingleItem(film)">Modify</button>
+      </td>
+      <td>
+        <button (click)="onDelete(film)">Delete</button>
+      </td>
+    </tr>
+  </table>
+  <section>
+    <h3 class="text-center">Add Film</h3>
+    <!-- <addForm [film]="currentItem"></addForm> -->
+  </section>
+</div>
