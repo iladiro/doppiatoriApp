@@ -3,14 +3,16 @@
     <label for="name">Name</label>
     <input *ngIf="dubber; else elseBlockName" id="name" type="text" class="form-control" placeholder="Name" [(ngModel)]="dubber.name" name="name">
     <ng-template #elseBlockName>
-      <input id="name" type="text" class="form-control" placeholder="Name" ngModel name="name">
+      <input id="name" type="text" class="form-control" placeholder="Name" ngModel name="name" #name="ngModel" required>
+      <div class="alert alert-danger" *ngIf="name.touched && !name.valid">The field is required</div>
     </ng-template>
   </div>
   <div class="form-group">
     <label for="surname">Surname</label>
     <input *ngIf="dubber; else elseBlockSurname" id="surname" type="text" class="form-control" placeholder="Surname" name="surname" [(ngModel)]="dubber.surname">
     <ng-template #elseBlockSurname>
-      <input id="surname" type="text" class="form-control" placeholder="Surname" ngModel name="surname">
+      <input id="surname" type="text" class="form-control" placeholder="Surname" ngModel name="surname" #surname="ngModel" required>
+      <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">The field is required</div>
     </ng-template>
   </div>
   <div class="form-group">
