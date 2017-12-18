@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     component: DubberProfileComponent
   },
   {
-    path: 'films',
+    path: 'film',
     component: FilmListComponent,
     data: { title: 'Film List' }
   }

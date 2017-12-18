@@ -31,8 +31,8 @@
   "film": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "some comment",
+      "description": "lorem ipsmum"
     }
   ]
 }

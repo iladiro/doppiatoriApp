@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
 })
+
 export class AddFormComponent implements OnInit {
 
   @Input() film;
