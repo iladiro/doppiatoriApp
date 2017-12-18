@@ -58,7 +58,7 @@
    <div class="form-group">
      <button type="submit" class="btn btn-success" *ngIf="dubber; else addDubber">Save dubber</button>
      <ng-template #addDubber>
-       <button type="submit" class="btn btn-success">Add dubber</button>
+       <button type="submit" class="btn btn-success" [disabled]="!addDubberForm.valid">Add dubber</button>
      </ng-template>
    </div>
 </form>
