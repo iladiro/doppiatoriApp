@@ -6,10 +6,11 @@
       <th>Description</th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
     <tr *ngFor="let film of filmService.filmsList">
       <td>{{film.title}}</td>
-      <td>{{film.description}}</td>
+      <td>{{film.description | slice:0:60}}...</td>
       <td>
         <a [routerLink]="['/film', film.id]">
           View details

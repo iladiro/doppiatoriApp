@@ -30,28 +30,9 @@
   ],
   "film": [
     {
-      "id": 1,
-      "title": "some comment",
-      "description": "lorem ipsmum"
-    },
-    {
-      "title": "balla coi lupi",
-      "id": 486418,
-      "description": "kkkkk"
-    },
-    {
-      "title": "òòò",
-      "id": 256437
-    },
-    {
       "title": "balla coi lupi",
       "description": "Per lui il nuovo popolo amico ha scelto anche il nome sioux Balla Coi Lupi, in ricordo di una danza solitaria attorno al fuoco in compagnia di Due Calzini. Prima del trasferimento all'accampamento invernale con tutta la tribù, Dunbar si reca a Fort Sedgewick per recuperare il diario.",
       "id": 985688
-    },
-    {
-      "title": "uyiyu",
-      "description": "yuiyui",
-      "id": 403041
     }
   ]
 }
