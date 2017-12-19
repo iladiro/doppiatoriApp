@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { DubberModel } from '../dubber-model';
 import { DubberService } from '../dubbers.service';
 
@@ -11,10 +11,6 @@ import { DubberService } from '../dubbers.service';
 
 export class DubberProfileComponent implements OnInit {
 
-  //dubbersList: DubberModel[];
-
-  //dubber: {};
-
   id: number;
   private sub: any;
 
@@ -23,6 +19,7 @@ export class DubberProfileComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
+      console.log("l'id è " + this.id);
       this.dubberService.getDubber(this.id);
     });
   }

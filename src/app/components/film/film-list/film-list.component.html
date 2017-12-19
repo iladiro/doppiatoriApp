@@ -11,7 +11,7 @@
       <td>{{film.title}}</td>
       <td>{{film.description}}</td>
       <td>
-        <a [routerLink]="['/filmDetails', film.id]">
+        <a [routerLink]="['/film', film.id]">
           View details
         </a>
       </td>
@@ -23,8 +23,8 @@
       </td>
     </tr>
   </table>
-  <section>
+  <!-- <section>
     <h3 class="text-center">Add Film</h3>
     <addFilm [film]="currentItem"></addFilm>
-  </section>
+  </section> -->
 </div>

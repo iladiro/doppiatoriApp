@@ -30,7 +30,6 @@ export class DubberService {
   getDubber(idDubber) {
     this.http.get('http://localhost:3000/dubbers/' + idDubber.toString()).subscribe(
       data => {
-        console.log(data);
         this.dubber = data;
       },
       err => {
