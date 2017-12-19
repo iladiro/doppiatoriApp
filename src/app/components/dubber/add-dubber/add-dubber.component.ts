@@ -5,12 +5,12 @@ import { DubberService } from '../dubbers.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'addForm',
-  templateUrl: './add-form.component.html',
-  styleUrls: ['./add-form.component.scss']
+  selector: 'addDubber',
+  templateUrl: './add-dubber.component.html',
+  styleUrls: ['./add-dubber.component.scss']
 })
 
-export class AddFormComponent implements OnInit {
+export class AddDubberComponent implements OnInit {
 
   //selectedNationality: string = "Italian";
   nationalities: string[] = ["Italian", "German", "English", "Spanish"]
