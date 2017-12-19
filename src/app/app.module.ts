@@ -10,6 +10,7 @@ import { DubberProfileComponent } from './components/dubber/dubber-profile/dubbe
 import { AddFormComponent } from './components/dubber/add-form/add-form.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { FilmListComponent } from './components/film/film-list/film-list.component';
+import { AddFilmComponent } from './components/film/add-film/add-film.component';
 
 const appRoutes: Routes = [
   {
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     DubberProfileComponent,
     AddFormComponent,
     HeaderComponent,
-    FilmListComponent
+    FilmListComponent,
+    AddFilmComponent
   ],
   imports: [
     RouterModule.forRoot(

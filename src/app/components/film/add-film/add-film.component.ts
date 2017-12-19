@@ -6,11 +6,11 @@ import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'addFilm',
-  templateUrl: './add-form.component.html',
-  styleUrls: ['./add-form.component.scss']
+  templateUrl: './add-film.component.html',
+  styleUrls: ['./add-film.component.scss']
 })
 
-export class AddFormComponent implements OnInit {
+export class AddFilmComponent implements OnInit {
 
   @Input() film;
 
