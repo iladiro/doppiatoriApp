@@ -11,7 +11,7 @@
     <label for="description">Description</label>
     <input *ngIf="film; else elseBlockDescription" id="description" type="text" class="form-control" placeholder="Description" name="description" [(ngModel)]="film.description">
     <ng-template #elseBlockDescription>
-      <input id="description" type="text" class="form-control" placeholder="Description" ngModel name="description" #description="ngModel" required>
+      <textarea id="description" class="form-control" placeholder="Description" ngModel name="description" #description="ngModel" required></textarea>
       <div class="alert alert-danger" *ngIf="description.touched && !description.valid">The field is required</div>
     </ng-template>
   </div>
