@@ -3,7 +3,7 @@
     <label for="title">Title</label>
     <input *ngIf="film; else elseBlockTitle" id="title" type="text" class="form-control" placeholder="Title" [(ngModel)]="film.title" name="title">
     <ng-template #elseBlockTitle>
-      <input id="title" type="text" class="form-control" placeholder="Title" ngModel name="title" #name="ngModel" required>
+      <input id="title" type="text" class="form-control" placeholder="Title" ngModel name="title" #title="ngModel" required>
       <div class="alert alert-danger" *ngIf="title.touched && !title.valid">The field is required</div>
     </ng-template>
   </div>
