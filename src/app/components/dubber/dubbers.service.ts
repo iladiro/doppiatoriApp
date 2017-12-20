@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 import { DubberModel } from './dubber-model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
@@ -15,16 +17,21 @@ export class DubberService {
 
   ngOnInit(): void {}
 
-  getDubbers() {
-    this.http.get('http://localhost:3000/dubbers').subscribe(
-      data => {
-        this.dubbersList = data;
-      },
-      err => {
-        console.log("Error occured.")
-      }
-    );
-  };
+  // getDubbers() {
+  //   this.http.get('http://localhost:3000/dubbers').subscribe(
+  //     data => {
+  //       this.dubbersList = data;
+  //     },
+  //     err => {
+  //       console.log("Error occured.")
+  //     }
+  //   );
+  // };
+
+  //getDubbers(): Observable<DubberModel[]>
+  getDubbers(): Observable<any> {
+    return this.http.get('http://localhost:3000/dubbers')
+  }
 
   getDubber(idDubber) {
     this.http.get('http://localhost:3000/dubbers/' + idDubber.toString()).subscribe(

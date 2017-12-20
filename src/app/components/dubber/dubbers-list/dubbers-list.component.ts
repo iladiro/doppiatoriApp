@@ -12,6 +12,8 @@ import {NgForm} from '@angular/forms';
 
 export class DubbersListComponent implements OnInit {
 
+  dubbers: DubberModel[];
+
   currentItem;
 
   constructor(private dubberService: DubberService) {}
@@ -24,8 +26,14 @@ export class DubbersListComponent implements OnInit {
     this.currentItem = dubber;
   }
 
+  getDubbers(): void {
+    this.dubberService.getDubbers().subscribe(
+      dubbers => this.dubbers = dubbers
+    );
+  }
+
   ngOnInit() {
-    this.dubberService.getDubbers();
+    this.getDubbers();
   }
 
 }

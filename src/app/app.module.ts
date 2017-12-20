@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { DubberService } from './components/dubber/dubbers.service';
 import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-list.component';
 import { DubberProfileComponent } from './components/dubber/dubber-profile/dubber-profile.component';
 import { AddDubberComponent } from './components/dubber/add-dubber/add-dubber.component';
@@ -63,7 +64,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,  // Add this!
     HttpClientModule
   ],
-  providers: [],
+  providers: [DubberService],
   bootstrap: [AppComponent]
 })
 
