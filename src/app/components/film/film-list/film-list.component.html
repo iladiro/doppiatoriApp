@@ -1,28 +1,36 @@
 <div class="container">
   <h2 class="text-center">Film List</h2>
-  <table border="1" cellpadding="5" class="table">
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let film of filmService.filmsList">
-      <td>{{film.title}}</td>
-      <td>{{film.description | slice:0:60}}...</td>
-      <td>
-        <a [routerLink]="['/film', film.id]">
-          View details
-        </a>
-      </td>
-      <td>
-        <button (click)="getSingleItem(film)">Modify</button>
-      </td>
-      <td>
-        <button (click)="onDelete(film)">Delete</button>
-      </td>
-    </tr>
+  <table class="table table-hover table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let film of filmService.filmsList">
+        <td>{{film.title}}</td>
+        <td>{{film.description | slice:0:60}}...</td>
+        <td>
+          <a [routerLink]="['/film', film.id]" class="btn btn-outline-primary">
+            <i class="fa fa-info" aria-hidden="true"></i>
+          </a>
+        </td>
+        <td>
+          <button (click)="getSingleItem(film)" class="btn btn-outline-warning">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td>
+          <button (click)="onDelete(film)" class="btn btn-outline-danger">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
   </table>
   <section>
     <h3 class="text-center">Add Film</h3>
