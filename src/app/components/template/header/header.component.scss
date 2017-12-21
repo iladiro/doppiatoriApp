@@ -1,0 +1,7 @@
+@import "../../../../assets/stylesheet/mixin/custom-mixin";
+@import '../../../../assets/stylesheet/variables';
+
+#header{
+  @include border(1px, #e5e5e5);
+  background-color: #fafafa;
+}

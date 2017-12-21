@@ -1,0 +1,14 @@
+$prova: red;
+
+//Socials background color
+$facebook: #4363ad;
+$twitter: #78cdf0;
+$pinterest: #c3282d;
+$linkedin: #0086c8;
+$googleplus: #4c4b4b;
+
+$socials: (twitter, $twitter),
+        (facebook, $facebook),
+        (google-plus, $googleplus),
+        (pinterest, $pinterest),
+        (linkedin, $linkedin);
