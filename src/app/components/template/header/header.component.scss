@@ -5,3 +5,37 @@
   @include border(1px, #e5e5e5);
   background-color: #fafafa;
 }
+
+#search-form {
+  .form-control {
+    @include border(1px, #e5e5e5);
+    border-right: 0;
+    font-size: 13px;
+    &::placeholder {
+      color: #5c5c5c;
+      opacity: 1; /* Firefox */
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: #5c5c5c;
+    }
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: #5c5c5c;
+    }
+    &:hover {
+      border-right: 0;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .input-group-btn {
+    button {
+      background-color: white;
+      @include border(1px, #e5e5e5);
+      border-left: 0;
+      i {
+        color: #e7e9ed;
+      }
+    }
+  }
+}
