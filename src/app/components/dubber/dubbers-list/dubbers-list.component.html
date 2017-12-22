@@ -8,16 +8,14 @@
       <div class="col text-uppercase">Age</div>
       <div class="col text-uppercase">Sex</div>
       <div class="col text-uppercase">nationality</div>
-      <div class="col text-uppercase"></div>
-      <div class="col text-uppercase"></div>
-      <div class="col text-uppercase"></div>
+      <div class="col"></div>
     </div>
     <div class="itemsList__body">
       <div class="itemsList__body-row row" *ngFor="let dubber of dubberService.dubbersList">
         <div class="col">
           <span class="itemsList__avatar">{{dubber.avatar}}</span>
         </div>
-        <div class="col pt-20">
+        <div class="col pt-20 text-capitalize">
           {{dubber.name}} {{dubber.surname}}
         </div>
         <div class="col pt-20">
@@ -29,17 +27,13 @@
         <div class="col pt-20">
           {{dubber.nationality}}
         </div>
-        <div class="col">
+        <div class="col text-right">
           <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
             <i class="fa fa-info" aria-hidden="true"></i>
           </a>
-        </div>
-        <div class="col">
           <button (click)="getSingleItem(dubber)" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </button>
-        </div>
-        <div class="col">
           <button (click)="onDelete(dubber)" class="btn btn-outline-danger">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>

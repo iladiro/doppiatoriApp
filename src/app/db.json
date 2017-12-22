@@ -31,13 +31,40 @@
       "photo": ""
     },
     {
-      "name": "Fabio",
+      "name": "luigi",
       "surname": "petrucci",
       "age": "",
       "gender": "",
       "nationality": "",
       "id": 474666,
-      "avatar": "d"
+      "avatar": "l"
+    },
+    {
+      "name": "fabio",
+      "surname": "petrucci",
+      "age": "",
+      "gender": "",
+      "nationality": "",
+      "id": 895008,
+      "avatar": "f"
+    },
+    {
+      "name": "Carmelo",
+      "surname": "di rosa",
+      "age": "64",
+      "gender": "",
+      "nationality": "",
+      "id": 848717,
+      "avatar": "C"
+    },
+    {
+      "name": "giuseppe",
+      "surname": "Nicolosi",
+      "age": "",
+      "gender": "",
+      "nationality": "",
+      "id": 414080,
+      "avatar": "g"
     }
   ],
   "film": [
