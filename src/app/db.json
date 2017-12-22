@@ -2,6 +2,7 @@
   "dubbers": [
     {
       "id": 281715,
+      "avatar": "i",
       "name": "Ilaria",
       "surname": "di rosa",
       "age": "29",
@@ -11,6 +12,7 @@
     },
     {
       "id": 897827,
+      "avatar": "m",
       "name": "marika",
       "surname": "di rosa",
       "age": "30",
@@ -20,12 +22,22 @@
     },
     {
       "id": 613227,
+      "avatar": "a",
       "name": "adele",
       "surname": "simone",
       "age": "58",
       "gender": "F",
       "nationality": "Italian",
       "photo": ""
+    },
+    {
+      "name": "Fabio",
+      "surname": "petrucci",
+      "age": "",
+      "gender": "",
+      "nationality": "",
+      "id": 474666,
+      "avatar": "d"
     }
   ],
   "film": [

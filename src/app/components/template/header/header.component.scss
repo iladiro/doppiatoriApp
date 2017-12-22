@@ -1,5 +1,5 @@
 @import "../../../../assets/stylesheet/mixin/custom-mixin";
-@import '../../../../assets/stylesheet/variables';
+@import '../../../../assets/stylesheet/widgets/variables';
 
 #header{
   @include border(1px, #e5e5e5, bottom);

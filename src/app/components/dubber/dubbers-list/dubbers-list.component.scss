@@ -1,5 +1,5 @@
 @import "../../../../assets/stylesheet/mixin/custom-mixin";
-@import '../../../../assets/stylesheet/variables';
+@import '../../../../assets/stylesheet/widgets/variables';
 
 .itemsList {
   margin-bottom: 40px;
@@ -38,5 +38,15 @@
         @include border(1px, red);
       }
     }
+  }
+  &__avatar {
+    border-radius: 50%;
+    @include size(40px, 40px);
+    background-color: #f19a01;
+    color: white;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    text-transform: uppercase;
   }
 }

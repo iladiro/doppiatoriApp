@@ -36,14 +36,7 @@
       </select>
     </ng-template>
   </div>
-   <div class="form-group">
-     <label for="photo">Photo</label>
-     <input *ngIf="dubber; else elseBlockPhoto" id="photo" type="text" class="form-control" placeholder="Photo" name="photo" [(ngModel)]="dubber.photo">
-     <ng-template #elseBlockPhoto>
-       <input id="photo" type="text" class="form-control" placeholder="Photo" name="photo" ngModel>
-     </ng-template>
-   </div>
-   <div class="form-group">
+  <div class="form-group">
      <label for="nationality">Nationality</label>
      <select *ngIf="dubber; else elseBlockNationality" [(ngModel)]="dubber.nationality" name="nationality" class="form-control">
         <option *ngFor="let n of nationalities" value="{{n}}">{{n}}</option>

@@ -17,17 +17,25 @@ export class AddDubberComponent implements OnInit {
 
   @Input() dubber;
 
+  currentDubber;
+
   constructor(private dubberService: DubberService) {}
 
+  getFirstChar() {
+    let createAvatar = this.currentDubber.name.charAt(0);
+    this.currentDubber.avatar = createAvatar;
+  }
+
   onSubmit(form: NgForm){
-    let currentDubber = form.value;
+    this.currentDubber = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
-    currentDubber.id = lengthDubbersIndex;
+    this.currentDubber.id = lengthDubbersIndex;
+    this.getFirstChar();
     if(this.dubber) {
       this.dubberService.updateDubber(this.dubber);
       this.dubber = undefined;
     } else {
-      this.dubberService.addDubber(currentDubber);
+      this.dubberService.addDubber(this.currentDubber);
       form.reset();
     }
   }

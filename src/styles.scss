@@ -2,7 +2,8 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
 @import "assets/stylesheet/mixin/custom-mixin";
-@import 'assets/stylesheet/variables';
+@import 'assets/stylesheet/widgets/variables';
+@import 'assets/stylesheet/widgets/spaces';
 
 body {
   background-color: #f8f9fa;

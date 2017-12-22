@@ -3,6 +3,7 @@
   <p>This is the list of dubbers registered with dubbers.com</p>
   <section class="itemsList">
     <div class="itemsList__header row">
+      <div class="col"></div>
       <div class="col text-uppercase">Name</div>
       <div class="col text-uppercase">Age</div>
       <div class="col text-uppercase">Sex</div>
@@ -14,15 +15,18 @@
     <div class="itemsList__body">
       <div class="itemsList__body-row row" *ngFor="let dubber of dubberService.dubbersList">
         <div class="col">
+          <span class="itemsList__avatar">{{dubber.avatar}}</span>
+        </div>
+        <div class="col pt-20">
           {{dubber.name}} {{dubber.surname}}
         </div>
-        <div class="col">
+        <div class="col pt-20">
           {{dubber.age}}
         </div>
-        <div class="col">
+        <div class="col pt-20">
           {{dubber.gender}}
         </div>
-        <div class="col">
+        <div class="col pt-20">
           {{dubber.nationality}}
         </div>
         <div class="col">
