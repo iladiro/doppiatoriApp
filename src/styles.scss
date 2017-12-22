@@ -3,3 +3,12 @@
 @import "~font-awesome/css/font-awesome.css";
 @import "assets/stylesheet/mixin/custom-mixin";
 @import 'assets/stylesheet/variables';
+
+body {
+  background-color: #f8f9fa;
+  margin-top: 57px;
+}
+
+button {
+  cursor: pointer;
+}

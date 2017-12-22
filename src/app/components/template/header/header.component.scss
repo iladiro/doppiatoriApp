@@ -2,8 +2,8 @@
 @import '../../../../assets/stylesheet/variables';
 
 #header{
-  @include border(1px, #e5e5e5);
-  background-color: #fafafa;
+  @include border(1px, #e5e5e5, bottom);
+  background-color: white;
 }
 
 #search-form {
@@ -11,16 +11,7 @@
     @include border(1px, #e5e5e5);
     border-right: 0;
     font-size: 13px;
-    &::placeholder {
-      color: #5c5c5c;
-      opacity: 1; /* Firefox */
-    }
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: #5c5c5c;
-    }
-    &::-ms-input-placeholder { /* Microsoft Edge */
-      color: #5c5c5c;
-    }
+    @include placeholder(#5c5c5c);
     &:hover {
       border-right: 0;
     }

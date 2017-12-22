@@ -48,17 +48,17 @@
     transition:         $transition;
 }
 
-@mixin placeholder($color) {
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+@mixin placeholder($color: $input-color-placeholder) {
+  // Firefox
+  &::-moz-placeholder {
     color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
   }
-  ::-moz-placeholder { /* Firefox 19+ */
-    color: $color;
-  }
-  :-ms-input-placeholder { /* IE 10+ */
-    color: $color;
-  }
-  :-moz-placeholder { /* Firefox 18- */
-    color: $color;
-  }
+  &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+          box-shadow: $shadow;
 }
