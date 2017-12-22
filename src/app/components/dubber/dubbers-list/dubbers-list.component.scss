@@ -1,31 +1,14 @@
 @import "../../../../assets/stylesheet/mixin/custom-mixin";
 @import '../../../../assets/stylesheet/variables';
 
-#dubbers-list {
-  thead {
-    background-color: white;
-    color: #dadadb;
-    // @include  box-shadow(5px 10px 8px #888888);
-  }
-  tbody {
-    tr {
-      &:nth-child(even) {
-        background-color: #fbfbfb;
-      }
-      &:nth-child(odd) {
-        background-color: white;
-      }
-      // &:hover {
-      //   @include transition(all 0.3s ease-out);
-      //   @include border(1px, red);
-      // }
-    }
-  }
-}
-
 .itemsList {
+  margin-bottom: 40px;
   &__header {
     color: #dadadb;
+    &.row {
+      margin-left: 0;
+      margin-right: 0;
+    }
     .col {
       padding-top: 15px;
       padding-bottom: 15px;
@@ -35,6 +18,10 @@
   &__body {
     &-row {
       @include border(1px, transparent);
+      &.row {
+        margin-left: 0;
+        margin-right: 0;
+      }
       &:nth-child(odd) {
         background-color: #fbfbfb;
       }
@@ -44,6 +31,7 @@
       .col {
         padding-top: 10px;
         padding-bottom: 10px;
+        color: #c5c5c5;
       }
       &:hover {
         @include transition(all 0.3s ease-out);
