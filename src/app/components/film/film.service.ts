@@ -39,6 +39,7 @@ export class FilmService {
   };
 
   addFilm(film) {
+    console.log(film);
     this.http.post('http://localhost:3000/film', film).subscribe(
       data => {
         this.filmsList.push(data);

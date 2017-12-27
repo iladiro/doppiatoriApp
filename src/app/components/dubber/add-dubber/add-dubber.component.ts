@@ -16,7 +16,6 @@ export class AddDubberComponent implements OnInit {
   //nationalities: string[] = ["Italian", "German", "English", "Spanish"]
 
   @Input() dubber;
-
   currentDubber;
 
   constructor(private dubberService: DubberService) {}

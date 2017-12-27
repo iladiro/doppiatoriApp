@@ -15,7 +15,14 @@
       <div class="alert alert-danger" *ngIf="description.touched && !description.valid">The field is required</div>
     </ng-template>
   </div>
-   <div class="form-group">
+  <div class="form-group">
+    <select name="dubbers" class="form-control" multiple ngModel name="dubbers">
+      <option *ngFor="let dubber of dubberService.dubbersList" value="{{dubber.name}}">
+        {{dubber.name}} {{dubber.surname}}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
      <button type="submit" class="btn btn-success" *ngIf="film; else addFilm">Save film</button>
      <ng-template #addFilm>
        <button type="submit" class="btn btn-success" [disabled]="!addFilmForm.valid">Add film</button>

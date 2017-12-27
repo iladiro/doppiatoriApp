@@ -71,13 +71,79 @@
       "birthdate": "02/01/1974",
       "birthplace": "Italy",
       "birthcounty": "Palermo"
+    },
+    {
+      "name": "fasf",
+      "surname": "fasfs",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "asfasfa",
+      "birthcounty": "sfasf",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": 71762,
+      "avatar": "f"
     }
   ],
   "film": [
     {
-      "title": "balla coi lupi",
-      "description": "Per lui il nuovo popolo amico ha scelto anche il nome sioux Balla Coi Lupi, in ricordo di una danza solitaria attorno al fuoco in compagnia di Due Calzini. Prima del trasferimento all'accampamento invernale con tutta la tribù, Dunbar si reca a Fort Sedgewick per recuperare il diario.",
-      "id": 985688
+      "dubbers": [
+        "Luigi",
+        "fabio",
+        "Carmelo",
+        "giuseppe"
+      ],
+      "title": "prova",
+      "description": "Per lui il nuovo popolo amico ha scelto anche il nome sioux ",
+      "id": 983440
+    },
+    {
+      "dubbers": [
+        "fabio"
+      ],
+      "title": "prova2 ",
+      "description": "lkhkjkjkl",
+      "id": 513173
+    },
+    {
+      "dubbers": [
+        "Iladiro"
+      ],
+      "title": "asdasd",
+      "description": "asdsa",
+      "id": 81391
+    },
+    {
+      "dubbers": [
+        "Luigi"
+      ],
+      "title": "jhj",
+      "description": "jhjj",
+      "id": 75623
+    },
+    {
+      "dubbers": [
+        "Iladiro"
+      ],
+      "title": "kjhk",
+      "description": "kjkkj",
+      "id": 484649
+    },
+    {
+      "dubbers": [
+        "Iladiro"
+      ],
+      "title": "ila",
+      "description": "gjyiuyi",
+      "id": 917564
+    },
+    {
+      "dubbers": [
+        "marika"
+      ],
+      "title": "ddd",
+      "description": "ddd",
+      "id": 596477
     }
   ]
 }
