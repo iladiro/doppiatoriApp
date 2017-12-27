@@ -33,18 +33,18 @@
     {
       "name": "luigi",
       "surname": "petrucci",
-      "age": "",
-      "gender": "",
-      "nationality": "",
+      "age": "75",
+      "gender": "M",
+      "nationality": "Italian",
       "id": 474666,
       "avatar": "l"
     },
     {
       "name": "fabio",
       "surname": "petrucci",
-      "age": "",
-      "gender": "",
-      "nationality": "",
+      "age": "46",
+      "gender": "M",
+      "nationality": "Italian",
       "id": 895008,
       "avatar": "f"
     },
@@ -52,17 +52,17 @@
       "name": "Carmelo",
       "surname": "di rosa",
       "age": "64",
-      "gender": "",
-      "nationality": "",
+      "gender": "M",
+      "nationality": "Italian",
       "id": 848717,
       "avatar": "C"
     },
     {
       "name": "giuseppe",
       "surname": "Nicolosi",
-      "age": "",
-      "gender": "",
-      "nationality": "",
+      "age": "38",
+      "gender": "M",
+      "nationality": "Italian",
       "id": 414080,
       "avatar": "g"
     }
