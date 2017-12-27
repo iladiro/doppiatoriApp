@@ -13,7 +13,7 @@ import {NgForm} from '@angular/forms';
 export class AddDubberComponent implements OnInit {
 
   //selectedNationality: string = "Italian";
-  nationalities: string[] = ["Italian", "German", "English", "Spanish"]
+  //nationalities: string[] = ["Italian", "German", "English", "Spanish"]
 
   @Input() dubber;
 

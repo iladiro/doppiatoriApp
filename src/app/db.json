@@ -1,63 +1,62 @@
 {
   "dubbers": [
     {
-      "id": 281715,
-      "avatar": "I",
-      "name": "Ilaria",
-      "surname": "di rosa",
-      "age": "29",
-      "gender": "F",
-      "nationality": "Italian",
-      "photo": "",
+      "name": "Iladiro",
+      "surname": "Di Rosa",
+      "birthdate": "16/02/1988",
+      "birthplace": "Italy",
+      "birthcounty": "Milan",
+      "fiscalCode": "drslri88b56f205d",
       "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880"
+      "phone": "3474977880",
+      "id": 281715,
+      "avatar": "I"
     },
     {
-      "id": 897827,
-      "avatar": "m",
       "name": "marika",
-      "surname": "di rosa",
-      "age": "30",
-      "gender": "F",
-      "nationality": "German",
-      "photo": ""
+      "surname": "Di Rosa",
+      "birthdate": "16/02/1988",
+      "birthplace": "Italy",
+      "birthcounty": "Milano",
+      "fiscalCode": "",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": 897827,
+      "avatar": "m"
     },
     {
-      "id": 613227,
-      "avatar": "a",
-      "name": "adele",
-      "surname": "simone",
-      "age": "58",
-      "gender": "F",
-      "nationality": "Italian",
-      "photo": ""
-    },
-    {
-      "name": "luigi",
-      "surname": "petrucci",
-      "age": "75",
-      "gender": "M",
-      "nationality": "Italian",
+      "name": "Luigi",
+      "surname": "Petrucci",
+      "birthdate": "10/02/1930",
+      "birthplace": "Italy",
+      "birthcounty": "Porciano",
+      "fiscalCode": "drslri88b56f205d",
+      "email": "luigi.petrucci@gmail.com",
+      "phone": "3474977880",
       "id": 474666,
-      "avatar": "l"
+      "avatar": "L"
     },
     {
       "name": "fabio",
       "surname": "petrucci",
-      "age": "46",
-      "gender": "M",
-      "nationality": "Italian",
-      "id": 895008,
-      "avatar": "f",
+      "birthdate": "09/05/1971",
+      "birthplace": "Italy",
+      "birthcounty": "Rome",
+      "fiscalCode": "drslri88b56f205d",
       "email": "fabio.petrucci@gmail.com",
-      "phone": "3474977880"
+      "phone": "3474977880",
+      "id": 895008,
+      "avatar": "f"
     },
     {
       "name": "Carmelo",
       "surname": "di rosa",
-      "age": "64",
-      "gender": "M",
-      "nationality": "Italian",
+      "birthdate": "05/07/1956",
+      "birthplace": "Italy",
+      "birthcounty": "Agrigento",
+      "fiscalCode": "drslri88b56f205d",
+      "email": "dirosa.carmelo@gmail.com",
+      "phone": "3474977880",
       "id": 848717,
       "avatar": "C"
     },
@@ -68,7 +67,10 @@
       "gender": "M",
       "nationality": "Italian",
       "id": 414080,
-      "avatar": "g"
+      "avatar": "g",
+      "birthdate": "02/01/1974",
+      "birthplace": "Italy",
+      "birthcounty": "Palermo"
     }
   ],
   "film": [

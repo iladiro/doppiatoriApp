@@ -3,7 +3,7 @@
     <div class="col-sm-2">
       <figure *ngIf="dubberService.dubber">
         <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
-        <h4>{{dubberService.dubber.name}} {{dubberService.dubber.surname}}</h4>
+        <h5 class="mt-10 text-capitalize">{{dubberService.dubber.name}} {{dubberService.dubber.surname}}</h5>
       </figure>
     </div>
     <div class="col-sm-10">
@@ -18,43 +18,56 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#invoices" role="tab">Invoices</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#contacts" role="tab">Contacts</a>
-        </li>
       </ul>
 
       <!-- Tab panes -->
-      <div class="tab-content">
+      <div class="tab-content pboth-15">
         <div class="tab-pane active" id="personal-data" role="tabpanel">
-          <form>
+          <form #UpdateDubberForm="ngForm" (ngSubmit)="upDateParsonalDate(UpdateDubberForm)">
             <div class="form-row">
-              <div class="col">
+              <div class="col-sm-6 mb-3">
                 <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" placeholder="First name" value="{{dubberService.dubber.name}}">
+                <input type="text" id="name" class="form-control" placeholder="First name" [(ngModel)]="dubberService.dubber.name" name="name">
               </div>
-              <div class="col">
+              <div class="col-sm-6 mb-3">
                 <label for="surname">Surname</label>
-                <input type="text" id="surname" class="form-control" placeholder="First name" value="{{dubberService.dubber.surname}}">
+                <input type="text" id="surname" class="form-control" placeholder="Last name" [(ngModel)]="dubberService.dubber.surname" name="surname">
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="name">Date of birth</label>
+                <input type="text" id="birthdate" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="dubberService.dubber.birthdate" name="birthdate">
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="name">Place of birth</label>
+                <input type="text" id="birthplace" class="form-control" placeholder="Place of birth" [(ngModel)]="dubberService.dubber.birthplace" name="birthplace">
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="name">County of birth</label>
+                <input type="text" id="birthcounty" class="form-control" placeholder="County of birth" [(ngModel)]="dubberService.dubber.birthcounty" name="birthcounty">
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="name">Fiscal Code</label>
+                <input type="text" id="fiscalCode" class="form-control" placeholder="Fiscal Code" [(ngModel)]="dubberService.dubber.fiscalCode" name="fiscalCode">
               </div>
             </div>
+            <div class="mboth-30">
+              <h4>Contacts</h4>
+              <div class="form-row">
+                <div class="col-sm-6 mb-3">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="dubberService.dubber.email" name="email">
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <label for="phone">Phone</label>
+                  <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="dubberService.dubber.phone" name="phone">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success">Update dubber</button>
           </form>
         </div>
         <div class="tab-pane" id="collaborations" role="tabpanel">...profile</div>
         <div class="tab-pane" id="invoices" role="tabpanel">...</div>
-        <div class="tab-pane" id="contacts" role="tabpanel">
-          <form>
-            <div class="form-row">
-              <div class="col">
-                <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" placeholder="Email" value="{{dubberService.dubber.email}}">
-              </div>
-              <div class="col">
-                <label for="phone">Surname</label>
-                <input type="phone" id="phone" class="form-control" placeholder="Phone" value="{{dubberService.dubber.phone}}">
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
     </div>
   </div>

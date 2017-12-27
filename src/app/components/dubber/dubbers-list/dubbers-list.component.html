@@ -5,9 +5,8 @@
     <div class="itemsList__header row">
       <div class="col"></div>
       <div class="col text-uppercase">Name</div>
-      <div class="col text-uppercase">Age</div>
-      <div class="col text-uppercase">Sex</div>
-      <div class="col text-uppercase">nationality</div>
+      <div class="col text-uppercase">Place of birth</div>
+      <div class="col text-uppercase">County of birth</div>
       <div class="col"></div>
     </div>
     <div class="itemsList__body">
@@ -19,13 +18,10 @@
           {{dubber.name}} {{dubber.surname}}
         </div>
         <div class="col pt-20">
-          {{dubber.age}}
+          {{dubber.birthplace}}
         </div>
         <div class="col pt-20">
-          {{dubber.gender}}
-        </div>
-        <div class="col pt-20">
-          {{dubber.nationality}}
+          {{dubber.birthcounty}}
         </div>
         <div class="col text-right">
           <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
@@ -41,42 +37,6 @@
       </div>
     </div>
   </section>
-  <!-- <table class="table table-striped" id="dubbers-list">
-    <thead>
-      <tr>
-        <th class="text-uppercase">Name</th>
-        <th class="text-uppercase">Age</th>
-        <th class="text-uppercase">Sex</th>
-        <th class="text-uppercase">nationality</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let dubber of dubberService.dubbersList">
-        <td>{{dubber.name}} {{dubber.surname}}</td>
-        <td>{{dubber.age}}</td>
-        <td>{{dubber.gender}}</td>
-        <td>{{dubber.nationality}}</td>
-        <td>
-          <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
-            <i class="fa fa-info" aria-hidden="true"></i>
-          </a>
-        </td>
-        <td>
-          <button (click)="getSingleItem(dubber)" class="btn btn-outline-warning">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
-        </td>
-        <td>
-          <button (click)="onDelete(dubber)" class="btn btn-outline-danger">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
   <section>
     <h3 class="text-center">Add Dubber</h3>
     <addDubber [dubber]="currentItem"></addDubber>

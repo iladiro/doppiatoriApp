@@ -1,27 +1,33 @@
 export class DubberModel {
   id: number;
   avatar: string;
-  name: string;
-  surname: string;
-  nationality: string;
-  gender: string;
-  age: number;
+  personalDate: {
+    name: string;
+    surname: string;
+    fiscalCode: string;
+    birthdate: number;
+    birthplace: string;
+    birthcounty: string;
+  };
   contacts: {
     email: string;
     phone: number;
   };
 
-  constructor(id, name, surname, age:number, phone: number) {
+  constructor(id, name, surname, phone: number, birthdate: number) {
     this.id = id;
     this.avatar = "";
-    this.name = name;
-    this.surname = surname;
-    this.nationality = "";
-    this.gender = "";
-    this.age = age;
+    this.personalDate = {
+      name: name,
+      surname: surname,
+      fiscalCode: "",
+      birthdate: birthdate,
+      birthplace: "",
+      birthcounty: ""
+    };
     this.contacts = {
       email: "",
-      phone: phone  
+      phone: phone
     }
   }
 }
