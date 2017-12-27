@@ -2,13 +2,15 @@
   "dubbers": [
     {
       "id": 281715,
-      "avatar": "i",
+      "avatar": "I",
       "name": "Ilaria",
       "surname": "di rosa",
       "age": "29",
       "gender": "F",
       "nationality": "Italian",
-      "photo": ""
+      "photo": "",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880"
     },
     {
       "id": 897827,
@@ -46,7 +48,9 @@
       "gender": "M",
       "nationality": "Italian",
       "id": 895008,
-      "avatar": "f"
+      "avatar": "f",
+      "email": "fabio.petrucci@gmail.com",
+      "phone": "3474977880"
     },
     {
       "name": "Carmelo",

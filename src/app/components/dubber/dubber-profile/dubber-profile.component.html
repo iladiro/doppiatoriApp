@@ -41,7 +41,20 @@
         </div>
         <div class="tab-pane" id="collaborations" role="tabpanel">...profile</div>
         <div class="tab-pane" id="invoices" role="tabpanel">...</div>
-        <div class="tab-pane" id="contacts" role="tabpanel">...</div>
+        <div class="tab-pane" id="contacts" role="tabpanel">
+          <form>
+            <div class="form-row">
+              <div class="col">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Email" value="{{dubberService.dubber.email}}">
+              </div>
+              <div class="col">
+                <label for="phone">Surname</label>
+                <input type="phone" id="phone" class="form-control" placeholder="Phone" value="{{dubberService.dubber.phone}}">
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

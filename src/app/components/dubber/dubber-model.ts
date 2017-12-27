@@ -6,8 +6,12 @@ export class DubberModel {
   nationality: string;
   gender: string;
   age: number;
+  contacts: {
+    email: string;
+    phone: number;
+  };
 
-  constructor(id, name, surname, age:number) {
+  constructor(id, name, surname, age:number, phone: number) {
     this.id = id;
     this.avatar = "";
     this.name = name;
@@ -15,5 +19,9 @@ export class DubberModel {
     this.nationality = "";
     this.gender = "";
     this.age = age;
+    this.contacts = {
+      email: "",
+      phone: phone  
+    }
   }
 }
