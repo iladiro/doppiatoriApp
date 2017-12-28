@@ -8,6 +8,7 @@ import {NgForm} from '@angular/forms';
   selector: 'addDubber',
   templateUrl: './add-dubber.component.html',
   styleUrls: ['./add-dubber.component.scss']
+  //providers: [DubberService]
 })
 
 export class AddDubberComponent implements OnInit {

@@ -4,7 +4,7 @@ import { FilmService } from '../film.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
+  //selector: 'app-root',
   templateUrl: './film-list.component.html',
   styleUrls: ['./film-list.component.scss'],
   providers: [FilmService]

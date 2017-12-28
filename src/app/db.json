@@ -83,6 +83,30 @@
       "phone": "3474977880",
       "id": 71762,
       "avatar": "f"
+    },
+    {
+      "name": "asasdasd",
+      "surname": "asdasdasd",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Italy",
+      "birthcounty": "Milano",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": 406034,
+      "avatar": "a"
+    },
+    {
+      "name": "Ilaria di rosa",
+      "surname": "di rosa",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Gessate",
+      "birthcounty": "Milano",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": 539266,
+      "avatar": "I"
     }
   ],
   "film": [
@@ -99,51 +123,41 @@
     },
     {
       "dubbers": [
-        "fabio"
-      ],
-      "title": "prova2 ",
-      "description": "lkhkjkjkl",
-      "id": 513173
-    },
-    {
-      "dubbers": [
-        "Iladiro"
-      ],
-      "title": "asdasd",
-      "description": "asdsa",
-      "id": 81391
-    },
-    {
-      "dubbers": [
-        "Luigi"
-      ],
-      "title": "jhj",
-      "description": "jhjj",
-      "id": 75623
-    },
-    {
-      "dubbers": [
-        "Iladiro"
-      ],
-      "title": "kjhk",
-      "description": "kjkkj",
-      "id": 484649
-    },
-    {
-      "dubbers": [
-        "Iladiro"
-      ],
-      "title": "ila",
-      "description": "gjyiuyi",
-      "id": 917564
-    },
-    {
-      "dubbers": [
+        "Iladiro",
         "marika"
       ],
-      "title": "ddd",
-      "description": "ddd",
-      "id": 596477
+      "title": "arancia meccanica",
+      "description": "descrizione",
+      "id": 419906
+    },
+    {
+      "dubbers": [
+        "marika",
+        "giuseppe"
+      ],
+      "title": "l'inviato",
+      "description": "descrizione",
+      "id": 732146
+    },
+    {
+      "dubbers": [
+        "Iladiro",
+        "marika",
+        "Luigi",
+        "fabio",
+        "Carmelo",
+        "giuseppe",
+        "Ilaria di rosa"
+      ],
+      "title": "prova",
+      "description": "prova",
+      "id": 833831
+    },
+    {
+      "dubbers": "",
+      "title": "waasa",
+      "description": "sffsa",
+      "id": 57086
     }
   ]
 }

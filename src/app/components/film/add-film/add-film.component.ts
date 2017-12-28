@@ -6,7 +6,6 @@ import { DubberService } from '../../dubber/dubbers.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'addFilm',
   templateUrl: './add-film.component.html',
   styleUrls: ['./add-film.component.scss'],
   providers: [FilmService, DubberService]
@@ -14,7 +13,7 @@ import {NgForm} from '@angular/forms';
 
 export class AddFilmComponent implements OnInit {
 
-  @Input() film;
+  //@Input() film;
   currentFilm;
 
   constructor(private filmService: FilmService, private dubberService: DubberService) {}
@@ -23,17 +22,21 @@ export class AddFilmComponent implements OnInit {
     this.currentFilm = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
     this.currentFilm.id = lengthDubbersIndex;
-    if(this.film) {
-      this.filmService.updateFilm(this.film);
-      this.film = undefined;
-    } else {
-      this.filmService.addFilm(this.currentFilm);
-      form.reset();
-    }
+    this.filmService.getFilms();
+    this.filmService.addFilm(this.currentFilm);
+    form.reset();
+    // if(this.film) {
+    //   this.filmService.updateFilm(this.film);
+    //   this.film = undefined;
+    // } else {
+    //   this.filmService.addFilm(this.currentFilm);
+    //   form.reset();
+    // }
   }
 
   ngOnInit() {
     this.dubberService.getDubbers();
+    //this.filmService.getFilms();
   }
 
 }

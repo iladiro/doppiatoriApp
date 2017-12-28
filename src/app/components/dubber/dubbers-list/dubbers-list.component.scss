@@ -4,7 +4,7 @@
 .itemsList {
   margin-bottom: 40px;
   &__header {
-    color: #dadadb;
+    //color: #dadadb;
     &.row {
       margin-left: 0;
       margin-right: 0;
@@ -31,7 +31,7 @@
       .col {
         padding-top: 10px;
         padding-bottom: 10px;
-        color: #c5c5c5;
+        color: #7F7F84;
       }
       &:hover {
         @include transition(all 0.3s ease-out);

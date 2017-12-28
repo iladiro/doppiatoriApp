@@ -29,6 +29,11 @@ const appRoutes: Routes = [
     data: { title: 'Film List' }
   },
   {
+    path: 'film/add',
+    component: AddFilmComponent,
+    data: { title: 'Add new film' }
+  },
+  {
     path: 'film/:id',
     component: FilmDetailsComponent
   }
