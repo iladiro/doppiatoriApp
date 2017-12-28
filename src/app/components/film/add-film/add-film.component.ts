@@ -13,7 +13,6 @@ import {NgForm} from '@angular/forms';
 
 export class AddFilmComponent implements OnInit {
 
-  //@Input() film;
   currentFilm;
 
   constructor(private filmService: FilmService, private dubberService: DubberService) {}
@@ -25,18 +24,10 @@ export class AddFilmComponent implements OnInit {
     this.filmService.getFilms();
     this.filmService.addFilm(this.currentFilm);
     form.reset();
-    // if(this.film) {
-    //   this.filmService.updateFilm(this.film);
-    //   this.film = undefined;
-    // } else {
-    //   this.filmService.addFilm(this.currentFilm);
-    //   form.reset();
-    // }
   }
 
   ngOnInit() {
     this.dubberService.getDubbers();
-    //this.filmService.getFilms();
   }
 
 }

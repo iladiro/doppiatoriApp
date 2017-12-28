@@ -20,7 +20,7 @@
           {{film.title}}
         </div>
         <div class="col pt-20">
-          {{film.description}}
+          {{film.description | slice:0:60}}...
         </div>
         <div class="col text-right">
           <a [routerLink]="['/film', film.id]" class="btn btn-outline-primary">
@@ -36,9 +36,4 @@
       </div>
     </div>
   </section>
-
-  <!-- <section>
-    <h3 class="text-center">Add Film</h3>
-    <addFilm></addFilm>
-  </section> -->
 </div>

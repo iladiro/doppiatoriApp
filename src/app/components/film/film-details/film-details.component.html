@@ -1,3 +1,73 @@
-<div *ngIf="filmService.film">
-  <h2>{{filmService.film.title}} {{filmService.film.description}}</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+      <figure *ngIf="filmService.film">
+        <img src="/assets/images/copertina.jpeg" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
+        <h5 class="mt-10 text-capitalize">{{filmService.film.title}}</h5>
+      </figure>
+    </div>
+    <div class="col-sm-10">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#informations" role="tab">Informations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#collaborators" role="tab">Collaborators</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#invoices" role="tab">Invoices</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content pboth-15">
+        <div class="tab-pane active" id="informations" role="tabpanel">
+          <form #UpdateFilmForm="ngForm" (ngSubmit)="upDateFilmDate(UpdateFilmForm)">
+            <div class="mb-3">
+              <label for="title">Title</label>
+              <input type="text" id="title" class="form-control" placeholder="Title" [(ngModel)]="filmService.film.title" name="title">
+            </div>
+            <div class="mb-3">
+              <label for="description">Description</label>
+              <textarea id="description" rows="10" class="form-control" placeholder="Description" [(ngModel)]="filmService.film.description" name="description" #description="ngModel" required></textarea>
+              <div class="alert alert-danger" *ngIf="description.touched && !description.valid">The field is required</div>
+            </div>
+            <div class="mb-3">
+              <label for="dubbers">Dubbers</label>
+              <select name="dubbers" class="form-control" multiple ngModel name="dubbers">
+                <option *ngFor="let dubber of dubberService.dubbersList" value="{{dubber.name}}">
+                  {{dubber.name}} {{dubber.surname}}
+                </option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success">Update film</button>
+          </form>
+        </div>
+        <div class="tab-pane" id="collaborators" role="tabpanel">
+          <section class="itemsList">
+            <div class="itemsList__body">
+              <div class="itemsList__body-row row" *ngFor="let dubber of filmService.film.dubbers">
+                <div class="col pt-20">
+                  {{dubber}}
+                </div>
+                <div class="col text-right">
+                  <!-- <a [routerLink]="['/film', film.id]" class="btn btn-outline-primary">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                  </a> -->
+                  <a class="btn btn-outline-primary">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                  </a>
+                  <button (click)="onDelete(film)" class="btn btn-outline-danger">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="tab-pane" id="invoices" role="tabpanel">...</div>
+      </div>
+    </div>
+  </div>
 </div>

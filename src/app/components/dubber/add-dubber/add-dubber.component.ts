@@ -5,18 +5,13 @@ import { DubberService } from '../dubbers.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'addDubber',
   templateUrl: './add-dubber.component.html',
-  styleUrls: ['./add-dubber.component.scss']
-  //providers: [DubberService]
+  styleUrls: ['./add-dubber.component.scss'],
+  providers: [DubberService]
 })
 
 export class AddDubberComponent implements OnInit {
 
-  //selectedNationality: string = "Italian";
-  //nationalities: string[] = ["Italian", "German", "English", "Spanish"]
-
-  @Input() dubber;
   currentDubber;
 
   constructor(private dubberService: DubberService) {}
@@ -31,14 +26,8 @@ export class AddDubberComponent implements OnInit {
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
     this.currentDubber.id = lengthDubbersIndex;
     this.getFirstChar(this.currentDubber);
-    if(this.dubber) {
-      this.getFirstChar(this.dubber);
-      this.dubberService.updateDubber(this.dubber);
-      this.dubber = undefined;
-    } else {
-      this.dubberService.addDubber(this.currentDubber);
-      form.reset();
-    }
+    this.dubberService.addDubber(this.currentDubber);
+    form.reset();
   }
 
   ngOnInit() {}

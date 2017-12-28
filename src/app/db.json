@@ -61,64 +61,39 @@
       "avatar": "C"
     },
     {
-      "name": "giuseppe",
+      "name": "Giuseppe",
       "surname": "Nicolosi",
-      "age": "38",
-      "gender": "M",
-      "nationality": "Italian",
-      "id": 414080,
-      "avatar": "g",
       "birthdate": "02/01/1974",
       "birthplace": "Italy",
-      "birthcounty": "Palermo"
+      "birthcounty": "Palermo",
+      "fiscalCode": "drslri88b56f205d",
+      "email": "giuseppe.nicolosi@gmail.com",
+      "phone": "3274564776",
+      "id": 414080,
+      "avatar": "G"
     },
     {
-      "name": "fasf",
-      "surname": "fasfs",
+      "name": "Carmelina",
+      "surname": "Iannone",
+      "birthdate": "",
+      "birthplace": "Italia",
+      "birthcounty": "Firenze",
       "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "birthplace": "asfasfa",
-      "birthcounty": "sfasf",
-      "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": 71762,
-      "avatar": "f"
-    },
-    {
-      "name": "asasdasd",
-      "surname": "asdasdasd",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "birthplace": "Italy",
-      "birthcounty": "Milano",
-      "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": 406034,
-      "avatar": "a"
-    },
-    {
-      "name": "Ilaria di rosa",
-      "surname": "di rosa",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "birthplace": "Gessate",
-      "birthcounty": "Milano",
-      "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": 539266,
-      "avatar": "I"
+      "email": "carmelina.iannone@gmail.com",
+      "phone": "347497789",
+      "id": 76651,
+      "avatar": "C"
     }
   ],
   "film": [
     {
+      "title": "Sherlock Holmes",
+      "description": "Sherlock Holmes, il più grande investigatore del Regno Unito, e il suo collega, il dottor Watson, interrompono un rito di magia nera, che sarebbe dovuto terminare con il sacrificio di una giovane donna. Il celebrante si scopre essere Lord Blackwood, che già aveva ucciso cinque ragazze allo stesso modo. Blackwood viene dunque arrestato, imprigionato e condannato a morte per impiccagione.\n\nTre mesi dopo lo stesso Blackwood, dopo aver maledetto la guardia della sua cella, chiede di poter incontrare Holmes. L'investigatore si presenta nella prigione della città e durante tale incontro Blackwood, riferendosi a forze diaboliche, profetizza il proprio ritorno dall'aldilà. Tuttavia l'impiccagione ha luogo e Watson, il medico di turno all'esecuzione, constata il definitivo decesso di Lord Blackwood. Intanto, Holmes incontra nel suo alloggio Irene Adler, una ladra bella e furba che ha avuto in passato una relazione con il detective. La donna gli chiede di investigare su Blackwood, ma lo stesso Holmes scopre che Irene sta lavorando per qualcuno dalle intenzioni malvagie. Proprio il giorno seguente, al cimitero della città, la tomba di Blackwood viene trovata scoperchiata e il custode sostiene di aver visto Blackwood stesso alzarsi dalla tomba. La bara è invece occupata dal cadavere di un altro individuo di nome Riordon, un uomo nano, conoscente della Adler. Blackwood pare quindi essere resuscitato come aveva predetto e il fatto getta nel panico la città.",
       "dubbers": [
+        "marika",
         "Luigi",
-        "fabio",
-        "Carmelo",
-        "giuseppe"
+        "fabio"
       ],
-      "title": "prova",
-      "description": "Per lui il nuovo popolo amico ha scelto anche il nome sioux ",
       "id": 983440
     },
     {

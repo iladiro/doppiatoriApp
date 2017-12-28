@@ -20,6 +20,11 @@ const appRoutes: Routes = [
     data: { title: 'Dubbers List' }
   },
   {
+    path: 'dubbers/add',
+    component: AddDubberComponent,
+    data: { title: 'Add new dubber' }
+  },
+  {
     path: 'dubberProfile/:id',
     component: DubberProfileComponent
   },

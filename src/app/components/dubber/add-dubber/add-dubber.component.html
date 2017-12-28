@@ -1,106 +1,69 @@
-<form #addDubberForm="ngForm" (ngSubmit)="onSubmit(addDubberForm)">
-  <fieldset>
-    <legend>Personal information:</legend>
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input *ngIf="dubber; else elseBlockName" id="name" type="text" class="form-control" placeholder="Name" [(ngModel)]="dubber.name" name="name">
-          <ng-template #elseBlockName>
+<div class="container">
+  <form #addDubberForm="ngForm" (ngSubmit)="onSubmit(addDubberForm)">
+    <fieldset>
+      <legend>Personal information:</legend>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="name">Name</label>
             <input id="name" type="text" class="form-control" placeholder="Name" ngModel name="name" #name="ngModel" required>
             <div class="alert alert-danger" *ngIf="name.touched && !name.valid">The field is required</div>
-          </ng-template>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="form-group">
-          <label for="surname">Surname</label>
-          <input *ngIf="dubber; else elseBlockSurname" id="surname" type="text" class="form-control" placeholder="Surname" name="surname" [(ngModel)]="dubber.surname">
-          <ng-template #elseBlockSurname>
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="surname">Surname</label>
             <input id="surname" type="text" class="form-control" placeholder="Surname" ngModel name="surname" #surname="ngModel" required>
             <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">The field is required</div>
-          </ng-template>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="form-group">
-          <label for="fiscalCode">Fiscal Code</label>
-          <input *ngIf="dubber; else elseBlockFiscalCode" id="fiscalCode" type="text" class="form-control" placeholder="Fiscal Code" name="fiscalCode" [(ngModel)]="dubber.fiscalCode">
-          <ng-template #elseBlockFiscalCode>
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="fiscalCode">Fiscal Code</label>
             <input id="fiscalCode" type="text" class="form-control" placeholder="Fiscal Code" ngModel name="fiscalCode" #fiscalCode="ngModel" required>
             <div class="alert alert-danger" *ngIf="fiscalCode.touched && !fiscalCode.valid">The field is required</div>
-          </ng-template>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 mb-3">
-        <div class="form-group">
-          <label for="birthdate">Date of birth</label>
-          <input *ngIf="dubber; else elseBlockBirthdate" id="birthdate" type="text" class="form-control" placeholder="Date of birth" name="birthdate" [(ngModel)]="dubber.birthdate">
-          <ng-template #elseBlockBirthdate>
-            <input id="birthdate" type="text" class="form-control" placeholder="Date of birth " ngModel name="birthdate" #birthdate="ngModel" required>
-            <div class="alert alert-danger" *ngIf="birthdate.touched && !birthdate.valid">The field is required</div>
-          </ng-template>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="birthdate">Date of birth</label>
+            <input id="birthdate" type="text" class="form-control" placeholder="Date of birth " ngModel name="birthdate" #birthdate="ngModel">
+            <!-- <div class="alert alert-danger" *ngIf="birthdate.touched && !birthdate.valid">The field is required</div> -->
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="birthplace">Place of birth</label>
+            <input id="birthplace" type="text" class="form-control" placeholder="Place of birth " ngModel name="birthplace" #birthplace="ngModel">
+            <!-- <div class="alert alert-danger" *ngIf="birthplace.touched && !birthplace.valid">The field is required</div> -->
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="birthcounty">County of birth</label>
+            <input id="birthcounty" type="text" class="form-control" placeholder="County of birth " ngModel name="birthcounty" #birthcounty="ngModel">
+            <!-- <div class="alert alert-danger" *ngIf="birthcounty.touched && !birthcounty.valid">The field is required</div> -->
+          </div>
         </div>
       </div>
-      <div class="col-md-4 mb-3">
-        <div class="form-group">
-          <label for="birthplace">Place of birth</label>
-          <input *ngIf="dubber; else elseBlockBirthplace" id="birthplace" type="text" class="form-control" placeholder="Place of birth" name="birthplace" [(ngModel)]="dubber.birthplace">
-          <ng-template #elseBlockBirthplace>
-            <input id="birthplace" type="text" class="form-control" placeholder="Place of birth " ngModel name="birthplace" #birthplace="ngModel" required>
-            <div class="alert alert-danger" *ngIf="birthplace.touched && !birthplace.valid">The field is required</div>
-          </ng-template>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="form-group">
-          <label for="birthcounty">County of birth</label>
-          <input *ngIf="dubber; else elseBlockBirthcounty" id="birthcounty" type="text" class="form-control" placeholder="County of birth" name="birthcounty" [(ngModel)]="dubber.birthcounty">
-          <ng-template #elseBlockBirthcounty>
-            <input id="birthcounty" type="text" class="form-control" placeholder="County of birth " ngModel name="birthcounty" #birthcounty="ngModel" required>
-            <div class="alert alert-danger" *ngIf="birthcounty.touched && !birthcounty.valid">The field is required</div>
-          </ng-template>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="form-group">
-       <label for="nationality">Nationality</label>
-       <select *ngIf="dubber; else elseBlockNationality" [(ngModel)]="dubber.nationality" name="nationality" class="form-control">
-          <option *ngFor="let n of nationalities" value="{{n}}">{{n}}</option>
-        </select>
-        <ng-template #elseBlockNationality>
-          <select ngModel name="nationality" class="form-control">
-             <option value="" disabled selected>Select your option</option>
-             <option *ngFor="let n of nationalities" value="{{n}}">{{n}}</option>
-          </select>
-        </ng-template>
-     </div> -->
-  </fieldset>
-  <fieldset>
-    <legend>Contacts information:</legend>
-    <div class="form-group">
-      <label>Email</label>
-      <input *ngIf="dubber; else elseBlockEmail" id="email" type="email" class="form-control" placeholder="Email" [(ngModel)]="dubber.email" name="email">
-      <ng-template #elseBlockEmail>
+    </fieldset>
+    <fieldset>
+      <legend>Contacts information:</legend>
+      <div class="form-group">
+        <label>Email</label>
         <input id="email" type="email" class="form-control" placeholder="Email" ngModel name="email" #email="ngModel" required>
         <div class="alert alert-danger" *ngIf="email.touched && !email.valid">The field is required</div>
-      </ng-template>
-    </div>
-    <div class="form-group">
-      <label>Phone</label>
-      <input *ngIf="dubber; else elseBlockPhone" id="phone" type="phone" class="form-control" placeholder="Phone" [(ngModel)]="dubber.phone" name="phone">
-      <ng-template #elseBlockPhone>
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
         <input id="phone" type="phone" class="form-control" placeholder="Phone" ngModel name="phone" #phone="ngModel" required>
         <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">The field is required</div>
-      </ng-template>
-    </div>
-  </fieldset>
-   <div class="form-group">
-     <button type="submit" class="btn btn-success" *ngIf="dubber; else addDubber">Save dubber</button>
-     <ng-template #addDubber>
+      </div>
+    </fieldset>
+     <div class="form-group">
        <button type="submit" class="btn btn-success" [disabled]="!addDubberForm.valid">Add dubber</button>
-     </ng-template>
-   </div>
-</form>
+     </div>
+  </form>
+</div>

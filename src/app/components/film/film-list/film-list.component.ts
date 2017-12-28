@@ -4,7 +4,6 @@ import { FilmService } from '../film.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  //selector: 'app-root',
   templateUrl: './film-list.component.html',
   styleUrls: ['./film-list.component.scss'],
   providers: [FilmService]
@@ -12,16 +11,10 @@ import {NgForm} from '@angular/forms';
 
 export class FilmListComponent implements OnInit {
 
-  currentItem;
-
   constructor(private filmService: FilmService) {}
 
   onDelete(film) {
     this.filmService.deleteFilm(film);
-  }
-
-  getSingleItem(film) {
-    this.currentItem = film;
   }
 
   ngOnInit() {

@@ -1,6 +1,13 @@
 <div class="container">
-  <h2 class="section-title">Dubbers List</h2>
-  <p>This is the list of dubbers registered with dubbers.com</p>
+  <nav class="clearfix mb-3">
+    <div class="float-left">
+      <h3 class="section-title">Dubbars list</h3>
+      <p class="mb-0">This is the list of dubbers registered with dubbers.com</p>
+    </div>
+    <div class="align-middle float-right">
+      <a [routerLink]="['/dubbers/add']" class="btn btn-outline-success">Add Dubber</a>
+    </div>
+  </nav>
   <section class="itemsList">
     <div class="itemsList__header row">
       <div class="col"></div>
@@ -27,18 +34,14 @@
           <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
             <i class="fa fa-info" aria-hidden="true"></i>
           </a>
-          <button (click)="getSingleItem(dubber)" class="btn btn-outline-warning">
+          <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
+          </a>
           <button (click)="onDelete(dubber)" class="btn btn-outline-danger">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </div>
-  </section>
-  <section>
-    <h3 class="text-center">Add Dubber</h3>
-    <addDubber [dubber]="currentItem"></addDubber>
   </section>
 </div>
