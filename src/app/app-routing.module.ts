@@ -8,8 +8,13 @@ import { FilmListComponent } from './components/film/film-list/film-list.compone
 import { AddFilmComponent } from './components/film/add-film/add-film.component';
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
+  { path: 'index',
+    component: DashboardComponent,
+    data: { title: 'Index' }
+  },
   {
     path: 'dubbers',
     component: DubbersListComponent,
@@ -42,10 +47,6 @@ const appRoutes: Routes = [
     path: '**',
     component: PageNotFoundComponent
   }
-  // { path: '',
-  //   redirectTo: '/dubbers',
-  //   pathMatch: 'full'
-  // }
 
 ];
 
