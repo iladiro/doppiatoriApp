@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FilmListComponent } from './components/film/film-list/film-list.component';
 import { AddFilmComponent } from './components/film/add-film/add-film.component';
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
+import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FilmDetailsComponent } from './components/film/film-details/film-detail
     HeaderComponent,
     FilmListComponent,
     AddFilmComponent,
-    FilmDetailsComponent
+    FilmDetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
