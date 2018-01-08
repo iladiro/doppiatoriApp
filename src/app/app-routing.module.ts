@@ -11,6 +11,11 @@ import { PageNotFoundComponent } from './components/widgets/page-not-found/page-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: '/index',
+    pathMatch: 'full'
+  },
   { path: 'index',
     component: DashboardComponent,
     data: { title: 'Index' }
