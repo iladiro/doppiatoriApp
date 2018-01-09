@@ -2,12 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { DubberModel } from '../dubber-model';
 import { DubberService } from '../dubbers.service';
+import { FilmService } from '../../film/film.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
   templateUrl: './dubber-profile.component.html',
   styleUrls: ['./dubber-profile.component.scss'],
-  providers: [DubberService]
+  providers: [DubberService, FilmService]
 })
 
 export class DubberProfileComponent implements OnInit {
@@ -16,7 +17,11 @@ export class DubberProfileComponent implements OnInit {
   private sub: any;
   currentDubber;
 
-  constructor(private route: ActivatedRoute, private dubberService: DubberService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private dubberService: DubberService,
+    private filmService: FilmService
+  ) {}
 
   getFirstChar(whichModel) {
     let createAvatar = whichModel.name.charAt(0);

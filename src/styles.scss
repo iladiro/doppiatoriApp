@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~font-awesome/css/font-awesome.css";
-@import "assets/stylesheet/mixin/custom-mixin";
-@import 'assets/stylesheet/widgets/variables';
-@import 'assets/stylesheet/widgets/spaces';
+// @import "../node_modules/bootstrap/scss/bootstrap";
+// @import "~bootstrap/dist/css/bootstrap.min.css";
+// @import "~font-awesome/css/font-awesome.css";
+@import "../node_modules/normalize.css/normalize";
+// @import "assets/stylesheet/mixin/custom-mixin";
+// @import 'assets/stylesheet/widgets/variables';
+// @import 'assets/stylesheet/widgets/spaces';
 
 body {
   background-color: #e3ecf5;

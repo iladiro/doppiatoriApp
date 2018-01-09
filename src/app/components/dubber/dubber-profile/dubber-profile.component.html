@@ -66,7 +66,16 @@
             <button type="submit" class="btn btn-success">Update dubber</button>
           </form>
         </div>
-        <div class="tab-pane" id="collaborations" role="tabpanel">...profile</div>
+        <div class="tab-pane" id="collaborations" role="tabpanel">
+          <!-- <form #AddFilmToDubberForm="ngForm" (ngSubmit)="addFilmToDubber(AddFilmToDubberForm)">
+            <select name="film" class="form-control" multiple ngModel>
+              <option *ngFor="let film of filmService.filmsList" value="{{film.title}}">
+                {{film.title}}
+              </option>
+            </select>
+            <button type="submit" class="btn btn-success">Add film</button>
+          </form> -->
+        </div>
         <div class="tab-pane" id="invoices" role="tabpanel">...</div>
       </div>
     </div>
