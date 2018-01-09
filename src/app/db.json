@@ -1,11 +1,20 @@
 {
   "accounts": [
     {
-      "name": "hhh",
-      "surname": "hhh",
+      "name": "Ilaria",
+      "surname": " di rosa",
+      "typeAccount": "0",
       "email": "dirosa.ilaria@gmail.com",
+      "id": 864719,
+      "avatar": "I"
+    },
+    {
+      "name": "Fabio",
+      "surname": "Petrucci",
+      "email": "fabio.petrucci@gmail.com",
       "typeAccount": "1",
-      "id": 864719
+      "id": 190363,
+      "avatar": "F"
     }
   ],
   "dubbers": [

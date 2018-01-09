@@ -22,6 +22,18 @@ export class AccountDetailsComponent implements OnInit {
     private accountService: AccountService
   ) { }
 
+  getFirstChar(whichModel) {
+    let createAvatar = whichModel.name.charAt(0);
+    whichModel.avatar = createAvatar;
+  }
+
+  upDateParsonalDate(form: NgForm){
+    this.currentAccount = form.value;
+    this.currentAccount.id = this.id;
+    this.getFirstChar(this.currentAccount);
+    this.accountService.updateAccount(this.currentAccount);
+  }
+
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
