@@ -10,13 +10,16 @@
   </nav>
   <section class="itemsList">
     <div class="itemsList__header row">
-      <!-- <div class="col"></div> -->
+      <div class="col"></div>
       <div class="col text-uppercase">Name</div>
       <div class="col text-uppercase">Surname</div>
       <!-- <div class="col"></div> -->
     </div>
     <div class="itemsList__body">
       <div class="itemsList__body-row row" *ngFor="let account of accountService.accountsList">
+        <div class="col">
+          <span class="itemsList__avatar">{{account.avatar}}</span>
+        </div>
         <div class="col pt-20 text-capitalize">
           {{account.name}}
         </div>
@@ -24,12 +27,12 @@
           {{account.surname}}
         </div>
         <div class="col text-right">
-          <!-- <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
+          <a [routerLink]="['/account', account.id]" class="btn btn-outline-primary">
             <i class="fa fa-info" aria-hidden="true"></i>
           </a>
-          <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-warning">
+          <a [routerLink]="['/account', account.id]" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
-          </a> -->
+          </a>
           <button (click)="onDelete(account)" class="btn btn-outline-danger">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>

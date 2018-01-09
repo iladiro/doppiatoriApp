@@ -16,10 +16,16 @@ export class NewAccountComponent implements OnInit {
 
   constructor(private accountService: AccountService) { }
 
+  getFirstChar(whichModel) {
+    let createAvatar = whichModel.name.charAt(0);
+    whichModel.avatar = createAvatar;
+  }
+
   onSubmit(form: NgForm){
     this.currentAccount = form.value;
     let index = Math.floor((Math.random() * 1000000) + 1);
     this.currentAccount.id = index;
+    this.getFirstChar(this.currentAccount);
     this.accountService.addAccount(this.currentAccount);
     form.reset();
   }

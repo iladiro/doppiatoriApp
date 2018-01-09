@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './components/widgets/page-not-found/page-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewAccountComponent } from './components/account/new-account/new-account.component';
 import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
+import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AccountsListComponent } from './components/account/accounts-list/accoun
     PageNotFoundComponent,
     DashboardComponent,
     NewAccountComponent,
-    AccountsListComponent
+    AccountsListComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class AccountService {
 
   private accountsList;
+  private account;
 
   constructor(private http: HttpClient) { }
 
@@ -13,6 +14,17 @@ export class AccountService {
     this.http.get('http://localhost:3000/accounts').subscribe(
       data => {
         this.accountsList = data;
+      },
+      err => {
+        console.log("Error occured.")
+      }
+    );
+  };
+
+  getAccount(idAccount) {
+    this.http.get('http://localhost:3000/accounts/' + idAccount.toString()).subscribe(
+      data => {
+        this.account = data;
       },
       err => {
         console.log("Error occured.")
@@ -40,5 +52,13 @@ export class AccountService {
     }
   };
 
+  updateAccount(account) {
+    var confirmRequest = confirm("Are you sure you wanna run the following changes?");
+    if (confirmRequest == true) {
+      this.http.put('http://localhost:3000/accounts/' + account.id.toString(), account).subscribe(
+        data => {}
+      );
+    };
+  };
 
 }

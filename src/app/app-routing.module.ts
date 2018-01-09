@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './components/widgets/page-not-found/page-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewAccountComponent } from './components/account/new-account/new-account.component';
 import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
+import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
     path: 'accounts',
     component: AccountsListComponent,
     data: { title: 'Accounts List' }
+  },
+  {
+    path: 'account/:id',
+    component: AccountDetailsComponent
   },
   {
     path: 'accounts/new',
