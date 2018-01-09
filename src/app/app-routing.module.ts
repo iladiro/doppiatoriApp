@@ -9,6 +9,8 @@ import { AddFilmComponent } from './components/film/add-film/add-film.component'
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewAccountComponent } from './components/account/new-account/new-account.component';
+import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
 
 const appRoutes: Routes = [
   {
@@ -19,6 +21,16 @@ const appRoutes: Routes = [
   { path: 'index',
     component: DashboardComponent,
     data: { title: 'Index' }
+  },
+  {
+    path: 'accounts',
+    component: AccountsListComponent,
+    data: { title: 'Accounts List' }
+  },
+  {
+    path: 'accounts/new',
+    component: NewAccountComponent,
+    data: { title: 'Add new account' }
   },
   {
     path: 'dubbers',

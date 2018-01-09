@@ -15,6 +15,8 @@ import { AddFilmComponent } from './components/film/add-film/add-film.component'
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NewAccountComponent } from './components/account/new-account/new-account.component';
+import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AddFilmComponent,
     FilmDetailsComponent,
     PageNotFoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    NewAccountComponent,
+    AccountsListComponent
   ],
   imports: [
     BrowserModule,

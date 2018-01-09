@@ -1,4 +1,13 @@
 {
+  "accounts": [
+    {
+      "name": "hhh",
+      "surname": "hhh",
+      "email": "dirosa.ilaria@gmail.com",
+      "typeAccount": "1",
+      "id": 864719
+    }
+  ],
   "dubbers": [
     {
       "name": "Iladiro",

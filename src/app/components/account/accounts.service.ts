@@ -1,0 +1,44 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+@Injectable()
+
+export class AccountService {
+
+  private accountsList;
+
+  constructor(private http: HttpClient) { }
+
+  getAccounts() {
+    this.http.get('http://localhost:3000/accounts').subscribe(
+      data => {
+        this.accountsList = data;
+      },
+      err => {
+        console.log("Error occured.")
+      }
+    );
+  };
+
+  addAccount(account) {
+    this.http.post('http://localhost:3000/accounts', account).subscribe(
+      data => {
+        this.accountsList.push(data);
+      }
+    );
+  };
+
+  deleteAccount(account) {
+    let index = this.accountsList.indexOf(account);
+    var confirmRequest = confirm("Are you sure to delete it?");
+    if (confirmRequest == true) {
+      this.http.delete('http://localhost:3000/accounts/' + account.id.toString()).subscribe(
+        data => {
+          this.accountsList.splice(index, 1);
+        }
+      )
+    }
+  };
+
+
+}
