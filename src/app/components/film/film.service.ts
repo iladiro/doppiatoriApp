@@ -6,8 +6,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class FilmService {
 
+  private urlRoot = "http://localhost:3000/film";
   private filmsList;
-
   private film;
 
   // Inject HttpClient into your component or service.
@@ -16,7 +16,7 @@ export class FilmService {
   ngOnInit(): void {}
 
   getAll() {
-    this.http.get('http://localhost:3000/film').subscribe(
+    this.http.get(this.urlRoot).subscribe(
       data => {
         this.filmsList = data;
       },
@@ -27,7 +27,7 @@ export class FilmService {
   };
 
   getById(idfilm) {
-    this.http.get('http://localhost:3000/film/' + idfilm.toString()).subscribe(
+    this.http.get(this.urlRoot + idfilm.toString()).subscribe(
       data => {
         this.film = data;
       },
@@ -38,7 +38,7 @@ export class FilmService {
   };
 
   create(film) {
-    this.http.post('http://localhost:3000/film', film).subscribe(
+    this.http.post(this.urlRoot, film).subscribe(
       data => {
         this.filmsList.push(data);
       }
@@ -49,7 +49,7 @@ export class FilmService {
     let index = this.filmsList.indexOf(film);
     var confirmRequest = confirm("Are you sure to delete it?");
     if (confirmRequest == true) {
-      this.http.delete('http://localhost:3000/film/' + film.id.toString()).subscribe(
+      this.http.delete(this.urlRoot + film.id.toString()).subscribe(
         data => {
           this.filmsList.splice(index, 1);
         }
@@ -60,7 +60,7 @@ export class FilmService {
   update(film) {
     var confirmRequest = confirm("Are you sure you wanna run the following changes?");
     if (confirmRequest == true) {
-      this.http.put('http://localhost:3000/film/' + film.id.toString(), film).subscribe(
+      this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
         data => {}
       );
     };
