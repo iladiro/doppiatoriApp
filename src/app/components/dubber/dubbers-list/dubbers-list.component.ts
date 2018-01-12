@@ -14,11 +14,11 @@ export class DubbersListComponent implements OnInit {
   constructor(private dubberService: DubberService) {}
 
   onDelete(dubber) {
-    this.dubberService.deleteDubber(dubber);
+    this.dubberService.delete(dubber);
   }
 
   ngOnInit() {
-    this.dubberService.getDubbers();
+    this.dubberService.getAll();
   }
 
 }

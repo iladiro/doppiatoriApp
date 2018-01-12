@@ -32,13 +32,13 @@ export class DubberProfileComponent implements OnInit {
     this.currentDubber = form.value;
     this.currentDubber.id = this.id;
     this.getFirstChar(this.currentDubber);
-    this.dubberService.updateDubber(this.currentDubber);
+    this.dubberService.update(this.currentDubber);
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.dubberService.getDubber(this.id);
+      this.dubberService.getById(this.id);
     });
   }
 

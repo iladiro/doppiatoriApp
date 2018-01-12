@@ -14,11 +14,11 @@ export class FilmListComponent implements OnInit {
   constructor(private filmService: FilmService) {}
 
   onDelete(film) {
-    this.filmService.deleteFilm(film);
+    this.filmService.delete(film);
   }
 
   ngOnInit() {
-    this.filmService.getFilms();
+    this.filmService.getAll();
   }
 
 }

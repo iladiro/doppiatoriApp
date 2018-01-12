@@ -12,11 +12,11 @@ export class AccountsListComponent implements OnInit {
   constructor(private accountService: AccountService) { }
 
   onDelete(account) {
-    this.accountService.deleteAccount(account);
+    this.accountService.delete(account);
   }
 
   ngOnInit() {
-    this.accountService.getAccounts();
+    this.accountService.getAll();
   }
 
 }

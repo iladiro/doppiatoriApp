@@ -15,7 +15,7 @@ export class FilmService {
 
   ngOnInit(): void {}
 
-  getFilms() {
+  getAll() {
     this.http.get('http://localhost:3000/film').subscribe(
       data => {
         this.filmsList = data;
@@ -26,7 +26,7 @@ export class FilmService {
     );
   };
 
-  getFilm(idfilm) {
+  getById(idfilm) {
     this.http.get('http://localhost:3000/film/' + idfilm.toString()).subscribe(
       data => {
         this.film = data;
@@ -37,7 +37,7 @@ export class FilmService {
     );
   };
 
-  addFilm(film) {
+  create(film) {
     this.http.post('http://localhost:3000/film', film).subscribe(
       data => {
         this.filmsList.push(data);
@@ -45,7 +45,7 @@ export class FilmService {
     );
   };
 
-  deleteFilm(film) {
+  delete(film) {
     let index = this.filmsList.indexOf(film);
     var confirmRequest = confirm("Are you sure to delete it?");
     if (confirmRequest == true) {
@@ -57,7 +57,7 @@ export class FilmService {
     }
   };
 
-  updateFilm(film) {
+  update(film) {
     var confirmRequest = confirm("Are you sure you wanna run the following changes?");
     if (confirmRequest == true) {
       this.http.put('http://localhost:3000/film/' + film.id.toString(), film).subscribe(

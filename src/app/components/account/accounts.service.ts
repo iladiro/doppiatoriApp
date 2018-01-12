@@ -5,13 +5,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class AccountService {
 
+  private urlRoot = "http://localhost:3000/accounts";
   private accountsList;
   private account;
 
   constructor(private http: HttpClient) { }
 
-  getAccounts() {
-    this.http.get('http://localhost:3000/accounts').subscribe(
+  getAll() {
+    this.http.get(this.urlRoot).subscribe(
       data => {
         this.accountsList = data;
       },
@@ -21,8 +22,8 @@ export class AccountService {
     );
   };
 
-  getAccount(idAccount) {
-    this.http.get('http://localhost:3000/accounts/' + idAccount.toString()).subscribe(
+  getById(idAccount) {
+    this.http.get(this.urlRoot + idAccount.toString()).subscribe(
       data => {
         this.account = data;
       },
@@ -32,19 +33,19 @@ export class AccountService {
     );
   };
 
-  addAccount(account) {
-    this.http.post('http://localhost:3000/accounts', account).subscribe(
+  create(account) {
+    this.http.post(this.urlRoot, account).subscribe(
       data => {
         this.accountsList.push(data);
       }
     );
   };
 
-  deleteAccount(account) {
+  delete(account) {
     let index = this.accountsList.indexOf(account);
     var confirmRequest = confirm("Are you sure to delete it?");
     if (confirmRequest == true) {
-      this.http.delete('http://localhost:3000/accounts/' + account.id.toString()).subscribe(
+      this.http.delete(this.urlRoot + account.id.toString()).subscribe(
         data => {
           this.accountsList.splice(index, 1);
         }
@@ -52,10 +53,10 @@ export class AccountService {
     }
   };
 
-  updateAccount(account) {
+  update(account) {
     var confirmRequest = confirm("Are you sure you wanna run the following changes?");
     if (confirmRequest == true) {
-      this.http.put('http://localhost:3000/accounts/' + account.id.toString(), account).subscribe(
+      this.http.put(this.urlRoot + account.id.toString(), account).subscribe(
         data => {}
       );
     };

@@ -21,13 +21,13 @@ export class AddFilmComponent implements OnInit {
     this.currentFilm = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
     this.currentFilm.id = lengthDubbersIndex;
-    this.filmService.getFilms();
-    this.filmService.addFilm(this.currentFilm);
+    this.filmService.getAll();
+    this.filmService.create(this.currentFilm);
     form.reset();
   }
 
   ngOnInit() {
-    this.dubberService.getDubbers();
+    this.dubberService.getAll();
   }
 
 }

@@ -22,16 +22,16 @@ export class FilmDetailsComponent implements OnInit {
   upDateFilmDate(form: NgForm){
     this.currentFilm = form.value;
     this.currentFilm.id = this.id;
-    this.filmService.updateFilm(this.currentFilm);
+    this.filmService.update(this.currentFilm);
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       //console.log("l'id è " + this.id);
-      this.filmService.getFilm(this.id);
+      this.filmService.getById(this.id);
     });
-    this.dubberService.getDubbers();
+    this.dubberService.getAll();
   }
 
 }

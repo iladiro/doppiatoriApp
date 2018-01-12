@@ -31,13 +31,13 @@ export class AccountDetailsComponent implements OnInit {
     this.currentAccount = form.value;
     this.currentAccount.id = this.id;
     this.getFirstChar(this.currentAccount);
-    this.accountService.updateAccount(this.currentAccount);
+    this.accountService.update(this.currentAccount);
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.accountService.getAccount(this.id);
+      this.accountService.getById(this.id);
     });
   }
 

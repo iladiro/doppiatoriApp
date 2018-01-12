@@ -26,7 +26,7 @@ export class NewAccountComponent implements OnInit {
     let index = Math.floor((Math.random() * 1000000) + 1);
     this.currentAccount.id = index;
     this.getFirstChar(this.currentAccount);
-    this.accountService.addAccount(this.currentAccount);
+    this.accountService.create(this.currentAccount);
     form.reset();
   }
 

@@ -15,7 +15,7 @@ export class DubberService {
 
   ngOnInit(): void {}
 
-  getDubbers() {
+  getAll() {
     this.http.get('http://localhost:3000/dubbers').subscribe(
       data => {
         this.dubbersList = data;
@@ -26,7 +26,7 @@ export class DubberService {
     );
   };
 
-  getDubber(idDubber) {
+  getById(idDubber) {
     this.http.get('http://localhost:3000/dubbers/' + idDubber.toString()).subscribe(
       data => {
         this.dubber = data;
@@ -37,7 +37,7 @@ export class DubberService {
     );
   };
 
-  addDubber(dubber) {
+  create(dubber) {
     this.http.post('http://localhost:3000/dubbers', dubber).subscribe(
       data => {
         this.dubbersList.push(data);
@@ -45,7 +45,7 @@ export class DubberService {
     );
   };
 
-  deleteDubber(dubber) {
+  delete(dubber) {
     let index = this.dubbersList.indexOf(dubber);
     var confirmRequest = confirm("Are you sure to delete it?");
     if (confirmRequest == true) {
@@ -57,7 +57,7 @@ export class DubberService {
     }
   };
 
-  updateDubber(dubber) {
+  update(dubber) {
     var confirmRequest = confirm("Are you sure you wanna run the following changes?");
     if (confirmRequest == true) {
       this.http.put('http://localhost:3000/dubbers/' + dubber.id.toString(), dubber).subscribe(
