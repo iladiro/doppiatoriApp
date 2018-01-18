@@ -6,7 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class FilmService {
 
-  private urlRoot = "http://localhost:3000/film";
+  private urlRoot = "http://localhost:3000/film/";
   private filmsList;
   private film;
 

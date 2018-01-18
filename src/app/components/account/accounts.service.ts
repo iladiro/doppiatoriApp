@@ -5,7 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class AccountService {
 
-  private urlRoot = "http://localhost:3000/accounts";
+  private urlRoot = "http://localhost:3000/accounts/";
   private accountsList;
   private account;
 

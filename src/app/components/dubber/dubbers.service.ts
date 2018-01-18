@@ -6,7 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class DubberService {
 
-  private urlRoot = "http://localhost:3000/dubbers";
+  private urlRoot = "http://localhost:3000/dubbers/";
   private dubbersList;
   private dubber;
 
