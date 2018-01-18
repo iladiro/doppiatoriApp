@@ -5,7 +5,9 @@
       <h3>Dubbers list</h3>
       <ul class="list-unstyled">
         <ng-container *ngFor="let dubber of dubberService.dubbersList; let i=index">
-          <li *ngIf="i < 10">{{dubber.name}} {{dubber.surname}}</li>
+          <li *ngIf="i < 10">
+            <a [routerLink]="['/dubberProfile', dubber.id]">{{dubber.name}} {{dubber.surname}}</a>
+          </li>
         </ng-container>
       </ul>
     </div>
@@ -13,7 +15,9 @@
       <h3>Film List</h3>
       <ul class="list-unstyled">
         <ng-container *ngFor="let film of filmService.filmsList; let i=index">
-          <li *ngIf="i < 10">{{film.title}}</li>
+          <li *ngIf="i < 10">
+            <a [routerLink]="['/film', film.id]">{{film.title}}</a>
+          </li>
         </ng-container>
       </ul>
     </div>
