@@ -9,7 +9,9 @@ export class AccountService {
   private accountsList;
   private account;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.accountsList = []
+  }
 
   getAll() {
     this.http.get(this.urlRoot).subscribe(

@@ -11,7 +11,9 @@ export class DubberService {
   private dubber;
 
   // Inject HttpClient into your component or service.
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.dubbersList = []
+  }
 
   ngOnInit(): void {}
 

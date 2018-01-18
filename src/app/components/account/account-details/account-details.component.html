@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-2">
       <figure>
-        <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
+        <img src="/assets/images/default-user-image.png" alt="{{accountService.account.name}} {{accountService.account.surname}}" class="img-fluid img-thumbnail">
         <h5 class="mt-10 text-capitalize">{{accountService.account.name}} {{accountService.account.surname}}</h5>
       </figure>
     </div>
@@ -11,11 +11,11 @@
         <div class="form-row mb-30">
           <div class="col-sm-6 mb-3">
             <label for="name">Name</label>
-            <input type="text" id="name" class="form-control" placeholder="First name" [(ngModel)]="accountService.account.name" name="name">
+            <input type="text" id="name" class="form-control" placeholder="First name" [(ngModel)]="accountService.account.name" name="name" required>
           </div>
           <div class="col-sm-6 mb-3">
             <label for="surname">Surname</label>
-            <input type="text" id="surname" class="form-control" placeholder="Last name" [(ngModel)]="accountService.account.surname" name="surname">
+            <input type="text" id="surname" class="form-control" placeholder="Last name" [(ngModel)]="accountService.account.surname" name="surname" required>
           </div>
           <div class="col mb-3">
             <label for="typeAccount">Type of account</label>
@@ -29,10 +29,10 @@
           <h4>Contacts</h4>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="accountService.account.email" name="email">
+            <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="accountService.account.email" name="email" required>
           </div>
         </div>
-        <button type="submit" class="btn btn-success">Update account</button>
+        <button type="submit" class="btn btn-success" [disabled]="!UpdateAccountForm.valid">Update account</button>
       </form>
     </div>
   </div>

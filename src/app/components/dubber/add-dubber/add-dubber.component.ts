@@ -11,7 +11,7 @@ import {NgForm} from '@angular/forms';
 
 export class AddDubberComponent implements OnInit {
 
-  currentDubber;
+  private currentDubber;
 
   constructor(private dubberService: DubberService) {}
 

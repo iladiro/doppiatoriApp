@@ -14,14 +14,14 @@
           <div class="form-group">
             <label for="surname">Surname</label>
             <input id="surname" type="text" class="form-control" placeholder="Surname" ngModel name="surname" #surname="ngModel" required>
-            <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">The field is required</div>
+            <!-- <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">The field is required</div> -->
           </div>
         </div>
         <div class="col-md-4 mb-3">
           <div class="form-group">
             <label for="fiscalCode">Fiscal Code</label>
             <input id="fiscalCode" type="text" class="form-control" placeholder="Fiscal Code" ngModel name="fiscalCode" #fiscalCode="ngModel" required>
-            <div class="alert alert-danger" *ngIf="fiscalCode.touched && !fiscalCode.valid">The field is required</div>
+            <!-- <div class="alert alert-danger" *ngIf="fiscalCode.touched && !fiscalCode.valid">The field is required</div> -->
           </div>
         </div>
       </div>
@@ -54,16 +54,16 @@
       <div class="form-group">
         <label>Email</label>
         <input id="email" type="email" class="form-control" placeholder="Email" ngModel name="email" #email="ngModel" required>
-        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">The field is required</div>
+        <!-- <div class="alert alert-danger" *ngIf="email.touched && !email.valid">The field is required</div> -->
       </div>
       <div class="form-group">
         <label>Phone</label>
         <input id="phone" type="phone" class="form-control" placeholder="Phone" ngModel name="phone" #phone="ngModel" required>
-        <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">The field is required</div>
+        <!-- <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">The field is required</div> -->
       </div>
     </fieldset>
      <div class="form-group">
-       <button type="submit" class="btn btn-success" [disabled]="!addDubberForm.valid">Add dubber</button>
+       <button type="submit" class="btn btn-success" [disabled]="!addDubberForm.valid">Create dubber</button>
      </div>
   </form>
 </div>

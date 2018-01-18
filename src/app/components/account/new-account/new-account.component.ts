@@ -11,7 +11,7 @@ import {NgForm} from '@angular/forms';
 
 export class NewAccountComponent implements OnInit {
 
-  currentAccount;
+  private currentAccount;
 
   constructor(private accountService: AccountService) { }
 

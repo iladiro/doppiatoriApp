@@ -2,15 +2,15 @@
   <form #newAccountForm="ngForm" (ngSubmit)="onSubmit(newAccountForm)">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" placeholder="Name" name="name" ngModel #name="ngModel">
+      <input type="text" class="form-control" placeholder="Name" name="name" ngModel #name="ngModel" required>
     </div>
     <div class="form-group">
       <label for="surname">Surname</label>
-      <input type="text" class="form-control" placeholder="Surname" name="surname" ngModel #surname="ngModel">
+      <input type="text" class="form-control" placeholder="Surname" name="surname" ngModel #surname="ngModel" required>
     </div>
     <div class="form-group">
       <label for="surname">Email</label>
-      <input type="email" class="form-control" placeholder="Email" name="email" ngModel #email="ngModel">
+      <input type="email" class="form-control" placeholder="Email" name="email" ngModel #email="ngModel" required>
     </div>
     <div class="form-group">
       <label for="surname">Type of user</label>
@@ -19,6 +19,6 @@
         <option value="1">Simple account</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-success">Add Account</button>
+    <button type="submit" class="btn btn-success" [disabled]="!newAccountForm.valid">Create Account</button>
   </form>
 </div>
