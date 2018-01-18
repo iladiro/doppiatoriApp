@@ -7,8 +7,7 @@ import {NgForm} from '@angular/forms';
 
 @Component({
   templateUrl: './dubber-profile.component.html',
-  styleUrls: ['./dubber-profile.component.scss'],
-  providers: [DubberService, FilmService]
+  styleUrls: ['./dubber-profile.component.scss']
 })
 
 export class DubberProfileComponent implements OnInit {

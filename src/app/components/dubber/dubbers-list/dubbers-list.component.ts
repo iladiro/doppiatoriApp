@@ -5,8 +5,7 @@ import {NgForm} from '@angular/forms';
 
 @Component({
   templateUrl: './dubbers-list.component.html',
-  styleUrls: ['./dubbers-list.component.scss'],
-  providers: [DubberService]
+  styleUrls: ['./dubbers-list.component.scss']
 })
 
 export class DubbersListComponent implements OnInit {

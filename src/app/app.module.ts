@@ -4,6 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// Services
+import { DubberService } from './components/dubber/dubbers.service';
+import { AccountService } from './components/account/accounts.service';
+import { FilmService } from './components/film/film.service';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-list.component';
@@ -42,7 +47,11 @@ import { AccountDetailsComponent } from './components/account/account-details/ac
     ReactiveFormsModule,  // Add this!
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DubberService,
+    AccountService,
+    FilmService
+  ],
   bootstrap: [AppComponent]
 })
 

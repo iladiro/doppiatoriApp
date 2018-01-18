@@ -5,8 +5,7 @@ import {NgForm} from '@angular/forms';
 
 @Component({
   templateUrl: './film-list.component.html',
-  styleUrls: ['./film-list.component.scss'],
-  providers: [FilmService]
+  styleUrls: ['./film-list.component.scss']
 })
 
 export class FilmListComponent implements OnInit {

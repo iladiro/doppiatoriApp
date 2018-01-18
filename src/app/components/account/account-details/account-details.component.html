@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="accountService.account">
   <div class="row">
     <div class="col-sm-2">
-      <figure *ngIf="accountService.account">
+      <figure>
         <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
         <h5 class="mt-10 text-capitalize">{{accountService.account.name}} {{accountService.account.surname}}</h5>
       </figure>
