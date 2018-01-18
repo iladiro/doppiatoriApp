@@ -1,3 +1,21 @@
 <div class="container">
   <h1>Dashboard</h1>
+  <div class="row">
+    <div class="col">
+      <h3>Dubbers list</h3>
+      <ul class="list-unstyled">
+        <ng-container *ngFor="let dubber of dubberService.dubbersList; let i=index">
+          <li *ngIf="i < 10">{{dubber.name}} {{dubber.surname}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Film List</h3>
+      <ul class="list-unstyled">
+        <ng-container *ngFor="let film of filmService.filmsList; let i=index">
+          <li *ngIf="i < 10">{{film.title}}</li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
 </div>
