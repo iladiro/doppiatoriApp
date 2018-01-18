@@ -12,17 +12,22 @@ import {NgForm} from '@angular/forms';
 
 export class AddFilmComponent implements OnInit {
 
-  currentFilm;
+  private currentFilm;
+  private status:boolean = false;
 
-  constructor(private filmService: FilmService, private dubberService: DubberService) {}
+  constructor(
+    private filmService: FilmService,
+    private dubberService: DubberService
+  ) {}
 
   onSubmit(form: NgForm){
     this.currentFilm = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
     this.currentFilm.id = lengthDubbersIndex;
-    this.filmService.getAll();
+    //this.filmService.getAll();
     this.filmService.create(this.currentFilm);
     form.reset();
+    this.status = true;
   }
 
   ngOnInit() {

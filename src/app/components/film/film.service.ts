@@ -11,7 +11,9 @@ export class FilmService {
   private film;
 
   // Inject HttpClient into your component or service.
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.filmsList = []
+  }
 
   ngOnInit(): void {}
 
