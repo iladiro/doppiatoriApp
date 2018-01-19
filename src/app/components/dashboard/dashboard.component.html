@@ -2,24 +2,48 @@
   <h1>Dashboard</h1>
   <div class="row">
     <div class="col">
-      <h3>Dubbers list</h3>
-      <ul class="list-unstyled">
-        <ng-container *ngFor="let dubber of dubberService.dubbersList; let i=index">
-          <li *ngIf="i < 10">
-            <a [routerLink]="['/dubberProfile', dubber.id]">{{dubber.name}} {{dubber.surname}}</a>
-          </li>
-        </ng-container>
-      </ul>
+      <div class="card">
+        <h3 class="card__header text-uppercase">
+          Lista dei doppiatori
+        </h3>
+        <div class="card__body">
+          <div class="card__list">
+            <ng-container *ngFor="let dubber of dubberService.dubbersList; let i=index">
+              <div class="media card__list-item" *ngIf="i < 10">
+                <span class="d-flex justify-content-center mr-3 card__list-item--avatar">{{dubber.avatar}}</span>
+                <div class="media-body">
+                  <h5 class="mboth-0 card__list-item--text d-flex align-items-center">
+                    <a [routerLink]="['/dubberProfile', dubber.id]">{{dubber.name}} {{dubber.surname}}</a>
+                  </h5>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="card__footer"></div>
+      </div>
     </div>
     <div class="col">
-      <h3>Film List</h3>
-      <ul class="list-unstyled">
-        <ng-container *ngFor="let film of filmService.filmsList; let i=index">
-          <li *ngIf="i < 10">
-            <a [routerLink]="['/film', film.id]">{{film.title}}</a>
-          </li>
-        </ng-container>
-      </ul>
+      <div class="card">
+        <h3 class="card__header text-uppercase">
+          Lista dei film
+        </h3>
+        <div class="card__body">
+          <div class="card__list">
+            <ng-container *ngFor="let film of filmService.filmsList; let i=index">
+              <div class="media card__list-item" *ngIf="i < 10">
+                <img class="d-flex mr-3 rounded-circle" src="../../assets/images/copertina.jpg" alt="{{film.title}}" height="45">
+                <div class="media-body">
+                  <h5 class="mboth-0 card__list-item--text d-flex align-items-center">
+                    <a [routerLink]="['/film', film.id]">{{film.title}}</a>
+                  </h5>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="card__footer"></div>
+      </div>
     </div>
   </div>
 </div>

@@ -4,6 +4,7 @@
 #header{
   @include border(1px, #e5e5e5, bottom);
   background-color: white;
+  @include  box-shadow(rgba(0, 0, 0, 0.1) 0px 2px 23px 0px, rgba(0, 0, 0, 0.06) 0px 2px 49px 0px);
 }
 
 #search-form {
