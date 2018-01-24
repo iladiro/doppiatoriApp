@@ -7,7 +7,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class FilmService {
 
   private urlRoot = "http://localhost:3000/film/";
-  private filmsList;
+  filmsList;
   private film;
 
   // Inject HttpClient into your component or service.

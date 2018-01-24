@@ -16,7 +16,7 @@ export class FilmDetailsComponent implements OnInit {
   private sub: any;
   currentFilm;
 
-  constructor(private route: ActivatedRoute, private filmService: FilmService, private dubberService: DubberService) {}
+  constructor( private route: ActivatedRoute, private filmService: FilmService, private dubberService: DubberService ) {}
 
   upDateFilmDate(form: NgForm){
     this.currentFilm = form.value;
@@ -24,9 +24,28 @@ export class FilmDetailsComponent implements OnInit {
     this.filmService.update(this.currentFilm);
   }
 
-  onDelete(dubber) {
-    console.log(dubber);
-    //this.dubberService.delete(dubber);
+  onDelete(idFilm, idDubber) {
+    let obj;
+    let dubbersList;
+    this.filmService.filmsList.forEach(function(film) {
+      if(film.id == idFilm) {
+        dubbersList = film.dubbers;
+        dubbersList.map(function(dubber, index){
+          if(dubber.id == idDubber) {
+            dubbersList.splice(index, 1);
+            obj = {
+              "id": film.id,
+              "title": film.title,
+              "description": film.description,
+              "dubbers": dubbersList
+            };
+          }
+        });
+      }
+      return obj;
+    });
+    console.log(obj);
+    this.filmService.update(obj);
   }
 
   ngOnInit() {
@@ -36,6 +55,7 @@ export class FilmDetailsComponent implements OnInit {
       this.filmService.getById(this.id);
     });
     this.dubberService.getAll();
+    this.filmService.getAll();
   }
 
 }
