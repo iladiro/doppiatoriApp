@@ -24,6 +24,11 @@ export class FilmDetailsComponent implements OnInit {
     this.filmService.update(this.currentFilm);
   }
 
+  onDelete(dubber) {
+    console.log(dubber);
+    //this.dubberService.delete(dubber);
+  }
+
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number

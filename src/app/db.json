@@ -127,68 +127,38 @@
       "id": 983440
     },
     {
+      "title": "asd",
+      "description": "sd",
       "dubbers": [
-        "Iladiro",
-        "marika"
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "474666",
+          "name": "Luigi"
+        },
+        {
+          "id": "895008",
+          "name": "fabio"
+        }
       ],
-      "title": "arancia meccanica",
-      "description": "descrizione",
-      "id": 419906
+      "id": 11750
     },
     {
+      "title": "sadads",
+      "description": "asd",
       "dubbers": [
-        "marika",
-        "giuseppe"
+        {
+          "id": "848717",
+          "name": "Carmelo"
+        },
+        {
+          "id": "76651",
+          "name": "Carmelina"
+        }
       ],
-      "title": "l'inviato",
-      "description": "descrizione",
-      "id": 732146
-    },
-    {
-      "dubbers": [
-        "Iladiro",
-        "marika",
-        "Luigi",
-        "fabio",
-        "Carmelo",
-        "giuseppe",
-        "Ilaria di rosa"
-      ],
-      "title": "prova",
-      "description": "prova",
-      "id": 833831
-    },
-    {
-      "dubbers": "",
-      "title": "waasa",
-      "description": "sffsa",
-      "id": 57086
-    },
-    {
-      "title": "kljkl",
-      "description": "jkljk",
-      "dubbers": [
-        "Luigi"
-      ],
-      "id": 546766
-    },
-    {
-      "title": "prova",
-      "description": "prova",
-      "dubbers": [
-        "Iladiro",
-        "marika",
-        "Luigi"
-      ],
-      "id": 272356
-    },
-    {
-      "title": "dsfdfsdfsdfasdfsdf",
-      "description": "sfdsdfsd",
-      "dubbers": [
-        "Iladiro"
-      ],
-      "id": 597873
+      "id": 424442
     }
   ]
 }
