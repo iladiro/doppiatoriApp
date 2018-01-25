@@ -24,7 +24,7 @@ export class FilmDetailsComponent implements OnInit {
     this.filmService.update(this.currentFilm);
   }
 
-  onDelete(idFilm, idDubber) {
+  deleteDubber(idFilm, idDubber) {
     let obj;
     let dubbersList;
     this.filmService.filmsList.forEach(function(film) {
@@ -44,8 +44,25 @@ export class FilmDetailsComponent implements OnInit {
       }
       return obj;
     });
-    console.log(obj);
     this.filmService.update(obj);
+  }
+
+  addDubberHasParticipated(form: NgForm) {
+    let filmRefact;
+    let idFilm = this.id;
+    let currentDubber = form.value;
+    let dubberData = currentDubber.dubbers.split(",");
+    let objDubber = {
+    	id: dubberData[0],
+    	name: dubberData[1]
+    };
+    this.filmService.filmsList.forEach(function(film) {
+      if(film.id == idFilm) {
+        film.dubbers.push(objDubber);
+        filmRefact = film;
+      };
+    };
+    this.filmService.update(filmRefact);
   }
 
   ngOnInit() {

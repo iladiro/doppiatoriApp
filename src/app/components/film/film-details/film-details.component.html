@@ -47,13 +47,24 @@
                   <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
                     <i class="fa fa-info" aria-hidden="true"></i>
                   </a>
-                  <button (click)="onDelete(filmService.film.id, dubber.id)" class="btn btn-outline-danger">
+                  <button (click)="deleteDubber(filmService.film.id, dubber.id)" class="btn btn-outline-danger">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </div>
               </div>
             </div>
           </section>
+          <form #AddDubberForm="ngForm" (ngSubmit)="addDubberHasParticipated(AddDubberForm)">
+            <div class="form-group">
+              <label for="exampleFormControlSelect2">Dubbers List</label>
+              <select name="dubbers" class="form-control" ngModel name="dubbers">
+                <option *ngFor="let dubber of dubberService.dubbersList" value="{{dubber.id}},{{dubber.name}}">
+                  {{dubber.name}} {{dubber.surname}}
+                </option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+          </form>
         </div>
         <div class="tab-pane" id="invoices" role="tabpanel">...</div>
       </div>
