@@ -128,19 +128,15 @@
       ]
     },
     {
+      "id": 424442,
       "title": "sadads",
       "description": "asd",
       "dubbers": [
         {
-          "id": "848717",
-          "name": "Carmelo"
-        },
-        {
           "id": "76651",
           "name": "Carmelina"
         }
-      ],
-      "id": 424442
+      ]
     }
   ]
 }
