@@ -48,7 +48,7 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   addDubberHasParticipated(form: NgForm) {
-    let filmRefact;
+    let filmRefacted;
     let idFilm = this.id;
     let currentDubber = form.value;
     let dubberData = currentDubber.dubbers.split(",");
@@ -56,19 +56,31 @@ export class FilmDetailsComponent implements OnInit {
     	id: dubberData[0],
     	name: dubberData[1]
     };
+    let present = false;
     this.filmService.filmsList.forEach(function(film) {
       if(film.id == idFilm) {
-        film.dubbers.push(objDubber);
-        filmRefact = film;
+        film.dubbers.map(function(dubber) {
+          if(dubber.id == objDubber.id) {
+            present = true;
+            alert("Dubber is already present");
+          } else {
+            film.dubbers.push(objDubber);
+            filmRefacted = film;
+            return;
+          }
+        });
       };
+      //return filmRefacted;
+      console.log(filmRefacted);
     };
-    this.filmService.update(filmRefact);
+    // if(present == false) {
+    //   this.filmService.update(filmRefact);
+    // };
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      //console.log("l'id è " + this.id);
       this.filmService.getById(this.id);
     });
     this.dubberService.getAll();
