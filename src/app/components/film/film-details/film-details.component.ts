@@ -48,34 +48,36 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   addDubberHasParticipated(form: NgForm) {
-    let filmRefacted;
-    let idFilm = this.id;
+    let dubberIsAlreadyPresent = [];
+    let dubbersList = this.filmService.film.dubbers;
     let currentDubber = form.value;
+    //Create dubber object
     let dubberData = currentDubber.dubbers.split(",");
     let objDubber = {
     	id: dubberData[0],
     	name: dubberData[1]
     };
-    let present = false;
-    this.filmService.filmsList.forEach(function(film) {
-      if(film.id == idFilm) {
-        film.dubbers.map(function(dubber) {
-          if(dubber.id == objDubber.id) {
-            present = true;
-            alert("Dubber is already present");
-          } else {
-            film.dubbers.push(objDubber);
-            filmRefacted = film;
-            return;
-          }
-        });
+    //end
+    dubbersList.map(function(dubber) {
+      if(dubber.id == objDubber.id) {
+        dubberIsAlreadyPresent.push("true");
+      } else {
+        dubberIsAlreadyPresent.push("false");
+      }
+    });
+    if(dubberIsAlreadyPresent.includes("true", 1)) {
+      alert("Dubber is already present");
+    } else {
+      // Pusha, ricrea oggetto e aggiorna
+      dubbersList.push(objDubber);
+      let obj = {
+        "id": this.id,
+        "title": this.filmService.film.title,
+        "description": this.filmService.film.description,
+        "dubbers": dubbersList
       };
-      //return filmRefacted;
-      console.log(filmRefacted);
-    };
-    // if(present == false) {
-    //   this.filmService.update(filmRefact);
-    // };
+      this.filmService.update(obj);
+    }
   }
 
   ngOnInit() {
