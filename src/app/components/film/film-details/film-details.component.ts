@@ -25,25 +25,18 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   deleteDubber(idFilm, idDubber) {
-    let obj;
-    let dubbersList;
-    this.filmService.filmsList.forEach(function(film) {
-      if(film.id == idFilm) {
-        dubbersList = film.dubbers;
-        dubbersList.map(function(dubber, index){
-          if(dubber.id == idDubber) {
-            dubbersList.splice(index, 1);
-            obj = {
-              "id": film.id,
-              "title": film.title,
-              "description": film.description,
-              "dubbers": dubbersList
-            };
-          }
-        });
+    let dubbersList = this.filmService.film.dubbers;
+    dubbersList.map(function(dubber, index){
+      if(dubber.id == idDubber) {
+        dubbersList.splice(index, 1);
       }
-      return obj;
     });
+    let obj = {
+      "id": this.id,
+      "title": this.filmService.film.title,
+      "description": this.filmService.film.description,
+      "dubbers": dubbersList
+    };
     this.filmService.update(obj);
   }
 

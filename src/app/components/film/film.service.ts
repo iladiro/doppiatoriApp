@@ -60,7 +60,7 @@ export class FilmService {
   };
 
   update(film) {
-    // console.log(film);
+    console.log(film);
     var confirmRequest = confirm("Are you sure you wanna run the following changes?");
     if (confirmRequest == true) {
       this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
