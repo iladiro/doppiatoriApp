@@ -128,9 +128,9 @@
       ]
     },
     {
+      "title": "Una notte da leoni",
+      "description": "Doug Billings, Phil Wenneck, Stu Price e Alan Garner sono un gruppo di amici in partenza per Las Vegas per celebrare l'addio al celibato di Doug. Phil e Stu sono amici storici dello sposo, mentre Alan è il futuro cognato. Partono a bordo di una Mercedes decappottabile, di proprietà del futuro suocero di Doug, Sid, che tiene alla macchina in modo maniacale, ma che la presta volentieri al futuro genero rassicurato dal fatto che Doug è un ragazzo assennato e rispettoso.",
       "id": 424442,
-      "title": "asd",
-      "description": "sd",
       "dubbers": [
         {
           "id": "414080",
@@ -153,6 +153,136 @@
           "name": "Luigi"
         }
       ]
+    },
+    {
+      "title": "ggfh",
+      "description": "fg",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "474666",
+          "name": "Luigi"
+        }
+      ],
+      "id": 529180
+    },
+    {
+      "title": "dsfdsf",
+      "description": "asd",
+      "dubbers": [
+        {
+          "id": "897827",
+          "name": "marika"
+        },
+        {
+          "id": "895008",
+          "name": "fabio"
+        }
+      ],
+      "id": 516743
+    },
+    {
+      "title": "aSAS",
+      "description": "dsf",
+      "dubbers": [
+        {
+          "id": "897827",
+          "name": "marika"
+        },
+        {
+          "id": "474666",
+          "name": "Luigi"
+        }
+      ],
+      "id": 749677
+    },
+    {
+      "title": "gb",
+      "description": "gfb",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "474666",
+          "name": "Luigi"
+        }
+      ],
+      "id": 20292
+    },
+    {
+      "title": "hgj",
+      "description": "hjh",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "897827",
+          "name": "marika"
+        }
+      ],
+      "id": 160007
+    },
+    {
+      "title": "dscd",
+      "description": "dsf",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "474666",
+          "name": "Luigi"
+        }
+      ],
+      "id": 336758
+    },
+    {
+      "title": "jhjh",
+      "description": "hgj",
+      "dubbers": [
+        {
+          "id": "474666",
+          "name": "Luigi"
+        },
+        {
+          "id": "895008",
+          "name": "fabio"
+        }
+      ],
+      "id": 614792
+    },
+    {
+      "title": "ytuyt",
+      "description": "ytu",
+      "dubbers": [
+        {
+          "id": "897827",
+          "name": "marika"
+        },
+        {
+          "id": "895008",
+          "name": "fabio"
+        }
+      ],
+      "id": 957762
+    }
+  ],
+  "relationship": [
+    {
+      "idFilm": 957762,
+      "idDubbers": [
+        "897827",
+        "895008"
+      ],
+      "id": 1
     }
   ]
 }

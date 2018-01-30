@@ -7,6 +7,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class FilmService {
 
   private urlRoot = "http://localhost:3000/film/";
+  // private urlRootFilm = "http://localhost:3000/film/";
+  // private urlRootDubber = "http://localhost:3000/dubbers/";
+  // private urlRootAccount = "http://localhost:3000/accounts/";
+  private urlRootRelationship = "http://localhost:3000/relationship/";
   filmsList;
   film;
 
@@ -44,6 +48,12 @@ export class FilmService {
       data => {
         this.filmsList.push(data);
       }
+    );
+  };
+
+  createRelationship(item) {
+    this.http.post(this.urlRootRelationship, item).subscribe(
+      data => {}
     );
   };
 

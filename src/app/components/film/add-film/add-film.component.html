@@ -1,6 +1,6 @@
 <div class="container">
   <div class="alert alert-success" *ngIf="status == true">Movie has been created successfully!</div>
-  <form #addFilmForm="ngForm" (ngSubmit)="onSubmit(addFilmForm)">
+  <form #addFilmForm="ngForm" (ngSubmit)="create(addFilmForm)">
     <div class="form-group">
       <label for="title">Title</label>
       <input id="title" type="text" class="form-control" placeholder="Title" ngModel name="title" #title="ngModel" required>

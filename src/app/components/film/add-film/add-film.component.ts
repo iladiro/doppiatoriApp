@@ -14,27 +14,34 @@ export class AddFilmComponent implements OnInit {
 
   private currentFilm;
   private status:boolean = false;
-  private dubbers;
 
   constructor(
     private filmService: FilmService,
     private dubberService: DubberService
   ) {}
 
-  onSubmit(form: NgForm){
+  create(form: NgForm){
     this.currentFilm = form.value;
-    this.dubbers = this.currentFilm.dubbers.map(function(item) {
+    // To assign an ID param to the film object
+    this.currentFilm.id = Math.floor((Math.random() * 1000000) + 1);
+    // end
+    // From an array of string, create dubber's object.
+    this.currentFilm.dubbers = this.currentFilm.dubbers.map(function(item) {
       var data = item.split(',');
       return {
         "id": data[0],
         "name": data[1]
       };
     });
-    let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
-    this.currentFilm.id = lengthDubbersIndex;
-    this.currentFilm.dubbers = this.dubbers;
-    //this.filmService.getAll();
+    // end
+    let relationshipObject = {
+      "idFilm": this.currentFilm.id
+      "idDubbers": this.currentFilm.dubbers.map(function(dubber) {
+        return dubber.id
+      })
+    };
     this.filmService.create(this.currentFilm);
+    this.filmService.createRelationship(relationshipObject);
     form.reset();
     this.status = true;
   }
