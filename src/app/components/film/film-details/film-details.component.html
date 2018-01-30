@@ -15,15 +15,12 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#collaborators" role="tab">Collaborators</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#invoices" role="tab">Invoices</a>
-        </li>
       </ul>
 
       <!-- Tab panes -->
       <div class="tab-content pboth-15">
         <div class="tab-pane active" id="informations" role="tabpanel">
-          <form #UpdateFilmForm="ngForm" (ngSubmit)="upDateFilmDate(UpdateFilmForm)">
+          <form #UpdateFilmForm="ngForm" (ngSubmit)="upDateFilm(UpdateFilmForm)">
             <div class="mb-3">
               <label for="title">Title</label>
               <input type="text" id="title" class="form-control" placeholder="Title" [(ngModel)]="filmService.film.title" name="title">
@@ -47,7 +44,7 @@
                   <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
                     <i class="fa fa-info" aria-hidden="true"></i>
                   </a>
-                  <button (click)="deleteDubber(filmService.film.id, dubber.id)" class="btn btn-outline-danger">
+                  <button (click)="deleteDubber(dubber.id)" class="btn btn-outline-danger">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -66,7 +63,6 @@
             <button type="submit" class="btn btn-success">Add</button>
           </form>
         </div>
-        <div class="tab-pane" id="invoices" role="tabpanel">...</div>
       </div>
     </div>
   </div>

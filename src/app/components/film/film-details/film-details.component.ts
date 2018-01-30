@@ -18,33 +18,28 @@ export class FilmDetailsComponent implements OnInit {
 
   constructor( private route: ActivatedRoute, private filmService: FilmService, private dubberService: DubberService ) {}
 
-  upDateFilmDate(form: NgForm){
+  upDateFilm(form: NgForm){
     this.currentFilm = form.value;
     this.currentFilm.id = this.id;
+    this.currentFilm.dubbers = this.filmService.film.dubbers;
     this.filmService.update(this.currentFilm);
   }
 
-  deleteDubber(idFilm, idDubber) {
-    let dubbersList = this.filmService.film.dubbers;
-    dubbersList.map(function(dubber, index){
+  deleteDubber(idDubber) {
+    let currentFilm = this.filmService.film;
+    currentFilm.dubbers.map(function(dubber, index){
       if(dubber.id == idDubber) {
-        dubbersList.splice(index, 1);
+        currentFilm.dubbers.splice(index, 1);
       }
     });
-    let obj = {
-      "id": this.id,
-      "title": this.filmService.film.title,
-      "description": this.filmService.film.description,
-      "dubbers": dubbersList
-    };
-    this.filmService.update(obj);
+    this.filmService.update(currentFilm);
   }
 
   addDubberHasParticipated(form: NgForm) {
     let dubbersID = [];
-    let dubbersList = this.filmService.film.dubbers;
-    let currentDubber = form.value;
+    let currentFilm = this.filmService.film;
     //Create dubber object
+    let currentDubber = form.value;
     let dubberData = currentDubber.dubbers.split(",");
     let objDubber = {
     	id: dubberData[0],
@@ -52,22 +47,15 @@ export class FilmDetailsComponent implements OnInit {
     };
     //end
     //Create an array of dubber's id
-    dubbersList.map(function(dubber) {
+    currentFilm.dubbers.map(function(dubber) {
       dubbersID.push(dubber.id);
     }
     //end
     if(dubbersID.includes(objDubber.id, 1)) {
       alert("Dubber is already present");
     } else {
-      // Pusha, ricrea oggetto e aggiorna
-      dubbersList.push(objDubber);
-      let obj = {
-        "id": this.id,
-        "title": this.filmService.film.title,
-        "description": this.filmService.film.description,
-        "dubbers": dubbersList
-      };
-      this.filmService.update(obj);
+      currentFilm.dubbers.push(objDubber);
+      this.filmService.update(currentFilm);
     }
   }
 

@@ -106,13 +106,9 @@
   "film": [
     {
       "id": 11750,
-      "title": "asd",
-      "description": "sd",
+      "title": "Pirata dei Caraibi",
+      "description": "L'eccentrico ed eroico capitano Jack Sparrow, per salvare la bella figlia del Governatore inglese, Elizabeth Swann, rapita dalla ciurma della nave pirata Perla Nera, comandata dall'astuto e spietato capitano Hector Barbossa (nemico di Jack Sparrow, aveva rubato la nave Perla Nera), con lo scopo di liberarsi da una maledizione subita per aver sottratto dell'oro, si allea con il fabbro locale Will Turner, figlio di un amico di vecchia data e innamorato della bella Elizabeth, per cercare di riavere, entrambi, ciò che gli è stato sottratto.",
       "dubbers": [
-        {
-          "id": "848717",
-          "name": "Carmelo"
-        },
         {
           "id": "474666",
           "name": "Luigi"
@@ -126,8 +122,8 @@
           "name": "Giuseppe"
         },
         {
-          "id": "281715",
-          "name": "Iladiro"
+          "id": "76651",
+          "name": "Carmelina"
         }
       ]
     },
