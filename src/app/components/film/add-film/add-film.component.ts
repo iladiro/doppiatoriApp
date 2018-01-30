@@ -12,7 +12,7 @@ import {NgForm} from '@angular/forms';
 
 export class AddFilmComponent implements OnInit {
 
-  private currentFilm;
+  //private currentFilm;
   private status:boolean = false;
 
   constructor(
@@ -21,27 +21,38 @@ export class AddFilmComponent implements OnInit {
   ) {}
 
   create(form: NgForm){
-    this.currentFilm = form.value;
+    let service = this.dubberService;
+    let filmDubbersId = [];
+    let currentFilm = form.value;
     // To assign an ID param to the film object
-    this.currentFilm.id = Math.floor((Math.random() * 1000000) + 1);
+    currentFilm.id = Math.floor((Math.random() * 1000000) + 1);
     // end
+    let updateDubbers = [];
     // From an array of string, create dubber's object.
-    this.currentFilm.dubbers = this.currentFilm.dubbers.map(function(item) {
+    currentFilm.dubbers = currentFilm.dubbers.map(function(item) {
       var data = item.split(',');
+      filmDubbersId.push(data[0]);
       return {
         "id": data[0],
         "name": data[1]
       };
     });
     // end
-    let relationshipObject = {
-      "idFilm": this.currentFilm.id
-      "idDubbers": this.currentFilm.dubbers.map(function(dubber) {
-        return dubber.id
-      })
-    };
-    this.filmService.create(this.currentFilm);
-    this.filmService.createRelationship(relationshipObject);
+    this.dubberService.dubbersList.map(function(dubber) {
+      if(filmDubbersId.includes(dubber.id.toString())) {
+        dubber.film = {
+          "id": currentFilm.id,
+          "title": currentFilm.title
+        };
+        updateDubbers.push(dubber);
+      } else {
+        console.log("no")
+      }
+    });
+    updateDubbers.forEach(function(dubber) {
+      service.update(dubber);
+    });
+    this.filmService.create(currentFilm);
     form.reset();
     this.status = true;
   }

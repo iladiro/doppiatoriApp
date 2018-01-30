@@ -28,7 +28,11 @@
       "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
       "id": 281715,
-      "avatar": "I"
+      "avatar": "I",
+      "film": {
+        "id": 102880,
+        "title": "Il re leone"
+      }
     },
     {
       "name": "marika",
@@ -40,7 +44,11 @@
       "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
       "id": 897827,
-      "avatar": "m"
+      "avatar": "m",
+      "film": {
+        "id": 102880,
+        "title": "Il re leone"
+      }
     },
     {
       "name": "Luigi",
@@ -52,7 +60,11 @@
       "email": "luigi.petrucci@gmail.com",
       "phone": "3474977880",
       "id": 474666,
-      "avatar": "L"
+      "avatar": "L",
+      "film": {
+        "id": 102880,
+        "title": "Il re leone"
+      }
     },
     {
       "name": "fabio",
@@ -64,7 +76,11 @@
       "email": "fabio.petrucci@gmail.com",
       "phone": "3474977880",
       "id": 895008,
-      "avatar": "f"
+      "avatar": "f",
+      "film": {
+        "id": 102880,
+        "title": "Il re leone"
+      }
     },
     {
       "name": "Carmelo",
@@ -155,68 +171,8 @@
       ]
     },
     {
-      "title": "ggfh",
-      "description": "fg",
-      "dubbers": [
-        {
-          "id": "281715",
-          "name": "Iladiro"
-        },
-        {
-          "id": "474666",
-          "name": "Luigi"
-        }
-      ],
-      "id": 529180
-    },
-    {
-      "title": "dsfdsf",
-      "description": "asd",
-      "dubbers": [
-        {
-          "id": "897827",
-          "name": "marika"
-        },
-        {
-          "id": "895008",
-          "name": "fabio"
-        }
-      ],
-      "id": 516743
-    },
-    {
-      "title": "aSAS",
-      "description": "dsf",
-      "dubbers": [
-        {
-          "id": "897827",
-          "name": "marika"
-        },
-        {
-          "id": "474666",
-          "name": "Luigi"
-        }
-      ],
-      "id": 749677
-    },
-    {
-      "title": "gb",
-      "description": "gfb",
-      "dubbers": [
-        {
-          "id": "281715",
-          "name": "Iladiro"
-        },
-        {
-          "id": "474666",
-          "name": "Luigi"
-        }
-      ],
-      "id": 20292
-    },
-    {
-      "title": "hgj",
-      "description": "hjh",
+      "title": "Il re leone",
+      "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
       "dubbers": [
         {
           "id": "281715",
@@ -225,29 +181,7 @@
         {
           "id": "897827",
           "name": "marika"
-        }
-      ],
-      "id": 160007
-    },
-    {
-      "title": "dscd",
-      "description": "dsf",
-      "dubbers": [
-        {
-          "id": "281715",
-          "name": "Iladiro"
         },
-        {
-          "id": "474666",
-          "name": "Luigi"
-        }
-      ],
-      "id": 336758
-    },
-    {
-      "title": "jhjh",
-      "description": "hgj",
-      "dubbers": [
         {
           "id": "474666",
           "name": "Luigi"
@@ -257,32 +191,7 @@
           "name": "fabio"
         }
       ],
-      "id": 614792
-    },
-    {
-      "title": "ytuyt",
-      "description": "ytu",
-      "dubbers": [
-        {
-          "id": "897827",
-          "name": "marika"
-        },
-        {
-          "id": "895008",
-          "name": "fabio"
-        }
-      ],
-      "id": 957762
-    }
-  ],
-  "relationship": [
-    {
-      "idFilm": 957762,
-      "idDubbers": [
-        "897827",
-        "895008"
-      ],
-      "id": 1
+      "id": 102880
     }
   ]
 }

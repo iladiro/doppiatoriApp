@@ -51,12 +51,6 @@ export class FilmService {
     );
   };
 
-  createRelationship(item) {
-    this.http.post(this.urlRootRelationship, item).subscribe(
-      data => {}
-    );
-  };
-
   delete(film) {
     let index = this.filmsList.indexOf(film);
     var confirmRequest = confirm("Are you sure to delete it?");
@@ -70,15 +64,19 @@ export class FilmService {
   };
 
   update(film) {
-    // console.log(film);
-    var confirmRequest = confirm("Are you sure you wanna run the following changes?");
-    if (confirmRequest == true) {
-      this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
-        data => {
-          this.film = data;
-        }
-      );
-    };
+    this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
+      data => {
+        this.film = data;
+      }
+    );
+    // var confirmRequest = confirm("Are you sure you wanna run the following changes?");
+    // if (confirmRequest == true) {
+    //   this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
+    //     data => {
+    //       this.film = data;
+    //     }
+    //   );
+    // };
   };
 
 }
