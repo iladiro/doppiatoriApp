@@ -41,7 +41,7 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   addDubberHasParticipated(form: NgForm) {
-    let dubberIsAlreadyPresent = [];
+    let dubbersID = [];
     let dubbersList = this.filmService.film.dubbers;
     let currentDubber = form.value;
     //Create dubber object
@@ -51,14 +51,12 @@ export class FilmDetailsComponent implements OnInit {
     	name: dubberData[1]
     };
     //end
+    //Create an array of dubber's id
     dubbersList.map(function(dubber) {
-      if(dubber.id == objDubber.id) {
-        dubberIsAlreadyPresent.push("true");
-      } else {
-        dubberIsAlreadyPresent.push("false");
-      }
-    });
-    if(dubberIsAlreadyPresent.includes("true", 1)) {
+      dubbersID.push(dubber.id);
+    }
+    //end
+    if(dubbersID.includes(objDubber.id, 1)) {
       alert("Dubber is already present");
     } else {
       // Pusha, ricrea oggetto e aggiorna

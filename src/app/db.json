@@ -101,18 +101,6 @@
       "phone": "347497789",
       "id": 76651,
       "avatar": "C"
-    },
-    {
-      "name": "ghj",
-      "surname": "ghj",
-      "fiscalCode": "hgj",
-      "birthdate": "456",
-      "birthplace": "ghf",
-      "birthcounty": "dgh",
-      "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": 633922,
-      "avatar": "g"
     }
   ],
   "film": [
@@ -122,16 +110,24 @@
       "description": "sd",
       "dubbers": [
         {
-          "id": "281715",
-          "name": "Iladiro"
-        },
-        {
-          "id": "897827",
-          "name": "marika"
-        },
-        {
           "id": "848717",
           "name": "Carmelo"
+        },
+        {
+          "id": "474666",
+          "name": "Luigi"
+        },
+        {
+          "id": "895008",
+          "name": "fabio"
+        },
+        {
+          "id": "414080",
+          "name": "Giuseppe"
+        },
+        {
+          "id": "281715",
+          "name": "Iladiro"
         }
       ]
     },
