@@ -24,6 +24,7 @@ export class AddDubberComponent implements OnInit {
     this.currentDubber = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
     this.currentDubber.id = lengthDubbersIndex;
+    this.currentDubber.film = [];
     this.getFirstChar(this.currentDubber);
     this.dubberService.create(this.currentDubber);
     form.reset();

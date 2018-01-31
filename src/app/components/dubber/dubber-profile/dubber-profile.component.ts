@@ -30,6 +30,7 @@ export class DubberProfileComponent implements OnInit {
   upDateParsonalDate(form: NgForm){
     this.currentDubber = form.value;
     this.currentDubber.id = this.id;
+    this.currentDubber.film = this.dubberService.dubber.film;
     this.getFirstChar(this.currentDubber);
     this.dubberService.update(this.currentDubber);
   }

@@ -60,12 +60,15 @@ export class DubberService {
   };
 
   update(dubber) {
-    var confirmRequest = confirm("Are you sure you wanna run the following changes?");
-    if (confirmRequest == true) {
-      this.http.put(this.urlRoot + dubber.id.toString(), dubber).subscribe(
-        data => {}
-      );
-    };
+    this.http.put(this.urlRoot + dubber.id.toString(), dubber).subscribe(
+      data => {}
+    );
+    // var confirmRequest = confirm("Are you sure you wanna run the following changes?");
+    // if (confirmRequest == true) {
+    //   this.http.put(this.urlRoot + dubber.id.toString(), dubber).subscribe(
+    //     data => {}
+    //   );
+    // };
   };
 
 }

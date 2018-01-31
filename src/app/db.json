@@ -29,10 +29,7 @@
       "phone": "3474977880",
       "id": 281715,
       "avatar": "I",
-      "film": {
-        "id": 102880,
-        "title": "Il re leone"
-      }
+      "film": []
     },
     {
       "name": "marika",
@@ -45,10 +42,16 @@
       "phone": "3474977880",
       "id": 897827,
       "avatar": "m",
-      "film": {
-        "id": 102880,
-        "title": "Il re leone"
-      }
+      "film": [
+        {
+          "id": 638346,
+          "title": "gfhg"
+        },
+        {
+          "id": 20075,
+          "title": "gh"
+        }
+      ]
     },
     {
       "name": "Luigi",
@@ -61,10 +64,7 @@
       "phone": "3474977880",
       "id": 474666,
       "avatar": "L",
-      "film": {
-        "id": 102880,
-        "title": "Il re leone"
-      }
+      "film": []
     },
     {
       "name": "fabio",
@@ -77,10 +77,7 @@
       "phone": "3474977880",
       "id": 895008,
       "avatar": "f",
-      "film": {
-        "id": 102880,
-        "title": "Il re leone"
-      }
+      "film": []
     },
     {
       "name": "Carmelo",
@@ -92,7 +89,8 @@
       "email": "dirosa.carmelo@gmail.com",
       "phone": "3474977880",
       "id": 848717,
-      "avatar": "C"
+      "avatar": "C",
+      "film": []
     },
     {
       "name": "Giuseppe",
@@ -104,7 +102,8 @@
       "email": "giuseppe.nicolosi@gmail.com",
       "phone": "3274564776",
       "id": 414080,
-      "avatar": "G"
+      "avatar": "G",
+      "film": []
     },
     {
       "name": "Carmelina",
@@ -116,7 +115,30 @@
       "email": "carmelina.iannone@gmail.com",
       "phone": "347497789",
       "id": 76651,
-      "avatar": "C"
+      "avatar": "C",
+      "film": []
+    },
+    {
+      "name": "Adele",
+      "surname": "Simone",
+      "fiscalCode": "dshgfdsjghdjhf",
+      "birthdate": "16/02/1988",
+      "birthplace": "Barletta",
+      "birthcounty": "Italy",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": 608361,
+      "film": [
+        {
+          "id": 744308,
+          "title": "fhsf"
+        },
+        {
+          "id": 949565,
+          "title": "asdas"
+        }
+      ],
+      "avatar": "A"
     }
   ],
   "film": [
@@ -192,6 +214,88 @@
         }
       ],
       "id": 102880
+    },
+    {
+      "title": "Titanic",
+      "description": "l cuore di una donna è un profondo oceano di segreti. Ma ora sapete che c'era un uomo di nome Jack Dawson, e che lui mi ha salvato, in tutti i modi in cui una persona può essere salvata. Non ho nemmeno una sua foto... non ho niente di lui, vive solo nei miei ricordi.",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "895008",
+          "name": "fabio"
+        }
+      ],
+      "id": 425512
+    },
+    {
+      "title": "gfh",
+      "description": "gfh",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "897827",
+          "name": "marika"
+        }
+      ],
+      "id": 349451
+    },
+    {
+      "title": "gfhg",
+      "description": "gfh",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "897827",
+          "name": "marika"
+        }
+      ],
+      "id": 638346
+    },
+    {
+      "title": "gh",
+      "description": "ghj",
+      "dubbers": [
+        {
+          "id": "281715",
+          "name": "Iladiro"
+        },
+        {
+          "id": "897827",
+          "name": "marika"
+        }
+      ],
+      "id": 20075
+    },
+    {
+      "title": "fhsf",
+      "description": "gfjgj",
+      "dubbers": [
+        {
+          "id": "608361",
+          "name": "Adele"
+        }
+      ],
+      "id": 744308
+    },
+    {
+      "title": "asdas",
+      "description": "asdasd",
+      "dubbers": [
+        {
+          "id": "608361",
+          "name": "Adele"
+        }
+      ],
+      "id": 949565
     }
   ]
 }

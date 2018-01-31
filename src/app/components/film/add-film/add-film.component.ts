@@ -22,7 +22,7 @@ export class AddFilmComponent implements OnInit {
 
   create(form: NgForm){
     let service = this.dubberService;
-    let filmDubbersId = [];
+    let filmDubbersIdSelected = [];
     let currentFilm = form.value;
     // To assign an ID param to the film object
     currentFilm.id = Math.floor((Math.random() * 1000000) + 1);
@@ -31,7 +31,7 @@ export class AddFilmComponent implements OnInit {
     // From an array of string, create dubber's object.
     currentFilm.dubbers = currentFilm.dubbers.map(function(item) {
       var data = item.split(',');
-      filmDubbersId.push(data[0]);
+      filmDubbersIdSelected.push(data[0]);
       return {
         "id": data[0],
         "name": data[1]
@@ -39,14 +39,14 @@ export class AddFilmComponent implements OnInit {
     });
     // end
     this.dubberService.dubbersList.map(function(dubber) {
-      if(filmDubbersId.includes(dubber.id.toString())) {
-        dubber.film = {
+      if(filmDubbersIdSelected.includes(dubber.id.toString())) {
+        let dubberFilm = dubber.film;
+        let obj = {
           "id": currentFilm.id,
           "title": currentFilm.title
         };
+        dubberFilm.push(obj);
         updateDubbers.push(dubber);
-      } else {
-        console.log("no")
       }
     });
     updateDubbers.forEach(function(dubber) {
