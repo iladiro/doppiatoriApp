@@ -49,9 +49,9 @@ export class FilmDetailsComponent implements OnInit {
     //Create an array of dubber's id
     currentFilm.dubbers.map(function(dubber) {
       dubbersID.push(dubber.id);
-    }
+    });
     //end
-    if(dubbersID.includes(objDubber.id, 1)) {
+    if(dubbersID.includes(objDubber.id)) {
       alert("Dubber is already present");
     } else {
       currentFilm.dubbers.push(objDubber);

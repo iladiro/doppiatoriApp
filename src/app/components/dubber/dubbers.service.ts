@@ -7,8 +7,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class DubberService {
 
   private urlRoot = "http://localhost:3000/dubbers/";
-  private dubbersList;
-  private dubber;
+  dubbersList;
+  dubber;
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {
