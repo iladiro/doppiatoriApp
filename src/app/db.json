@@ -1,235 +1,51 @@
 {
-  "accounts": [
-    {
-      "name": "Ilaria",
-      "surname": " di rosa",
-      "typeAccount": "0",
-      "email": "dirosa.ilaria@gmail.com",
-      "id": 864719,
-      "avatar": "I"
-    },
-    {
-      "name": "Fabio",
-      "surname": "Petrucci",
-      "email": "fabio.petrucci@gmail.com",
-      "typeAccount": "1",
-      "id": 190363,
-      "avatar": "F"
-    }
-  ],
+  "accounts": [],
   "dubbers": [
     {
-      "name": "Iladiro",
-      "surname": "Di Rosa",
-      "birthdate": "16/02/1988",
-      "birthplace": "Italy",
-      "birthcounty": "Milan",
-      "fiscalCode": "drslri88b56f205d",
-      "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": 281715,
-      "avatar": "I",
-      "film": []
-    },
-    {
-      "name": "marika",
-      "surname": "Di Rosa",
-      "birthdate": "16/02/1988",
-      "birthplace": "Italy",
-      "birthcounty": "Milano",
-      "fiscalCode": "",
-      "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": 897827,
-      "avatar": "m",
-      "film": [
-        {
-          "id": 638346,
-          "title": "gfhg"
-        }
-      ]
-    },
-    {
-      "name": "Luigi",
-      "surname": "Petrucci",
-      "birthdate": "10/02/1930",
-      "birthplace": "Italy",
-      "birthcounty": "Porciano",
-      "fiscalCode": "drslri88b56f205d",
-      "email": "luigi.petrucci@gmail.com",
-      "phone": "3474977880",
-      "id": 474666,
-      "avatar": "L",
-      "film": [
-        {
-          "id": 377506,
-          "title": "Il Gladiatore"
-        }
-      ]
-    },
-    {
-      "name": "fabio",
-      "surname": "petrucci",
-      "birthdate": "09/05/1971",
-      "birthplace": "Italy",
-      "birthcounty": "Rome",
-      "fiscalCode": "drslri88b56f205d",
-      "email": "fabio.petrucci@gmail.com",
-      "phone": "3474977880",
-      "id": 895008,
-      "avatar": "f",
-      "film": [
-        {
-          "id": 377506,
-          "title": "Il Gladiatore"
-        }
-      ]
-    },
-    {
-      "name": "Carmelo",
+      "name": "ilaria",
       "surname": "di rosa",
-      "birthdate": "05/07/1956",
-      "birthplace": "Italy",
-      "birthcounty": "Agrigento",
-      "fiscalCode": "drslri88b56f205d",
-      "email": "dirosa.carmelo@gmail.com",
+      "fiscalCode": "dfgdgdfgdfgdfgdf",
+      "birthdate": "16/02/1988",
+      "birthplace": "Gessate",
+      "birthcounty": "Milano",
+      "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
-      "id": 848717,
-      "avatar": "C",
+      "id": 518921,
       "film": [
         {
-          "id": 377506,
-          "title": "Il Gladiatore"
-        }
-      ]
-    },
-    {
-      "name": "Giuseppe",
-      "surname": "Nicolosi",
-      "birthdate": "02/01/1974",
-      "birthplace": "Italy",
-      "birthcounty": "Palermo",
-      "fiscalCode": "drslri88b56f205d",
-      "email": "giuseppe.nicolosi@gmail.com",
-      "phone": "3274564776",
-      "id": 414080,
-      "avatar": "G",
-      "film": []
-    },
-    {
-      "name": "Carmelina",
-      "surname": "Iannone",
-      "birthdate": "",
-      "birthplace": "Italia",
-      "birthcounty": "Firenze",
-      "fiscalCode": "drslri88b56f205d",
-      "email": "carmelina.iannone@gmail.com",
-      "phone": "347497789",
-      "id": 76651,
-      "avatar": "C",
-      "film": [
-        {
-          "id": 11750,
+          "id": 696831,
           "title": "Pirata dei Caraibi"
         },
         {
-          "id": 424442,
+          "id": 998039,
           "title": "Una notte da leoni"
         }
-      ]
-    },
-    {
-      "name": "Adele",
-      "surname": "Simone",
-      "fiscalCode": "dshgfdsjghdjhf",
-      "birthdate": "16/02/1988",
-      "birthplace": "Barletta",
-      "birthcounty": "Italy",
-      "email": "dirosa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": 608361,
-      "film": [],
-      "avatar": "A"
+      ],
+      "avatar": "i"
     }
   ],
   "film": [
     {
-      "id": 11750,
+      "title": "Una notte da leoni",
+      "description": "Doug Billings, Phil Wenneck, Stu Price e Alan Garner sono un gruppo di amici in partenza per Las Vegas per celebrare l'addio al celibato di Doug. Phil e Stu sono amici storici dello sposo, mentre Alan è il futuro cognato. Partono a bordo di una Mercedes decappottabile, di proprietà del futuro suocero di Doug, Sid, che tiene alla macchina in modo maniacale, ma che la presta volentieri al futuro genero rassicurato dal fatto che Doug è un ragazzo assennato e rispettoso.",
+      "dubbers": [
+        {
+          "id": "518921",
+          "name": "ilaria"
+        }
+      ],
+      "id": 998039
+    },
+    {
       "title": "Pirata dei Caraibi",
       "description": "L'eccentrico ed eroico capitano Jack Sparrow, per salvare la bella figlia del Governatore inglese, Elizabeth Swann, rapita dalla ciurma della nave pirata Perla Nera, comandata dall'astuto e spietato capitano Hector Barbossa (nemico di Jack Sparrow, aveva rubato la nave Perla Nera), con lo scopo di liberarsi da una maledizione subita per aver sottratto dell'oro, si allea con il fabbro locale Will Turner, figlio di un amico di vecchia data e innamorato della bella Elizabeth, per cercare di riavere, entrambi, ciò che gli è stato sottratto.",
       "dubbers": [
         {
-          "id": "281715",
-          "name": "Iladiro"
-        },
-        {
-          "id": "895008",
-          "name": "fabio"
-        },
-        {
-          "id": "474666",
-          "name": "Luigi"
-        },
-        {
-          "id": "608361",
-          "name": "Adele"
-        },
-        {
-          "id": "76651",
-          "name": "Carmelina"
-        }
-      ]
-    },
-    {
-      "title": "Una notte da leoni",
-      "description": "Doug Billings, Phil Wenneck, Stu Price e Alan Garner sono un gruppo di amici in partenza per Las Vegas per celebrare l'addio al celibato di Doug. Phil e Stu sono amici storici dello sposo, mentre Alan è il futuro cognato. Partono a bordo di una Mercedes decappottabile, di proprietà del futuro suocero di Doug, Sid, che tiene alla macchina in modo maniacale, ma che la presta volentieri al futuro genero rassicurato dal fatto che Doug è un ragazzo assennato e rispettoso.",
-      "id": 424442,
-      "dubbers": [
-        {
-          "id": "76651",
-          "name": "Carmelina"
-        }
-      ]
-    },
-    {
-      "title": "Il re leone",
-      "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
-      "dubbers": [
-        {
-          "id": "76651",
-          "name": "Carmelina"
+          "id": "518921",
+          "name": "ilaria"
         }
       ],
-      "id": 102880
-    },
-    {
-      "title": "Titanic",
-      "description": "l cuore di una donna è un profondo oceano di segreti. Ma ora sapete che c'era un uomo di nome Jack Dawson, e che lui mi ha salvato, in tutti i modi in cui una persona può essere salvata. Non ho nemmeno una sua foto... non ho niente di lui, vive solo nei miei ricordi.",
-      "dubbers": [],
-      "id": 425512
-    },
-    {
-      "title": "Il Gladiatore",
-      "description": "Nell'anno 180 d.C., il valente generale Massimo Decimo Meridio[1] guida l'esercito romano alla vittoria durante la guerra contro i Marcomanni in Germania, guadagnandosi ancora di più la stima dell'anziano imperatore romano Marco Aurelio, gravemente malato; questi, che si sente prossimo alla fine, non accetta il proprio figlio Commodo come proprio successore, considerandolo inadatto al ruolo; designa pertanto il generale Massimo, vedendovi il figlio che avrebbe voluto avere al posto di Commodo: Marco Aurelio intende affidargli il compito di ripristinare la repubblica restituendo il potere al senato, ovvero al popolo romano, come avveniva prima dell'avvento dell'età imperiale.",
-      "dubbers": [
-        {
-          "id": "474666",
-          "name": "Luigi"
-        },
-        {
-          "id": "895008",
-          "name": "fabio"
-        },
-        {
-          "id": "848717",
-          "name": "Carmelo"
-        },
-        {
-          "id": "414080",
-          "name": "Giuseppe"
-        }
-      ],
-      "id": 377506
+      "id": 696831
     }
   ]
 }

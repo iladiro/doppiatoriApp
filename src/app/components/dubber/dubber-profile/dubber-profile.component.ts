@@ -34,7 +34,8 @@ export class DubberProfileComponent implements OnInit {
     this.dubberService.update(currentDubber);
   }
 
-  deleteDubberFilm(idFilm) {
+  deleteFilm(idFilm) {
+    // Updating dubber object after event delete film
     let currentDubber = this.dubberService.dubber;
     currentDubber.film.map(function(film, index){
       if(film.id == idFilm) {
@@ -42,6 +43,18 @@ export class DubberProfileComponent implements OnInit {
       }
     });
     this.dubberService.update(currentDubber);
+    // end
+
+    // Updating film object after event delete film
+    let filmToDelete;
+    this.filmService.filmsList.map(function(film, index) {
+      if(film.id == idFilm) {
+        film.dubbers.splice(index, 1);
+        filmToDelete = film;
+      };
+    });
+    this.filmService.update(filmToDelete);
+    // end
   }
 
   ngOnInit() {
@@ -49,6 +62,7 @@ export class DubberProfileComponent implements OnInit {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.dubberService.getById(this.id);
     });
+    this.filmService.getAll();
   }
 
 }

@@ -32,6 +32,17 @@ export class FilmDetailsComponent implements OnInit {
       }
     });
     this.filmService.update(currentFilm);
+
+    // Updating film object after event delete film
+    let dubberToDelete;
+    this.dubberService.dubbersList.map(function(dubber, index) {
+      if(dubber.id == idDubber) {
+        dubber.film.splice(index, 1);
+        dubberToDelete = dubber;
+      };
+    });
+    this.filmService.update(dubberToDelete);
+    // end
   }
 
   addDubberHasParticipated(form: NgForm) {
