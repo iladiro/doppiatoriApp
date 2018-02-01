@@ -14,7 +14,6 @@ export class DubberProfileComponent implements OnInit {
 
   id: number;
   private sub: any;
-  currentDubber;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,11 +27,21 @@ export class DubberProfileComponent implements OnInit {
   }
 
   upDateParsonalDate(form: NgForm){
-    this.currentDubber = form.value;
-    this.currentDubber.id = this.id;
-    this.currentDubber.film = this.dubberService.dubber.film;
-    this.getFirstChar(this.currentDubber);
-    this.dubberService.update(this.currentDubber);
+    let currentDubber = form.value;
+    currentDubber.id = this.id;
+    currentDubber.film = this.dubberService.dubber.film;
+    this.getFirstChar(currentDubber);
+    this.dubberService.update(currentDubber);
+  }
+
+  deleteDubberFilm(idFilm) {
+    let currentDubber = this.dubberService.dubber;
+    currentDubber.film.map(function(film, index){
+      if(film.id == idFilm) {
+        currentDubber.film.splice(index, 1);
+      }
+    });
+    this.dubberService.update(currentDubber);
   }
 
   ngOnInit() {

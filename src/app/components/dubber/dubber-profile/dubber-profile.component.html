@@ -67,7 +67,7 @@
           </form>
         </div>
         <div class="tab-pane" id="collaborations" role="tabpanel">
-          <section class="itemsList">
+          <section class="itemsList" *ngIf="dubberService.dubber.film.length; else noFilm">
             <div class="itemsList__body">
               <div class="itemsList__body-row row"  *ngFor="let dubberFilm of dubberService.dubber.film">
                 <div class="col pt-20">
@@ -77,13 +77,16 @@
                   <a [routerLink]="['/film', dubberFilm.id]" class="btn btn-outline-primary">
                     <i class="fa fa-info" aria-hidden="true"></i>
                   </a>
-                  <!-- <button (click)="deleteDubber(dubberFilm.id)" class="btn btn-outline-danger">
+                  <button (click)="deleteDubberFilm(dubberFilm.id)" class="btn btn-outline-danger">
                     <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button> -->
+                  </button>
                 </div>
               </div>
             </div>
           </section>
+          <ng-template #noFilm>
+            <p class="alert alert-warning">There aren't associated films</p>
+          </ng-template>
         </div>
         <div class="tab-pane" id="invoices" role="tabpanel">...</div>
       </div>
