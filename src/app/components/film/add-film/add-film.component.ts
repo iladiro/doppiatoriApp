@@ -38,6 +38,8 @@ export class AddFilmComponent implements OnInit {
       };
     });
     // end
+    /* Se l'id del dubber su cui stai ciclando è contenuto nell'array dei dubber selezionati
+    nella proprietà film del dubber pusha l'oggeto film */
     this.dubberService.dubbersList.map(function(dubber) {
       if(filmDubbersIdSelected.includes(dubber.id.toString())) {
         let dubberFilm = dubber.film;

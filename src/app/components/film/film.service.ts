@@ -68,7 +68,7 @@ export class FilmService {
     if (confirmRequest == true) {
       this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
         data => {
-          this.film = data;
+          // this.film = data;
         }
       );
     };

@@ -14,15 +14,14 @@ export class FilmDetailsComponent implements OnInit {
 
   id: number;
   private sub: any;
-  currentFilm;
 
   constructor( private route: ActivatedRoute, private filmService: FilmService, private dubberService: DubberService ) {}
 
   upDateFilm(form: NgForm){
-    this.currentFilm = form.value;
-    this.currentFilm.id = this.id;
-    this.currentFilm.dubbers = this.filmService.film.dubbers;
-    this.filmService.update(this.currentFilm);
+    let currentFilm = form.value;
+    currentFilm.id = this.id;
+    currentFilm.dubbers = this.filmService.film.dubbers;
+    this.filmService.update(currentFilm);
   }
 
   deleteDubber(idDubber) {
@@ -36,27 +35,47 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   addDubberHasParticipated(form: NgForm) {
-    let dubbersID = [];
-    let currentFilm = this.filmService.film;
-    //Create dubber object
-    let currentDubber = form.value;
-    let dubberData = currentDubber.dubbers.split(",");
-    let objDubber = {
-    	id: dubberData[0],
-    	name: dubberData[1]
+    // Create dubber object to add
+    let dubberToAdd = form.value;
+    dubberToAdd = dubberToAdd.dubbers.split(",");
+    dubberToAdd = {
+    	"id": dubberToAdd[0],
+    	"name": dubberToAdd[1]
     };
-    //end
-    //Create an array of dubber's id
+    // end
+    // Film object that we've got from the service, and then we've  extrapolated ID and title
+    let currentFilm = this.filmService.film;
+    let objFilm = {
+      "id": this.id,
+      "title": this.filmService.film.title
+    };
+    // end
+
+    /*Create an array of dubber's id.
+    Then check if the id of the dubber that I want to add is present or not into the array of id*/
+    let dubbersID = [];
     currentFilm.dubbers.map(function(dubber) {
       dubbersID.push(dubber.id);
     });
-    //end
-    if(dubbersID.includes(objDubber.id)) {
+    if(dubbersID.includes(dubberToAdd.id)) {
       alert("Dubber is already present");
     } else {
-      currentFilm.dubbers.push(objDubber);
+      currentFilm.dubbers.push(dubberToAdd);
       this.filmService.update(currentFilm);
     }
+    //end
+
+    /* Each every dubbers in the app. Then check if the id of the dubber on the
+    cicle is equal then id of the dubber that I wanna add.
+    If YES get a push of the film's data into the dubber object*/
+    this.dubberService.dubbersList.map(function(dubber) {
+      if(dubber.id == dubberToAdd.id) {
+        dubber.film.push(objFilm);
+        dubberToAdd = dubber;
+      };
+    });
+    this.dubberService.update(dubberToAdd);
+    // end
   }
 
   ngOnInit() {

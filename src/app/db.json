@@ -60,7 +60,12 @@
       "phone": "3474977880",
       "id": 474666,
       "avatar": "L",
-      "film": []
+      "film": [
+        {
+          "id": 377506,
+          "title": "Il Gladiatore"
+        }
+      ]
     },
     {
       "name": "fabio",
@@ -73,7 +78,12 @@
       "phone": "3474977880",
       "id": 895008,
       "avatar": "f",
-      "film": []
+      "film": [
+        {
+          "id": 377506,
+          "title": "Il Gladiatore"
+        }
+      ]
     },
     {
       "name": "Carmelo",
@@ -86,7 +96,12 @@
       "phone": "3474977880",
       "id": 848717,
       "avatar": "C",
-      "film": []
+      "film": [
+        {
+          "id": 377506,
+          "title": "Il Gladiatore"
+        }
+      ]
     },
     {
       "name": "Giuseppe",
@@ -112,7 +127,16 @@
       "phone": "347497789",
       "id": 76651,
       "avatar": "C",
-      "film": []
+      "film": [
+        {
+          "id": 11750,
+          "title": "Pirata dei Caraibi"
+        },
+        {
+          "id": 424442,
+          "title": "Una notte da leoni"
+        }
+      ]
     },
     {
       "name": "Adele",
@@ -124,16 +148,7 @@
       "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
       "id": 608361,
-      "film": [
-        {
-          "id": 744308,
-          "title": "fhsf"
-        },
-        {
-          "id": 949565,
-          "title": "asdas"
-        }
-      ],
+      "film": [],
       "avatar": "A"
     }
   ],
@@ -144,16 +159,20 @@
       "description": "L'eccentrico ed eroico capitano Jack Sparrow, per salvare la bella figlia del Governatore inglese, Elizabeth Swann, rapita dalla ciurma della nave pirata Perla Nera, comandata dall'astuto e spietato capitano Hector Barbossa (nemico di Jack Sparrow, aveva rubato la nave Perla Nera), con lo scopo di liberarsi da una maledizione subita per aver sottratto dell'oro, si allea con il fabbro locale Will Turner, figlio di un amico di vecchia data e innamorato della bella Elizabeth, per cercare di riavere, entrambi, ciò che gli è stato sottratto.",
       "dubbers": [
         {
-          "id": "474666",
-          "name": "Luigi"
+          "id": "281715",
+          "name": "Iladiro"
         },
         {
           "id": "895008",
           "name": "fabio"
         },
         {
-          "id": "414080",
-          "name": "Giuseppe"
+          "id": "474666",
+          "name": "Luigi"
+        },
+        {
+          "id": "608361",
+          "name": "Adele"
         },
         {
           "id": "76651",
@@ -167,24 +186,8 @@
       "id": 424442,
       "dubbers": [
         {
-          "id": "414080",
-          "name": "Giuseppe"
-        },
-        {
-          "id": "281715",
-          "name": "Iladiro"
-        },
-        {
           "id": "76651",
           "name": "Carmelina"
-        },
-        {
-          "id": "895008",
-          "name": "fabio"
-        },
-        {
-          "id": "474666",
-          "name": "Luigi"
         }
       ]
     },
@@ -193,20 +196,8 @@
       "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
       "dubbers": [
         {
-          "id": "281715",
-          "name": "Iladiro"
-        },
-        {
-          "id": "897827",
-          "name": "marika"
-        },
-        {
-          "id": "474666",
-          "name": "Luigi"
-        },
-        {
-          "id": "895008",
-          "name": "fabio"
+          "id": "76651",
+          "name": "Carmelina"
         }
       ],
       "id": 102880
@@ -214,84 +205,31 @@
     {
       "title": "Titanic",
       "description": "l cuore di una donna è un profondo oceano di segreti. Ma ora sapete che c'era un uomo di nome Jack Dawson, e che lui mi ha salvato, in tutti i modi in cui una persona può essere salvata. Non ho nemmeno una sua foto... non ho niente di lui, vive solo nei miei ricordi.",
+      "dubbers": [],
+      "id": 425512
+    },
+    {
+      "title": "Il Gladiatore",
+      "description": "Nell'anno 180 d.C., il valente generale Massimo Decimo Meridio[1] guida l'esercito romano alla vittoria durante la guerra contro i Marcomanni in Germania, guadagnandosi ancora di più la stima dell'anziano imperatore romano Marco Aurelio, gravemente malato; questi, che si sente prossimo alla fine, non accetta il proprio figlio Commodo come proprio successore, considerandolo inadatto al ruolo; designa pertanto il generale Massimo, vedendovi il figlio che avrebbe voluto avere al posto di Commodo: Marco Aurelio intende affidargli il compito di ripristinare la repubblica restituendo il potere al senato, ovvero al popolo romano, come avveniva prima dell'avvento dell'età imperiale.",
       "dubbers": [
         {
-          "id": "281715",
-          "name": "Iladiro"
+          "id": "474666",
+          "name": "Luigi"
         },
         {
           "id": "895008",
           "name": "fabio"
-        }
-      ],
-      "id": 425512
-    },
-    {
-      "title": "gfh",
-      "description": "gfh",
-      "dubbers": [
-        {
-          "id": "281715",
-          "name": "Iladiro"
         },
         {
-          "id": "897827",
-          "name": "marika"
-        }
-      ],
-      "id": 349451
-    },
-    {
-      "title": "gfhg",
-      "description": "gfh",
-      "dubbers": [
-        {
-          "id": "281715",
-          "name": "Iladiro"
+          "id": "848717",
+          "name": "Carmelo"
         },
         {
-          "id": "897827",
-          "name": "marika"
+          "id": "414080",
+          "name": "Giuseppe"
         }
       ],
-      "id": 638346
-    },
-    {
-      "title": "gh",
-      "description": "ghj",
-      "dubbers": [
-        {
-          "id": "281715",
-          "name": "Iladiro"
-        },
-        {
-          "id": "897827",
-          "name": "marika"
-        }
-      ],
-      "id": 20075
-    },
-    {
-      "title": "fhsf",
-      "description": "gfjgj",
-      "dubbers": [
-        {
-          "id": "608361",
-          "name": "Adele"
-        }
-      ],
-      "id": 744308
-    },
-    {
-      "title": "asdas",
-      "description": "asdasd",
-      "dubbers": [
-        {
-          "id": "608361",
-          "name": "Adele"
-        }
-      ],
-      "id": 949565
+      "id": 377506
     }
   ]
 }
