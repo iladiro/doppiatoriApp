@@ -35,7 +35,7 @@ export class DubberProfileComponent implements OnInit {
   }
 
   deleteFilm(idFilm) {
-    // Updating dubber object after event delete film
+    //Updating dubber object after event delete film
     let currentDubber = this.dubberService.dubber;
     currentDubber.film.map(function(film, index){
       if(film.id == idFilm) {
@@ -43,17 +43,20 @@ export class DubberProfileComponent implements OnInit {
       }
     });
     this.dubberService.update(currentDubber);
-    // end
+    //end
 
-    // Updating film object after event delete film
-    let filmToDelete;
-    this.filmService.filmsList.map(function(film, index) {
+    //Updating film object after event delete film
+    let idCurrentDubber = this.id;
+    let filmObject;
+    this.filmService.filmsList.map(function(film) {
       if(film.id == idFilm) {
-        film.dubbers.splice(index, 1);
-        filmToDelete = film;
+        film.dubbers.map(function(dubber, index) {
+          film.dubbers.splice(index, 1);
+        });
+        filmObject = film;
       };
     });
-    this.filmService.update(filmToDelete);
+    this.filmService.update(filmObject);
     // end
   }
 
