@@ -63,12 +63,23 @@ export class DubberProfileComponent implements OnInit {
   generateInvoice(form: NgForm) {
     let currentInvoice = form.value;
     let different = (currentInvoice.grossCompensation * currentInvoice.taxPercetual) / 100;
+    currentInvoice.id = Math.floor((Math.random() * 1000000) + 1);
     this.netCompensation =  currentInvoice.grossCompensation - different;
     currentInvoice.netCompensation = this.netCompensation;
     this.dubberService.dubber.invoices.push(currentInvoice);
     let refactDubberObject = this.dubberService.dubber;
     this.dubberService.update(refactDubberObject);
     form.reset();
+  }
+
+  deleteInvoice(idInvoice) {
+    let currentDubber = this.dubberService.dubber;
+    currentDubber.invoices.map(function(invoice, index){
+      if(invoice.id == idInvoice) {
+        currentDubber.invoices.splice(index, 1);
+      }
+    });
+    this.dubberService.update(currentDubber);
   }
 
   ngOnInit() {

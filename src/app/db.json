@@ -32,22 +32,11 @@
       ],
       "invoices": [
         {
-          "movie": "Pirata dei Caraibi",
-          "grossCompensation": "500",
-          "taxPercetual": "20",
-          "netCompensation": 400
-        },
-        {
-          "movie": "Pirata dei Caraibi",
-          "grossCompensation": "1000",
-          "taxPercetual": "20",
-          "netCompensation": 800
-        },
-        {
           "movie": "Una notte da leoni",
-          "grossCompensation": "2000",
-          "taxPercetual": "40",
-          "netCompensation": 1200
+          "grossCompensation": "200",
+          "taxPercetual": "20",
+          "id": 862480,
+          "netCompensation": 160
         }
       ],
       "avatar": "i"
