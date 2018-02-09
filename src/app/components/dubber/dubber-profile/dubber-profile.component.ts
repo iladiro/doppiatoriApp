@@ -46,7 +46,6 @@ export class DubberProfileComponent implements OnInit {
     //end
 
     //Updating film object after event delete film
-    let idCurrentDubber = this.id;
     let filmObject;
     this.filmService.filmsList.map(function(film) {
       if(film.id == idFilm) {
