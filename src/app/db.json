@@ -24,6 +24,30 @@
         {
           "id": 696831,
           "title": "Pirata dei Caraibi"
+        },
+        {
+          "id": 998039,
+          "title": "Una notte da leoni"
+        }
+      ],
+      "invoices": [
+        {
+          "movie": "Pirata dei Caraibi",
+          "grossCompensation": "500",
+          "taxPercetual": "20",
+          "netCompensation": 400
+        },
+        {
+          "movie": "Pirata dei Caraibi",
+          "grossCompensation": "1000",
+          "taxPercetual": "20",
+          "netCompensation": 800
+        },
+        {
+          "movie": "Una notte da leoni",
+          "grossCompensation": "2000",
+          "taxPercetual": "40",
+          "netCompensation": 1200
         }
       ],
       "avatar": "i"
@@ -38,12 +62,8 @@
       "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
       "id": 155557,
-      "film": [
-        {
-          "id": 998039,
-          "title": "Una notte da leoni"
-        }
-      ],
+      "film": [],
+      "invoices": [],
       "avatar": "m"
     },
     {
@@ -66,7 +86,27 @@
           "title": "Il re leone"
         }
       ],
+      "invoices": [],
       "avatar": "F"
+    },
+    {
+      "name": "Adele",
+      "surname": "Simone",
+      "fiscalCode": "sdhfghsfdsdfsdg",
+      "birthdate": "16/02/1988",
+      "birthplace": "Barletta",
+      "birthcounty": "Italy",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": 716293,
+      "film": [
+        {
+          "id": 696831,
+          "title": "Pirata dei Caraibi"
+        }
+      ],
+      "invoices": [],
+      "avatar": "A"
     }
   ],
   "film": [
@@ -75,8 +115,8 @@
       "description": "Doug Billings, Phil Wenneck, Stu Price e Alan Garner sono un gruppo di amici in partenza per Las Vegas per celebrare l'addio al celibato di Doug. Phil e Stu sono amici storici dello sposo, mentre Alan è il futuro cognato. Partono a bordo di una Mercedes decappottabile, di proprietà del futuro suocero di Doug, Sid, che tiene alla macchina in modo maniacale, ma che la presta volentieri al futuro genero rassicurato dal fatto che Doug è un ragazzo assennato e rispettoso.",
       "dubbers": [
         {
-          "id": "155557",
-          "name": "marika"
+          "id": "518921",
+          "name": "ilaria"
         }
       ],
       "id": 998039
@@ -90,12 +130,12 @@
           "name": "ilaria"
         },
         {
-          "id": "155557",
-          "name": "marika"
-        },
-        {
           "id": "174854",
           "name": "Fabio"
+        },
+        {
+          "id": "716293",
+          "name": "Adele"
         }
       ],
       "id": 696831

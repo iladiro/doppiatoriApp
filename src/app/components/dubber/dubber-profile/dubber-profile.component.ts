@@ -14,6 +14,7 @@ export class DubberProfileComponent implements OnInit {
 
   id: number;
   private sub: any;
+  netCompensation: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -57,6 +58,17 @@ export class DubberProfileComponent implements OnInit {
     });
     this.filmService.update(filmObject);
     // end
+  }
+
+  generateInvoice(form: NgForm) {
+    let currentInvoice = form.value;
+    let different = (currentInvoice.grossCompensation * currentInvoice.taxPercetual) / 100;
+    this.netCompensation =  currentInvoice.grossCompensation - different;
+    currentInvoice.netCompensation = this.netCompensation;
+    this.dubberService.dubber.invoices.push(currentInvoice);
+    let refactDubberObject = this.dubberService.dubber;
+    this.dubberService.update(refactDubberObject);
+    form.reset();
   }
 
   ngOnInit() {

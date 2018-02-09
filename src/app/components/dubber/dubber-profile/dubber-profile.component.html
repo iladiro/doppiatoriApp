@@ -88,7 +88,55 @@
             <p class="alert alert-warning">There aren't associated films</p>
           </ng-template>
         </div>
-        <div class="tab-pane" id="invoices" role="tabpanel">...</div>
+        <div class="tab-pane" id="invoices" role="tabpanel">
+          <section class="itemsList">
+            <div class="itemsList__body">
+              <div class="itemsList__body-row row" *ngFor="let invoice of dubberService.dubber.invoices">
+                <div class="col pt-20">
+                  Compenso per prestazione d'opera relativa al film <strong>{{invoice.movie}}</strong>
+                </div>
+                <!-- <div class="col text-right">
+                  <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                  </a>
+                  <button (click)="deleteDubber(dubber.id)" class="btn btn-outline-danger">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div> -->
+              </div>
+            </div>
+          </section>
+          <form #InvoiceForm="ngForm" (ngSubmit)="generateInvoice(InvoiceForm)">
+            <div class="form-group">
+              <label for="movie">Select movie</label>
+              <select name="movie" class="form-control" ngModel>
+                <option *ngFor="let movie of dubberService.dubber.film" value="{{movie.title}}">
+                  {{movie.title}}
+                </option>
+                <option disabled *ngIf="!dubberService.dubber.film.length">
+                  There aren't associated movies
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="grossCompensation">Gross compensation</label>
+              <input id="grossCompensation" type="text" class="form-control" placeholder="Gross compensation" ngModel name="grossCompensation" #grossCompensation="ngModel" required>
+            </div>
+            <div class="form-group">
+              <label for="taxPercetual">Ritenuta d'acconto del</label>
+              <select name="taxPercetual" class="form-control" ngModel>
+                <option value="20">20%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="netCompensation">Net compensation</label>
+              <input class="form-control" value="{{netCompensation}}" disabled>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Generate invoice</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
