@@ -24,10 +24,6 @@
         {
           "id": 696831,
           "title": "Pirata dei Caraibi"
-        },
-        {
-          "id": 484812,
-          "title": "Il re leone"
         }
       ],
       "avatar": "i"
@@ -46,13 +42,31 @@
         {
           "id": 998039,
           "title": "Una notte da leoni"
+        }
+      ],
+      "avatar": "m"
+    },
+    {
+      "name": "Fabio",
+      "surname": "Petruccia",
+      "fiscalCode": "dhgfdshgfhdsfghjsd",
+      "birthdate": "16/02/1988",
+      "birthplace": "roma",
+      "birthcounty": "italy",
+      "email": "dirosa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": 174854,
+      "film": [
+        {
+          "id": 696831,
+          "title": "Pirata dei Caraibi"
         },
         {
           "id": 484812,
           "title": "Il re leone"
         }
       ],
-      "avatar": "m"
+      "avatar": "F"
     }
   ],
   "film": [
@@ -74,6 +88,14 @@
         {
           "id": "518921",
           "name": "ilaria"
+        },
+        {
+          "id": "155557",
+          "name": "marika"
+        },
+        {
+          "id": "174854",
+          "name": "Fabio"
         }
       ],
       "id": 696831
@@ -82,10 +104,6 @@
       "title": "Il re leone",
       "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
       "dubbers": [
-        {
-          "id": "518921",
-          "name": "ilaria"
-        },
         {
           "id": "155557",
           "name": "marika"

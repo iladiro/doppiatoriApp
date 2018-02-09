@@ -33,16 +33,22 @@ export class FilmDetailsComponent implements OnInit {
     });
     this.filmService.update(currentFilm);
 
-    // Updating film object after event delete film
-    let dubberToDelete;
-    this.dubberService.dubbersList.map(function(dubber, index) {
+
+    //Updating dubber object after event delete film
+    let idCurrentFilm = this.id;
+    let dubberObject;
+    this.dubberService.dubbersList.map(function(dubber) {
       if(dubber.id == idDubber) {
-        dubber.film.splice(index, 1);
-        dubberToDelete = dubber;
+        dubber.film.map(function(film, index) {
+          if(film.id == idCurrentFilm) {
+            dubber.film.splice(index, 1)
+          }
+        })
+        dubberObject = dubber;
       };
     });
-    this.filmService.update(dubberToDelete);
-    // end
+    //console.log(dubberObject)
+    this.dubberService.update(dubberObject);
   }
 
   addDubberHasParticipated(form: NgForm) {
@@ -73,20 +79,19 @@ export class FilmDetailsComponent implements OnInit {
     } else {
       currentFilm.dubbers.push(dubberToAdd);
       this.filmService.update(currentFilm);
+      /* Each every dubbers in the app. Then check if the id of the dubber on the
+      cicle is equal then id of the dubber that I wanna add.
+      If YES get a push of the film's data into the dubber object*/
+      this.dubberService.dubbersList.map(function(dubber) {
+        if(dubber.id == dubberToAdd.id) {
+          dubber.film.push(objFilm);
+          dubberToAdd = dubber;
+        };
+      });
+      this.dubberService.update(dubberToAdd);
+      // end
     }
     //end
-
-    /* Each every dubbers in the app. Then check if the id of the dubber on the
-    cicle is equal then id of the dubber that I wanna add.
-    If YES get a push of the film's data into the dubber object*/
-    this.dubberService.dubbersList.map(function(dubber) {
-      if(dubber.id == dubberToAdd.id) {
-        dubber.film.push(objFilm);
-        dubberToAdd = dubber;
-      };
-    });
-    this.dubberService.update(dubberToAdd);
-    // end
   }
 
   ngOnInit() {
