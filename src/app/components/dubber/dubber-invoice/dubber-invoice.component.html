@@ -4,11 +4,11 @@
       <p class="text-capitalize mb-0 font-weight-bold">
         {{invoiceService.invoice.dubberLinked.name}} {{invoiceService.invoice.dubberLinked.surname}}
       </p>
-      <p class=" mb-0">Nata a <span class="text-capitalize">
-        {{invoiceService.invoice.dubberLinked.birthplace}}</span> il {{invoiceService.invoice.dubberLinked.birthdate}}
+      <p class=" mb-0">
+        Nata a <span class="text-capitalize">{{invoiceService.invoice.dubberLinked.birthplace}}</span> il {{invoiceService.invoice.dubberLinked.birthdate}}
       </p>
-      <p class=" mb-0">Residente a <span class="text-capitalize">
-        {{invoiceService.invoice.dubberLinked.birthplace}}</span>
+      <p class=" mb-0">
+        Residente a <span class="text-capitalize">{{invoiceService.invoice.dubberLinked.birthplace}}</span>
       </p>
       <p class=" mb-0">
         Codice fiscale <span class="text-uppercase">{{invoiceService.invoice.dubberLinked.fiscalCode}}</span>
@@ -26,20 +26,20 @@
       </p>
     </div>
     <div>
-      <p class="mb-30">Nota n° <span class="text-uppercase">{{invoiceService.invoice.id}}</span></p>
-      <p class="mb-30">Compenso per prestazione d'opera relativa al doppiaggio del film <strong>{{invoiceService.invoice.movie}}</strong></p>
+      <p class="mb-30">Nota n° <span class="font-weight-bold">{{invoiceService.invoice.id}}</span></p>
+      <p class="mb-30">Compenso per prestazione d'opera relativa al doppiaggio del film "<strong>{{invoiceService.invoice.movie}}</strong>"</p>
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <th scope="row">Compenso lordo Euro</th>
+            <td>Compenso lordo</td>
             <td class="text-right">{{invoiceService.invoice.grossCompensation}} Euro</td>
           </tr>
           <tr>
-            <th scope="row">Ritenuta d'acconto del {{invoiceService.invoice.taxPercetual}} % Euro</th>
+            <td>Ritenuta d'acconto del {{invoiceService.invoice.taxPercetual}}%</td>
             <td class="text-right">{{invoiceService.invoice.taxEuro}} Euro</td>
           </tr>
           <tr>
-            <th scope="row">Compenso netto Euro</th>
+            <td>Compenso netto</td>
             <td class="text-right">{{invoiceService.invoice.netCompensation}} Euro</td>
           </tr>
         </tbody>
