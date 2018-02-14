@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DubberService } from './components/dubber/dubbers.service';
 import { AccountService } from './components/account/accounts.service';
 import { FilmService } from './components/film/film.service';
+import { InvoiceService } from './components/dubber/invoices.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -23,6 +24,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewAccountComponent } from './components/account/new-account/new-account.component';
 import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
 import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
+import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { AccountDetailsComponent } from './components/account/account-details/ac
     DashboardComponent,
     NewAccountComponent,
     AccountsListComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    DubberInvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { AccountDetailsComponent } from './components/account/account-details/ac
   providers: [
     DubberService,
     AccountService,
-    FilmService
+    FilmService,
+    InvoiceService
   ],
   bootstrap: [AppComponent]
 })

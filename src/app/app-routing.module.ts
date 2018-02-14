@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-list.component';
 import { DubberProfileComponent } from './components/dubber/dubber-profile/dubber-profile.component';
+import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
 import { AddDubberComponent } from './components/dubber/add-dubber/add-dubber.component';
 import { FilmListComponent } from './components/film/film-list/film-list.component';
 import { AddFilmComponent } from './components/film/add-film/add-film.component';
@@ -50,6 +51,10 @@ const appRoutes: Routes = [
   {
     path: 'dubberProfile/:id',
     component: DubberProfileComponent
+  },
+  {
+    path: 'invoice/:id',
+    component: DubberInvoiceComponent
   },
   {
     path: 'film',

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { DubberModel } from '../dubber-model';
 import { DubberService } from '../dubbers.service';
+import { InvoiceService } from '../invoices.service';
 import { FilmService } from '../../film/film.service';
 import {NgForm} from '@angular/forms';
 
@@ -19,7 +20,8 @@ export class DubberProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dubberService: DubberService,
-    private filmService: FilmService
+    private filmService: FilmService,
+    private invoiceService: InvoiceService
   ) {}
 
   getFirstChar(whichModel) {
@@ -61,14 +63,30 @@ export class DubberProfileComponent implements OnInit {
   }
 
   generateInvoice(form: NgForm) {
+    let date = new Date();
     let currentInvoice = form.value;
     let different = (currentInvoice.grossCompensation * currentInvoice.taxPercetual) / 100;
     currentInvoice.id = Math.floor((Math.random() * 1000000) + 1);
-    this.netCompensation =  currentInvoice.grossCompensation - different;
+    this.netCompensation = currentInvoice.grossCompensation - different;
+    currentInvoice.taxEuro = different;
     currentInvoice.netCompensation = this.netCompensation;
+    currentInvoice.creationDate = date.toDateString();
     this.dubberService.dubber.invoices.push(currentInvoice);
     let refactDubberObject = this.dubberService.dubber;
     this.dubberService.update(refactDubberObject);
+
+    /*After update dubber ocject, I can add dubberLinked property on current
+    invoice because I want that this object is write only into invoices table*/
+    currentInvoice.dubberLinked = {
+      "id": this.dubberService.dubber.id,
+      "name": this.dubberService.dubber.name,
+      "surname": this.dubberService.dubber.surname,
+      "fiscalCode": this.dubberService.dubber.fiscalCode,
+      "birthdate": this.dubberService.dubber.birthdate,
+      "birthplace": this.dubberService.dubber.birthplace
+    }
+    this.invoiceService.create(currentInvoice);
+
     form.reset();
   }
 

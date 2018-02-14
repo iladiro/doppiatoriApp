@@ -28,15 +28,21 @@
         {
           "id": 998039,
           "title": "Una notte da leoni"
+        },
+        {
+          "id": 977831,
+          "title": "cfggfdfgdfg"
         }
       ],
       "invoices": [
         {
           "movie": "Una notte da leoni",
-          "grossCompensation": "200",
+          "grossCompensation": "23",
           "taxPercetual": "20",
-          "id": 862480,
-          "netCompensation": 160
+          "id": 26834,
+          "taxEuro": 4.6,
+          "netCompensation": 18.4,
+          "creationDate": "Wed Feb 14 2018"
         }
       ],
       "avatar": "i"
@@ -139,6 +145,25 @@
         }
       ],
       "id": 484812
+    }
+  ],
+  "invoices": [
+    {
+      "movie": "Una notte da leoni",
+      "grossCompensation": "23",
+      "taxPercetual": "20",
+      "id": 26834,
+      "taxEuro": 4.6,
+      "netCompensation": 18.4,
+      "creationDate": "Wed Feb 14 2018",
+      "dubberLinked": {
+        "id": 518921,
+        "name": "ilaria",
+        "surname": "di rosa",
+        "fiscalCode": "dfgdgdfgdfgdfgdf",
+        "birthdate": "16/02/1988",
+        "birthplace": "Gessate"
+      }
     }
   ]
 }
