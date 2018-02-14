@@ -28,19 +28,19 @@
     <div>
       <p class="mb-30">Nota n° <span class="text-uppercase">{{invoiceService.invoice.id}}</span></p>
       <p class="mb-30">Compenso per prestazione d'opera relativa al doppiaggio del film <strong>{{invoiceService.invoice.movie}}</strong></p>
-      <table class="table">
+      <table class="table table-bordered">
         <tbody>
           <tr>
             <th scope="row">Compenso lordo Euro</th>
-            <td>{{invoiceService.invoice.grossCompensation}} Euro</td>
+            <td class="text-right">{{invoiceService.invoice.grossCompensation}} Euro</td>
           </tr>
           <tr>
             <th scope="row">Ritenuta d'acconto del {{invoiceService.invoice.taxPercetual}} % Euro</th>
-            <td>{{invoiceService.invoice.taxEuro}} Euro</td>
+            <td class="text-right">{{invoiceService.invoice.taxEuro}} Euro</td>
           </tr>
           <tr>
             <th scope="row">Compenso netto Euro</th>
-            <td>{{invoiceService.invoice.netCompensation}} Euro</td>
+            <td class="text-right">{{invoiceService.invoice.netCompensation}} Euro</td>
           </tr>
         </tbody>
       </table>
