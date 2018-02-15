@@ -58,12 +58,12 @@
         },
         {
           "movie": "Il re leone",
-          "grossCompensation": "9000",
+          "grossCompensation": "400",
           "taxPercetual": "20",
-          "id": 954799,
-          "creationDate": "Thu Feb 15 2018",
-          "taxEuro": 1800,
-          "netCompensation": 7200
+          "id": 785528,
+          "creationDate": "15/2/2018",
+          "taxEuro": 80,
+          "netCompensation": 320
         }
       ],
       "avatar": "M"
@@ -147,12 +147,12 @@
     },
     {
       "movie": "Il re leone",
-      "grossCompensation": "9000",
+      "grossCompensation": "400",
       "taxPercetual": "20",
-      "id": 954799,
-      "creationDate": "Thu Feb 15 2018",
-      "taxEuro": 1800,
-      "netCompensation": 7200,
+      "id": 785528,
+      "creationDate": "15/2/2018",
+      "taxEuro": 80,
+      "netCompensation": 320,
       "dubberLinked": {
         "id": 564048,
         "name": "Mario",

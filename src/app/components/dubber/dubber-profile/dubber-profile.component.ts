@@ -72,7 +72,7 @@ export class DubberProfileComponent implements OnInit {
     let date = new Date();
     let currentInvoice = form.value;
     currentInvoice.id = Math.floor((Math.random() * 1000000) + 1);
-    currentInvoice.creationDate = date.toDateString();
+    currentInvoice.creationDate = date.toLocaleDateString();
 
     let result = this.compensationCalculation(currentInvoice.grossCompensation, currentInvoice.taxPercetual);
     currentInvoice.taxEuro = result[0];
