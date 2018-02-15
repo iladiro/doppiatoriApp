@@ -16,7 +16,7 @@ export class DubbersListComponent implements OnInit {
 
   onDelete(dubber) {
     let filmsList = this.filmService.filmsList;
-    let dubberId = dubber.id.toString();
+    let dubberId = dubber.id;
     let filmDubbersID = [];
     for (let film of filmsList) {
       for (let dubber of film.dubbers) {

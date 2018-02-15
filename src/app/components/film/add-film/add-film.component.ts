@@ -25,7 +25,7 @@ export class AddFilmComponent implements OnInit {
     let filmDubbersIdSelected = [];
     let currentFilm = form.value;
     // To assign an ID param to the film object
-    currentFilm.id = Math.floor((Math.random() * 1000000) + 1);
+    currentFilm.id = Math.floor((Math.random() * 1000000) + 1).toString();
     // end
     let updateDubbers = [];
     // From an array of string, create dubber's object.

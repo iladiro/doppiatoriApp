@@ -22,7 +22,7 @@
       "residencecountry": "Italia",
       "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
-      "id": 786396,
+      "id": "786396",
       "film": [
         {
           "id": 998039,
@@ -37,8 +37,78 @@
           "title": "Il re leone"
         }
       ],
-      "invoices": [],
+      "invoices": [
+        {
+          "movie": "Una notte da leoni",
+          "grossCompensation": "1900",
+          "taxPercetual": "20",
+          "id": "888250",
+          "creationDate": "15/2/2018",
+          "taxEuro": 380,
+          "netCompensation": 1520
+        },
+        {
+          "movie": "Pirata dei Caraibi",
+          "grossCompensation": 780,
+          "taxPercetual": "20",
+          "id": "292518",
+          "creationDate": "15/2/2018",
+          "taxEuro": 156,
+          "netCompensation": 624
+        }
+      ],
       "avatar": "i"
+    },
+    {
+      "name": "marika",
+      "surname": "di rosa",
+      "fiscalCode": "DRMRMI88B56F205",
+      "birthdate": "16/02/1988",
+      "birthplace": "Milano",
+      "birthcounty": "Italia",
+      "residenceplace": "Milano",
+      "residenceaddress": "Piazza Insubria 24",
+      "residencecountry": "Italia",
+      "email": "dirosa.marika@gmail.com",
+      "phone": "3289465780",
+      "id": "821043",
+      "film": [],
+      "invoices": [],
+      "avatar": "m"
+    },
+    {
+      "name": "Mario",
+      "surname": "Rossi",
+      "fiscalCode": "RTSTDG65DGTD",
+      "birthdate": "20/03/1980",
+      "birthplace": "Agrigento",
+      "birthcounty": "Italia",
+      "residenceplace": "Roma",
+      "residenceaddress": "Via tiburtina 4",
+      "residencecountry": "Italia",
+      "email": "rossi.mario@gmail.com",
+      "phone": "3474977880",
+      "id": "306837",
+      "film": [],
+      "invoices": [],
+      "avatar": "M"
+    },
+    {
+      "name": "Fabio",
+      "surname": "Petrucci",
+      "fiscalCode": "FPRT76FGTD345H",
+      "birthdate": "09/04/1971",
+      "birthplace": "Roma",
+      "birthcounty": "Italia",
+      "residenceplace": "Gessate",
+      "residenceaddress": "Via libertà 44",
+      "residencecountry": "Italia",
+      "email": "fabio.petrucci@gmail.com",
+      "phone": "3245465345",
+      "id": "865143",
+      "film": [],
+      "invoices": [],
+      "avatar": "F"
     }
   ],
   "film": [
@@ -76,5 +146,46 @@
       "id": 484812
     }
   ],
-  "invoices": []
+  "invoices": [
+    {
+      "movie": "Una notte da leoni",
+      "grossCompensation": 1900,
+      "taxPercetual": 20,
+      "id": "888250",
+      "creationDate": "15/2/2018",
+      "taxEuro": 380,
+      "netCompensation": 1520,
+      "dubberLinked": {
+        "id": "786396",
+        "name": "ilaria",
+        "surname": "di rosa",
+        "fiscalCode": "fghhghgfhfgh",
+        "birthdate": "16/02/1988",
+        "birthplace": "Gessate",
+        "residenceplace": "Gessate",
+        "residenceaddress": "Via libertà 44",
+        "residencecountry": "Italia"
+      }
+    },
+    {
+      "movie": "Pirata dei Caraibi",
+      "grossCompensation": 780,
+      "taxPercetual": 20,
+      "id": "292518",
+      "creationDate": "15/2/2018",
+      "taxEuro": 156,
+      "netCompensation": 624,
+      "dubberLinked": {
+        "id": "786396",
+        "name": "ilaria",
+        "surname": "di rosa",
+        "fiscalCode": "fghhghgfhfgh",
+        "birthdate": "16/02/1988",
+        "birthplace": "Gessate",
+        "residenceplace": "Gessate",
+        "residenceaddress": "Via libertà 44",
+        "residencecountry": "Italia"
+      }
+    }
+  ]
 }

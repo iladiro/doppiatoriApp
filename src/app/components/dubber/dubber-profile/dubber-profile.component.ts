@@ -71,9 +71,11 @@ export class DubberProfileComponent implements OnInit {
   generateInvoice(form: NgForm) {
     let date = new Date();
     let currentInvoice = form.value;
-    currentInvoice.id = Math.floor((Math.random() * 1000000) + 1);
+    currentInvoice.id = Math.floor((Math.random() * 1000000) + 1).toString();
     currentInvoice.creationDate = date.toLocaleDateString();
 
+    currentInvoice.grossCompensation = +currentInvoice.grossCompensation;
+    currentInvoice.taxPercetual = +currentInvoice.taxPercetual;
     let result = this.compensationCalculation(currentInvoice.grossCompensation, currentInvoice.taxPercetual);
     currentInvoice.taxEuro = result[0];
     currentInvoice.netCompensation = result[1];
