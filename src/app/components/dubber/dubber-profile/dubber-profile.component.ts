@@ -62,20 +62,27 @@ export class DubberProfileComponent implements OnInit {
     // end
   }
 
+  compensationCalculation(gross, percentual) {
+    let difference = (gross * percentual) / 100;
+    let resultNet = gross - difference;
+    return [difference, resultNet]
+  }
+
   generateInvoice(form: NgForm) {
     let date = new Date();
     let currentInvoice = form.value;
-    let different = (currentInvoice.grossCompensation * currentInvoice.taxPercetual) / 100;
     currentInvoice.id = Math.floor((Math.random() * 1000000) + 1);
-    this.netCompensation = currentInvoice.grossCompensation - different;
-    currentInvoice.taxEuro = different;
-    currentInvoice.netCompensation = this.netCompensation;
     currentInvoice.creationDate = date.toDateString();
+
+    let result = this.compensationCalculation(currentInvoice.grossCompensation, currentInvoice.taxPercetual);
+    currentInvoice.taxEuro = result[0];
+    currentInvoice.netCompensation = result[1];
+
     this.dubberService.dubber.invoices.push(currentInvoice);
     let refactDubberObject = this.dubberService.dubber;
     this.dubberService.update(refactDubberObject);
 
-    /*After update dubber ocject, I can add dubberLinked property on current
+    /*After update dubber object, I can add dubberLinked property on current
     invoice because I want that this object is write only into invoices table*/
     currentInvoice.dubberLinked = {
       "id": this.dubberService.dubber.id,
@@ -83,21 +90,25 @@ export class DubberProfileComponent implements OnInit {
       "surname": this.dubberService.dubber.surname,
       "fiscalCode": this.dubberService.dubber.fiscalCode,
       "birthdate": this.dubberService.dubber.birthdate,
-      "birthplace": this.dubberService.dubber.birthplace
-    }
+      "birthplace": this.dubberService.dubber.birthplace,
+      "residenceplace": this.dubberService.dubber.residenceplace,
+      "residenceaddress": this.dubberService.dubber.residenceaddress,
+      "residencecountry": this.dubberService.dubber.residencecountry
+    };
     this.invoiceService.create(currentInvoice);
 
     form.reset();
   }
 
-  deleteInvoice(idInvoice) {
+  deleteInvoice(currentInvoice) {
     let currentDubber = this.dubberService.dubber;
     currentDubber.invoices.map(function(invoice, index){
-      if(invoice.id == idInvoice) {
+      if(invoice.id == currentInvoice.id) {
         currentDubber.invoices.splice(index, 1);
       }
     });
     this.dubberService.update(currentDubber);
+    this.invoiceService.delete(currentInvoice);
   }
 
   ngOnInit() {
@@ -106,6 +117,7 @@ export class DubberProfileComponent implements OnInit {
       this.dubberService.getById(this.id);
     });
     this.filmService.getAll();
+    this.invoiceService.getAll();
   }
 
 }

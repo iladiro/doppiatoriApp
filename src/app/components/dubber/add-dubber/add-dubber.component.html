@@ -50,6 +50,32 @@
       </div>
     </fieldset>
     <fieldset class="pl-0 pr-0">
+      <legend>Tax information:</legend>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="residenceplace">Place of residence</label>
+            <input id="residenceplace" type="text" class="form-control" placeholder="Place of residence" ngModel name="residenceplace" #residenceplace="ngModel" required>
+            <div class="alert alert-danger" *ngIf="residenceplace.touched && !residenceplace.valid">The field is required</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="residenceaddress">Address</label>
+            <input id="residenceaddress" type="text" class="form-control" placeholder="Address" ngModel name="residenceaddress" #residenceaddress="ngModel" required>
+            <div class="alert alert-danger" *ngIf="residenceaddress.touched && !residenceaddress.valid">The field is required</div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="form-group">
+            <label for="residencecountry">Country of residence</label>
+            <input id="residencecountry" type="text" class="form-control" placeholder="Country of residence" ngModel name="residencecountry" #residencecountry="ngModel">
+            <div class="alert alert-danger" *ngIf="residencecountry.touched && !residencecountry.valid">The field is required</div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="pl-0 pr-0">
       <legend>Contacts information:</legend>
       <div class="form-group">
         <label>Email</label>
