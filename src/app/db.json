@@ -11,62 +11,34 @@
   ],
   "dubbers": [
     {
-      "name": "Mario",
-      "surname": "Rossi",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "20/08/1970",
-      "birthplace": "Milano",
-      "birthcounty": "Italia",
+      "name": "ilaria",
+      "surname": "di rosa",
+      "fiscalCode": "fghhghgfhfgh",
+      "birthdate": "16/02/1988",
+      "birthplace": "Gessate",
+      "birthcounty": "Milano",
       "residenceplace": "Gessate",
       "residenceaddress": "Via libertà 44",
       "residencecountry": "Italia",
       "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
-      "id": 564048,
+      "id": 786396,
       "film": [
         {
-          "id": 484812,
-          "title": "Il re leone"
+          "id": 998039,
+          "title": "Una notte da leoni"
         },
         {
           "id": 696831,
           "title": "Pirata dei Caraibi"
         },
         {
-          "id": 998039,
-          "title": "Una notte da leoni"
+          "id": 484812,
+          "title": "Il re leone"
         }
       ],
-      "invoices": [
-        {
-          "movie": "Una notte da leoni",
-          "grossCompensation": "400",
-          "taxPercetual": "20",
-          "id": 964045,
-          "creationDate": "Thu Feb 15 2018",
-          "taxEuro": 80,
-          "netCompensation": 320
-        },
-        {
-          "movie": "Pirata dei Caraibi",
-          "grossCompensation": "1000",
-          "taxPercetual": "40",
-          "id": 701816,
-          "creationDate": "Thu Feb 15 2018",
-          "taxEuro": 400,
-          "netCompensation": 600
-        },
-        {
-          "movie": "Il re leone",
-          "grossCompensation": "400",
-          "taxPercetual": "20",
-          "id": 785528,
-          "creationDate": "15/2/2018",
-          "taxEuro": 80,
-          "netCompensation": 320
-        }
-      ],
-      "avatar": "M"
+      "invoices": [],
+      "avatar": "i"
     }
   ],
   "film": [
@@ -75,8 +47,8 @@
       "description": "Doug Billings, Phil Wenneck, Stu Price e Alan Garner sono un gruppo di amici in partenza per Las Vegas per celebrare l'addio al celibato di Doug. Phil e Stu sono amici storici dello sposo, mentre Alan è il futuro cognato. Partono a bordo di una Mercedes decappottabile, di proprietà del futuro suocero di Doug, Sid, che tiene alla macchina in modo maniacale, ma che la presta volentieri al futuro genero rassicurato dal fatto che Doug è un ragazzo assennato e rispettoso.",
       "dubbers": [
         {
-          "id": "564048",
-          "name": "Mario"
+          "id": "786396",
+          "name": "ilaria"
         }
       ],
       "id": 998039
@@ -86,8 +58,8 @@
       "description": "L'eccentrico ed eroico capitano Jack Sparrow, per salvare la bella figlia del Governatore inglese, Elizabeth Swann, rapita dalla ciurma della nave pirata Perla Nera, comandata dall'astuto e spietato capitano Hector Barbossa (nemico di Jack Sparrow, aveva rubato la nave Perla Nera), con lo scopo di liberarsi da una maledizione subita per aver sottratto dell'oro, si allea con il fabbro locale Will Turner, figlio di un amico di vecchia data e innamorato della bella Elizabeth, per cercare di riavere, entrambi, ciò che gli è stato sottratto.",
       "dubbers": [
         {
-          "id": "564048",
-          "name": "Mario"
+          "id": "786396",
+          "name": "ilaria"
         }
       ],
       "id": 696831
@@ -97,73 +69,12 @@
       "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
       "dubbers": [
         {
-          "id": "564048",
-          "name": "Mario"
+          "id": "786396",
+          "name": "ilaria"
         }
       ],
       "id": 484812
     }
   ],
-  "invoices": [
-    {
-      "movie": "Una notte da leoni",
-      "grossCompensation": "400",
-      "taxPercetual": "20",
-      "id": 964045,
-      "creationDate": "Thu Feb 15 2018",
-      "taxEuro": 80,
-      "netCompensation": 320,
-      "dubberLinked": {
-        "id": 564048,
-        "name": "Mario",
-        "surname": "Rossi",
-        "fiscalCode": "drslri88b56f205d",
-        "birthdate": "20/08/1970",
-        "birthplace": "Milano",
-        "residenceplace": "Gessate",
-        "residenceaddress": "Via libertà 44",
-        "residencecountry": "Italia"
-      }
-    },
-    {
-      "movie": "Pirata dei Caraibi",
-      "grossCompensation": "1000",
-      "taxPercetual": "40",
-      "id": 701816,
-      "creationDate": "Thu Feb 15 2018",
-      "taxEuro": 400,
-      "netCompensation": 600,
-      "dubberLinked": {
-        "id": 564048,
-        "name": "Mario",
-        "surname": "Rossi",
-        "fiscalCode": "drslri88b56f205d",
-        "birthdate": "20/08/1970",
-        "birthplace": "Milano",
-        "residenceplace": "Gessate",
-        "residenceaddress": "Via libertà 44",
-        "residencecountry": "Italia"
-      }
-    },
-    {
-      "movie": "Il re leone",
-      "grossCompensation": "400",
-      "taxPercetual": "20",
-      "id": 785528,
-      "creationDate": "15/2/2018",
-      "taxEuro": 80,
-      "netCompensation": 320,
-      "dubberLinked": {
-        "id": 564048,
-        "name": "Mario",
-        "surname": "Rossi",
-        "fiscalCode": "drslri88b56f205d",
-        "birthdate": "20/08/1970",
-        "birthplace": "Milano",
-        "residenceplace": "Gessate",
-        "residenceaddress": "Via libertà 44",
-        "residencecountry": "Italia"
-      }
-    }
-  ]
+  "invoices": []
 }

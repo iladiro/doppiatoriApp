@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { DubberModel } from '../dubber-model';
+// import { DubberModel } from '../dubber-model';
 import { DubberService } from '../dubbers.service';
 import { InvoiceService } from '../invoices.service';
 import { FilmService } from '../../film/film.service';

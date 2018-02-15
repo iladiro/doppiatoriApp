@@ -23,7 +23,7 @@ export class AddDubberComponent implements OnInit {
   onSubmit(form: NgForm){
     this.currentDubber = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
-    this.currentDubber.id = lengthDubbersIndex;
+    this.currentDubber.id = lengthDubbersIndex.toString();
     this.currentDubber.film = [];
     this.currentDubber.invoices = [];
     this.getFirstChar(this.currentDubber);
