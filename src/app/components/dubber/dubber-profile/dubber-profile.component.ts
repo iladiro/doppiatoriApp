@@ -33,6 +33,7 @@ export class DubberProfileComponent implements OnInit {
     let currentDubber = form.value;
     currentDubber.id = this.id;
     currentDubber.film = this.dubberService.dubber.film;
+    currentDubber.invoices = this.dubberService.dubber.invoices;
     this.getFirstChar(currentDubber);
     this.dubberService.update(currentDubber);
   }
@@ -71,21 +72,23 @@ export class DubberProfileComponent implements OnInit {
   generateInvoice(form: NgForm) {
     let date = new Date();
     let currentInvoice = form.value;
-    currentInvoice.id = Math.floor((Math.random() * 1000000) + 1).toString();
-    currentInvoice.creationDate = date.toLocaleDateString();
-
-    currentInvoice.grossCompensation = +currentInvoice.grossCompensation;
-    currentInvoice.taxPercetual = +currentInvoice.taxPercetual;
     let result = this.compensationCalculation(currentInvoice.grossCompensation, currentInvoice.taxPercetual);
-    currentInvoice.taxEuro = result[0];
-    currentInvoice.netCompensation = result[1];
+    currentInvoice = {
+      "id": Math.floor((Math.random() * 1000000) + 1).toString(),
+      "creationDate": date.toLocaleDateString(),
+      "movie": currentInvoice.movie,
+      "compensation": {
+        "gross": +currentInvoice.grossCompensation,
+        "taxPercetual": +currentInvoice.taxPercetual,
+        "taxEuro": result[0],
+        "net": result[1]
+      }
+    };
 
     this.dubberService.dubber.invoices.push(currentInvoice);
     let refactDubberObject = this.dubberService.dubber;
     this.dubberService.update(refactDubberObject);
-
-    /*After update dubber object, I can add dubberLinked property on current
-    invoice because I want that this object is write only into invoices table*/
+    
     currentInvoice.dubberLinked = {
       "id": this.dubberService.dubber.id,
       "name": this.dubberService.dubber.name,

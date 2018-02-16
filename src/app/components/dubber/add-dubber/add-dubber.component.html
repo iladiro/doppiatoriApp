@@ -14,14 +14,14 @@
           <div class="form-group">
             <label for="surname">Surname</label>
             <input id="surname" type="text" class="form-control" placeholder="Surname" ngModel name="surname" #surname="ngModel" required>
-            <!-- <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">The field is required</div> -->
+            <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">The field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
           <div class="form-group">
             <label for="fiscalCode">Fiscal Code</label>
-            <input id="fiscalCode" type="text" class="form-control" placeholder="Fiscal Code" ngModel name="fiscalCode" #fiscalCode="ngModel" required>
-            <!-- <div class="alert alert-danger" *ngIf="fiscalCode.touched && !fiscalCode.valid">The field is required</div> -->
+            <input id="fiscalCode" type="text" class="form-control" placeholder="Fiscal Code" ngModel name="fiscalCode" #fiscalCode="ngModel" required pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$">
+            <div class="alert alert-danger" *ngIf="fiscalCode.touched && !fiscalCode.valid">The field is required</div>
           </div>
         </div>
       </div>
@@ -29,22 +29,22 @@
         <div class="col-md-4 mb-3">
           <div class="form-group">
             <label for="birthdate">Date of birth</label>
-            <input id="birthdate" type="text" class="form-control" placeholder="Date of birth " ngModel name="birthdate" #birthdate="ngModel">
-            <!-- <div class="alert alert-danger" *ngIf="birthdate.touched && !birthdate.valid">The field is required</div> -->
+            <input id="birthdate" type="text" class="form-control" placeholder="GG/MM/AAAA" ngModel name="birthdate" #birthdate="ngModel">
+            <div class="alert alert-danger" *ngIf="birthdate.touched && !birthdate.valid">The field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
           <div class="form-group">
             <label for="birthplace">Place of birth</label>
             <input id="birthplace" type="text" class="form-control" placeholder="Place of birth " ngModel name="birthplace" #birthplace="ngModel">
-            <!-- <div class="alert alert-danger" *ngIf="birthplace.touched && !birthplace.valid">The field is required</div> -->
+            <div class="alert alert-danger" *ngIf="birthplace.touched && !birthplace.valid">The field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
           <div class="form-group">
-            <label for="birthcounty">County of birth</label>
-            <input id="birthcounty" type="text" class="form-control" placeholder="County of birth " ngModel name="birthcounty" #birthcounty="ngModel">
-            <!-- <div class="alert alert-danger" *ngIf="birthcounty.touched && !birthcounty.valid">The field is required</div> -->
+            <label for="birthcounty">Country of birth</label>
+            <input id="birthcounty" type="text" class="form-control" placeholder="Country of birth " ngModel name="birthcounty" #birthcounty="ngModel">
+            <div class="alert alert-danger" *ngIf="birthcounty.touched && !birthcounty.valid">The field is required</div>
           </div>
         </div>
       </div>
@@ -79,13 +79,13 @@
       <legend>Contacts information:</legend>
       <div class="form-group">
         <label>Email</label>
-        <input id="email" type="email" class="form-control" placeholder="Email" ngModel name="email" #email="ngModel" required>
-        <!-- <div class="alert alert-danger" *ngIf="email.touched && !email.valid">The field is required</div> -->
+        <input id="email" type="email" class="form-control" placeholder="Email" ngModel name="email" #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">The field is required</div>
       </div>
       <div class="form-group">
         <label>Phone</label>
-        <input id="phone" type="phone" class="form-control" placeholder="Phone" ngModel name="phone" #phone="ngModel" required>
-        <!-- <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">The field is required</div> -->
+        <input id="phone" type="phone" class="form-control" placeholder="Phone" ngModel name="phone" #phone="ngModel" required pattern="[0-9]+">
+        <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">The field is required</div>
       </div>
     </fieldset>
      <div class="form-group">

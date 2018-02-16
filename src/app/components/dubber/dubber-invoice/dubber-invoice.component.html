@@ -1,5 +1,5 @@
 <div class="container" *ngIf="invoiceService.invoice">
-  <section class="invoice bg--white p-all-side-40 mb-40" id="invoice">
+  <section class="invoice bg--white p-all-side-80 mb-40" id="invoice">
     <div>
       <p class="text-capitalize mb-0 font-weight-bold">
         {{invoiceService.invoice.dubberLinked.name}} {{invoiceService.invoice.dubberLinked.surname}}
@@ -32,15 +32,15 @@
         <tbody>
           <tr>
             <td>Compenso lordo</td>
-            <td class="text-right">{{invoiceService.invoice.grossCompensation}} Euro</td>
+            <td class="text-right">{{invoiceService.invoice.compensation.gross}} Euro</td>
           </tr>
           <tr>
-            <td>Ritenuta d'acconto del {{invoiceService.invoice.taxPercetual}}%</td>
-            <td class="text-right">{{invoiceService.invoice.taxEuro}} Euro</td>
+            <td>Ritenuta d'acconto del {{invoiceService.invoice.compensation.taxPercetual}}%</td>
+            <td class="text-right">{{invoiceService.invoice.compensation.taxEuro}} Euro</td>
           </tr>
           <tr>
             <td>Compenso netto</td>
-            <td class="text-right">{{invoiceService.invoice.netCompensation}} Euro</td>
+            <td class="text-right">{{invoiceService.invoice.compensation.net}} Euro</td>
           </tr>
         </tbody>
       </table>

@@ -31,10 +31,10 @@
           {{dubber.birthcounty}}
         </div>
         <div class="col text-right">
-          <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
+          <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-primary">
             <i class="fa fa-info" aria-hidden="true"></i>
           </a>
-          <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-warning">
+          <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </a>
           <button (click)="onDelete(dubber)" class="btn btn-outline-danger">

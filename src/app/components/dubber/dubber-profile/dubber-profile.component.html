@@ -24,45 +24,69 @@
       <div class="tab-content pboth-15">
         <div class="tab-pane active" id="personal-data" role="tabpanel">
           <form #UpdateDubberForm="ngForm" (ngSubmit)="upDateParsonalDate(UpdateDubberForm)">
-            <div class="form-row">
-              <div class="col-sm-6 mb-3">
-                <label for="name">Name</label>
-                <input type="text" id="name" class="form-control" placeholder="First name" [(ngModel)]="dubberService.dubber.name" name="name">
+            <fieldset class="pl-0 pr-0">
+              <legend>Personal information:</legend>
+              <div class="form-row">
+                <div class="col-sm-6 mb-3">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" class="form-control text-capitalize" placeholder="First name" [(ngModel)]="dubberService.dubber.name" name="name" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <label for="surname">Surname</label>
+                  <input type="text" id="surname" class="form-control  text-capitalize" placeholder="Last name" [(ngModel)]="dubberService.dubber.surname" name="surname" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <label for="name">Fiscal Code</label>
+                  <input type="text" id="fiscalCode" class="form-control text-uppercase" placeholder="Fiscal Code" [(ngModel)]="dubberService.dubber.fiscalCode" name="fiscalCode" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <label for="name">Date of birth</label>
+                  <input type="text" id="birthdate" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="dubberService.dubber.birthdate" name="birthdate" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <label for="name">Place of birth</label>
+                  <input type="text" id="birthplace" class="form-control text-capitalize" placeholder="Place of birth" [(ngModel)]="dubberService.dubber.birthplace" name="birthplace" required>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <label for="name">County of birth</label>
+                  <input type="text" id="birthcounty" class="form-control text-capitalize" placeholder="County of birth" [(ngModel)]="dubberService.dubber.birthcounty" name="birthcounty" required>
+                </div>
               </div>
-              <div class="col-sm-6 mb-3">
-                <label for="surname">Surname</label>
-                <input type="text" id="surname" class="form-control" placeholder="Last name" [(ngModel)]="dubberService.dubber.surname" name="surname">
+            </fieldset>
+            <fieldset class="pl-0 pr-0">
+              <legend>Tax information:</legend>
+              <div class="form-row">
+                <div class="col-sm-12 col-md-4 mb-3">
+                  <label for="residenceplace">Place of residence</label>
+                  <input id="residenceplace" type="text" class="form-control text-capitalize" placeholder="Place of residence" [(ngModel)]="dubberService.dubber.residenceplace" name="residenceplace" #residenceplace="ngModel" required>
+                  <div class="alert alert-danger" *ngIf="residenceplace.touched && !residenceplace.valid">Field is not valid</div>
+                </div>
+                <div class="col-sm-12 col-md-4 mb-3">
+                  <label for="residenceaddress">Address</label>
+                  <input id="residenceaddress" type="text" class="form-control text-capitalize" placeholder="Address" [(ngModel)]="dubberService.dubber.residenceaddress" name="residenceaddress" #residenceaddress="ngModel" required>
+                  <div class="alert alert-danger" *ngIf="residenceaddress.touched && !residenceaddress.valid">Field is not valid</div>
+                </div>
+                <div class="col-sm-12 col-md-4 mb-3">
+                  <label for="residencecountry">Country of residence</label>
+                  <input id="residencecountry" type="text" class="form-control text-capitalize" placeholder="Country of residence" [(ngModel)]="dubberService.dubber.residencecountry" name="residencecountry" #residencecountry="ngModel" required>
+                  <div class="alert alert-danger" *ngIf="residencecountry.touched && !residencecountry.valid">Field is not valid</div>
+                </div>
               </div>
-              <div class="col-sm-6 mb-3">
-                <label for="name">Date of birth</label>
-                <input type="text" id="birthdate" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="dubberService.dubber.birthdate" name="birthdate">
-              </div>
-              <div class="col-sm-6 mb-3">
-                <label for="name">Place of birth</label>
-                <input type="text" id="birthplace" class="form-control" placeholder="Place of birth" [(ngModel)]="dubberService.dubber.birthplace" name="birthplace">
-              </div>
-              <div class="col-sm-6 mb-3">
-                <label for="name">County of birth</label>
-                <input type="text" id="birthcounty" class="form-control" placeholder="County of birth" [(ngModel)]="dubberService.dubber.birthcounty" name="birthcounty">
-              </div>
-              <div class="col-sm-6 mb-3">
-                <label for="name">Fiscal Code</label>
-                <input type="text" id="fiscalCode" class="form-control" placeholder="Fiscal Code" [(ngModel)]="dubberService.dubber.fiscalCode" name="fiscalCode">
-              </div>
-            </div>
-            <div class="mboth-30">
-              <h4>Contacts</h4>
+            </fieldset>
+            <fieldset class="pl-0 pr-0">
+              <legend>Contacts information:</legend>
               <div class="form-row">
                 <div class="col-sm-6 mb-3">
                   <label for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="dubberService.dubber.email" name="email">
+                  <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="dubberService.dubber.email" name="email" required>
                 </div>
                 <div class="col-sm-6 mb-3">
                   <label for="phone">Phone</label>
-                  <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="dubberService.dubber.phone" name="phone">
+                  <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="dubberService.dubber.phone" name="phone" required  #phone="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">Field is not valid</div>
                 </div>
               </div>
-            </div>
+            </fieldset>
             <button type="submit" class="btn btn-success">Update dubber</button>
           </form>
         </div>
@@ -89,7 +113,7 @@
           </ng-template>
         </div>
         <div class="tab-pane" id="invoices" role="tabpanel">
-          <section class="itemsList">
+          <section class="itemsList" *ngIf="dubberService.dubber.invoices.length; else noInvoices">
             <div class="itemsList__body">
               <div class="itemsList__body-row row" *ngFor="let invoice of dubberService.dubber.invoices">
                 <div class="col pt-20">
@@ -109,6 +133,9 @@
               </div>
             </div>
           </section>
+          <ng-template #noInvoices>
+            <p class="alert alert-warning">There aren't associated invoices</p>
+          </ng-template>
           <form #InvoiceForm="ngForm" (ngSubmit)="generateInvoice(InvoiceForm)">
             <div class="form-group">
               <label for="movie">Select movie</label>
@@ -133,10 +160,10 @@
                 <option value="50">50%</option>
               </select>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="netCompensation">Net compensation</label>
               <input class="form-control" value="{{netCompensation}}" disabled>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Generate invoice</button>
           </form>
         </div>

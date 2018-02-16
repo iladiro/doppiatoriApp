@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DubbersListComponent } from '../dubbers-list/dubbers-list.component';
-import { DubberModel } from '../dubber-model';
 import { DubberService } from '../dubbers.service';
 import {NgForm} from '@angular/forms';
 
@@ -11,8 +10,6 @@ import {NgForm} from '@angular/forms';
 
 export class AddDubberComponent implements OnInit {
 
-  private currentDubber;
-
   constructor(private dubberService: DubberService) {}
 
   getFirstChar(whichModel) {
@@ -21,16 +18,26 @@ export class AddDubberComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    this.currentDubber = form.value;
+    let dubbersList = this.dubberService.dubbersList;
+    let currentDubber = form.value;
     let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
-    this.currentDubber.id = lengthDubbersIndex.toString();
-    this.currentDubber.film = [];
-    this.currentDubber.invoices = [];
-    this.getFirstChar(this.currentDubber);
-    this.dubberService.create(this.currentDubber);
-    form.reset();
+    currentDubber.id = lengthDubbersIndex.toString();
+    currentDubber.film = [];
+    currentDubber.invoices = [];
+    this.getFirstChar(currentDubber);
+    for(let dubber of dubbersList) {
+      if(dubber.email == currentDubber.email) {
+        alert("You can't add this user bacause this email is already used!");
+        return;
+      } else {
+        this.dubberService.create(currentDubber);
+        form.reset();
+      }
+    };
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dubberService.getAll();
+  }
 
 }

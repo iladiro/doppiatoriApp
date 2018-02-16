@@ -49,7 +49,7 @@ const appRoutes: Routes = [
     data: { title: 'Add new dubber' }
   },
   {
-    path: 'dubberProfile/:id',
+    path: 'dubber/:id',
     component: DubberProfileComponent
   },
   {
