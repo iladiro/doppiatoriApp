@@ -34,14 +34,14 @@
           </form>
         </div>
         <div class="tab-pane" id="collaborators" role="tabpanel">
-          <section class="itemsList">
+          <section class="itemsList" *ngIf="filmService.film.dubbers.length; else noDubbers">
             <div class="itemsList__body">
               <div class="itemsList__body-row row" *ngFor="let dubber of filmService.film.dubbers">
                 <div class="col pt-20">
                   {{dubber.name}}
                 </div>
                 <div class="col text-right">
-                  <a [routerLink]="['/dubberProfile', dubber.id]" class="btn btn-outline-primary">
+                  <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-primary">
                     <i class="fa fa-info" aria-hidden="true"></i>
                   </a>
                   <button (click)="deleteDubber(dubber.id)" class="btn btn-outline-danger">
@@ -51,6 +51,9 @@
               </div>
             </div>
           </section>
+          <ng-template #noDubbers>
+            <p class="alert alert-warning">There aren't associated dubbers</p>
+          </ng-template>
           <form #AddDubberForm="ngForm" (ngSubmit)="addDubberHasParticipated(AddDubberForm)">
             <div class="form-group">
               <label for="exampleFormControlSelect2">Dubbers List</label>

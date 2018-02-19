@@ -16,6 +16,7 @@ export class DubberProfileComponent implements OnInit {
   id: number;
   private sub: any;
   netCompensation: number;
+  private status = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class DubberProfileComponent implements OnInit {
     currentDubber.invoices = this.dubberService.dubber.invoices;
     this.getFirstChar(currentDubber);
     this.dubberService.update(currentDubber);
+    this.status = true;
   }
 
   deleteFilm(idFilm) {
@@ -88,7 +90,7 @@ export class DubberProfileComponent implements OnInit {
     this.dubberService.dubber.invoices.push(currentInvoice);
     let refactDubberObject = this.dubberService.dubber;
     this.dubberService.update(refactDubberObject);
-    
+
     currentInvoice.dubberLinked = {
       "id": this.dubberService.dubber.id,
       "name": this.dubberService.dubber.name,

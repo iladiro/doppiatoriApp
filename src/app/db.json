@@ -78,7 +78,19 @@
           "title": "Pirata dei Caraibi"
         }
       ],
-      "invoices": [],
+      "invoices": [
+        {
+          "id": "478285",
+          "creationDate": "16/2/2018",
+          "movie": "Pirata dei Caraibi",
+          "compensation": {
+            "gross": 500,
+            "taxPercetual": 20,
+            "taxEuro": 100,
+            "net": 400
+          }
+        }
+      ],
       "avatar": "m"
     },
     {
@@ -94,7 +106,12 @@
       "email": "rossi.mario@gmail.com",
       "phone": "3474977880",
       "id": "306837",
-      "film": [],
+      "film": [
+        {
+          "id": 484812,
+          "title": "Il re leone"
+        }
+      ],
       "invoices": [],
       "avatar": "M"
     },
@@ -191,8 +208,9 @@
   ],
   "film": [
     {
-      "title": "Una notte da leoni",
+      "title": "Una notte a Parigi",
       "description": "Doug Billings, Phil Wenneck, Stu Price e Alan Garner sono un gruppo di amici in partenza per Las Vegas per celebrare l'addio al celibato di Doug. Phil e Stu sono amici storici dello sposo, mentre Alan è il futuro cognato. Partono a bordo di una Mercedes decappottabile, di proprietà del futuro suocero di Doug, Sid, che tiene alla macchina in modo maniacale, ma che la presta volentieri al futuro genero rassicurato dal fatto che Doug è un ragazzo assennato e rispettoso.",
+      "id": 998039,
       "dubbers": [
         {
           "id": "786396",
@@ -202,8 +220,7 @@
           "id": "610940",
           "name": "Adele"
         }
-      ],
-      "id": 998039
+      ]
     },
     {
       "title": "Pirata dei Caraibi",
@@ -223,7 +240,12 @@
     {
       "title": "Il re leone",
       "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
-      "dubbers": [],
+      "dubbers": [
+        {
+          "id": "306837",
+          "name": "Mario"
+        }
+      ],
       "id": 484812
     }
   ],
@@ -269,6 +291,28 @@
         "birthplace": "Gessate",
         "residenceplace": "Gessate",
         "residenceaddress": "Via libertà 44",
+        "residencecountry": "Italia"
+      }
+    },
+    {
+      "id": "478285",
+      "creationDate": "16/2/2018",
+      "movie": "Pirata dei Caraibi",
+      "compensation": {
+        "gross": 500,
+        "taxPercetual": 20,
+        "taxEuro": 100,
+        "net": 400
+      },
+      "dubberLinked": {
+        "id": "821043",
+        "name": "marika",
+        "surname": "di rosa",
+        "fiscalCode": "DRMRMI88B56F205",
+        "birthdate": "16/02/1988",
+        "birthplace": "Milano",
+        "residenceplace": "Milano",
+        "residenceaddress": "Piazza Insubria 24",
         "residencecountry": "Italia"
       }
     }

@@ -1,4 +1,7 @@
 <div class="container" *ngIf="dubberService.dubber">
+  <div *ngIf="status == true" class="alert alert-success">
+    Dubber updated with success!
+  </div>
   <div class="row">
     <div class="col-sm-2">
       <figure>
@@ -33,7 +36,7 @@
                 </div>
                 <div class="col-sm-6 mb-3">
                   <label for="surname">Surname</label>
-                  <input type="text" id="surname" class="form-control  text-capitalize" placeholder="Last name" [(ngModel)]="dubberService.dubber.surname" name="surname" required>
+                  <input type="text" id="surname" class="form-control text-capitalize" placeholder="Last name" [(ngModel)]="dubberService.dubber.surname" name="surname" required>
                 </div>
                 <div class="col-sm-6 mb-3">
                   <label for="name">Fiscal Code</label>
@@ -78,11 +81,12 @@
               <div class="form-row">
                 <div class="col-sm-6 mb-3">
                   <label for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="dubberService.dubber.email" name="email" required>
+                  <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="dubberService.dubber.email" name="email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Field is not valid</div>
                 </div>
                 <div class="col-sm-6 mb-3">
                   <label for="phone">Phone</label>
-                  <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="dubberService.dubber.phone" name="phone" required  #phone="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="dubberService.dubber.phone" name="phone" required #phone="ngModel" pattern="[0-9]+">
                   <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">Field is not valid</div>
                 </div>
               </div>
