@@ -2,14 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+// used to create fake backend
+import { fakeBackendProvider } from './components/user/_helpers/index';
 
 // Services
 import { DubberService } from './components/dubber/dubbers.service';
 import { AccountService } from './components/account/accounts.service';
 import { FilmService } from './components/film/film.service';
 import { InvoiceService } from './components/dubber/invoices.service';
-import { UserService } from './components/user/user.service';
+import { AlertService, AuthenticationService, UserService } from './components/user/_services/index';
+import { AuthGuard } from './components/user/_guards/index';
+import { JwtInterceptor } from './components/user/_helpers/index';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -26,8 +31,9 @@ import { NewAccountComponent } from './components/account/new-account/new-accoun
 import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
 import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
 import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
-import { SigninComponent } from './components/user/signin/signin.component';
-import { AuthguardGuard } from './components/user/authguard.guard';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { AlertComponent } from './components/user/_directives/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,9 @@ import { AuthguardGuard } from './components/user/authguard.guard';
     AccountsListComponent,
     AccountDetailsComponent,
     DubberInvoiceComponent,
-    SigninComponent
+    LoginComponent,
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -59,8 +67,17 @@ import { AuthguardGuard } from './components/user/authguard.guard';
     AccountService,
     FilmService,
     InvoiceService,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
     UserService,
-    AuthguardGuard
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
+    // provider used to create fake backend
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

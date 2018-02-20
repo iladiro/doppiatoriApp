@@ -13,29 +13,42 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewAccountComponent } from './components/account/new-account/new-account.component';
 import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
 import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
-import { SigninComponent } from './components/user/signin/signin.component';
-import { AuthguardGuard } from './components/user/authguard.guard';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
+import { AuthGuard } from './components/user/_guards/auth.guard';
 
 const appRoutes: Routes = [
+
   {
     path: '',
-    redirectTo: '/index',
-    pathMatch: 'full'
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  // {
+  //   path: '',
+  //   redirectTo: '/index',
+  //   pathMatch: 'full'
+  // },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' }
   },
   {
-    path: 'index',
-    component: SigninComponent,
-    data: { title: 'Index' }
+    path: 'register',
+    component: RegisterComponent,
+    data: { title: 'Register' }
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthguardGuard],
+    canActivate: [AuthGuard],
     data: { title: 'Dashboard' }
   },
   {
     path: 'accounts',
     component: AccountsListComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Accounts List' }
   },
   {
@@ -45,44 +58,57 @@ const appRoutes: Routes = [
   {
     path: 'accounts/new',
     component: NewAccountComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Add new account' }
   },
   {
     path: 'dubbers',
     component: DubbersListComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Dubbers List' }
   },
   {
     path: 'dubbers/add',
     component: AddDubberComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Add new dubber' }
   },
   {
     path: 'dubber/:id',
+    canActivate: [AuthGuard],
     component: DubberProfileComponent
   },
   {
     path: 'invoice/:id',
+    canActivate: [AuthGuard],
     component: DubberInvoiceComponent
   },
   {
     path: 'film',
+    canActivate: [AuthGuard],
     component: FilmListComponent,
     data: { title: 'Film List' }
   },
   {
     path: 'film/add',
     component: AddFilmComponent,
+    canActivate: [AuthGuard],
     data: { title: 'Add new film' }
   },
   {
     path: 'film/:id',
+    canActivate: [AuthGuard],
     component: FilmDetailsComponent
   },
+  // otherwise redirect to home
   {
     path: '**',
-    component: PageNotFoundComponent
+    redirectTo: ''
   }
+  // {
+  //   path: '**',
+  //   component: PageNotFoundComponent
+  // }
 
 ];
 
