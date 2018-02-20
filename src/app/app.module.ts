@@ -9,6 +9,7 @@ import { DubberService } from './components/dubber/dubbers.service';
 import { AccountService } from './components/account/accounts.service';
 import { FilmService } from './components/film/film.service';
 import { InvoiceService } from './components/dubber/invoices.service';
+import { UserService } from './components/user/user.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -25,6 +26,8 @@ import { NewAccountComponent } from './components/account/new-account/new-accoun
 import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
 import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
 import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
+import { SigninComponent } from './components/user/signin/signin.component';
+import { AuthguardGuard } from './components/user/authguard.guard';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubbe
     NewAccountComponent,
     AccountsListComponent,
     AccountDetailsComponent,
-    DubberInvoiceComponent
+    DubberInvoiceComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,9 @@ import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubbe
     DubberService,
     AccountService,
     FilmService,
-    InvoiceService
+    InvoiceService,
+    UserService,
+    AuthguardGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -13,6 +13,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewAccountComponent } from './components/account/new-account/new-account.component';
 import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
 import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
+import { SigninComponent } from './components/user/signin/signin.component';
+import { AuthguardGuard } from './components/user/authguard.guard';
 
 const appRoutes: Routes = [
   {
@@ -20,9 +22,16 @@ const appRoutes: Routes = [
     redirectTo: '/index',
     pathMatch: 'full'
   },
-  { path: 'index',
-    component: DashboardComponent,
+  {
+    path: 'index',
+    component: SigninComponent,
     data: { title: 'Index' }
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthguardGuard],
+    data: { title: 'Dashboard' }
   },
   {
     path: 'accounts',

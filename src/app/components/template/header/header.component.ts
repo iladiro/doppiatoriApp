@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Routes, RouterModule, Router} from "@angular/router";
+import { Router} from "@angular/router";
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,10 @@ import {Routes, RouterModule, Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor( private router: Router, private userService: UserService) {}
 
   ngOnInit() {
+    console.log(this.userService.getUserLoggedIn())
   }
 
 }

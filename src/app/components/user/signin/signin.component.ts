@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
-import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
+import { UserService } from '../user.service';
 
 @Component({
   templateUrl: './signin.component.html',
@@ -9,15 +10,14 @@ import { Router } from '@angular/router';
 
 export class SigninComponent implements OnInit {
 
-  constructor( private router: Router ) { }
+  constructor( private router: Router, private userService: UserService ) { }
 
   signIn(form: NgForm, e) {
-    // let username = e.elements[0].value;
-    // let password = e.elements[1].value;
     let credentials = form.value;
     if(credentials.email == "admin" && credentials.password == "admin") {
-      this.router.navigate(['dashboard']);
       console.log("ok puoi entrare");
+      // this.router.navigate(['/dashboard']);
+      console.log(this.router.navigate(['../../dashboard']));
     } else {
       console.log("dati non corretti");
     }
