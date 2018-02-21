@@ -12,6 +12,11 @@ export class AddDubberComponent implements OnInit {
 
   constructor(private dubberService: DubberService) {}
 
+  private message = {
+    "text": "",
+    "class": ""
+  };
+
   getFirstChar(whichModel) {
     let createAvatar = whichModel.name.charAt(0);
     whichModel.avatar = createAvatar;
@@ -27,9 +32,15 @@ export class AddDubberComponent implements OnInit {
     this.getFirstChar(currentDubber);
     for(let dubber of dubbersList) {
       if(dubber.email == currentDubber.email) {
-        alert("You can't add this user bacause this email is already used!");
+        this.message.text = "You can't add this user bacause this email is already used!";
+        this.message.class = "danger";
+        //alert("You can't add this user bacause this email is already used!");
         return;
       } else {
+        this.message = {
+          "text": "",
+          "class": ""
+        };
         this.dubberService.create(currentDubber);
         form.reset();
       }

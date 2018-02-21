@@ -260,6 +260,23 @@
         }
       ],
       "avatar": "M"
+    },
+    {
+      "name": "ilaria di rosa",
+      "surname": "di rosa",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Gessate",
+      "birthcounty": "Milano",
+      "residenceplace": "milano",
+      "residenceaddress": "Via libertà 44",
+      "residencecountry": "Italia",
+      "email": "dirosaaaa.ilaria@gmail.com",
+      "phone": "3474977880",
+      "id": "291791",
+      "film": [],
+      "invoices": [],
+      "avatar": "i"
     }
   ],
   "film": [

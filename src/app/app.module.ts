@@ -31,6 +31,7 @@ import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { AlertComponent } from './components/user/_directives/alert/alert.component';
 import { ListComponent } from './components/user/list/list.component';
+import { AlertMessageComponent } from './components/widgets/alert-message/alert-message.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ListComponent } from './components/user/list/list.component';
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    ListComponent
+    ListComponent,
+    AlertMessageComponent
   ],
   imports: [
     BrowserModule,

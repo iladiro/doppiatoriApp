@@ -1,4 +1,5 @@
 <div class="container">
+  <alertMessage [message]="message" *ngIf="message"></alertMessage>
   <form #addDubberForm="ngForm" (ngSubmit)="onSubmit(addDubberForm)">
     <fieldset class="pl-0 pr-0">
       <legend>Personal information:</legend>
