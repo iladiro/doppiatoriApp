@@ -9,6 +9,11 @@ import { FilmService } from '../../film/_services/index';
 
 export class DubbersListComponent implements OnInit {
 
+  private message = {
+    "text": "",
+    "class": ""
+  };
+
   constructor(
     private dubberService: DubberService,
     private filmService: FilmService
@@ -24,8 +29,13 @@ export class DubbersListComponent implements OnInit {
       }
     };
     if(filmDubbersID.includes(dubberId)) {
-      alert("You can't delete it, because this dubber is using!");
+      this.message.text = "You can't delete it, because this dubber is using!";
+      this.message.class = "danger";
     } else {
+      this.message = {
+        "text": "",
+        "class": ""
+      };
       this.dubberService.delete(dubber);
     }
   }
