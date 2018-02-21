@@ -9,7 +9,6 @@ import { fakeBackendProvider } from './components/user/_helpers/index';
 
 // Services
 import { DubberService } from './components/dubber/dubbers.service';
-import { AccountService } from './components/account/accounts.service';
 import { FilmService } from './components/film/film.service';
 import { InvoiceService } from './components/dubber/invoices.service';
 import { AlertService, AuthenticationService, UserService } from './components/user/_services/index';
@@ -27,13 +26,11 @@ import { AddFilmComponent } from './components/film/add-film/add-film.component'
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NewAccountComponent } from './components/account/new-account/new-account.component';
-import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
-import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
 import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { AlertComponent } from './components/user/_directives/alert/alert.component';
+import { ListComponent } from './components/user/list/list.component';
 
 @NgModule({
   declarations: [
@@ -47,13 +44,11 @@ import { AlertComponent } from './components/user/_directives/alert/alert.compon
     FilmDetailsComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    NewAccountComponent,
-    AccountsListComponent,
-    AccountDetailsComponent,
     DubberInvoiceComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +59,6 @@ import { AlertComponent } from './components/user/_directives/alert/alert.compon
   ],
   providers: [
     DubberService,
-    AccountService,
     FilmService,
     InvoiceService,
     AuthGuard,

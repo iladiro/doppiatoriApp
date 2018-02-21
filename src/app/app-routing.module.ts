@@ -10,12 +10,10 @@ import { AddFilmComponent } from './components/film/add-film/add-film.component'
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NewAccountComponent } from './components/account/new-account/new-account.component';
-import { AccountsListComponent } from './components/account/accounts-list/accounts-list.component';
-import { AccountDetailsComponent } from './components/account/account-details/account-details.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { AuthGuard } from './components/user/_guards/auth.guard';
+import { ListComponent } from './components/user/list/list.component';
 
 const appRoutes: Routes = [
 
@@ -40,26 +38,16 @@ const appRoutes: Routes = [
     data: { title: 'Register' }
   },
   {
+    path: 'users',
+    component: ListComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'List users' }
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
     data: { title: 'Dashboard' }
-  },
-  {
-    path: 'accounts',
-    component: AccountsListComponent,
-    canActivate: [AuthGuard],
-    data: { title: 'Accounts List' }
-  },
-  {
-    path: 'account/:id',
-    component: AccountDetailsComponent
-  },
-  {
-    path: 'accounts/new',
-    component: NewAccountComponent,
-    canActivate: [AuthGuard],
-    data: { title: 'Add new account' }
   },
   {
     path: 'dubbers',

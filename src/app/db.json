@@ -1,12 +1,22 @@
 {
-  "accounts": [
+  "users": [
     {
-      "name": "ilaria",
-      "surname": "di rosa",
+      "firstName": "Fabio",
+      "lastName": "Petrucci",
+      "email": "fabio.petrucci@gmail.com",
+      "username": "biospank",
+      "password": "biospank9571",
+      "userType": "simple_user",
+      "id": 3
+    },
+    {
+      "firstName": "ilaria",
+      "lastName": "di rosa",
       "email": "dirosa.ilaria@gmail.com",
-      "typeAccount": "0",
-      "id": 343209,
-      "avatar": "i"
+      "username": "iladiro",
+      "password": "angels88",
+      "userType": "administrator",
+      "id": 4
     }
   ],
   "dubbers": [
