@@ -41,6 +41,10 @@
         {
           "id": 696831,
           "title": "Pirata dei Caraibi"
+        },
+        {
+          "id": "81948",
+          "title": "Un detective in corsia"
         }
       ],
       "invoices": [
@@ -120,6 +124,10 @@
         {
           "id": 484812,
           "title": "Il re leone"
+        },
+        {
+          "id": 81948,
+          "title": "Un detective in corsia"
         }
       ],
       "invoices": [],
@@ -214,6 +222,44 @@
       "film": [],
       "invoices": [],
       "avatar": "P"
+    },
+    {
+      "name": "Marco",
+      "surname": "Palla",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Milano",
+      "birthcounty": "Italien",
+      "residenceplace": "milano",
+      "residenceaddress": "Via libertà 44",
+      "residencecountry": "Italia",
+      "email": "marco.palla@gmail.com",
+      "phone": "3474977880",
+      "id": "172637",
+      "film": [
+        {
+          "id": 998039,
+          "title": "Una notte a Parigi"
+        },
+        {
+          "id": "81948",
+          "title": "Un detective in corsia"
+        }
+      ],
+      "invoices": [
+        {
+          "id": "831095",
+          "creationDate": "21/2/2018",
+          "movie": "Una notte a Parigi",
+          "compensation": {
+            "gross": 500,
+            "taxPercetual": 40,
+            "taxEuro": 200,
+            "net": 300
+          }
+        }
+      ],
+      "avatar": "M"
     }
   ],
   "film": [
@@ -229,6 +275,10 @@
         {
           "id": "610940",
           "name": "Adele"
+        },
+        {
+          "id": "172637",
+          "name": "Marco"
         }
       ]
     },
@@ -257,6 +307,25 @@
         }
       ],
       "id": 484812
+    },
+    {
+      "title": "Un detective in corsia",
+      "description": "sadasd",
+      "dubbers": [
+        {
+          "id": "786396",
+          "name": "ilaria"
+        },
+        {
+          "id": "172637",
+          "name": "Marco"
+        },
+        {
+          "id": "306837",
+          "name": "Mario"
+        }
+      ],
+      "id": "81948"
     }
   ],
   "invoices": [
@@ -323,6 +392,28 @@
         "birthplace": "Milano",
         "residenceplace": "Milano",
         "residenceaddress": "Piazza Insubria 24",
+        "residencecountry": "Italia"
+      }
+    },
+    {
+      "id": "831095",
+      "creationDate": "21/2/2018",
+      "movie": "Una notte a Parigi",
+      "compensation": {
+        "gross": 500,
+        "taxPercetual": 40,
+        "taxEuro": 200,
+        "net": 300
+      },
+      "dubberLinked": {
+        "id": "172637",
+        "name": "Marco",
+        "surname": "Palla",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Milano",
+        "residenceplace": "milano",
+        "residenceaddress": "Via libertà 44",
         "residencecountry": "Italia"
       }
     }

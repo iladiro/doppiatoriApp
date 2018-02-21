@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { InvoiceService } from '../invoices.service';
+import { InvoiceService } from '../_services/invoices.service';
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
 

@@ -8,9 +8,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider } from './components/user/_helpers/index';
 
 // Services
-import { DubberService } from './components/dubber/dubbers.service';
-import { FilmService } from './components/film/film.service';
-import { InvoiceService } from './components/dubber/invoices.service';
+import { DubberService } from './components/dubber/_services/dubbers.service';
+import { FilmService } from './components/film/_services/index';
+import { InvoiceService } from './components/dubber/_services/invoices.service';
 import { AlertService, AuthenticationService, UserService } from './components/user/_services/index';
 import { AuthGuard } from './components/user/_guards/index';
 import { JwtInterceptor } from './components/user/_helpers/index';

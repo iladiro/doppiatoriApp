@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user/_models/index';
 //import { UserService } from '../user/_services/index';
-import { DubberService } from '../dubber/dubbers.service';
-import { FilmService } from '../film/film.service';
+import { DubberService } from '../dubber/_services/dubbers.service';
+import { FilmService } from '../film/_services/index';
 
 @Component({
   moduleId: module.id,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DubberService } from '../dubbers.service';
-import { FilmService } from '../../film/film.service';
+import { DubberService } from '../_services/index';
+import { FilmService } from '../../film/_services/index';
 
 @Component({
   templateUrl: './dubbers-list.component.html',

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FilmListComponent } from '../film-list/film-list.component';
-import { FilmModel } from '../film-model';
-import { FilmService } from '../film.service';
-import { DubberService } from '../../dubber/dubbers.service';
+import { Film } from '../_models/index';
+import { FilmService } from '../_services/index';
+import { DubberService } from '../../dubber/_services/dubbers.service';
 import {NgForm} from '@angular/forms';
 
 @Component({

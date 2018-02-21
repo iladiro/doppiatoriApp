@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DubberModel } from './dubber-model';
+import { Dubber } from '../_models/index';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()

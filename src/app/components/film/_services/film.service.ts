@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FilmModel } from './film-model';
+import { Film } from '../_models/index';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
@@ -7,10 +7,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class FilmService {
 
   private urlRoot = "http://localhost:3000/film/";
-  // private urlRootFilm = "http://localhost:3000/film/";
-  // private urlRootDubber = "http://localhost:3000/dubbers/";
-  // private urlRootAccount = "http://localhost:3000/accounts/";
-  private urlRootRelationship = "http://localhost:3000/relationship/";
   filmsList;
   film;
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DubbersListComponent } from '../dubbers-list/dubbers-list.component';
-import { DubberService } from '../dubbers.service';
+import { DubberService } from '../_services/index';
 import {NgForm} from '@angular/forms';
 
 @Component({
