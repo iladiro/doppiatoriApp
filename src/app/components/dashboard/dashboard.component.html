@@ -9,16 +9,8 @@
         <div class="card-body">
           <figure class="text-center">
             <img src="../../assets/images/paolo-astrone.jpg" alt="Paolo Astrone" height="100" class="rounded-circle">
-            <figcaption class="card-text text-secondary">You are a administrator user</figcaption>
+            <figcaption class="card-text text-secondary">You are an {{currentUser.userType}} user</figcaption>
           </figure>
-        </div>
-        <div class="card-footer">
-          <p>
-            <a href="">View your profile <i class="fa fa-angle-right" aria-hidden="true"></i></a>
-          </p>
-          <p>
-            <a [routerLink]="['/login']">Logout</a>
-          </p>
         </div>
       </div>
     </div>

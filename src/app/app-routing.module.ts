@@ -14,6 +14,7 @@ import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { AuthGuard } from './components/user/_guards/auth.guard';
 import { ListComponent } from './components/user/list/list.component';
+import { DetailsUserComponent } from './components/user/details/details.component';
 
 const appRoutes: Routes = [
 
@@ -42,6 +43,11 @@ const appRoutes: Routes = [
     component: ListComponent,
     canActivate: [AuthGuard],
     data: { title: 'List users' }
+  },
+  {
+    path: 'user/:id',
+    canActivate: [AuthGuard],
+    component: DetailsUserComponent
   },
   {
     path: 'dashboard',
