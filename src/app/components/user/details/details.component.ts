@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/index';
 import { ActivatedRoute } from "@angular/router";
-import { NgForm } from '@angular/forms';
 import { User } from '../_models/index';
 
 @Component({
@@ -21,12 +20,8 @@ export class DetailsUserComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  private upDateUser(form: NgForm) {
-    let currentUser = form.value;
-    currentUser.id = this.id;
-    console.log(currentUser);
-    this.loading = true;
-    this.userService.update(currentUser).subscribe();
+  private upDateUser() {
+    this.userService.update(this.model).subscribe();
   }
 
   ngOnInit() {
