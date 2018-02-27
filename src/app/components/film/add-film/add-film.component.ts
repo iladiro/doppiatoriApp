@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FilmListComponent } from '../film-list/film-list.component';
 import { Film } from '../_models/index';
 import { FilmService } from '../_services/index';
@@ -6,57 +6,66 @@ import { DubberService } from '../../dubber/_services/dubbers.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
+  moduleId: module.id,
   templateUrl: './add-film.component.html',
   styleUrls: ['./add-film.component.scss']
 })
 
-export class AddFilmComponent implements OnInit {
+export class AddFilmComponent {
 
-  //private currentFilm;
-  private status:boolean = false;
+  model: any = {};
+  loading = false;
+  private message = {
+    "text": "",
+    "class": ""
+  };
 
   constructor(
     private filmService: FilmService,
     private dubberService: DubberService
   ) {}
 
-  create(form: NgForm){
-    let service = this.dubberService;
+  create(){
     let filmDubbersIdSelected = [];
-    let currentFilm = form.value;
-    // To assign an ID param to the film object
-    currentFilm.id = Math.floor((Math.random() * 1000000) + 1).toString();
-    // end
-    let updateDubbers = [];
-    // From an array of string, create dubber's object.
-    currentFilm.dubbers = currentFilm.dubbers.map(function(item) {
+    // let updateDubbers = [];
+    //From an array of string, create dubber's object.
+    this.model.dubbers = this.model.dubbers.map(function(item) {
       var data = item.split(',');
-      filmDubbersIdSelected.push(data[0]);
+      //filmDubbersIdSelected.push(data[0]);
       return {
         "id": data[0],
         "name": data[1]
       };
     });
-    // end
+    //end
+    this.filmService.create(this.model).subscribe(
+      data => {
+        this.message.text = "Film has been created successfully!";
+        this.message.class = "success";
+      },
+      err => {
+        this.message.text = "Error occured!";
+        this.message.class = "danger";
+      }
+    );
     /* Se l'id del dubber su cui stai ciclando è contenuto nell'array dei dubber selezionati
     nella proprietà film del dubber pusha l'oggeto film */
-    this.dubberService.dubbersList.map(function(dubber) {
-      if(filmDubbersIdSelected.includes(dubber.id.toString())) {
-        let dubberFilm = dubber.film;
-        let obj = {
-          "id": currentFilm.id,
-          "title": currentFilm.title
-        };
-        dubberFilm.push(obj);
-        updateDubbers.push(dubber);
-      }
-    });
-    updateDubbers.forEach(function(dubber) {
-      service.update(dubber);
-    });
-    this.filmService.create(currentFilm);
-    form.reset();
-    this.status = true;
+    // this.dubberService.dubbersList.map(function(dubber) {
+    //   if(filmDubbersIdSelected.includes(dubber.id.toString())) {
+    //     let dubberFilm = dubber.film;
+    //     let obj = {
+    //       "id": currentFilm.id,
+    //       "title": currentFilm.title
+    //     };
+    //     dubberFilm.push(obj);
+    //     updateDubbers.push(dubber);
+    //   }
+    // });
+    // updateDubbers.forEach(function(dubber) {
+    //   service.update(dubber);
+    // });
+    // this.filmService.create(currentFilm);
+    // form.reset();
   }
 
   ngOnInit() {

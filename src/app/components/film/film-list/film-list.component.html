@@ -15,7 +15,7 @@
       <div class="col"></div>
     </div>
     <div class="itemsList__body">
-      <div class="itemsList__body-row row" *ngFor="let film of filmService.filmsList">
+      <div class="itemsList__body-row row" *ngFor="let film of films">
         <div class="col pt-20">
           {{film.title}}
         </div>
@@ -29,7 +29,7 @@
           <a [routerLink]="['/film', film.id]" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </a>
-          <button (click)="onDelete(film)" class="btn btn-outline-danger">
+          <button (click)="delete(film)" class="btn btn-outline-danger">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>

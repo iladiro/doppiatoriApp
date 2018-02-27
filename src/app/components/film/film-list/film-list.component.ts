@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Film } from '../_models/index';
 import { FilmService } from '../_services/index';
-import {NgForm} from '@angular/forms';
 
 @Component({
   templateUrl: './film-list.component.html',
@@ -10,14 +9,26 @@ import {NgForm} from '@angular/forms';
 
 export class FilmListComponent implements OnInit {
 
+  films: Film[] = [];
+
   constructor(private filmService: FilmService) {}
 
-  onDelete(film) {
-    this.filmService.delete(film);
+  delete(film) {
+    let index = this.films.indexOf(film);
+    var confirmRequest = confirm("Are you sure to delete it?");
+    if (confirmRequest == true) {
+      this.filmService.delete(film.id).subscribe(
+        data => {
+          this.films.splice(index, 1);
+        }
+      );
+    }
   }
 
   ngOnInit() {
-    this.filmService.getAll();
+    this.filmService.getAll().subscribe(
+      data => { this.films = data; }
+    );
   }
 
 }

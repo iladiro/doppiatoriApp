@@ -27,14 +27,14 @@ export class FilmDetailsComponent implements OnInit {
     this.filmService.update(this.model).subscribe();
   }
 
-  deleteDubber(idDubber) {
-    let currentFilm = this.filmService.film;
+  private deleteDubber(idDubber) {
+    let currentFilm = this.model;
     currentFilm.dubbers.map(function(dubber, index){
       if(dubber.id == idDubber) {
         currentFilm.dubbers.splice(index, 1);
       }
     });
-    this.filmService.update(currentFilm);
+    this.filmService.update(this.model).subscribe();
 
 
     //Updating dubber object after event delete film
@@ -50,7 +50,6 @@ export class FilmDetailsComponent implements OnInit {
         dubberObject = dubber;
       };
     });
-    //console.log(dubberObject)
     this.dubberService.update(dubberObject);
   }
 

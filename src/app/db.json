@@ -35,16 +35,16 @@
       "id": "786396",
       "film": [
         {
-          "id": 998039,
-          "title": "Una notte da leoni"
-        },
-        {
           "id": 696831,
           "title": "Pirata dei Caraibi"
         },
         {
           "id": "81948",
           "title": "Un detective in corsia"
+        },
+        {
+          "id": "512125",
+          "title": "lA CARICA DEI 101"
         }
       ],
       "invoices": [
@@ -90,6 +90,10 @@
         {
           "id": 696831,
           "title": "Pirata dei Caraibi"
+        },
+        {
+          "id": "512125",
+          "title": "lA CARICA DEI 101"
         }
       ],
       "invoices": [
@@ -281,27 +285,8 @@
   ],
   "film": [
     {
-      "title": "Una notte a Parigi 2",
-      "description": "Doug Billings, Phil Wenneck, Stu Price e Alan Garner sono un gruppo di amici in partenza per Las Vegas per celebrare l'addio al celibato di Doug. Phil e Stu sono amici storici dello sposo, mentre Alan è il futuro cognato. Partono a bordo di una Mercedes decappottabile, di proprietà del futuro suocero di Doug, Sid, che tiene alla macchina in modo maniacale, ma che la presta volentieri al futuro genero rassicurato dal fatto che Doug è un ragazzo assennato e rispettoso.",
-      "id": 998039,
-      "dubbers": [
-        {
-          "id": "786396",
-          "name": "ilaria"
-        },
-        {
-          "id": "610940",
-          "name": "Adele"
-        },
-        {
-          "id": "172637",
-          "name": "Marco"
-        }
-      ]
-    },
-    {
-      "title": "Pirata dei Caraibi",
-      "description": "L'eccentrico ed eroico capitano Jack Sparrow, per salvare la bella figlia del Governatore inglese, Elizabeth Swann, rapita dalla ciurma della nave pirata Perla Nera, comandata dall'astuto e spietato capitano Hector Barbossa (nemico di Jack Sparrow, aveva rubato la nave Perla Nera), con lo scopo di liberarsi da una maledizione subita per aver sottratto dell'oro, si allea con il fabbro locale Will Turner, figlio di un amico di vecchia data e innamorato della bella Elizabeth, per cercare di riavere, entrambi, ciò che gli è stato sottratto.",
+      "title": "sdf",
+      "description": "sdf",
       "dubbers": [
         {
           "id": "786396",
@@ -312,37 +297,7 @@
           "name": "marika"
         }
       ],
-      "id": 696831
-    },
-    {
-      "title": "Il re leone",
-      "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
-      "dubbers": [
-        {
-          "id": "306837",
-          "name": "Mario"
-        }
-      ],
-      "id": 484812
-    },
-    {
-      "title": "Un detective in corsia",
-      "description": "sadasd",
-      "dubbers": [
-        {
-          "id": "786396",
-          "name": "ilaria"
-        },
-        {
-          "id": "172637",
-          "name": "Marco"
-        },
-        {
-          "id": "306837",
-          "name": "Mario"
-        }
-      ],
-      "id": "81948"
+      "id": 1
     }
   ],
   "invoices": [

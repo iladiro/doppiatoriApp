@@ -18,61 +18,28 @@ export class FilmService {
   ngOnInit(): void {}
 
   getAll() {
-    this.http.get(this.urlRoot).subscribe(
-      data => {
-        this.filmsList = data;
-      },
-      err => {
-        console.log("Error occured.")
-      }
-    );
-  };
-
-  // getById(idfilm) {
-  //   this.http.get(this.urlRoot + idfilm.toString()).subscribe(
-  //     data => {
-  //       this.film = data;
-  //     },
-  //     err => {
-  //       console.log("Error occured.")
-  //     }
-  //   );
-  // };
+    return this.http.get<Film[]>(this.urlRoot);
+  }
 
   getById(id: number) {
     return this.http.get(this.urlRoot + id);
   }
 
-  create(film) {
-    this.http.post(this.urlRoot, film).subscribe(
-      data => {
-        this.filmsList.push(data);
-      }
-    );
-  };
-
-  delete(film) {
-    let index = this.filmsList.indexOf(film);
-    var confirmRequest = confirm("Are you sure to delete it?");
-    if (confirmRequest == true) {
-      this.http.delete(this.urlRoot + film.id.toString()).subscribe(
-        data => {
-          this.filmsList.splice(index, 1);
-        }
-      )
-    }
-  };
-
-  // update(film) {
-  //   var confirmRequest = confirm("Are you sure you wanna run the following changes?");
-  //   if (confirmRequest == true) {
-  //     this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
-  //       data => {
-  //         // this.film = data;
-  //       }
-  //     );
-  //   };
+  // create(film) {
+  //   this.http.post(this.urlRoot, film).subscribe(
+  //     data => {
+  //       this.filmsList.push(data);
+  //     }
+  //   );
   // };
+
+  create(film: Film) {
+    return this.http.post(this.urlRoot, film);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.urlRoot + id);
+  }
 
   update(film: Film) {
     return this.http.put(this.urlRoot + film.id, film);
