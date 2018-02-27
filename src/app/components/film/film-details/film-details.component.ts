@@ -6,6 +6,7 @@ import { DubberService } from '../../dubber/_services/dubbers.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
+  moduleId: module.id,
   templateUrl: './film-details.component.html',
   styleUrls: ['./film-details.component.scss']
 })
@@ -14,14 +15,16 @@ export class FilmDetailsComponent implements OnInit {
 
   id: number;
   private sub: any;
+  model: any = {};
 
-  constructor( private route: ActivatedRoute, private filmService: FilmService, private dubberService: DubberService ) {}
+  constructor(
+    private route: ActivatedRoute,
+    private filmService: FilmService,
+    private dubberService: DubberService
+  ) {}
 
-  upDateFilm(form: NgForm){
-    let currentFilm = form.value;
-    currentFilm.id = this.id;
-    currentFilm.dubbers = this.filmService.film.dubbers;
-    this.filmService.update(currentFilm);
+  private upDateFilm(){
+    this.filmService.update(this.model).subscribe();
   }
 
   deleteDubber(idDubber) {
@@ -97,7 +100,7 @@ export class FilmDetailsComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.filmService.getById(this.id);
+      this.filmService.getById(this.id).subscribe(film => { this.model = film; });
     });
     this.dubberService.getAll();
     this.filmService.getAll();

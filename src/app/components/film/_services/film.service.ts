@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Film } from '../_models/index';
-import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
-
 export class FilmService {
 
   private urlRoot = "http://localhost:3000/film/";
@@ -28,16 +28,20 @@ export class FilmService {
     );
   };
 
-  getById(idfilm) {
-    this.http.get(this.urlRoot + idfilm.toString()).subscribe(
-      data => {
-        this.film = data;
-      },
-      err => {
-        console.log("Error occured.")
-      }
-    );
-  };
+  // getById(idfilm) {
+  //   this.http.get(this.urlRoot + idfilm.toString()).subscribe(
+  //     data => {
+  //       this.film = data;
+  //     },
+  //     err => {
+  //       console.log("Error occured.")
+  //     }
+  //   );
+  // };
+
+  getById(id: number) {
+    return this.http.get(this.urlRoot + id);
+  }
 
   create(film) {
     this.http.post(this.urlRoot, film).subscribe(
@@ -59,15 +63,19 @@ export class FilmService {
     }
   };
 
-  update(film) {
-    var confirmRequest = confirm("Are you sure you wanna run the following changes?");
-    if (confirmRequest == true) {
-      this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
-        data => {
-          // this.film = data;
-        }
-      );
-    };
-  };
+  // update(film) {
+  //   var confirmRequest = confirm("Are you sure you wanna run the following changes?");
+  //   if (confirmRequest == true) {
+  //     this.http.put(this.urlRoot + film.id.toString(), film).subscribe(
+  //       data => {
+  //         // this.film = data;
+  //       }
+  //     );
+  //   };
+  // };
+
+  update(film: Film) {
+    return this.http.put(this.urlRoot + film.id, film);
+  }
 
 }
