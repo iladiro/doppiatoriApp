@@ -1,12 +1,10 @@
-<div class="container" *ngIf="dubberService.dubber">
-  <div *ngIf="status == true" class="alert alert-success">
-    Dubber updated with success!
-  </div>
+<div class="container" *ngIf="model">
+  <alertMessage [message]="message" *ngIf="message"></alertMessage>
   <div class="row">
     <div class="col-sm-2">
       <figure>
         <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
-        <h5 class="mt-10 text-capitalize">{{dubberService.dubber.name}} {{dubberService.dubber.surname}}</h5>
+        <h5 class="mt-10 text-capitalize">{{model.name}} {{model.surname}}</h5>
       </figure>
     </div>
     <div class="col-sm-10">
@@ -26,68 +24,74 @@
       <!-- Tab panes -->
       <div class="tab-content pboth-15">
         <div class="tab-pane active" id="personal-data" role="tabpanel">
-          <form #UpdateDubberForm="ngForm" (ngSubmit)="upDateParsonalDate(UpdateDubberForm)">
+          <form #UpdateDubberForm="ngForm" (ngSubmit)="upDateDubber(UpdateDubberForm)" novalidate>
             <fieldset class="pl-0 pr-0">
               <legend>Personal information:</legend>
               <div class="form-row">
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !name.valid }">
                   <label for="name">Name</label>
-                  <input type="text" id="name" class="form-control text-capitalize" placeholder="First name" [(ngModel)]="dubberService.dubber.name" name="name" required>
+                  <input type="text" id="name" class="form-control text-capitalize" placeholder="First name" [(ngModel)]="model.name" name="name" #name="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !name.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !surname.valid }">
                   <label for="surname">Surname</label>
-                  <input type="text" id="surname" class="form-control text-capitalize" placeholder="Last name" [(ngModel)]="dubberService.dubber.surname" name="surname" required>
+                  <input type="text" id="surname" class="form-control text-capitalize" placeholder="Last name" [(ngModel)]="model.surname" name="surname" #surname="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !surname.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !fiscalCode.valid }">
                   <label for="name">Fiscal Code</label>
-                  <input type="text" id="fiscalCode" class="form-control text-uppercase" placeholder="Fiscal Code" [(ngModel)]="dubberService.dubber.fiscalCode" name="fiscalCode" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$" required>
+                  <input type="text" id="fiscalCode" class="form-control text-uppercase" placeholder="Fiscal Code" [(ngModel)]="model.fiscalCode" name="fiscalCode" #fiscalCode="ngModel" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !fiscalCode.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !birthdate.valid }">
                   <label for="name">Date of birth</label>
-                  <input type="text" id="birthdate" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="dubberService.dubber.birthdate" name="birthdate" required>
+                  <input type="text" id="birthdate" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="model.birthdate" name="birthdate" #birthdate="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !birthdate.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !birthplace.valid }">
                   <label for="name">Place of birth</label>
-                  <input type="text" id="birthplace" class="form-control text-capitalize" placeholder="Place of birth" [(ngModel)]="dubberService.dubber.birthplace" name="birthplace" required>
+                  <input type="text" id="birthplace" class="form-control text-capitalize" placeholder="Place of birth" [(ngModel)]="model.birthplace" name="birthplace" #birthplace="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !birthplace.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !birthcounty.valid }">
                   <label for="name">County of birth</label>
-                  <input type="text" id="birthcounty" class="form-control text-capitalize" placeholder="County of birth" [(ngModel)]="dubberService.dubber.birthcounty" name="birthcounty" required>
+                  <input type="text" id="birthcounty" class="form-control text-capitalize" placeholder="County of birth" [(ngModel)]="model.birthcounty" name="birthcounty" #birthcounty="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !birthcounty.valid" class="help-block">Field is required</div>
                 </div>
               </div>
             </fieldset>
             <fieldset class="pl-0 pr-0">
               <legend>Tax information:</legend>
               <div class="form-row">
-                <div class="col-sm-12 col-md-4 mb-3">
+                <div class="col-sm-12 col-md-4 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !residenceplace.valid }">
                   <label for="residenceplace">Place of residence</label>
-                  <input id="residenceplace" type="text" class="form-control text-capitalize" placeholder="Place of residence" [(ngModel)]="dubberService.dubber.residenceplace" name="residenceplace" #residenceplace="ngModel" required>
-                  <div class="alert alert-danger" *ngIf="residenceplace.touched && !residenceplace.valid">Field is not valid</div>
+                  <input id="residenceplace" type="text" class="form-control text-capitalize" placeholder="Place of residence" [(ngModel)]="model.residenceplace" name="residenceplace" #residenceplace="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !residenceplace.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-12 col-md-4 mb-3">
+                <div class="col-sm-12 col-md-4 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !residenceaddress.valid }">
                   <label for="residenceaddress">Address</label>
-                  <input id="residenceaddress" type="text" class="form-control text-capitalize" placeholder="Address" [(ngModel)]="dubberService.dubber.residenceaddress" name="residenceaddress" #residenceaddress="ngModel" required>
-                  <div class="alert alert-danger" *ngIf="residenceaddress.touched && !residenceaddress.valid">Field is not valid</div>
+                  <input id="residenceaddress" type="text" class="form-control text-capitalize" placeholder="Address" [(ngModel)]="model.residenceaddress" name="residenceaddress" #residenceaddress="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !residenceaddress.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-12 col-md-4 mb-3">
+                <div class="col-sm-12 col-md-4 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !residencecountry.valid }">
                   <label for="residencecountry">Country of residence</label>
-                  <input id="residencecountry" type="text" class="form-control text-capitalize" placeholder="Country of residence" [(ngModel)]="dubberService.dubber.residencecountry" name="residencecountry" #residencecountry="ngModel" required>
-                  <div class="alert alert-danger" *ngIf="residencecountry.touched && !residencecountry.valid">Field is not valid</div>
+                  <input id="residencecountry" type="text" class="form-control text-capitalize" placeholder="Country of residence" [(ngModel)]="model.residencecountry" name="residencecountry" #residencecountry="ngModel" required>
+                  <div *ngIf="UpdateDubberForm.submitted && !residencecountry.valid" class="help-block">Field is required</div>
                 </div>
               </div>
             </fieldset>
             <fieldset class="pl-0 pr-0">
               <legend>Contacts information:</legend>
               <div class="form-row">
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !email.valid }">
                   <label for="email">Email</label>
-                  <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="dubberService.dubber.email" name="email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                  <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Field is not valid</div>
+                  <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <div *ngIf="UpdateDubberForm.submitted && !email.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3">
+                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !phone.valid }">
                   <label for="phone">Phone</label>
-                  <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="dubberService.dubber.phone" name="phone" required #phone="ngModel" pattern="[0-9]+">
-                  <div class="alert alert-danger" *ngIf="phone.touched && !phone.valid">Field is not valid</div>
+                  <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="model.phone" name="phone" required #phone="ngModel" pattern="[0-9]+">
+                  <div *ngIf="UpdateDubberForm.submitted && !phone.valid" class="help-block">Field is required</div>
                 </div>
               </div>
             </fieldset>
@@ -95,9 +99,9 @@
           </form>
         </div>
         <div class="tab-pane" id="collaborations" role="tabpanel">
-          <section class="itemsList" *ngIf="dubberService.dubber.film.length; else noFilm">
+          <section class="itemsList" *ngIf="model.film.length; else noFilm">
             <div class="itemsList__body">
-              <div class="itemsList__body-row row"  *ngFor="let dubberFilm of dubberService.dubber.film">
+              <div class="itemsList__body-row row"  *ngFor="let dubberFilm of model.film">
                 <div class="col pt-20">
                   {{dubberFilm.title}}
                 </div>
@@ -117,9 +121,9 @@
           </ng-template>
         </div>
         <div class="tab-pane" id="invoices" role="tabpanel">
-          <section class="itemsList" *ngIf="dubberService.dubber.invoices.length; else noInvoices">
+          <section class="itemsList" *ngIf="model.invoices.length; else noInvoices">
             <div class="itemsList__body">
-              <div class="itemsList__body-row row" *ngFor="let invoice of dubberService.dubber.invoices">
+              <div class="itemsList__body-row row" *ngFor="let invoice of model.invoices">
                 <div class="col pt-20">
                   Compenso per prestazione d'opera relativa al film <strong>{{invoice.movie}}</strong>
                 </div>
@@ -144,10 +148,10 @@
             <div class="form-group">
               <label for="movie">Select movie</label>
               <select name="movie" class="form-control" ngModel>
-                <option *ngFor="let movie of dubberService.dubber.film" value="{{movie.title}}">
+                <option *ngFor="let movie of model.film" value="{{movie.title}}">
                   {{movie.title}}
                 </option>
-                <option disabled *ngIf="!dubberService.dubber.film.length">
+                <option disabled *ngIf="!model.film.length">
                   There aren't associated movies
                 </option>
               </select>
@@ -164,10 +168,6 @@
                 <option value="50">50%</option>
               </select>
             </div>
-            <!-- <div class="form-group">
-              <label for="netCompensation">Net compensation</label>
-              <input class="form-control" value="{{netCompensation}}" disabled>
-            </div> -->
             <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Generate invoice</button>
           </form>
         </div>

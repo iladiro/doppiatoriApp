@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Dubber } from '../_models/index';
 import { HttpClient, HttpParams } from '@angular/common/http';
+
+import { Dubber } from '../_models/index';
 
 @Injectable()
 
@@ -18,57 +19,23 @@ export class DubberService {
   ngOnInit(): void {}
 
   getAll() {
-    this.http.get(this.urlRoot).subscribe(
-      data => {
-        this.dubbersList = data;
-      },
-      err => {
-        console.log("Error occured.")
-      }
-    );
-  };
+    return this.http.get<Dubber[]>(this.urlRoot);
+  }
 
-  getById(idDubber) {
-    this.http.get(this.urlRoot + idDubber.toString()).subscribe(
-      data => {
-        this.dubber = data;
-      },
-      err => {
-        console.log("Error occured.")
-      }
-    );
-  };
+  getById(id: number) {
+    return this.http.get(this.urlRoot + id);
+  }
 
-  create(dubber) {
-    this.http.post(this.urlRoot, dubber).subscribe(
-      data => {
-        this.dubbersList.push(data);
-      }
-    );
-  };
+  create(dubber: Dubber) {
+    return this.http.post(this.urlRoot, dubber);
+  }
 
-  delete(dubber) {
-    let index = this.dubbersList.indexOf(dubber);
-    var confirmRequest = confirm("Are you sure to delete it?");
-    if (confirmRequest == true) {
-      this.http.delete(this.urlRoot + dubber.id.toString()).subscribe(
-        data => {
-          this.dubbersList.splice(index, 1);
-        }
-      )
-    }
-  };
+  delete(id: number) {
+    return this.http.delete(this.urlRoot + id);
+  }
 
-  update(dubber) {
-    this.http.put(this.urlRoot + dubber.id.toString(), dubber).subscribe(
-      data => {}
-    );
-    // var confirmRequest = confirm("Are you sure you wanna run the following changes?");
-    // if (confirmRequest == true) {
-    //   this.http.put(this.urlRoot + dubber.id.toString(), dubber).subscribe(
-    //     data => {}
-    //   );
-    // };
-  };
+  update(dubber: Dubber) {
+    return this.http.put(this.urlRoot + dubber.id, dubber);
+  }
 
 }

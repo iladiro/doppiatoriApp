@@ -39,35 +39,17 @@ export class InvoiceService {
   };
 
   create(invoice) {
-    this.http.post(this.urlRoot, invoice).subscribe(
-      data => {
-        this.invoicesList.push(data);
-      }
-    );
-  };
+    return this.http.post(this.urlRoot, invoice);
+  }
 
-  delete(invoice) {
-    let index = this.invoicesList.indexOf(invoice);
-    var confirmRequest = confirm("Are you sure to delete it?");
-    if (confirmRequest == true) {
-      this.http.delete(this.urlRoot + invoice.id.toString()).subscribe(
-        data => {
-          this.invoicesList.splice(index, 1);
-        }
-      )
-    }
-  };
+  delete(id: number) {
+    return this.http.delete(this.urlRoot + id);
+  }
 
   update(invoice) {
     this.http.put(this.urlRoot + invoice.id.toString(), invoice).subscribe(
       data => {}
     );
-    // var confirmRequest = confirm("Are you sure you wanna run the following changes?");
-    // if (confirmRequest == true) {
-    //   this.http.put(this.urlRoot + invoice.id.toString(), invoice).subscribe(
-    //     data => {}
-    //   );
-    // };
   };
 
 }

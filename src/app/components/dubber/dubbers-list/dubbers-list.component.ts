@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
+// Services
 import { DubberService } from '../_services/index';
 import { FilmService } from '../../film/_services/index';
+
+// Models
+import { Dubber } from '../_models/index';
+import { Film } from '../../film/_models/index';
 
 @Component({
   templateUrl: './dubbers-list.component.html',
@@ -13,22 +19,23 @@ export class DubbersListComponent implements OnInit {
     "text": "",
     "class": ""
   };
+  dubbers: Dubber[] = [];
+  films: Film[] = [];
 
   constructor(
     private dubberService: DubberService,
     private filmService: FilmService
   ) {}
 
-  onDelete(dubber) {
-    let filmsList = this.filmService.filmsList;
-    let dubberId = dubber.id;
+  delete(dubber) {
+    let index = this.dubbers.indexOf(dubber);
     let filmDubbersID = [];
-    for (let film of filmsList) {
-      for (let dubber of film.dubbers) {
+    for(let film of this.films) {
+      for(let dubber of film.dubbers) {
         filmDubbersID.push(dubber.id);
       }
     };
-    if(filmDubbersID.includes(dubberId)) {
+    if(filmDubbersID.includes(dubber.id)) {
       this.message.text = "You can't delete it, because this dubber is using!";
       this.message.class = "danger";
     } else {
@@ -36,13 +43,21 @@ export class DubbersListComponent implements OnInit {
         "text": "",
         "class": ""
       };
-      this.dubberService.delete(dubber);
+      this.dubberService.delete(dubber.id).subscribe(
+        data => {
+          this.dubbers.splice(index, 1);
+        }
+      );
     }
   }
 
   ngOnInit() {
-    this.dubberService.getAll();
-    this.filmService.getAll();
+    this.filmService.getAll().subscribe(
+      data => { this.films = data; }
+    );
+    this.dubberService.getAll().subscribe(
+      data => { this.dubbers = data; }
+    );
   }
 
 }

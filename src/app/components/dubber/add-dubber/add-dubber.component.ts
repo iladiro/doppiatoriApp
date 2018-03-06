@@ -1,14 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DubbersListComponent } from '../dubbers-list/dubbers-list.component';
+import { Component } from '@angular/core';
+
+// Services
 import { DubberService } from '../_services/index';
-import {NgForm} from '@angular/forms';
+
+// Models
+import { Dubber } from '../_models/index';
 
 @Component({
+  moduleId: module.id,
   templateUrl: './add-dubber.component.html',
   styleUrls: ['./add-dubber.component.scss']
 })
 
-export class AddDubberComponent implements OnInit {
+export class AddDubberComponent {
 
   constructor(private dubberService: DubberService) {}
 
@@ -16,39 +20,56 @@ export class AddDubberComponent implements OnInit {
     "text": "",
     "class": ""
   };
+  dubbers: Dubber[];
+  //model: Dubber{};
+  model: any = {};
 
   getFirstChar(whichModel) {
     let createAvatar = whichModel.name.charAt(0);
     whichModel.avatar = createAvatar;
   }
 
-  onSubmit(form: NgForm){
-    let dubbersList = this.dubberService.dubbersList;
-    let currentDubber = form.value;
-    let lengthDubbersIndex = Math.floor((Math.random() * 1000000) + 1);
-    currentDubber.id = lengthDubbersIndex.toString();
-    currentDubber.film = [];
-    currentDubber.invoices = [];
-    this.getFirstChar(currentDubber);
-    for(let dubber of dubbersList) {
-      if(dubber.email == currentDubber.email) {
-        this.message.text = "You can't add this user bacause this email is already used!";
-        this.message.class = "danger";
-        //alert("You can't add this user bacause this email is already used!");
-        return;
-      } else {
-        this.message = {
-          "text": "",
-          "class": ""
-        };
-        this.dubberService.create(currentDubber);
-        form.reset();
-      }
-    };
+  create(){
+    this.model.id = Math.floor((Math.random() * 1000000) + 1);
+    this.model.film = [];
+    this.model.invoices = [];
+    this.getFirstChar(this.model);
+    let dubbersEmail = [];
+
+    // Cicla per recuperare la mail di tutti i Dubber registrati
+    for(let dubber of this.dubbers) {
+      dubbersEmail.push(dubber.email);
+    }
+    // end
+
+    // Controlla prima se il dubber è già presente
+    if(dubbersEmail.includes(this.model.email)) {
+      this.message.text = "You can't add this user bacause this email is already used!";
+      this.message.class = "danger";
+      return;
+      // se non lo è aggiungilo
+    } else {
+      this.message = {
+        "text": "",
+        "class": ""
+      };
+      this.dubberService.create(this.model).subscribe(
+        data => {
+          this.message.text = "Film has been created successfully!";
+          this.message.class = "success";
+        },
+        err => {
+          this.message.text = "Error occured!";
+          this.message.class = "danger";
+        }
+      );
+    }
   }
 
   ngOnInit() {
-    this.dubberService.getAll();
+    this.dubberService.getAll().subscribe(
+      data => { this.dubbers = data; }
+    );
   }
 
 }

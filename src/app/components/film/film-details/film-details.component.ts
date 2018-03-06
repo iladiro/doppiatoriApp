@@ -15,7 +15,7 @@ export class FilmDetailsComponent implements OnInit {
 
   id: number;
   private sub: any;
-  model: any = {};
+  model: any;
 
   constructor(
     private route: ActivatedRoute,

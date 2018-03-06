@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
       <select name="dubbers" class="form-control" multiple [(ngModel)]="model.dubbers" name="dubbers">
-        <option *ngFor="let dubber of dubberService.dubbersList" value="{{dubber.id}},{{dubber.name}}">
+        <option *ngFor="let dubber of dubbers" value="{{dubber.id}},{{dubber.name}}">
           {{dubber.name}} {{dubber.surname}}
         </option>
       </select>

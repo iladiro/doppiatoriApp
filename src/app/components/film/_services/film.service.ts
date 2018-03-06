@@ -25,14 +25,6 @@ export class FilmService {
     return this.http.get(this.urlRoot + id);
   }
 
-  // create(film) {
-  //   this.http.post(this.urlRoot, film).subscribe(
-  //     data => {
-  //       this.filmsList.push(data);
-  //     }
-  //   );
-  // };
-
   create(film: Film) {
     return this.http.post(this.urlRoot, film);
   }

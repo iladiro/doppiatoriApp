@@ -18,7 +18,7 @@
       <div class="col"></div>
     </div>
     <div class="itemsList__body">
-      <div class="itemsList__body-row row" *ngFor="let dubber of dubberService.dubbersList">
+      <div class="itemsList__body-row row" *ngFor="let dubber of dubbers">
         <div class="col">
           <span class="itemsList__avatar">{{dubber.avatar}}</span>
         </div>
@@ -38,7 +38,7 @@
           <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </a>
-          <button (click)="onDelete(dubber)" class="btn btn-outline-danger">
+          <button (click)="delete(dubber)" class="btn btn-outline-danger">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>

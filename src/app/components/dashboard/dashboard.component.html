@@ -23,7 +23,7 @@
         </h3>
         <div class="generalCard__body">
           <div class="generalCard__list">
-            <ng-container *ngFor="let dubber of dubberService.dubbersList; let i=index">
+            <ng-container *ngFor="let dubber of dubbers; let i=index">
               <div class="media generalCard__list-item" *ngIf="i < 10">
                 <span class="d-flex justify-content-center mr-3 generalCard__list-item--avatar">{{dubber.avatar}}</span>
                 <div class="media-body">
@@ -45,7 +45,7 @@
         </h3>
         <div class="generalCard__body">
           <div class="generalCard__list">
-            <ng-container *ngFor="let film of filmService.filmsList; let i=index">
+            <ng-container *ngFor="let film of films; let i=index">
               <div class="media generalCard__list-item" *ngIf="i < 10">
                 <img class="d-flex mr-3 rounded-circle" src="../../assets/images/copertina.jpg" alt="{{film.title}}" height="45">
                 <div class="media-body">

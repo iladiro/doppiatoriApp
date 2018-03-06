@@ -23,8 +23,6 @@
     {
       "name": "ilaria",
       "surname": "di rosa",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
       "birthplace": "Gessate",
       "birthcounty": "Milano",
       "residenceplace": "Gessate",
@@ -32,362 +30,31 @@
       "residencecountry": "Italia",
       "email": "dirosa.ilaria@gmail.com",
       "phone": "3474977880",
-      "id": "786396",
-      "film": [
-        {
-          "id": 696831,
-          "title": "Pirata dei Caraibi"
-        },
-        {
-          "id": "81948",
-          "title": "Un detective in corsia"
-        },
-        {
-          "id": "512125",
-          "title": "lA CARICA DEI 101"
-        }
-      ],
-      "invoices": [
-        {
-          "id": "76007",
-          "creationDate": "16/2/2018",
-          "movie": "Pirata dei Caraibi",
-          "compensation": {
-            "gross": 300,
-            "taxPercetual": 20,
-            "taxEuro": 60,
-            "net": 240
-          }
-        },
-        {
-          "id": "796332",
-          "creationDate": "16/2/2018",
-          "movie": "Una notte da leoni",
-          "compensation": {
-            "gross": 500,
-            "taxPercetual": 20,
-            "taxEuro": 100,
-            "net": 400
-          }
-        }
-      ],
-      "avatar": "i"
-    },
-    {
-      "name": "marika",
-      "surname": "di rosa",
-      "fiscalCode": "DRMRMI88B56F205",
-      "birthdate": "16/02/1988",
-      "birthplace": "Milano",
-      "birthcounty": "Italia",
-      "residenceplace": "Milano",
-      "residenceaddress": "Piazza Insubria 24",
-      "residencecountry": "Italia",
-      "email": "dirosa.marika@gmail.com",
-      "phone": "3289465780",
-      "id": "821043",
-      "film": [
-        {
-          "id": 696831,
-          "title": "Pirata dei Caraibi"
-        },
-        {
-          "id": "512125",
-          "title": "lA CARICA DEI 101"
-        }
-      ],
-      "invoices": [
-        {
-          "id": "478285",
-          "creationDate": "16/2/2018",
-          "movie": "Pirata dei Caraibi",
-          "compensation": {
-            "gross": 500,
-            "taxPercetual": 20,
-            "taxEuro": 100,
-            "net": 400
-          }
-        }
-      ],
-      "avatar": "m"
-    },
-    {
-      "name": "Mario",
-      "surname": "Rossi",
-      "fiscalCode": "RTSTDG65DGTD",
-      "birthdate": "20/03/1980",
-      "birthplace": "Agrigento",
-      "birthcounty": "Italia",
-      "residenceplace": "Roma",
-      "residenceaddress": "Via tiburtina 4",
-      "residencecountry": "Italia",
-      "email": "rossi.mario@gmail.com",
-      "phone": "3474977880",
-      "id": "306837",
-      "film": [
-        {
-          "id": 484812,
-          "title": "Il re leone"
-        },
-        {
-          "id": 81948,
-          "title": "Un detective in corsia"
-        }
-      ],
-      "invoices": [],
-      "avatar": "M"
-    },
-    {
-      "name": "Fabio",
-      "surname": "Petrucci",
-      "fiscalCode": "FPRT76FGTD345H",
-      "birthdate": "09/04/1971",
-      "birthplace": "Roma",
-      "birthcounty": "Italia",
-      "residenceplace": "Gessate",
-      "residenceaddress": "Via libertà 44",
-      "residencecountry": "Italia",
-      "email": "fabio.petrucci@gmail.com",
-      "phone": "3245465345",
-      "id": "865143",
-      "film": [],
-      "invoices": [],
-      "avatar": "F"
-    },
-    {
-      "name": "Azzurra",
-      "surname": "Meneghetti",
-      "fiscalCode": "DRSLRI88B56F205D",
-      "birthdate": "15/08/1988",
-      "birthplace": "Milano",
-      "birthcounty": "Italia",
-      "residenceplace": "Rozzano",
-      "residenceaddress": "Via ginestre 15 ",
-      "residencecountry": "Italia",
-      "email": "azzurra.meneghetti@gmail.com",
-      "phone": "3474977880",
-      "id": "59180",
-      "film": [],
-      "invoices": [],
-      "avatar": "A"
-    },
-    {
-      "name": "Adele",
-      "surname": "Simone",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "22/07/1960",
-      "birthplace": "Barletta",
-      "birthcounty": "Italia",
-      "residenceplace": "Rozzano",
-      "residenceaddress": "Viale Lombardi 18",
-      "residencecountry": "Italia",
-      "email": "adele.simone@gmail.com",
-      "phone": "3474977880",
-      "id": "610940",
-      "film": [
-        {
-          "id": 998039,
-          "title": "Una notte da leoni"
-        }
-      ],
-      "invoices": [],
-      "avatar": "A"
-    },
-    {
-      "name": "Carmelo",
-      "surname": "di rosa",
       "fiscalCode": "drslri88b56f205d",
       "birthdate": "16/02/1988",
-      "birthplace": "Milano",
-      "birthcounty": "Italien",
-      "residenceplace": "milano",
-      "residenceaddress": "Via libertà 44",
-      "residencecountry": "Italia",
-      "email": "carmelo.dirosa@gmail.com",
-      "phone": "3474977880",
-      "id": "308166",
-      "film": [],
-      "invoices": [],
-      "avatar": "C"
-    },
-    {
-      "name": "Patty",
-      "surname": "Bravo",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "birthplace": "Milano",
-      "birthcounty": "Italia",
-      "residenceplace": "Roma",
-      "residenceaddress": "Via libertà 44",
-      "residencecountry": "Italia",
-      "email": "bravo.patty@gmail.com",
-      "phone": "3474977880",
-      "id": "40834",
-      "film": [],
-      "invoices": [],
-      "avatar": "P"
-    },
-    {
-      "name": "Marco",
-      "surname": "Palla",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "birthplace": "Milano",
-      "birthcounty": "Italien",
-      "residenceplace": "milano",
-      "residenceaddress": "Via libertà 44",
-      "residencecountry": "Italia",
-      "email": "marco.palla@gmail.com",
-      "phone": "3474977880",
-      "id": "172637",
+      "id": 462114,
       "film": [
         {
-          "id": 998039,
-          "title": "Una notte a Parigi"
-        },
-        {
-          "id": "81948",
-          "title": "Un detective in corsia"
+          "id": 1,
+          "title": "dghdg"
         }
       ],
-      "invoices": [
-        {
-          "id": "831095",
-          "creationDate": "21/2/2018",
-          "movie": "Una notte a Parigi",
-          "compensation": {
-            "gross": 500,
-            "taxPercetual": 40,
-            "taxEuro": 200,
-            "net": 300
-          }
-        }
-      ],
-      "avatar": "M"
-    },
-    {
-      "name": "ilaria di rosa",
-      "surname": "di rosa",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "birthplace": "Gessate",
-      "birthcounty": "Milano",
-      "residenceplace": "milano",
-      "residenceaddress": "Via libertà 44",
-      "residencecountry": "Italia",
-      "email": "dirosaaaa.ilaria@gmail.com",
-      "phone": "3474977880",
-      "id": "291791",
-      "film": [],
       "invoices": [],
       "avatar": "i"
     }
   ],
   "film": [
     {
-      "title": "sdf",
-      "description": "sdf",
+      "title": "dghdg",
+      "description": "dghj",
       "dubbers": [
         {
-          "id": "786396",
+          "id": "462114",
           "name": "ilaria"
-        },
-        {
-          "id": "821043",
-          "name": "marika"
         }
       ],
       "id": 1
     }
   ],
-  "invoices": [
-    {
-      "id": "76007",
-      "creationDate": "16/2/2018",
-      "movie": "Pirata dei Caraibi",
-      "compensation": {
-        "gross": 300,
-        "taxPercetual": 20,
-        "taxEuro": 60,
-        "net": 240
-      },
-      "dubberLinked": {
-        "id": "786396",
-        "name": "ilaria",
-        "surname": "di rosa",
-        "fiscalCode": "drslri88b56f205d",
-        "birthdate": "16/02/1988",
-        "birthplace": "Gessate",
-        "residenceplace": "Gessate",
-        "residenceaddress": "Via libertà 44",
-        "residencecountry": "Italia"
-      }
-    },
-    {
-      "id": "796332",
-      "creationDate": "16/2/2018",
-      "movie": "Una notte da leoni",
-      "compensation": {
-        "gross": 500,
-        "taxPercetual": 20,
-        "taxEuro": 100,
-        "net": 400
-      },
-      "dubberLinked": {
-        "id": "786396",
-        "name": "ilaria",
-        "surname": "di rosa",
-        "fiscalCode": "drslri88b56f205d",
-        "birthdate": "16/02/1988",
-        "birthplace": "Gessate",
-        "residenceplace": "Gessate",
-        "residenceaddress": "Via libertà 44",
-        "residencecountry": "Italia"
-      }
-    },
-    {
-      "id": "478285",
-      "creationDate": "16/2/2018",
-      "movie": "Pirata dei Caraibi",
-      "compensation": {
-        "gross": 500,
-        "taxPercetual": 20,
-        "taxEuro": 100,
-        "net": 400
-      },
-      "dubberLinked": {
-        "id": "821043",
-        "name": "marika",
-        "surname": "di rosa",
-        "fiscalCode": "DRMRMI88B56F205",
-        "birthdate": "16/02/1988",
-        "birthplace": "Milano",
-        "residenceplace": "Milano",
-        "residenceaddress": "Piazza Insubria 24",
-        "residencecountry": "Italia"
-      }
-    },
-    {
-      "id": "831095",
-      "creationDate": "21/2/2018",
-      "movie": "Una notte a Parigi",
-      "compensation": {
-        "gross": 500,
-        "taxPercetual": 40,
-        "taxEuro": 200,
-        "net": 300
-      },
-      "dubberLinked": {
-        "id": "172637",
-        "name": "Marco",
-        "surname": "Palla",
-        "fiscalCode": "drslri88b56f205d",
-        "birthdate": "16/02/1988",
-        "birthplace": "Milano",
-        "residenceplace": "milano",
-        "residenceaddress": "Via libertà 44",
-        "residencecountry": "Italia"
-      }
-    }
-  ]
+  "invoices": []
 }
