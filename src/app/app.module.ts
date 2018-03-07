@@ -10,7 +10,7 @@ import { fakeBackendProvider } from './components/user/_helpers/index';
 // Services
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { FilmService } from './components/film/_services/index';
-import { InvoiceService } from './components/dubber/_services/invoices.service';
+import { InvoiceService } from './components/invoice/_services/index';
 import { AlertService, AuthenticationService, UserService } from './components/user/_services/index';
 import { AuthGuard } from './components/user/_guards/index';
 import { JwtInterceptor } from './components/user/_helpers/index';
@@ -26,7 +26,7 @@ import { AddFilmComponent } from './components/film/add-film/add-film.component'
 import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
+//import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { AlertComponent } from './components/user/_directives/alert/alert.component';
@@ -34,6 +34,8 @@ import { ListComponent } from './components/user/list/list.component';
 import { AlertMessageComponent } from './components/widgets/alert-message/alert-message.component';
 import { SearchFormComponent } from './components/widgets/search-form/search-form.component';
 import { DetailsUserComponent } from './components/user/details/details.component';
+import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
+import { CreateComponent } from './components/invoice/create/create.component';
 
 @NgModule({
   declarations: [
@@ -47,14 +49,16 @@ import { DetailsUserComponent } from './components/user/details/details.componen
     FilmDetailsComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    DubberInvoiceComponent,
+    //DubberInvoiceComponent,
     LoginComponent,
     RegisterComponent,
     AlertComponent,
     ListComponent,
     AlertMessageComponent,
     SearchFormComponent,
-    DetailsUserComponent
+    DetailsUserComponent,
+    DetailsInvoiceComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

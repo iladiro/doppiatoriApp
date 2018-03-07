@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-list.component';
 import { DubberProfileComponent } from './components/dubber/dubber-profile/dubber-profile.component';
-import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
+//import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
 import { AddDubberComponent } from './components/dubber/add-dubber/add-dubber.component';
 import { FilmListComponent } from './components/film/film-list/film-list.component';
 import { AddFilmComponent } from './components/film/add-film/add-film.component';
@@ -15,6 +15,7 @@ import { RegisterComponent } from './components/user/register/register.component
 import { AuthGuard } from './components/user/_guards/auth.guard';
 import { ListComponent } from './components/user/list/list.component';
 import { DetailsUserComponent } from './components/user/details/details.component';
+import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
 
 const appRoutes: Routes = [
 
@@ -75,7 +76,7 @@ const appRoutes: Routes = [
   {
     path: 'invoice/:id',
     canActivate: [AuthGuard],
-    component: DubberInvoiceComponent
+    component: DetailsInvoiceComponent
   },
   {
     path: 'film',

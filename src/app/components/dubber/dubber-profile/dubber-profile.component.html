@@ -145,7 +145,8 @@
           <ng-template #noInvoices>
             <p class="alert alert-warning">There aren't associated invoices</p>
           </ng-template>
-          <form #InvoiceForm="ngForm" (ngSubmit)="generateInvoice(InvoiceForm)">
+          <formInvoice [dataset]="this.model"></formInvoice>
+          <!-- <form #InvoiceForm="ngForm" (ngSubmit)="generateInvoice(InvoiceForm)">
             <div class="form-group">
               <label for="movie">Select movie</label>
               <select name="movie" class="form-control" ngModel>
@@ -170,7 +171,7 @@
               </select>
             </div>
             <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Generate invoice</button>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>

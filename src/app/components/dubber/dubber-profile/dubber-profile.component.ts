@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import {NgForm} from '@angular/forms';
 
 // Models
 import { Film } from '../../film/_models/index';
-import { Invoice } from '../_models/index';
+import { Invoice } from '../../invoice/_models/index';
 
 // Services
-import { DubberService } from '../_services/dubbers.service';
-import { InvoiceService } from '../_services/invoices.service';
+import { DubberService } from '../_services/index';
+import { InvoiceService } from '../../invoice/_services/index';
 import { FilmService } from '../../film/_services/index';
 
 @Component({
@@ -38,12 +38,6 @@ export class DubberProfileComponent implements OnInit {
   getFirstChar(whichModel) {
     let createAvatar = whichModel.name.charAt(0);
     whichModel.avatar = createAvatar;
-  }
-
-  compensationCalculation(gross, percentual) {
-    let difference = (gross * percentual) / 100;
-    let resultNet = gross - difference;
-    return [difference, resultNet]
   }
 
   private upDateDubber(){
@@ -82,44 +76,6 @@ export class DubberProfileComponent implements OnInit {
     });
     this.filmService.update(filmObject).subscribe();
     // end
-  }
-
-  private generateInvoice(form: NgForm) {
-    // Genera fattura, pusha l'oggetto fattura dentro alla proprietà invoices e poi aggiorna il modello
-    let date = new Date();
-    let currentInvoice = form.value;
-    let result = this.compensationCalculation(currentInvoice.grossCompensation, currentInvoice.taxPercetual);
-    currentInvoice = {
-      "id": Math.floor((Math.random() * 1000000) + 1),
-      "creationDate": date.toLocaleDateString(),
-      "movie": currentInvoice.movie,
-      "compensation": {
-        "gross": +currentInvoice.grossCompensation,
-        "taxPercetual": +currentInvoice.taxPercetual,
-        "taxEuro": result[0],
-        "net": result[1]
-      }
-    };
-    this.model.invoices.push(currentInvoice);
-    this.upDateDubber();
-    //  end
-
-    // Aggiungi all'oggetto fattura i dati del dubber e poi crea una nuova fattura nella tabbella invoices
-    currentInvoice.dubber = {
-      "id": this.model.id,
-      "name": this.model.name,
-      "surname": this.model.surname,
-      "email": this.model.email,
-      "fiscalCode": this.model.fiscalCode,
-      "birthdate": this.model.birthdate,
-      "birthplace": this.model.birthplace,
-      "residenceplace": this.model.residenceplace,
-      "residenceaddress": this.model.residenceaddress
-    }
-    this.invoiceService.create(currentInvoice).subscribe();
-    // end
-
-    form.reset();
   }
 
   private deleteInvoice(currentInvoice) {
