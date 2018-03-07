@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 
 // Models
 import { Film } from '../../film/_models/index';
+import { Invoice } from '../_models/index';
 
 // Services
 import { DubberService } from '../_services/dubbers.service';
@@ -21,6 +22,7 @@ export class DubberProfileComponent implements OnInit {
   private sub: any;
   model: any;
   films: Film[];
+  invoices: Invoice[];
   private message = {
     "text": "",
     "class": ""
@@ -47,7 +49,7 @@ export class DubberProfileComponent implements OnInit {
   private upDateDubber(){
     this.dubberService.update(this.model).subscribe(
       data => {
-        this.message.text = "Film has been updated successfully!";
+        this.message.text = "It has been updated successfully!";
         this.message.class = "success";
       },
       err => {
@@ -105,8 +107,14 @@ export class DubberProfileComponent implements OnInit {
     // Aggiungi all'oggetto fattura i dati del dubber e poi crea una nuova fattura nella tabbella invoices
     currentInvoice.dubber = {
       "id": this.model.id,
+      "name": this.model.name,
       "surname": this.model.surname,
-      "email": this.model.email
+      "email": this.model.email,
+      "fiscalCode": this.model.fiscalCode,
+      "birthdate": this.model.birthdate,
+      "birthplace": this.model.birthplace,
+      "residenceplace": this.model.residenceplace,
+      "residenceaddress": this.model.residenceaddress
     }
     this.invoiceService.create(currentInvoice).subscribe();
     // end
@@ -131,7 +139,7 @@ export class DubberProfileComponent implements OnInit {
         this.message.class = "danger";
       }
     );
-    this.invoiceService.delete(currentInvoice).subscribe();
+    this.invoiceService.delete(currentInvoice.id).subscribe();
   }
 
   ngOnInit() {
@@ -144,7 +152,9 @@ export class DubberProfileComponent implements OnInit {
     this.filmService.getAll().subscribe(
       data => { this.films = data; }
     );
-    this.invoiceService.getAll();
+    this.invoiceService.getAll().subscribe(
+      data => { this.invoices = data; }
+    );
   }
 
 }

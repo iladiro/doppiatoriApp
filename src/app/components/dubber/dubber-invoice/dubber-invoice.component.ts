@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { InvoiceService } from '../_services/invoices.service';
 import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
+
+// Services
+import { InvoiceService } from '../_services/invoices.service';
 
 @Component({
   templateUrl: './dubber-invoice.component.html',
@@ -15,6 +17,7 @@ export class DubberInvoiceComponent implements OnInit {
 
   id: number;
   private sub: any;
+  model: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,7 +38,9 @@ export class DubberInvoiceComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.invoiceService.getById(this.id);
+      this.invoiceService.getById(this.id).subscribe(
+        data => { this.model = data; }
+      );
     });
   }
 

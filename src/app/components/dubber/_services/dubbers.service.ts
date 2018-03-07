@@ -8,13 +8,9 @@ import { Dubber } from '../_models/index';
 export class DubberService {
 
   private urlRoot = "http://localhost:3000/dubbers/";
-  dubbersList;
-  dubber;
 
   // Inject HttpClient into your component or service.
-  constructor(private http: HttpClient) {
-    this.dubbersList = []
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 

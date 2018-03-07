@@ -23,8 +23,8 @@
     {
       "name": "ilaria",
       "surname": "di rosa",
-      "birthplace": "Gessate",
-      "birthcounty": "Milano",
+      "birthplace": "Milano",
+      "birthcounty": "Italia",
       "residenceplace": "Gessate",
       "residenceaddress": "Via libertà 44",
       "residencecountry": "Italia",
@@ -43,7 +43,30 @@
           "title": "Il re leone 9"
         }
       ],
-      "invoices": [],
+      "invoices": [
+        {
+          "id": 158447,
+          "creationDate": "7/3/2018",
+          "movie": "Il gatto e la volpe",
+          "compensation": {
+            "gross": 6456456,
+            "taxPercetual": 20,
+            "taxEuro": 1291291.2,
+            "net": 5165164.8
+          }
+        },
+        {
+          "id": 367654,
+          "creationDate": "7/3/2018",
+          "movie": "Il re leone 9",
+          "compensation": {
+            "gross": 333,
+            "taxPercetual": 20,
+            "taxEuro": 66.6,
+            "net": 266.4
+          }
+        }
+      ],
       "avatar": "i"
     },
     {
@@ -131,5 +154,50 @@
       "id": 644099
     }
   ],
-  "invoices": []
+  "invoices": [
+    {
+      "id": 158447,
+      "creationDate": "7/3/2018",
+      "movie": "Il gatto e la volpe",
+      "compensation": {
+        "gross": 6456456,
+        "taxPercetual": 20,
+        "taxEuro": 1291291.2,
+        "net": 5165164.8
+      },
+      "dubber": {
+        "id": 462114,
+        "name": "ilaria",
+        "surname": "di rosa",
+        "email": "dirosa.ilaria@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Milano",
+        "residenceplace": "Gessate",
+        "residenceaddress": "Via libertà 44"
+      }
+    },
+    {
+      "id": 367654,
+      "creationDate": "7/3/2018",
+      "movie": "Il re leone 9",
+      "compensation": {
+        "gross": 333,
+        "taxPercetual": 20,
+        "taxEuro": 66.6,
+        "net": 266.4
+      },
+      "dubber": {
+        "id": 462114,
+        "name": "ilaria",
+        "surname": "di rosa",
+        "email": "dirosa.ilaria@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Milano",
+        "residenceplace": "Gessate",
+        "residenceaddress": "Via libertà 44"
+      }
+    }
+  ]
 }
