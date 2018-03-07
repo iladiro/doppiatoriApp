@@ -45,14 +45,14 @@
       ],
       "invoices": [
         {
-          "id": 704001,
+          "id": 205066,
           "creationDate": "7/3/2018",
           "movie": "Il gatto e la volpe",
           "compensation": {
-            "gross": 500,
+            "gross": 400,
             "taxPercetual": 20,
-            "taxEuro": 100,
-            "net": 400
+            "taxEuro": 80,
+            "net": 320
           }
         }
       ],
@@ -145,14 +145,14 @@
   ],
   "invoices": [
     {
-      "id": 704001,
+      "id": 205066,
       "creationDate": "7/3/2018",
       "movie": "Il gatto e la volpe",
       "compensation": {
-        "gross": 500,
+        "gross": 400,
         "taxPercetual": 20,
-        "taxEuro": 100,
-        "net": 400
+        "taxEuro": 80,
+        "net": 320
       },
       "dubber": {
         "id": 462114,

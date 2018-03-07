@@ -1,0 +1,23 @@
+<section class="itemsList" *ngIf="dataset.invoices.length; else noInvoices">
+  <div class="itemsList__body">
+    <div class="itemsList__body-row row" *ngFor="let invoice of dataset.invoices">
+      <div class="col pt-20">
+        Compenso per prestazione d'opera relativa al film <strong>{{invoice.movie}}</strong>
+      </div>
+      <div class="col text-right">
+        <a [routerLink]="['/invoice', invoice.id]" class="btn btn-outline-primary">
+          <i class="fa fa-info" aria-hidden="true"></i>
+        </a>
+        <a href="" class="btn btn-outline-success">
+          <i class="fa fa-download"></i>
+        </a>
+        <button (click)="delete(invoice)" class="btn btn-outline-danger">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #noInvoices>
+  <p class="alert alert-warning">There aren't associated invoices</p>
+</ng-template>

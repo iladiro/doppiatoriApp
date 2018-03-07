@@ -36,6 +36,7 @@ import { SearchFormComponent } from './components/widgets/search-form/search-for
 import { DetailsUserComponent } from './components/user/details/details.component';
 import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
 import { CreateComponent } from './components/invoice/create/create.component';
+import { InvoiceListComponent } from './components/invoice/list/list.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,6 @@ import { CreateComponent } from './components/invoice/create/create.component';
     FilmDetailsComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    //DubberInvoiceComponent,
     LoginComponent,
     RegisterComponent,
     AlertComponent,
@@ -58,7 +58,8 @@ import { CreateComponent } from './components/invoice/create/create.component';
     SearchFormComponent,
     DetailsUserComponent,
     DetailsInvoiceComponent,
-    CreateComponent
+    CreateComponent,
+    InvoiceListComponent
   ],
   imports: [
     BrowserModule,

@@ -122,29 +122,7 @@
           </ng-template>
         </div>
         <div class="tab-pane" id="invoices" role="tabpanel">
-          <section class="itemsList" *ngIf="model.invoices.length; else noInvoices">
-            <div class="itemsList__body">
-              <div class="itemsList__body-row row" *ngFor="let invoice of model.invoices">
-                <div class="col pt-20">
-                  Compenso per prestazione d'opera relativa al film <strong>{{invoice.movie}}</strong>
-                </div>
-                <div class="col text-right">
-                  <a [routerLink]="['/invoice', invoice.id]" class="btn btn-outline-primary">
-                    <i class="fa fa-info" aria-hidden="true"></i>
-                  </a>
-                  <a href="" class="btn btn-outline-success">
-                    <i class="fa fa-download"></i>
-                  </a>
-                  <button (click)="deleteInvoice(invoice)" class="btn btn-outline-danger">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-          <ng-template #noInvoices>
-            <p class="alert alert-warning">There aren't associated invoices</p>
-          </ng-template>
+          <invoiceList [dataset]="this.model"></invoiceList>
           <formInvoice [dataset]="this.model"></formInvoice>
         </div>
       </div>

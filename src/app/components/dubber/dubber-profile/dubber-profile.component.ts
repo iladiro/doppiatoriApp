@@ -4,11 +4,9 @@ import {NgForm} from '@angular/forms';
 
 // Models
 import { Film } from '../../film/_models/index';
-import { Invoice } from '../../invoice/_models/index';
 
 // Services
 import { DubberService } from '../_services/index';
-import { InvoiceService } from '../../invoice/_services/index';
 import { FilmService } from '../../film/_services/index';
 
 @Component({
@@ -22,7 +20,6 @@ export class DubberProfileComponent implements OnInit {
   private sub: any;
   model: any;
   films: Film[];
-  invoices: Invoice[];
   private message = {
     "text": "",
     "class": ""
@@ -31,8 +28,7 @@ export class DubberProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dubberService: DubberService,
-    private filmService: FilmService,
-    private invoiceService: InvoiceService
+    private filmService: FilmService
   ) {}
 
   getFirstChar(whichModel) {
@@ -78,26 +74,6 @@ export class DubberProfileComponent implements OnInit {
     // end
   }
 
-  private deleteInvoice(currentInvoice) {
-    let currentDubber = this.model;
-    currentDubber.invoices.map(function(invoice, index){
-      if(invoice.id == currentInvoice.id) {
-        currentDubber.invoices.splice(index, 1);
-      }
-    });
-    this.dubberService.update(currentDubber).subscribe(
-      data => {
-        this.message.text = "Invoice has been deleted successfully!";
-        this.message.class = "success";
-      },
-      err => {
-        this.message.text = "Error occured!";
-        this.message.class = "danger";
-      }
-    );
-    this.invoiceService.delete(currentInvoice.id).subscribe();
-  }
-
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
@@ -107,9 +83,6 @@ export class DubberProfileComponent implements OnInit {
     });
     this.filmService.getAll().subscribe(
       data => { this.films = data; }
-    );
-    this.invoiceService.getAll().subscribe(
-      data => { this.invoices = data; }
     );
   }
 
