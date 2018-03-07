@@ -31,6 +31,7 @@ export class AddFilmComponent {
   ) {}
 
   create(){
+    this.model.id = Math.floor((Math.random() * 1000000) + 1);
     let arrayOfDubbers = this.filmDubbersIdSelected;
     //From an array of string, create dubber's object.
     this.model.dubbers = this.model.dubbers.map(function(item) {
@@ -45,6 +46,7 @@ export class AddFilmComponent {
     //Send object film to server
     this.filmService.create(this.model).subscribe(
       data => {
+        this.addFilmIntoDubberSelected();
         this.message.text = "Film has been created successfully!";
         this.message.class = "success";
       },
@@ -54,33 +56,28 @@ export class AddFilmComponent {
       }
     );
     //end
-
-    this.addFilmIntoDubberSelected();
-
     // form.reset();
   }
 
   //Aggiungi film ai dubbers selezionati
   addFilmIntoDubberSelected() {
     let arrayOfDubbers = this.filmDubbersIdSelected;
-
-    let currentFilm = this.model;
     let service = this.dubberService;
+    let currentFilm = this.model;
     let updateDubbers = [];
-
-    this.dubberService.dubbersList.map(function(dubber) {
+    this.dubbers.map(function(dubber) {
       if(arrayOfDubbers.includes(dubber.id.toString())) {
-        let dubberFilms = dubber.film;
         let filmObj = {
           "id": currentFilm.id,
           "title": currentFilm.title
         };
-        dubberFilms.push(filmObj);
+        dubber.film.push(filmObj);
         updateDubbers.push(dubber);
+        service.update(dubber).subscribe();
       }
     });
     updateDubbers.forEach(function(dubber) {
-      service.update(dubber);
+      service.update(dubber).subscribe();
     });
   }
   //end

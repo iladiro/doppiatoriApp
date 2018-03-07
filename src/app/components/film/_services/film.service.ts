@@ -7,13 +7,9 @@ import { Film } from '../_models/index';
 export class FilmService {
 
   private urlRoot = "http://localhost:3000/film/";
-  filmsList;
-  film;
 
   // Inject HttpClient into your component or service.
-  constructor(private http: HttpClient) {
-    this.filmsList = []
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 

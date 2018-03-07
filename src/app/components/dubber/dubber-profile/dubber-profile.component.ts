@@ -26,8 +26,6 @@ export class DubberProfileComponent implements OnInit {
     "class": ""
   };
 
-  netCompensation: number;
-
   constructor(
     private route: ActivatedRoute,
     private dubberService: DubberService,

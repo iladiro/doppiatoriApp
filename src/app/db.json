@@ -35,25 +35,100 @@
       "id": 462114,
       "film": [
         {
-          "id": 1,
-          "title": "dghdg"
+          "id": 430070,
+          "title": "Il gatto e la volpe"
+        },
+        {
+          "id": 644099,
+          "title": "Il re leone 9"
         }
       ],
       "invoices": [],
       "avatar": "i"
+    },
+    {
+      "name": "marika",
+      "surname": "di rosa",
+      "birthplace": "Milano",
+      "birthcounty": "Italia",
+      "residenceplace": "Milano",
+      "residenceaddress": "Piazza Insubria 24",
+      "residencecountry": "Italia",
+      "email": "dirosa.marika@gmail.com",
+      "phone": "3474977880",
+      "fiscalCode": "drslrm88b56f205d",
+      "birthdate": "16/02/1988",
+      "id": 462115,
+      "film": [
+        {
+          "id": 644099,
+          "title": "Il re leone 9"
+        },
+        {
+          "id": 430070,
+          "title": "Il gatto e la volpe"
+        }
+      ],
+      "invoices": [],
+      "avatar": "m"
+    },
+    {
+      "name": "Marco",
+      "surname": "Rossi",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Agrigento",
+      "birthcounty": "Italia",
+      "residenceplace": "Milano",
+      "residenceaddress": "Via libertà 44",
+      "residencecountry": "Italia",
+      "email": "mario.rossi@gmail.com",
+      "phone": "3474977880",
+      "id": 82932,
+      "film": [
+        {
+          "id": 430070,
+          "title": "Il gatto e la volpe"
+        }
+      ],
+      "invoices": [],
+      "avatar": "M"
     }
   ],
   "film": [
     {
-      "title": "dghdg",
-      "description": "dghj",
+      "title": "Il gatto e la volpe",
+      "description": "lorem ipsum",
       "dubbers": [
         {
           "id": "462114",
           "name": "ilaria"
+        },
+        {
+          "id": "462115",
+          "name": "marika"
+        },
+        {
+          "id": "82932",
+          "name": "Marco"
         }
       ],
-      "id": 1
+      "id": 430070
+    },
+    {
+      "title": "Il re leone 9",
+      "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
+      "dubbers": [
+        {
+          "id": "462114",
+          "name": "ilaria"
+        },
+        {
+          "id": "462115",
+          "name": "marika"
+        }
+      ],
+      "id": 644099
     }
   ],
   "invoices": []

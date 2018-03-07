@@ -1,9 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import {NgForm} from '@angular/forms';
+
+// Models
 import { Film } from '../_models/index';
+import { Dubber } from '../../dubber/_models/index';
+
+// Services
 import { FilmService } from '../_services/index';
 import { DubberService } from '../../dubber/_services/dubbers.service';
-import {NgForm} from '@angular/forms';
+
 
 @Component({
   moduleId: module.id,
@@ -16,6 +22,12 @@ export class FilmDetailsComponent implements OnInit {
   id: number;
   private sub: any;
   model: any;
+  dubbers: Dubber[] = [];
+  films: Film[] = [];
+  private message = {
+    "text": "",
+    "class": ""
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +36,31 @@ export class FilmDetailsComponent implements OnInit {
   ) {}
 
   private upDateFilm(){
-    this.filmService.update(this.model).subscribe();
+    let currentFilm = this.model;
+    let dubberService = this.dubberService;
+
+    // Aggiorna il film corrente
+    this.filmService.update(this.model).subscribe(
+      data => {
+        this.message.text = "Film has been updated successfully!";
+        this.message.class = "success";
+      },
+      err => {
+        this.message.text = "Error occured!";
+        this.message.class = "danger";
+      }
+    );
+    // end
+    // Aggiorna l'oggetto dubber nel quale è contenuto il json del film che è stato appena modificato (proprietà title)
+    this.dubbers.forEach(function(dubber) {
+      dubber.film.map(function(film, index) {
+        if(film.id == currentFilm.id) {
+          film.title = currentFilm.title;
+        }
+      });
+      dubberService.update(dubber).subscribe();
+    });
+    // end
   }
 
   private deleteDubber(idDubber) {
@@ -40,7 +76,7 @@ export class FilmDetailsComponent implements OnInit {
     //Updating dubber object after event delete film
     let idCurrentFilm = this.id;
     let dubberObject;
-    this.dubberService.dubbersList.map(function(dubber) {
+    this.dubbers.map(function(dubber) {
       if(dubber.id == idDubber) {
         dubber.film.map(function(film, index) {
           if(film.id == idCurrentFilm) {
@@ -50,7 +86,7 @@ export class FilmDetailsComponent implements OnInit {
         dubberObject = dubber;
       };
     });
-    this.dubberService.update(dubberObject);
+    this.dubberService.update(dubberObject).subscribe();
   }
 
   addDubberHasParticipated(form: NgForm) {
@@ -63,10 +99,10 @@ export class FilmDetailsComponent implements OnInit {
     };
     // end
     // Film object that we've got from the service, and then we've  extrapolated ID and title
-    let currentFilm = this.filmService.film;
+    let currentFilm = this.model;
     let objFilm = {
       "id": this.id,
-      "title": this.filmService.film.title
+      "title": this.model.title
     };
     // end
 
@@ -77,20 +113,30 @@ export class FilmDetailsComponent implements OnInit {
       dubbersID.push(dubber.id);
     });
     if(dubbersID.includes(dubberToAdd.id)) {
-      alert("Dubber is already present");
+      this.message.text = "Dubber is already present. You can't add it!";
+      this.message.class = "danger";
     } else {
       currentFilm.dubbers.push(dubberToAdd);
-      this.filmService.update(currentFilm);
-      /* Each every dubbers in the app. Then check if the id of the dubber on the
-      cicle is equal then id of the dubber that I wanna add.
-      If YES get a push of the film's data into the dubber object*/
-      this.dubberService.dubbersList.map(function(dubber) {
+      this.filmService.update(currentFilm).subscribe();
+      /* Cicla tutti i dubber presenti nell'app. Poi controlla se l'id del dubber su cui stai ciclando
+      è uguale all'id del dubber che vuoi aggiungere.
+      Se SI fai un push dei dati del film all'interno dell'oggetto dubber*/
+      this.dubbers.map(function(dubber) {
         if(dubber.id == dubberToAdd.id) {
           dubber.film.push(objFilm);
           dubberToAdd = dubber;
         };
       });
-      this.dubberService.update(dubberToAdd);
+      this.dubberService.update(dubberToAdd).subscribe(
+        data => {
+          this.message.text = "Dubber has been added successfully!";
+          this.message.class = "success";
+        },
+        err => {
+          this.message.text = "Error occured!";
+          this.message.class = "danger";
+        }
+      );
       // end
     }
     //end
@@ -99,10 +145,16 @@ export class FilmDetailsComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.filmService.getById(this.id).subscribe(film => { this.model = film; });
+      this.filmService.getById(this.id).subscribe(
+        data => { this.model = data; }
+      );
     });
-    this.dubberService.getAll();
-    this.filmService.getAll();
+    this.dubberService.getAll().subscribe(
+      data => { this.dubbers = data; }
+    );
+    this.filmService.getAll().subscribe(
+      data => { this.films = data; }
+    );
   }
 
 }
