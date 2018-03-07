@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // Services
 import { DubberService } from '../../dubber/_services/index';
@@ -12,17 +12,14 @@ import { InvoiceService } from '../_services/index';
 export class InvoiceListComponent implements OnInit {
 
   @Input() private dataset: any;
-  private message = {
-    "text": "",
-    "class": ""
-  };
+  @Output() event = new EventEmitter();
 
   constructor(
     private dubberService: DubberService,
     private invoiceService: InvoiceService
   ) { }
 
-  private delete(currentInvoice) {
+  private delete(currentInvoice, event) {
     let currentDubber = this.dataset;
     currentDubber.invoices.map(function(invoice, index){
       if(invoice.id == currentInvoice.id) {
@@ -31,12 +28,10 @@ export class InvoiceListComponent implements OnInit {
     });
     this.dubberService.update(currentDubber).subscribe(
       data => {
-        this.message.text = "Invoice has been deleted successfully!";
-        this.message.class = "success";
+        this.event.emit({"text": "It has been canceled successfully", "class": "success"});
       },
       err => {
-        this.message.text = "Error occured!";
-        this.message.class = "danger";
+        this.event.emit({"text": "Error", "class": "danger"});
       }
     );
     this.invoiceService.delete(currentInvoice.id).subscribe();

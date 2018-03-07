@@ -31,6 +31,11 @@ export class DubberProfileComponent implements OnInit {
     private filmService: FilmService
   ) {}
 
+  setMessage(message){
+    this.message.text = message.text;
+    this.message.class = message.class;
+  }
+
   getFirstChar(whichModel) {
     let createAvatar = whichModel.name.charAt(0);
     whichModel.avatar = createAvatar;

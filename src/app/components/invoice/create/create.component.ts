@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 // Services
@@ -14,10 +14,11 @@ import { DubberService } from '../../dubber/_services/index';
 export class CreateComponent implements OnInit {
 
   @Input() private dataset: any;
-  private message = {
-    "text": "",
-    "class": ""
-  };
+  @Output() event = new EventEmitter();
+  // private message = {
+  //   "text": "",
+  //   "class": ""
+  // };
 
   constructor(
     private dubberService: DubberService,
@@ -30,7 +31,7 @@ export class CreateComponent implements OnInit {
     return [difference, resultNet]
   }
 
-  private create(form: NgForm) {
+  private create(form: NgForm, event) {
     // Genera fattura, pusha l'oggetto fattura dentro alla proprietà invoices e poi aggiorna il modello
     let date = new Date();
     let currentInvoice = form.value;
@@ -50,12 +51,10 @@ export class CreateComponent implements OnInit {
     //this.upDateDubber();
     this.dubberService.update(this.dataset).subscribe(
       data => {
-        this.message.text = "It has been updated successfully!";
-        this.message.class = "success";
+        this.event.emit({"text": "It has been created successfully!", "class": "success"});
       },
       err => {
-        this.message.text = "Error occured!";
-        this.message.class = "danger";
+        this.event.emit({"text": "Error", "class": "danger"});
       }
     );
     //  end

@@ -122,8 +122,8 @@
           </ng-template>
         </div>
         <div class="tab-pane" id="invoices" role="tabpanel">
-          <invoiceList [dataset]="this.model"></invoiceList>
-          <formInvoice [dataset]="this.model"></formInvoice>
+          <invoiceList [dataset]="this.model" (event)="setMessage($event)"></invoiceList>
+          <formInvoice [dataset]="this.model" (event)="setMessage($event)"></formInvoice>
         </div>
       </div>
     </div>

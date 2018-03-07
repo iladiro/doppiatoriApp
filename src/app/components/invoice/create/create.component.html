@@ -1,4 +1,4 @@
-<form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm)">
+<form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm, $event)">
   <div class="form-group">
     <label for="movie">Select movie</label>
     <select name="movie" class="form-control" ngModel>

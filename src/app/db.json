@@ -85,7 +85,7 @@
       "avatar": "m"
     },
     {
-      "name": "Marco",
+      "name": "Mario",
       "surname": "Rossi",
       "fiscalCode": "drslri88b56f205d",
       "birthdate": "16/02/1988",
@@ -103,7 +103,19 @@
           "title": "Il gatto e la volpe"
         }
       ],
-      "invoices": [],
+      "invoices": [
+        {
+          "id": 643518,
+          "creationDate": "7/3/2018",
+          "movie": "Il gatto e la volpe",
+          "compensation": {
+            "gross": 500,
+            "taxPercetual": 20,
+            "taxEuro": 100,
+            "net": 400
+          }
+        }
+      ],
       "avatar": "M"
     }
   ],
@@ -163,6 +175,28 @@
         "birthdate": "16/02/1988",
         "birthplace": "Milano",
         "residenceplace": "Gessate",
+        "residenceaddress": "Via libertà 44"
+      }
+    },
+    {
+      "id": 643518,
+      "creationDate": "7/3/2018",
+      "movie": "Il gatto e la volpe",
+      "compensation": {
+        "gross": 500,
+        "taxPercetual": 20,
+        "taxEuro": 100,
+        "net": 400
+      },
+      "dubber": {
+        "id": 82932,
+        "name": "Marco",
+        "surname": "Rossi",
+        "email": "mario.rossi@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Agrigento",
+        "residenceplace": "Milano",
         "residenceaddress": "Via libertà 44"
       }
     }
