@@ -1,0 +1,57 @@
+<div class="container" *ngIf="model">
+  <section class="invoice bg--white p-all-side-80 mb-40" id="invoice">
+    <div>
+      <p class="text-capitalize mb-0 font-weight-bold">
+        {{model.dubber.name}} {{model.dubber.surname}}
+      </p>
+      <p class=" mb-0">
+        Nata a <span class="text-capitalize">{{model.dubber.birthplace}}</span> il {{model.dubber.birthdate}}
+      </p>
+      <p class=" mb-0">
+        Residente a <span class="text-capitalize">{{model.dubber.residenceplace}}, {{model.dubber.residenceaddress}}, {{model.dubber.residencecountry}}</span>
+      </p>
+      <p class=" mb-0">
+        Codice fiscale <span class="text-uppercase">{{model.dubber.fiscalCode}}</span>
+      </p>
+    </div>
+    <div class="text-right">
+      <p class=" mb-0">
+        Spett.le <span class="font-weight-bold">Contactlab</span>
+      </p>
+      <p class=" mb-0">
+        Via Natale Battaglia 24
+      </p>
+      <p class=" mb-0">
+        P.I. 546679546795766473
+      </p>
+    </div>
+    <div>
+      <p class="mb-30">Nota n° <span class="font-weight-bold">{{model.id}}</span></p>
+      <p class="mb-30">Compenso per prestazione d'opera relativa al doppiaggio del film "<strong>{{model.movie}}</strong>"</p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>Compenso lordo</td>
+            <td class="text-right">{{model.compensation.gross}} Euro</td>
+          </tr>
+          <tr>
+            <td>Ritenuta d'acconto del {{model.compensation.taxPercetual}}%</td>
+            <td class="text-right">{{model.compensation.taxEuro}} Euro</td>
+          </tr>
+          <tr>
+            <td>Compenso netto</td>
+            <td class="text-right">{{model.compensation.net}} Euro</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small mboth-40">Trattasi di prestazione di lavoro autonomo ai sensi dell’art. 2222 cod. civ. non esercitato abitualmente. Operazione fuori campo IVA ai sensi dell’art. 5 D.P.R. 633/72 e successive modifiche.</p>
+    <div class="row">
+      <div class="col">Milano {{model.creationDate}}</div>
+      <div class="col text-right">Firma</div>
+    </div>
+  </section>
+  <div class="text-center mb-80">
+    <button class="btn btn-success" (click)="generatedPDF()">Genera PDF</button>
+  </div>
+</div>
