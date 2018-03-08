@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+// Models
 import { User } from '../user/_models/index';
 import { Dubber } from '../dubber/_models/index';
 import { Film } from '../film/_models/index';
-//import { UserService } from '../user/_services/index';
+
+// Services
 import { DubberService } from '../dubber/_services/dubbers.service';
 import { FilmService } from '../film/_services/index';
 
@@ -13,12 +16,12 @@ import { FilmService } from '../film/_services/index';
 })
 
 export class DashboardComponent implements OnInit {
+
   currentUser: User;
   dubbers: Dubber[] = [];
   films: Film[] = [];
 
   constructor(
-    //private userService: UserService,
     private filmService: FilmService,
     private dubberService: DubberService
   ) {
@@ -34,10 +37,6 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  // deleteUser(id: number) {
-  //   this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-  // }
-  //
   // private loadAllUsers() {
   //   this.userService.getAll().subscribe(users => { this.users = users; });
   // }

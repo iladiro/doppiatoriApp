@@ -81,7 +81,19 @@
           "title": "Il gatto e la volpe"
         }
       ],
-      "invoices": [],
+      "invoices": [
+        {
+          "id": 823770,
+          "creationDate": "8/3/2018",
+          "movie": "Il re leone 9",
+          "compensation": {
+            "gross": 500,
+            "taxPercetual": 40,
+            "taxEuro": 200,
+            "net": 300
+          }
+        }
+      ],
       "avatar": "m"
     },
     {
@@ -198,6 +210,28 @@
         "birthplace": "Agrigento",
         "residenceplace": "Milano",
         "residenceaddress": "Via libertà 44"
+      }
+    },
+    {
+      "id": 823770,
+      "creationDate": "8/3/2018",
+      "movie": "Il re leone 9",
+      "compensation": {
+        "gross": 500,
+        "taxPercetual": 40,
+        "taxEuro": 200,
+        "net": 300
+      },
+      "dubber": {
+        "id": 462115,
+        "name": "marika",
+        "surname": "di rosa",
+        "email": "dirosa.marika@gmail.com",
+        "fiscalCode": "drslrm88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Milano",
+        "residenceplace": "Milano",
+        "residenceaddress": "Piazza Insubria 24"
       }
     }
   ]
