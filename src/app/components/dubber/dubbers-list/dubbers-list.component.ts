@@ -22,10 +22,17 @@ export class DubbersListComponent implements OnInit {
   dubbers: Dubber[] = [];
   films: Film[] = [];
 
+  list: Dubber[] = [];
+
   constructor(
     private dubberService: DubberService,
     private filmService: FilmService
   ) {}
+
+  dataset(items) {
+    console.log(items);
+    this.list = items;
+  }
 
   delete(dubber) {
     let index = this.dubbers.indexOf(dubber);
