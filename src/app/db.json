@@ -21,44 +21,6 @@
   ],
   "dubbers": [
     {
-      "name": "marika",
-      "surname": "di rosa",
-      "birthplace": "Milano",
-      "birthcounty": "Italia",
-      "residenceplace": "Milano",
-      "residenceaddress": "Piazza Insubria 24",
-      "residencecountry": "Italia",
-      "email": "dirosa.marika@gmail.com",
-      "phone": "3474977880",
-      "fiscalCode": "drslrm88b56f205d",
-      "birthdate": "16/02/1988",
-      "id": 462115,
-      "film": [
-        {
-          "id": 644099,
-          "title": "Il re leone 9"
-        },
-        {
-          "id": 430070,
-          "title": "Il gatto e la volpe"
-        }
-      ],
-      "invoices": [
-        {
-          "id": 823770,
-          "creationDate": "8/3/2018",
-          "movie": "Il re leone 9",
-          "compensation": {
-            "gross": 500,
-            "taxPercetual": 40,
-            "taxEuro": 200,
-            "net": 300
-          }
-        }
-      ],
-      "avatar": "m"
-    },
-    {
       "name": "Mario",
       "surname": "Rossi",
       "fiscalCode": "drslri88b56f205d",
@@ -91,61 +53,6 @@
         }
       ],
       "avatar": "M"
-    },
-    {
-      "name": "Romeo",
-      "surname": "Di Caprio",
-      "birthplace": "Milano",
-      "birthcounty": "Italia",
-      "residenceplace": "Gessate",
-      "residenceaddress": "Via libertà 44",
-      "residencecountry": "Italia",
-      "email": "romeo.dicaprio@gmail.com",
-      "phone": "3474977880",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "id": 462114,
-      "film": [
-        {
-          "id": 430070,
-          "title": "Il gatto e la volpe"
-        },
-        {
-          "id": 644099,
-          "title": "Il re leone 9"
-        }
-      ],
-      "invoices": [
-        {
-          "id": 205066,
-          "creationDate": "7/3/2018",
-          "movie": "Il gatto e la volpe",
-          "compensation": {
-            "gross": 400,
-            "taxPercetual": 20,
-            "taxEuro": 80,
-            "net": 320
-          }
-        }
-      ],
-      "avatar": "i"
-    },
-    {
-      "name": "ilaria",
-      "surname": "di rosa",
-      "birthplace": "Milano",
-      "birthcounty": "Italia",
-      "residenceplace": "Gessate",
-      "residenceaddress": "Via libertà 44",
-      "residencecountry": "Italia",
-      "email": "ilaria@gmail.com",
-      "phone": "3474977880",
-      "fiscalCode": "drslri88b56f205d",
-      "birthdate": "16/02/1988",
-      "id": 69601,
-      "film": [],
-      "invoices": [],
-      "avatar": "i"
     }
   ],
   "film": [

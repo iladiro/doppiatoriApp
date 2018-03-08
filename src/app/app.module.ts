@@ -39,6 +39,7 @@ import { DetailsInvoiceComponent } from './components/invoice/details/details.co
 import { CreateComponent } from './components/invoice/create/create.component';
 import { InvoiceListComponent } from './components/invoice/list/list.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     DetailsInvoiceComponent,
     CreateComponent,
     InvoiceListComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    ModalPromptComponent
   ],
   imports: [
     BrowserModule,

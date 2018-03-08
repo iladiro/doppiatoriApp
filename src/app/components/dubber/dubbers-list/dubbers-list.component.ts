@@ -15,10 +15,17 @@ import { Film } from '../../film/_models/index';
 
 export class DubbersListComponent implements OnInit {
 
+  private currentDubber;
   private DBTable:string = "dubbers";
   private message = {
-    "text": "",
-    "class": ""
+    "alert": {
+      "text": "",
+      "class": ""
+    },
+    "modal": {
+      "text": "",
+      "response": ""
+    }
   };
   dubbers: Dubber[] = [];
   films: Film[] = [];
@@ -32,6 +39,18 @@ export class DubbersListComponent implements OnInit {
     this.dubbers = items;
   }
 
+  private setConfirm(data) {
+    this.message.modal.response = data;
+    if(data == "true") {
+      this.delete(this.currentDubber);
+    }
+  }
+
+  private passCurrentDubber(dubber) {
+    this.message.modal.text = "Are you sure you want to delete it?";
+    this.currentDubber = dubber;
+  }
+
   delete(dubber) {
     let index = this.dubbers.indexOf(dubber);
     let filmDubbersID = [];
@@ -41,16 +60,16 @@ export class DubbersListComponent implements OnInit {
       }
     };
     if(filmDubbersID.includes(dubber.id)) {
-      this.message.text = "You can't delete it, because this dubber is using!";
-      this.message.class = "danger";
+      this.message.alert.text = "You can't delete it, because this dubber is using!";
+      this.message.alert.class = "danger";
     } else {
       this.dubberService.delete(dubber.id).subscribe(
         data => {
-          this.message.text = "It has been deleted successfully!";
-          this.message.class = "success";
+          this.dubbers.splice(index, 1);
+          this.message.alert.text = "It has been deleted successfully!";
+          this.message.alert.class = "success";
         }
       );
-      this.dubbers.splice(index, 1);
     }
   }
 
