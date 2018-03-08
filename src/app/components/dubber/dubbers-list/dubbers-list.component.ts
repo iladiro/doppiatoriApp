@@ -15,6 +15,7 @@ import { Film } from '../../film/_models/index';
 
 export class DubbersListComponent implements OnInit {
 
+  private DBTable:string = "dubbers";
   private message = {
     "text": "",
     "class": ""
@@ -22,16 +23,13 @@ export class DubbersListComponent implements OnInit {
   dubbers: Dubber[] = [];
   films: Film[] = [];
 
-  list: Dubber[] = [];
-
   constructor(
     private dubberService: DubberService,
     private filmService: FilmService
   ) {}
 
-  dataset(items) {
-    console.log(items);
-    this.list = items;
+  private dataset(items) {
+    this.dubbers = items;
   }
 
   delete(dubber) {
@@ -46,24 +44,19 @@ export class DubbersListComponent implements OnInit {
       this.message.text = "You can't delete it, because this dubber is using!";
       this.message.class = "danger";
     } else {
-      this.message = {
-        "text": "",
-        "class": ""
-      };
       this.dubberService.delete(dubber.id).subscribe(
         data => {
-          this.dubbers.splice(index, 1);
+          this.message.text = "It has been deleted successfully!";
+          this.message.class = "success";
         }
       );
+      this.dubbers.splice(index, 1);
     }
   }
 
   ngOnInit() {
     this.filmService.getAll().subscribe(
       data => { this.films = data; }
-    );
-    this.dubberService.getAll().subscribe(
-      data => { this.dubbers = data; }
     );
   }
 

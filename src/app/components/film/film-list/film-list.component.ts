@@ -9,6 +9,11 @@ import { FilmService } from '../_services/index';
 
 export class FilmListComponent implements OnInit {
 
+  private message = {
+    "text": "",
+    "class": ""
+  };
+  private DBTable:string = "film";
   films: Film[] = [];
 
   constructor(private filmService: FilmService) {}
@@ -19,16 +24,22 @@ export class FilmListComponent implements OnInit {
     if (confirmRequest == true) {
       this.filmService.delete(film.id).subscribe(
         data => {
-          this.films.splice(index, 1);
+          this.message.text = "It has been deleted successfully!";
+          this.message.class = "success";
         }
       );
+      this.films.splice(index, 1);
     }
   }
 
+  private dataset(items) {
+    this.films = items;
+  }
+
   ngOnInit() {
-    this.filmService.getAll().subscribe(
-      data => { this.films = data; }
-    );
+    // this.filmService.getAll().subscribe(
+    //   data => { this.films = data; }
+    // );
   }
 
 }

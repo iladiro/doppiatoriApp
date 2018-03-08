@@ -18,7 +18,7 @@
       <div class="col"></div>
     </div>
     <div class="itemsList__body">
-      <div class="itemsList__body-row row" *ngFor="let dubber of list">
+      <div class="itemsList__body-row row" *ngFor="let dubber of dubbers">
         <div class="col">
           <span class="itemsList__avatar">{{dubber.avatar}}</span>
         </div>
@@ -45,5 +45,5 @@
       </div>
     </div>
   </section>
-  <paginator (pagedItems)="dataset($event)"></paginator>
+  <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
 </div>

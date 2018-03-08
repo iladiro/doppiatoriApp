@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Headers, RequestOptions, Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -27,8 +27,8 @@ export class PaginatorComponent implements OnInit {
   // pager object
   pager: any = {};
   // paged items
-  //@Output() pagedItems: any[];
   @Output() pagedItems = new EventEmitter();
+  @Input() DBtable:string;
 
   setPage(page: number) {
     if (page < 1 || page > this.pager.totalPages) {
@@ -44,7 +44,7 @@ export class PaginatorComponent implements OnInit {
 
   ngOnInit() {
     // get dummy data
-    this.http.get("http://localhost:3000/dubbers/").subscribe(
+    this.http.get("http://localhost:3000/" + this.DBtable + "/").subscribe(
       data => {
         // set items to json response
         this.allItems = data;
