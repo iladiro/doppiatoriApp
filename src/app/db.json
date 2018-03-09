@@ -152,8 +152,25 @@
       "fiscalCode": "drslri88b56f205d",
       "birthdate": "05/07/1956",
       "id": 725683,
-      "film": [],
-      "invoices": [],
+      "film": [
+        {
+          "id": 644099,
+          "title": "Il re leone 9"
+        }
+      ],
+      "invoices": [
+        {
+          "id": 436904,
+          "creationDate": "9/3/2018",
+          "movie": "Il re leone 9",
+          "compensation": {
+            "gross": 5000,
+            "taxPercetual": 20,
+            "taxEuro": 1000,
+            "net": 4000
+          }
+        }
+      ],
       "avatar": "C"
     },
     {
@@ -172,6 +189,57 @@
       "film": [],
       "invoices": [],
       "avatar": "i"
+    },
+    {
+      "name": "Simone",
+      "surname": "Rossi",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Berlino",
+      "birthcounty": "Germania",
+      "residenceplace": "Milano",
+      "residenceaddress": "Via libertà 44",
+      "residencecountry": "Italia",
+      "email": "simone.rossi@libero.it",
+      "phone": "3474977880",
+      "id": 555570,
+      "film": [],
+      "invoices": [],
+      "avatar": "S"
+    },
+    {
+      "name": "Adele",
+      "surname": "ferro",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Bari",
+      "birthcounty": "Italia",
+      "residenceplace": "Milano",
+      "residenceaddress": "Via libertà 44",
+      "residencecountry": "Italia",
+      "email": "adele.ferro@gmail.com",
+      "phone": "3474977880",
+      "id": 15621,
+      "film": [],
+      "invoices": [],
+      "avatar": "A"
+    },
+    {
+      "name": "Cristina",
+      "surname": "Manga",
+      "fiscalCode": "drslri88b56f205d",
+      "birthdate": "16/02/1988",
+      "birthplace": "Milano",
+      "birthcounty": "Italia",
+      "residenceplace": "Firenze",
+      "residenceaddress": "Via carlo V",
+      "residencecountry": "Italia",
+      "email": "cristina.manga@libero.it",
+      "phone": "3474977880",
+      "id": 860357,
+      "film": [],
+      "invoices": [],
+      "avatar": "C"
     }
   ],
   "film": [
@@ -205,6 +273,10 @@
         {
           "id": "462115",
           "name": "marika"
+        },
+        {
+          "id": "725683",
+          "name": "Carmelo"
         }
       ],
       "id": 644099
@@ -275,6 +347,28 @@
         "birthplace": "Milano",
         "residenceplace": "Milano",
         "residenceaddress": "Piazza Insubria 24"
+      }
+    },
+    {
+      "id": 436904,
+      "creationDate": "9/3/2018",
+      "movie": "Il re leone 9",
+      "compensation": {
+        "gross": 5000,
+        "taxPercetual": 20,
+        "taxEuro": 1000,
+        "net": 4000
+      },
+      "dubber": {
+        "id": 725683,
+        "name": "Carmelo",
+        "surname": "di rosa",
+        "email": "dirosa.carmelo@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "05/07/1956",
+        "birthplace": "Agrigento",
+        "residenceplace": "Rozzano",
+        "residenceaddress": "Viale Lombardi 18"
       }
     }
   ]
