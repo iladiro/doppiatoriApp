@@ -1,14 +1,13 @@
 <div class="container" *ngIf="model">
   <div class="row">
     <div class="col-sm-2">
-      <figure>
+      <figure class="m-0">
         <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
         <h5 class="mt-10 text-capitalize">{{model.name}} {{model.surname}}</h5>
       </figure>
     </div>
     <div class="col-sm-10">
       <alertMessage [message]="message" *ngIf="message"></alertMessage>
-
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -25,78 +24,67 @@
       <!-- Tab panes -->
       <div class="tab-content pboth-15">
         <div class="tab-pane active" id="personal-data" role="tabpanel">
-          <form #UpdateDubberForm="ngForm" (ngSubmit)="upDateDubber(UpdateDubberForm)" novalidate>
+          <form name="form" (ngSubmit)="f.form.valid && upDateDubber()" #f="ngForm" novalidate>
             <fieldset class="pl-0 pr-0">
               <legend>Personal information:</legend>
               <div class="form-row">
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !name.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="name">Name</label>
                   <input type="text" id="name" class="form-control text-capitalize" placeholder="First name" [(ngModel)]="model.name" name="name" #name="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !name.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !surname.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="surname">Surname</label>
                   <input type="text" id="surname" class="form-control text-capitalize" placeholder="Last name" [(ngModel)]="model.surname" name="surname" #surname="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !surname.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !fiscalCode.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="name">Fiscal Code</label>
                   <input type="text" id="fiscalCode" class="form-control text-uppercase" placeholder="Fiscal Code" [(ngModel)]="model.fiscalCode" name="fiscalCode" #fiscalCode="ngModel" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !fiscalCode.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !birthdate.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="name">Date of birth</label>
                   <input type="text" id="birthdate" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="model.birthdate" name="birthdate" #birthdate="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !birthdate.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !birthplace.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="name">Place of birth</label>
                   <input type="text" id="birthplace" class="form-control text-capitalize" placeholder="Place of birth" [(ngModel)]="model.birthplace" name="birthplace" #birthplace="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !birthplace.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !birthcounty.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="name">County of birth</label>
                   <input type="text" id="birthcounty" class="form-control text-capitalize" placeholder="County of birth" [(ngModel)]="model.birthcounty" name="birthcounty" #birthcounty="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !birthcounty.valid" class="help-block">Field is required</div>
                 </div>
               </div>
             </fieldset>
             <fieldset class="pl-0 pr-0">
               <legend>Tax information:</legend>
               <div class="form-row">
-                <div class="col-sm-12 col-md-4 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !residenceplace.valid }">
+                <div class="col-sm-12 col-md-4 mb-3">
                   <label for="residenceplace">Place of residence</label>
                   <input id="residenceplace" type="text" class="form-control text-capitalize" placeholder="Place of residence" [(ngModel)]="model.residenceplace" name="residenceplace" #residenceplace="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !residenceplace.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-12 col-md-4 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !residenceaddress.valid }">
+                <div class="col-sm-12 col-md-4 mb-3">
                   <label for="residenceaddress">Address</label>
                   <input id="residenceaddress" type="text" class="form-control text-capitalize" placeholder="Address" [(ngModel)]="model.residenceaddress" name="residenceaddress" #residenceaddress="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !residenceaddress.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-12 col-md-4 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !residencecountry.valid }">
+                <div class="col-sm-12 col-md-4 mb-3">
                   <label for="residencecountry">Country of residence</label>
                   <input id="residencecountry" type="text" class="form-control text-capitalize" placeholder="Country of residence" [(ngModel)]="model.residencecountry" name="residencecountry" #residencecountry="ngModel" required>
-                  <div *ngIf="UpdateDubberForm.submitted && !residencecountry.valid" class="help-block">Field is required</div>
                 </div>
               </div>
             </fieldset>
             <fieldset class="pl-0 pr-0">
               <legend>Contacts information:</legend>
               <div class="form-row">
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !email.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="email">Email</label>
                   <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                  <div *ngIf="UpdateDubberForm.submitted && !email.valid" class="help-block">Field is required</div>
                 </div>
-                <div class="col-sm-6 mb-3" [ngClass]="{ 'has-error': UpdateDubberForm.submitted && !phone.valid }">
+                <div class="col-sm-6 mb-3">
                   <label for="phone">Phone</label>
                   <input type="phone" id="phone" class="form-control" placeholder="Phone" [(ngModel)]="model.phone" name="phone" required #phone="ngModel" pattern="[0-9]+">
-                  <div *ngIf="UpdateDubberForm.submitted && !phone.valid" class="help-block">Field is required</div>
                 </div>
               </div>
             </fieldset>
-            <button type="submit" class="btn btn-success">Update dubber</button>
+            <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Update dubber</button>
           </form>
         </div>
         <div class="tab-pane" id="collaborations" role="tabpanel">

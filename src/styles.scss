@@ -3,7 +3,7 @@
 // @import "~bootstrap/dist/css/bootstrap.min.css";
 // @import "~font-awesome/css/font-awesome.css";
 @import "../node_modules/normalize.css/normalize";
-// @import "assets/stylesheet/mixin/custom-mixin";
+@import "assets/stylesheet/mixin/custom-mixin";
 // @import 'assets/stylesheet/widgets/variables';
 @import 'assets/stylesheet/widgets/spaces';
 
@@ -23,4 +23,12 @@ button {
 
 .bg--white {
   background-color: white;
+}
+
+input {
+  &.ng {
+    &-invalid {
+      @include border(1px, red);
+    }
+  }
 }
