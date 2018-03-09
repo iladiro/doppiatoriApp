@@ -30,15 +30,10 @@
       "residenceplace": "Milano",
       "residenceaddress": "Via libertà 44",
       "residencecountry": "Italia",
-      "email": "mario.rossi@gmail.com",
+      "email": "mario.rossii@gmail.com",
       "phone": "3474977880",
       "id": 82932,
-      "film": [
-        {
-          "id": 430070,
-          "title": "Il gatto e la volpe"
-        }
-      ],
+      "film": [],
       "invoices": [
         {
           "id": 643518,
@@ -248,38 +243,11 @@
       "description": "lorem ipsum",
       "dubbers": [
         {
-          "id": "462114",
-          "name": "ilaria"
-        },
-        {
           "id": "462115",
           "name": "marika"
-        },
-        {
-          "id": "82932",
-          "name": "Marco"
         }
       ],
       "id": 430070
-    },
-    {
-      "title": "Il re leone 9",
-      "description": "Nelle Terre del Branco africane, governate dai leoni, gli animali della savana celebrano alla Rupe dei Re la nascita del futuro re Simba, figlio dei sovrani Mufasa e Sarabi. Il fratello minore di Mufasa, Scar, che non presenzia volutamente alla cerimonia (fatto per cui Mufasa si infuria), è geloso del cucciolo neonato, che lo scalza di diritto dalla linea di successione al regno.",
-      "dubbers": [
-        {
-          "id": "462114",
-          "name": "ilaria"
-        },
-        {
-          "id": "462115",
-          "name": "marika"
-        },
-        {
-          "id": "725683",
-          "name": "Carmelo"
-        }
-      ],
-      "id": 644099
     }
   ],
   "invoices": [

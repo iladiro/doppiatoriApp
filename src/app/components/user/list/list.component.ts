@@ -10,6 +10,16 @@ import { UserService } from '../_services/index';
 export class UsersListComponent implements OnInit {
 
   users: User[] = [];
+  // private message = {
+  //   "alert": {
+  //     "text": "",
+  //     "class": ""
+  //   },
+  //   "modal": {
+  //     "text": "",
+  //     "response": ""
+  //   }
+  // };
 
   constructor( private userService: UserService ) { }
 

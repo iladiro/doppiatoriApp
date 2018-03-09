@@ -1,4 +1,6 @@
 <div class="container">
+  <alertMessage [message]="message" *ngIf="message"></alertMessage>
+  <modalPrompt [message]="message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="clearfix mb-3">
     <div class="float-left">
       <h3 class="section-title">Film list</h3>
@@ -29,7 +31,7 @@
           <a [routerLink]="['/film', film.id]" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </a>
-          <button (click)="delete(film)" class="btn btn-outline-danger">
+          <button (click)="passCurrentFilm(film)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import {NgForm} from '@angular/forms';
 
 // Models
 import { Film } from '../../film/_models/index';
@@ -16,14 +15,21 @@ import { FilmService } from '../../film/_services/index';
 
 export class DubberProfileComponent implements OnInit {
 
+  private currentFilm;
   id: number;
   private sub: any;
   model: any;
   films: Film[];
   private message = {
-    "text": "",
-    "class": "",
-    "status": ""
+    "alert": {
+      "text": "",
+      "class": "",
+      "status": ""
+    },
+    "modal": {
+      "text": "",
+      "response": ""
+    }
   };
 
   constructor(
@@ -33,8 +39,8 @@ export class DubberProfileComponent implements OnInit {
   ) {}
 
   setMessage(message){
-    this.message.text = message.text;
-    this.message.class = message.class;
+    this.message.alert.text = message.text;
+    this.message.alert.class = message.class;
   }
 
   getFirstChar(whichModel) {
@@ -45,14 +51,14 @@ export class DubberProfileComponent implements OnInit {
   private upDateDubber(){
     this.dubberService.update(this.model).subscribe(
       data => {
-        this.message.text = "It has been updated successfully!";
-        this.message.class = "success";
-        this.message.status = "show"
+        this.message.alert.text = "It has been updated successfully!";
+        this.message.alert.class = "success";
+        this.message.alert.status = "show"
       },
       err => {
-        this.message.text = "Error occured!";
-        this.message.class = "danger";
-        this.message.status = "show";
+        this.message.alert.text = "Error occured!";
+        this.message.alert.class = "danger";
+        this.message.alert.status = "show";
       }
     );
   }
@@ -65,7 +71,16 @@ export class DubberProfileComponent implements OnInit {
         currentDubber.film.splice(index, 1);
       }
     });
-    this.dubberService.update(this.model).subscribe();
+    this.dubberService.update(this.model).subscribe(
+      data => {
+        this.message.alert.text = "It has been deleted successfully!";
+        this.message.alert.class = "success";
+      },
+      err => {
+        this.message.alert.text = "Error occured!";
+        this.message.alert.class = "danger";
+      }
+    );
     // end
 
     // Cancella il dubber dal film che vuoi cancellare e aggiorna l'oggetto film
@@ -80,6 +95,17 @@ export class DubberProfileComponent implements OnInit {
     });
     this.filmService.update(filmObject).subscribe();
     // end
+  }
+
+  setConfirm(data) {
+    if(data == "true") {
+      this.deleteFilm(this.currentFilm.id);
+    }
+  }
+
+  passCurrentFilm(film) {
+    this.message.modal.text = "Are you sure you want to delete it?";
+    this.currentFilm = film;
   }
 
   ngOnInit() {
