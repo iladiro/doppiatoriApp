@@ -10,8 +10,8 @@ import { DubberService } from '../../dubber/_services/dubbers.service';
 
 @Component({
   moduleId: module.id,
-  templateUrl: './add-film.component.html',
-  styleUrls: ['./add-film.component.scss']
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
 
 export class AddFilmComponent {

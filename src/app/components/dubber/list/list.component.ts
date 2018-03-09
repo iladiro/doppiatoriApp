@@ -9,8 +9,8 @@ import { Dubber } from '../_models/index';
 import { Film } from '../../film/_models/index';
 
 @Component({
-  templateUrl: './dubbers-list.component.html',
-  styleUrls: ['./dubbers-list.component.scss']
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
 
 export class DubbersListComponent implements OnInit {

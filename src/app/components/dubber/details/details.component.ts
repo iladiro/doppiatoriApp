@@ -10,8 +10,8 @@ import { DubberService } from '../_services/index';
 import { FilmService } from '../../film/_services/index';
 
 @Component({
-  templateUrl: './dubber-profile.component.html',
-  styleUrls: ['./dubber-profile.component.scss']
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.scss']
 })
 
 export class DubberProfileComponent implements OnInit {

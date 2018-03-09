@@ -1,21 +1,24 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DubbersListComponent } from './components/dubber/dubbers-list/dubbers-list.component';
-import { DubberProfileComponent } from './components/dubber/dubber-profile/dubber-profile.component';
-//import { DubberInvoiceComponent } from './components/dubber/dubber-invoice/dubber-invoice.component';
-import { AddDubberComponent } from './components/dubber/add-dubber/add-dubber.component';
-import { FilmListComponent } from './components/film/film-list/film-list.component';
-import { AddFilmComponent } from './components/film/add-film/add-film.component';
-import { FilmDetailsComponent } from './components/film/film-details/film-details.component';
-import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DubbersListComponent } from './components/dubber/list/list.component';
+import { DubberProfileComponent } from './components/dubber/details/details.component';
+import { AddDubberComponent } from './components/dubber/create/create.component';
+
+import { FilmListComponent } from './components/film/list/list.component';
+import { AddFilmComponent } from './components/film/create/create.component';
+import { FilmDetailsComponent } from './components/film/details/details.component';
+
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
-import { AuthGuard } from './components/user/_guards/auth.guard';
-import { ListComponent } from './components/user/list/list.component';
+import { UsersListComponent } from './components/user/list/list.component';
 import { DetailsUserComponent } from './components/user/details/details.component';
+
 import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
+
+import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthGuard } from './components/user/_guards/auth.guard';
 
 const appRoutes: Routes = [
 
@@ -41,7 +44,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'users',
-    component: ListComponent,
+    component: UsersListComponent,
     canActivate: [AuthGuard],
     data: { title: 'List users' }
   },

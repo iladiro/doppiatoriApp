@@ -13,8 +13,8 @@ import { DubberService } from '../../dubber/_services/dubbers.service';
 
 @Component({
   moduleId: module.id,
-  templateUrl: './film-details.component.html',
-  styleUrls: ['./film-details.component.scss']
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.scss']
 })
 
 export class FilmDetailsComponent implements OnInit {

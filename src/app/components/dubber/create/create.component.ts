@@ -8,8 +8,8 @@ import { Dubber } from '../_models/index';
 
 @Component({
   moduleId: module.id,
-  templateUrl: './add-dubber.component.html',
-  styleUrls: ['./add-dubber.component.scss']
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.scss']
 })
 
 export class AddDubberComponent {
@@ -22,7 +22,7 @@ export class AddDubberComponent {
     "status": ""
   };
   dubbers: Dubber[];
-  model: any{};
+  model: any = {};
 
   getFirstChar(whichModel) {
     let createAvatar = whichModel.name.charAt(0);
@@ -56,17 +56,17 @@ export class AddDubberComponent {
           this.message.class = "success";
           this.message.status = "show";
           this.model = {
-            "name": "";
-            "surname": "";
-            "fiscalCode": "";
-            "birthdate": "";
-            "birthplace": "";
-            "birthcounty": "";
-            "email": "";
-            "phone": "";
-            "residenceplace": "";
-            "residenceaddress": "";
-            "residencecountry": "";
+            "name": "",
+            "surname": "",
+            "fiscalCode": "",
+            "birthdate": "",
+            "birthplace": "",
+            "birthcounty": "",
+            "email": "",
+            "phone": "",
+            "residenceplace": "",
+            "residenceaddress": "",
+            "residencecountry": ""
           };
         },
         err => {

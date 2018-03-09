@@ -25,10 +25,15 @@ button {
   background-color: white;
 }
 
-input {
+input, textarea {
   &.ng {
-    &-invalid {
-      @include border(1px, red);
+    &-touched {
+      &.ng-invalid {
+        @include border(1px, red);
+      }
+      &.ng-valid {
+        @include border(1px, green);
+      }
     }
   }
 }

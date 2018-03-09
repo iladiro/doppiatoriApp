@@ -3,8 +3,8 @@ import { Film } from '../_models/index';
 import { FilmService } from '../_services/index';
 
 @Component({
-  templateUrl: './film-list.component.html',
-  styleUrls: ['./film-list.component.scss']
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
 
 export class FilmListComponent implements OnInit {
