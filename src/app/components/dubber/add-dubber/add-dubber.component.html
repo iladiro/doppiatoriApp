@@ -5,21 +5,21 @@
       <legend>Personal information:</legend>
       <div class="row">
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !name.valid }">
             <label for="name">Name</label>
             <input id="name" type="text" class="form-control" placeholder="Name" [(ngModel)]="model.name" name="name" #name="ngModel" required>
             <div *ngIf="f.submitted && !name.valid" class="help-block">Name field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !surname.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !surname.valid }">
             <label for="surname">Surname</label>
             <input id="surname" type="text" class="form-control" placeholder="Surname" [(ngModel)]="model.surname" name="surname" #surname="ngModel" required>
             <div *ngIf="f.submitted && !surname.valid" class="help-block">Surname field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !fiscalCode.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !fiscalCode.valid }">
             <label for="fiscalCode">Fiscal Code</label>
             <input id="fiscalCode" type="text" class="form-control" placeholder="Fiscal Code" [(ngModel)]="model.fiscalCode" name="fiscalCode" #fiscalCode="ngModel" required pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$">
             <div *ngIf="f.submitted && !fiscalCode.valid" class="help-block">Fiscal Code field is required</div>
@@ -28,21 +28,21 @@
       </div>
       <div class="row">
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !birthdate.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !birthdate.valid }">
             <label for="birthdate">Date of birth</label>
             <input id="birthdate" type="text" class="form-control" placeholder="GG/MM/AAAA" [(ngModel)]="model.birthdate" name="birthdate" #birthdate="ngModel">
             <div *ngIf="f.submitted && !birthdate.valid" class="help-block">Date of birth field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !birthplace.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !birthplace.valid }">
             <label for="birthplace">Place of birth</label>
             <input id="birthplace" type="text" class="form-control" placeholder="Place of birth " [(ngModel)]="model.birthplace" name="birthplace" #birthplace="ngModel">
             <div *ngIf="f.submitted && !birthplace.valid" class="help-block">Place of birth field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !birthcounty.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !birthcounty.valid }">
             <label for="birthcounty">Country of birth</label>
             <input id="birthcounty" type="text" class="form-control" placeholder="Country of birth " [(ngModel)]="model.birthcounty" name="birthcounty" #birthcounty="ngModel">
             <div *ngIf="f.submitted && !birthcounty.valid" class="help-block">Country of birth field is required</div>
@@ -54,21 +54,21 @@
       <legend>Tax information:</legend>
       <div class="row">
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !residenceplace.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !residenceplace.valid }">
             <label for="residenceplace">Place of residence</label>
             <input id="residenceplace" type="text" class="form-control" placeholder="Place of residence" [(ngModel)]="model.residenceplace" name="residenceplace" #residenceplace="ngModel" required>
             <div *ngIf="f.submitted && !residenceplace.valid" class="help-block">Place of residence field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !residenceaddress.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !residenceaddress.valid }">
             <label for="residenceaddress">Address</label>
             <input id="residenceaddress" type="text" class="form-control" placeholder="Address" [(ngModel)]="model.residenceaddress" name="residenceaddress" #residenceaddress="ngModel" required>
             <div *ngIf="f.submitted && !residenceaddress.valid" class="help-block">Address field is required</div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !residencecountry.valid }">
+          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !residencecountry.valid }">
             <label for="residencecountry">Country of residence</label>
             <input id="residencecountry" type="text" class="form-control" placeholder="Country of residence" [(ngModel)]="model.residencecountry" name="residencecountry" #residencecountry="ngModel">
             <div *ngIf="f.submitted && !residencecountry.valid" class="help-block">Country of residence field is required</div>
@@ -78,19 +78,19 @@
     </fieldset>
     <fieldset class="pl-0 pr-0">
       <legend>Contacts information:</legend>
-      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+      <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !email.valid }">
         <label>Email</label>
         <input id="email" type="email" class="form-control" placeholder="Email" [(ngModel)]="model.email" name="email" #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
         <div *ngIf="f.submitted && !email.valid" class="help-block">Email field is required</div>
       </div>
-      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !phone.valid }">
+      <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !phone.valid }">
         <label>Phone</label>
         <input id="phone" type="phone" class="form-control" placeholder="Phone" [(ngModel)]="model.phone" name="phone" #phone="ngModel" required pattern="[0-9]+">
         <div *ngIf="f.submitted && !phone.valid" class="help-block">Phone field is required</div>
       </div>
     </fieldset>
      <div class="form-group">
-       <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Create dubber</button>
+       <button type="submit" class="btn btn-success">Create dubber</button>
      </div>
   </form>
 </div>

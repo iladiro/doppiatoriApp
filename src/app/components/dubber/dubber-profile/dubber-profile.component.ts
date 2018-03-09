@@ -22,7 +22,8 @@ export class DubberProfileComponent implements OnInit {
   films: Film[];
   private message = {
     "text": "",
-    "class": ""
+    "class": "",
+    "status": ""
   };
 
   constructor(
@@ -46,10 +47,12 @@ export class DubberProfileComponent implements OnInit {
       data => {
         this.message.text = "It has been updated successfully!";
         this.message.class = "success";
+        this.message.status = "show"
       },
       err => {
         this.message.text = "Error occured!";
         this.message.class = "danger";
+        this.message.status = "show";
       }
     );
   }

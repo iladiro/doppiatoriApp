@@ -11,7 +11,7 @@ import { fakeBackendProvider } from './components/user/_helpers/index';
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/invoice/_services/index';
-import { PagerService } from './components/paginator/_services/index';
+import { PagerService } from './components/widgets/paginator/_services/index';
 import { AlertService, AuthenticationService, UserService } from './components/user/_services/index';
 import { AuthGuard } from './components/user/_guards/index';
 import { JwtInterceptor } from './components/user/_helpers/index';
@@ -38,7 +38,7 @@ import { DetailsUserComponent } from './components/user/details/details.componen
 import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
 import { CreateComponent } from './components/invoice/create/create.component';
 import { InvoiceListComponent } from './components/invoice/list/list.component';
-import { PaginatorComponent } from './components/paginator/paginator.component';
+import { PaginatorComponent } from './components/widgets/paginator/paginator.component';
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 
 @NgModule({

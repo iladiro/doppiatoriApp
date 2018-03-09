@@ -18,11 +18,11 @@ export class AddDubberComponent {
 
   private message = {
     "text": "",
-    "class": ""
+    "class": "",
+    "status": ""
   };
   dubbers: Dubber[];
-  //model: Dubber{};
-  model: any = {};
+  model: any{};
 
   getFirstChar(whichModel) {
     let createAvatar = whichModel.name.charAt(0);
@@ -46,24 +46,36 @@ export class AddDubberComponent {
     if(dubbersEmail.includes(this.model.email)) {
       this.message.text = "You can't add this user bacause this email is already used!";
       this.message.class = "danger";
+      this.message.status = "show";
       return;
       // se non lo è aggiungilo
     } else {
-      this.message = {
-        "text": "",
-        "class": ""
-      };
       this.dubberService.create(this.model).subscribe(
         data => {
           this.message.text = "Film has been created successfully!";
           this.message.class = "success";
+          this.message.status = "show";
+          this.model = {
+            "name": "";
+            "surname": "";
+            "fiscalCode": "";
+            "birthdate": "";
+            "birthplace": "";
+            "birthcounty": "";
+            "email": "";
+            "phone": "";
+            "residenceplace": "";
+            "residenceaddress": "";
+            "residencecountry": "";
+          };
         },
         err => {
           this.message.text = "Error occured!";
           this.message.class = "danger";
+          this.message.status = "show";
         }
       );
-    }
+    };
   }
 
   ngOnInit() {
