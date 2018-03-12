@@ -46,6 +46,7 @@ import { PaginatorComponent } from './components/widgets/paginator/paginator.com
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { EditFormComponent } from './components/dubber/details/edit-form/edit-form.component';
+import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { EditFormComponent } from './components/dubber/details/edit-form/edit-fo
     InvoiceListComponent,
     PaginatorComponent,
     ModalPromptComponent,
-    EditFormComponent
+    EditFormComponent,
+    BackButtonComponent
   ],
   imports: [
     BrowserModule,
