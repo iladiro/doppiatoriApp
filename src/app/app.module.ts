@@ -45,6 +45,7 @@ import { SearchFormComponent } from './components/widgets/search-form/search-for
 import { PaginatorComponent } from './components/widgets/paginator/paginator.component';
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
+import { EditFormComponent } from './components/dubber/details/edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { PageNotFoundComponent } from './components/widgets/page-not-found/page-
     CreateComponent,
     InvoiceListComponent,
     PaginatorComponent,
-    ModalPromptComponent
+    ModalPromptComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,

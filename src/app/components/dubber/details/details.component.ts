@@ -48,21 +48,6 @@ export class DubberProfileComponent implements OnInit {
     whichModel.avatar = createAvatar;
   }
 
-  private upDateDubber(){
-    this.dubberService.update(this.model).subscribe(
-      data => {
-        this.message.alert.text = "It has been updated successfully!";
-        this.message.alert.class = "success";
-        this.message.alert.status = "show"
-      },
-      err => {
-        this.message.alert.text = "Error occured!";
-        this.message.alert.class = "danger";
-        this.message.alert.status = "show";
-      }
-    );
-  }
-
   private deleteFilm(idFilm) {
     // Cancella film dalla lista dei film del dubber corrente
     let currentDubber = this.model;
