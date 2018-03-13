@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/index';
 import { ActivatedRoute } from "@angular/router";
+
+// Models
 import { User } from '../_models/index';
+
+// Services
+import { UserService } from '../_services/index';
 
 @Component({
   moduleId: module.id,
@@ -14,20 +18,47 @@ export class DetailsUserComponent implements OnInit {
   private sub: any;
   model: any = {};
   loading = false;
+  private message = {
+    "alert": {
+      "text": "",
+      "class": "",
+      "status": ""
+    },
+    "modal": {
+      "text": "",
+      "response": ""
+    }
+  };
 
   constructor(
     private route: ActivatedRoute,
     private userService: UserService
   ) { }
 
-  private upDateUser() {
-    this.userService.update(this.model).subscribe();
+  private upDate() {
+    this.loading = true;
+    this.userService.update(this.model).subscribe(
+      data => {
+        this.message.alert.text = "User has been updated successfully!";
+        this.message.alert.class = "success";
+        this.loading = false;
+      },
+      err => {
+        this.message.alert.text = "Error occured!";
+        this.message.alert.class = "danger";
+        this.loading = false;
+      }
+    );
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.userService.getById(this.id).subscribe(user => { this.model = user; });
+      this.userService.getById(this.id).subscribe(
+        data => {
+          this.model = data;
+        }
+      );
     });
   }
 

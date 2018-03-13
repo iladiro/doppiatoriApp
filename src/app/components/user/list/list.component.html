@@ -1,7 +1,7 @@
 <div class="container">
   <h3>All registered users:</h3>
-  <!-- <alertMessage [message]="message" *ngIf="message"></alertMessage>
-  <modalPrompt [message]="message" (confirm)="setConfirm($event)"></modalPrompt> -->
+  <alertMessage [message]="message" *ngIf="message"></alertMessage>
+  <modalPrompt [message]="message" (confirm)="setConfirm($event)"></modalPrompt>
   <section class="itemsList">
     <div class="itemsList__body">
       <div class="itemsList__body-row row" *ngFor="let user of users">
@@ -12,15 +12,15 @@
           <a [routerLink]="['/user', user.id]" class="btn btn-outline-primary">
             <i class="fa fa-info" aria-hidden="true"></i>
           </a>
-          <!--
-          <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-warning">
+          <a [routerLink]="['/user', user.id]" class="btn btn-outline-warning">
             <i class="fa fa-pencil" aria-hidden="true"></i>
-          </a> -->
-          <button (click)="deleteUser(user.id)" class="btn btn-outline-danger">
+          </a>
+          <button (click)="passCurrentUser(user)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>
       </div>
     </div>
   </section>
+  <back-button></back-button>
 </div>

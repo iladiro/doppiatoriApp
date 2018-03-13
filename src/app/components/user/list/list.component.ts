@@ -10,29 +10,50 @@ import { UserService } from '../_services/index';
 export class UsersListComponent implements OnInit {
 
   users: User[] = [];
-  // private message = {
-  //   "alert": {
-  //     "text": "",
-  //     "class": ""
-  //   },
-  //   "modal": {
-  //     "text": "",
-  //     "response": ""
-  //   }
-  // };
+  private currentUser;
+  private message = {
+    "alert": {
+      "text": "",
+      "class": ""
+    },
+    "modal": {
+      "text": "",
+      "response": ""
+    }
+  };
 
   constructor( private userService: UserService ) { }
 
+  setConfirm(data) {
+    if(data == "true") {
+      this.delete(this.currentUser);
+    }
+  }
+
+  passCurrentUser(user) {
+    this.message.modal.text = "Are you sure you want to delete this user?";
+    this.currentUser = user;
+  }
+
+  private delete(user) {
+    let index = this.users.indexOf(user);
+    this.userService.delete(user.id).subscribe(
+      data => {
+        this.users.splice(index, 1);
+        this.message.alert.text = "It has been deleted successfully!";
+        this.message.alert.class = "success";
+      },
+      err => {
+        this.message.alert.text = "Error";
+        this.message.alert.class = "danger";
+      }
+    );
+  }
+
   ngOnInit() {
-    this.loadAllUsers();
-  }
-
-  deleteUser(id: number) {
-    this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-  }
-
-  private loadAllUsers() {
-    this.userService.getAll().subscribe(users => { this.users = users; });
+    this.userService.getAll().subscribe(
+      data => { this.users = data; }
+    );
   }
 
 }

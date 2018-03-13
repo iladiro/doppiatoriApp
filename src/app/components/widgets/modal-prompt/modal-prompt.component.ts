@@ -12,8 +12,7 @@ export class ModalPromptComponent implements OnInit {
 
   constructor() { }
 
-  private setConfirm(data) {
-    //console.log(data);
+  private setData(data) {
     this.confirm.emit(data)
   }
 

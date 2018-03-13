@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-//import { NgForm } from '@angular/forms';
+
+// Models
 import { User } from '../_models/index';
+
+// Services
 import { AlertService, UserService } from '../_services/index';
 
 @Component({
-  moduleId: module.id,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
@@ -22,11 +24,8 @@ export class RegisterComponent {
     private alertService: AlertService
   ) { }
 
-  ngOnInit() {
-    this.loadAllUsers();
-  }
-
   register() {
+    this.model.id = Math.floor((Math.random() * 1000000) + 1);
     this.loading = true;
     let usersEmail = [];
     for(let user of this.users) {
@@ -50,7 +49,12 @@ export class RegisterComponent {
     }
   }
 
-  private loadAllUsers() {
-    this.userService.getAll().subscribe(users => { this.users = users; });
+  ngOnInit() {
+    this.userService.getAll().subscribe(
+      data => {
+        this.users = data;
+      }
+    );
   }
+
 }
