@@ -24,7 +24,7 @@ export class DubberProfileComponent implements OnInit {
     "alert": {
       "text": "",
       "class": "",
-      "status": ""
+      "status": false
     },
     "modal": {
       "text": "",
@@ -41,6 +41,7 @@ export class DubberProfileComponent implements OnInit {
   setMessage(message){
     this.message.alert.text = message.text;
     this.message.alert.class = message.class;
+    this.message.alert.status = message.status;
   }
 
   getFirstChar(whichModel) {
@@ -60,10 +61,12 @@ export class DubberProfileComponent implements OnInit {
       data => {
         this.message.alert.text = "It has been deleted successfully!";
         this.message.alert.class = "success";
+        this.message.alert.status = true;
       },
       err => {
         this.message.alert.text = "Error occured!";
         this.message.alert.class = "danger";
+        this.message.alert.status = true;
       }
     );
     // end

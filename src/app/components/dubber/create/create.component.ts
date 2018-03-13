@@ -19,7 +19,7 @@ export class AddDubberComponent {
   private message = {
     "text": "",
     "class": "",
-    "status": ""
+    "status": false
   };
   dubbers: Dubber[];
   model: any = {};
@@ -46,7 +46,7 @@ export class AddDubberComponent {
     if(dubbersEmail.includes(this.model.email)) {
       this.message.text = "You can't add this user bacause this email is already used!";
       this.message.class = "danger";
-      this.message.status = "show";
+      this.message.status = true;
       return;
       // se non lo è aggiungilo
     } else {
@@ -54,7 +54,7 @@ export class AddDubberComponent {
         data => {
           this.message.text = "Film has been created successfully!";
           this.message.class = "success";
-          this.message.status = "show";
+          this.message.status = true;
           this.model = {
             "name": "",
             "surname": "",
@@ -72,7 +72,7 @@ export class AddDubberComponent {
         err => {
           this.message.text = "Error occured!";
           this.message.class = "danger";
-          this.message.status = "show";
+          this.message.status = true;
         }
       );
     };

@@ -13,6 +13,7 @@ export class FilmListComponent implements OnInit {
   private DBTable:string = "film";
   private message = {
     "alert": {
+      "status": false,
       "text": "",
       "class": ""
     },
@@ -32,6 +33,7 @@ export class FilmListComponent implements OnInit {
         this.films.splice(index, 1);
         this.message.alert.text = "It has been deleted successfully!";
         this.message.alert.class = "success";
+        this.message.alert.status = true;
       }
     );
   }
@@ -41,7 +43,6 @@ export class FilmListComponent implements OnInit {
   }
 
   private setConfirm(data) {
-    //this.message.modal.response = data;
     if(data == "true") {
       this.delete(this.currentFilm);
     }

@@ -19,6 +19,7 @@ export class DubbersListComponent implements OnInit {
   private DBTable:string = "dubbers";
   private message = {
     "alert": {
+      "status": false,
       "text": "",
       "class": ""
     },
@@ -62,12 +63,14 @@ export class DubbersListComponent implements OnInit {
     if(filmDubbersID.includes(dubber.id)) {
       this.message.alert.text = "You can't delete it, because this dubber is using!";
       this.message.alert.class = "danger";
+      this.message.alert.status = true;
     } else {
       this.dubberService.delete(dubber.id).subscribe(
         data => {
           this.dubbers.splice(index, 1);
           this.message.alert.text = "It has been deleted successfully!";
           this.message.alert.class = "success";
+          this.message.alert.status = true;
         }
       );
     }

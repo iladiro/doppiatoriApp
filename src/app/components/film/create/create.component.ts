@@ -19,8 +19,15 @@ export class AddFilmComponent {
   model: any = {};
   loading = false;
   private message = {
-    "text": "",
-    "class": ""
+    "alert": {
+      "status": false,
+      "text": "",
+      "class": ""
+    },
+    "modal": {
+      "text": "",
+      "response": ""
+    }
   };
   filmDubbersIdSelected = [];
   dubbers: Dubber[] = [];
@@ -47,12 +54,14 @@ export class AddFilmComponent {
     this.filmService.create(this.model).subscribe(
       data => {
         this.addFilmIntoDubberSelected();
-        this.message.text = "Film has been created successfully!";
-        this.message.class = "success";
+        this.message.alert.text = "Film has been created successfully!";
+        this.message.alert.class = "success";
+        this.message.alert.status = true;
       },
       err => {
-        this.message.text = "Error occured!";
-        this.message.class = "danger";
+        this.message.alert.text = "Error occured!";
+        this.message.alert.class = "danger";
+        this.message.alert.status = true;
       }
     );
     //end

@@ -25,8 +25,15 @@ export class FilmDetailsComponent implements OnInit {
   dubbers: Dubber[] = [];
   films: Film[] = [];
   private message = {
-    "text": "",
-    "class": ""
+    "alert": {
+      "status": false,
+      "text": "",
+      "class": ""
+    },
+    "modal": {
+      "text": "",
+      "response": ""
+    }
   };
 
   constructor(
@@ -42,12 +49,14 @@ export class FilmDetailsComponent implements OnInit {
     // Aggiorna il film corrente
     this.filmService.update(this.model).subscribe(
       data => {
-        this.message.text = "Film has been updated successfully!";
-        this.message.class = "success";
+        this.message.alert.text = "Film has been updated successfully!";
+        this.message.alert.class = "success";
+        this.message.alert.status = true;
       },
       err => {
-        this.message.text = "Error occured!";
-        this.message.class = "danger";
+        this.message.alert.text = "Error occured!";
+        this.message.alert.class = "danger";
+        this.message.alert.status = true;
       }
     );
     // end
@@ -113,8 +122,9 @@ export class FilmDetailsComponent implements OnInit {
       dubbersID.push(dubber.id);
     });
     if(dubbersID.includes(dubberToAdd.id)) {
-      this.message.text = "Dubber is already present. You can't add it!";
-      this.message.class = "danger";
+      this.message.alert.text = "Dubber is already present. You can't add it!";
+      this.message.alert.class = "danger";
+      this.message.alert.status = true;
     } else {
       currentFilm.dubbers.push(dubberToAdd);
       this.filmService.update(currentFilm).subscribe();
@@ -129,12 +139,14 @@ export class FilmDetailsComponent implements OnInit {
       });
       this.dubberService.update(dubberToAdd).subscribe(
         data => {
-          this.message.text = "Dubber has been added successfully!";
-          this.message.class = "success";
+          this.message.alert.text = "Dubber has been added successfully!";
+          this.message.alert.class = "success";
+          this.message.alert.status = true;
         },
         err => {
-          this.message.text = "Error occured!";
-          this.message.class = "danger";
+          this.message.alert.text = "Error occured!";
+          this.message.alert.class = "danger";
+          this.message.alert.status = true;
         }
       );
       // end

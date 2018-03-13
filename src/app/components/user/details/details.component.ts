@@ -20,9 +20,9 @@ export class DetailsUserComponent implements OnInit {
   loading = false;
   private message = {
     "alert": {
+      "status": false,
       "text": "",
-      "class": "",
-      "status": ""
+      "class": ""
     },
     "modal": {
       "text": "",
@@ -41,11 +41,13 @@ export class DetailsUserComponent implements OnInit {
       data => {
         this.message.alert.text = "User has been updated successfully!";
         this.message.alert.class = "success";
+        this.message.alert.status = true;
         this.loading = false;
       },
       err => {
         this.message.alert.text = "Error occured!";
         this.message.alert.class = "danger";
+        this.message.alert.status = true;
         this.loading = false;
       }
     );

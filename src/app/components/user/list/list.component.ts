@@ -13,6 +13,7 @@ export class UsersListComponent implements OnInit {
   private currentUser;
   private message = {
     "alert": {
+      "status": false,
       "text": "",
       "class": ""
     },
@@ -42,10 +43,12 @@ export class UsersListComponent implements OnInit {
         this.users.splice(index, 1);
         this.message.alert.text = "It has been deleted successfully!";
         this.message.alert.class = "success";
+        this.message.alert.status = true;
       },
       err => {
         this.message.alert.text = "Error";
         this.message.alert.class = "danger";
+        this.message.alert.status = true;
       }
     );
   }

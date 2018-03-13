@@ -51,10 +51,10 @@ export class CreateComponent implements OnInit {
     //this.upDateDubber();
     this.dubberService.update(this.dataset).subscribe(
       data => {
-        this.event.emit({"text": "It has been created successfully!", "class": "success"});
+        this.event.emit({"text": "It has been created successfully!", "class": "success", "status": true});
       },
       err => {
-        this.event.emit({"text": "Error", "class": "danger"});
+        this.event.emit({"text": "Error", "class": "danger", "status": true});
       }
     );
     //  end
