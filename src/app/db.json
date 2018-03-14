@@ -24,7 +24,12 @@
       "email": "mario.rossii@gmail.com",
       "phone": "3474977880",
       "id": 82932,
-      "film": [],
+      "film": [
+        {
+          "id": 430070,
+          "title": "Il gatto e la volpe"
+        }
+      ],
       "invoices": [
         {
           "id": 643518,
@@ -35,6 +40,17 @@
             "taxPercetual": 20,
             "taxEuro": 100,
             "net": 400
+          }
+        },
+        {
+          "id": 221724,
+          "creationDate": "14/3/2018",
+          "movie": "Il gatto e la volpe",
+          "compensation": {
+            "gross": 900,
+            "taxPercetual": 20,
+            "taxEuro": 180,
+            "net": 720
           }
         }
       ],
@@ -236,6 +252,10 @@
         {
           "id": "462115",
           "name": "marika"
+        },
+        {
+          "id": "82932",
+          "name": "Mario"
         }
       ],
       "id": 430070
@@ -328,6 +348,28 @@
         "birthplace": "Agrigento",
         "residenceplace": "Rozzano",
         "residenceaddress": "Viale Lombardi 18"
+      }
+    },
+    {
+      "id": 221724,
+      "creationDate": "14/3/2018",
+      "movie": "Il gatto e la volpe",
+      "compensation": {
+        "gross": 900,
+        "taxPercetual": 20,
+        "taxEuro": 180,
+        "net": 720
+      },
+      "dubber": {
+        "id": 82932,
+        "name": "Mario",
+        "surname": "Rossi",
+        "email": "mario.rossii@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Agrigento",
+        "residenceplace": "Venezia",
+        "residenceaddress": "Via libertà 44"
       }
     }
   ]
