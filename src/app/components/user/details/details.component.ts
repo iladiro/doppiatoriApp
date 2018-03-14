@@ -18,16 +18,11 @@ export class DetailsUserComponent implements OnInit {
   private sub: any;
   model: any = {};
   loading = false;
-  private message = {
-    "alert": {
-      "status": false,
-      "text": "",
-      "class": ""
-    },
-    "modal": {
-      "text": "",
-      "response": ""
-    }
+
+  private alertMessage = {
+    "display": false,
+    "text": "",
+    "class": ""
   };
 
   constructor(
@@ -39,15 +34,19 @@ export class DetailsUserComponent implements OnInit {
     this.loading = true;
     this.userService.update(this.model).subscribe(
       data => {
-        this.message.alert.text = "User has been updated successfully!";
-        this.message.alert.class = "success";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "User has been updated successfully!",
+          "class": "success",
+          "display": true
+        }
         this.loading = false;
       },
       err => {
-        this.message.alert.text = "Error occured!";
-        this.message.alert.class = "danger";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "Error occured!",
+          "class": "danger",
+          "display": true
+        }
         this.loading = false;
       }
     );

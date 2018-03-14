@@ -24,16 +24,11 @@ export class FilmDetailsComponent implements OnInit {
   model: any;
   dubbers: Dubber[] = [];
   films: Film[] = [];
-  private message = {
-    "alert": {
-      "status": false,
-      "text": "",
-      "class": ""
-    },
-    "modal": {
-      "text": "",
-      "response": ""
-    }
+
+  private alertMessage = {
+    "display": false,
+    "text": "",
+    "class": ""
   };
 
   constructor(
@@ -49,14 +44,18 @@ export class FilmDetailsComponent implements OnInit {
     // Aggiorna il film corrente
     this.filmService.update(this.model).subscribe(
       data => {
-        this.message.alert.text = "Film has been updated successfully!";
-        this.message.alert.class = "success";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "Film has been updated successfully!",
+          "class": "success",
+          "display": true
+        }
       },
       err => {
-        this.message.alert.text = "Error occured!";
-        this.message.alert.class = "danger";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "Error occured!",
+          "class": "danger",
+          "display": true
+        }
       }
     );
     // end
@@ -122,9 +121,11 @@ export class FilmDetailsComponent implements OnInit {
       dubbersID.push(dubber.id);
     });
     if(dubbersID.includes(dubberToAdd.id)) {
-      this.message.alert.text = "Dubber is already present. You can't add it!";
-      this.message.alert.class = "danger";
-      this.message.alert.status = true;
+      this.alertMessage = {
+        "text": "Dubber is already present. You can't add it!",
+        "class": "danger",
+        "display": true
+      }
     } else {
       currentFilm.dubbers.push(dubberToAdd);
       this.filmService.update(currentFilm).subscribe();
@@ -139,14 +140,18 @@ export class FilmDetailsComponent implements OnInit {
       });
       this.dubberService.update(dubberToAdd).subscribe(
         data => {
-          this.message.alert.text = "Dubber has been added successfully!";
-          this.message.alert.class = "success";
-          this.message.alert.status = true;
+          this.alertMessage = {
+            "text": "Dubber has been added successfully!",
+            "class": "success",
+            "display": true
+          }
         },
         err => {
-          this.message.alert.text = "Error occured!";
-          this.message.alert.class = "danger";
-          this.message.alert.status = true;
+          this.alertMessage = {
+            "text": "Error occured!",
+            "class": "danger",
+            "display": true
+          }
         }
       );
       // end

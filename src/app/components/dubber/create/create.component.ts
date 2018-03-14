@@ -16,10 +16,10 @@ export class AddDubberComponent {
 
   constructor(private dubberService: DubberService) {}
 
-  private message = {
+  private alertMessage = {
+    "display": false,
     "text": "",
-    "class": "",
-    "status": false
+    "class": ""
   };
   dubbers: Dubber[];
   model: any = {};
@@ -44,17 +44,21 @@ export class AddDubberComponent {
 
     // Controlla prima se il dubber è già presente
     if(dubbersEmail.includes(this.model.email)) {
-      this.message.text = "You can't add this user bacause this email is already used!";
-      this.message.class = "danger";
-      this.message.status = true;
+      this.alertMessage = {
+        "text": "You can't add this user bacause this email is already used!",
+        "class": "danger",
+        "display": true
+      }
       return;
       // se non lo è aggiungilo
     } else {
       this.dubberService.create(this.model).subscribe(
         data => {
-          this.message.text = "Film has been created successfully!";
-          this.message.class = "success";
-          this.message.status = true;
+          this.alertMessage = {
+            "text": "Film has been created successfully!",
+            "class": "success",
+            "display": true
+          }
           this.model = {
             "name": "",
             "surname": "",
@@ -70,9 +74,11 @@ export class AddDubberComponent {
           };
         },
         err => {
-          this.message.text = "Error occured!";
-          this.message.class = "danger";
-          this.message.status = true;
+          this.alertMessage = {
+            "text": "Error occured!",
+            "class": "danger",
+            "display": true
+          }
         }
       );
     };

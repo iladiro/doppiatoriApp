@@ -1,7 +1,7 @@
 <div class="container">
   <h3>All registered users:</h3>
-  <alertMessage [message]="message" *ngIf="message"></alertMessage>
-  <modalPrompt [message]="message" (confirm)="setConfirm($event)"></modalPrompt>
+  <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+  <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
   <section class="itemsList">
     <div class="itemsList__body">
       <div class="itemsList__body-row row" *ngFor="let user of users">

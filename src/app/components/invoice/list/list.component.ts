@@ -28,10 +28,18 @@ export class InvoiceListComponent implements OnInit {
     });
     this.dubberService.update(currentDubber).subscribe(
       data => {
-        this.event.emit({"text": "It has been canceled successfully", "class": "success", "status": true});
+        this.event.emit({
+          "text": "It has been canceled successfully",
+          "class": "success",
+          "display": true
+        });
       },
       err => {
-        this.event.emit({"text": "Error", "class": "danger", "status": true});
+        this.event.emit({
+          "text": "Error",
+          "class": "danger",
+          "display": true
+        });
       }
     );
     this.invoiceService.delete(currentInvoice.id).subscribe();

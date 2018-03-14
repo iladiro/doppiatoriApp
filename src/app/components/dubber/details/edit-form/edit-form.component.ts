@@ -18,10 +18,10 @@ export class EditFormComponent implements OnInit {
   private upDate(){
     this.dubberService.update(this.model).subscribe(
       data => {
-        this.event.emit({"text": "It has been updated successfully", "class": "success", "status": true});
+        this.event.emit({"text": "It has been updated successfully", "class": "success", "display": true});
       },
       err => {
-        this.event.emit({"text": "Error", "class": "danger", "status": true});
+        this.event.emit({"text": "Error", "class": "danger", "display": true});
       }
     );
   }

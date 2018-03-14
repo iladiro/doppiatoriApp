@@ -11,17 +11,16 @@ export class FilmListComponent implements OnInit {
 
   private currentFilm;
   private DBTable:string = "film";
-  private message = {
-    "alert": {
-      "status": false,
-      "text": "",
-      "class": ""
-    },
-    "modal": {
-      "text": "",
-      "response": ""
-    }
+
+  private modalMessage = {
+    "text": ""
   };
+  private alertMessage = {
+    "display": false,
+    "text": "",
+    "class": ""
+  };
+
   films: Film[] = [];
 
   constructor(private filmService: FilmService) {}
@@ -31,9 +30,11 @@ export class FilmListComponent implements OnInit {
     this.filmService.delete(film.id).subscribe(
       data => {
         this.films.splice(index, 1);
-        this.message.alert.text = "It has been deleted successfully!";
-        this.message.alert.class = "success";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "It has been deleted successfully!",
+          "class": "success",
+          "display": true
+        }
       }
     );
   }
@@ -49,7 +50,7 @@ export class FilmListComponent implements OnInit {
   }
 
   private passCurrentFilm(film) {
-    this.message.modal.text = "Are you sure you want to delete it?";
+    this.modalMessage.text = "Are you sure you want to delete it?";
     this.currentFilm = film;
   }
 

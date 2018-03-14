@@ -1,6 +1,9 @@
-<div class="alert alert-{{message.alert.class}} alert-dismissible fade" [ngClass]="{ 'show': message.alert.status }" role="alert">
-  {{message.alert.text}}
+<div class="alert alert-{{message.class}} alert-dismissible fade" [ngClass]="{ 'show': message.display }" role="alert">
+  {{message.text}}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+
+<!-- <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div> -->

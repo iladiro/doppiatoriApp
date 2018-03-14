@@ -20,16 +20,14 @@ export class DubberProfileComponent implements OnInit {
   private sub: any;
   model: any;
   films: Film[];
-  private message = {
-    "alert": {
-      "text": "",
-      "class": "",
-      "status": false
-    },
-    "modal": {
-      "text": "",
-      "response": ""
-    }
+
+  private modalMessage = {
+    "text": ""
+  };
+  private alertMessage = {
+    "display": false,
+    "text": "",
+    "class": ""
   };
 
   constructor(
@@ -39,9 +37,9 @@ export class DubberProfileComponent implements OnInit {
   ) {}
 
   setMessage(message){
-    this.message.alert.text = message.text;
-    this.message.alert.class = message.class;
-    this.message.alert.status = message.status;
+    this.alertMessage.text = message.text;
+    this.alertMessage.class = message.class;
+    this.alertMessage.display = message.display;
   }
 
   getFirstChar(whichModel) {
@@ -59,14 +57,18 @@ export class DubberProfileComponent implements OnInit {
     });
     this.dubberService.update(this.model).subscribe(
       data => {
-        this.message.alert.text = "It has been deleted successfully!";
-        this.message.alert.class = "success";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "It has been deleted successfully!",
+          "class": "success",
+          "display": true
+        }
       },
       err => {
-        this.message.alert.text = "Error occured!";
-        this.message.alert.class = "danger";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "Error occured!",
+          "class": "danger",
+          "display": true
+        }
       }
     );
     // end
@@ -92,7 +94,7 @@ export class DubberProfileComponent implements OnInit {
   }
 
   passCurrentFilm(film) {
-    this.message.modal.text = "Are you sure you want to delete it?";
+    this.modalMessage.text = "Are you sure you want to delete it?";
     this.currentFilm = film;
   }
 

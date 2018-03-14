@@ -11,16 +11,14 @@ export class UsersListComponent implements OnInit {
 
   users: User[] = [];
   private currentUser;
-  private message = {
-    "alert": {
-      "status": false,
-      "text": "",
-      "class": ""
-    },
-    "modal": {
-      "text": "",
-      "response": ""
-    }
+
+  private modalMessage = {
+    "text": ""
+  };
+  private alertMessage = {
+    "display": false,
+    "text": "",
+    "class": ""
   };
 
   constructor( private userService: UserService ) { }
@@ -32,7 +30,7 @@ export class UsersListComponent implements OnInit {
   }
 
   passCurrentUser(user) {
-    this.message.modal.text = "Are you sure you want to delete this user?";
+    this.modalMessage.text = "Are you sure you want to delete this user?";
     this.currentUser = user;
   }
 
@@ -41,14 +39,18 @@ export class UsersListComponent implements OnInit {
     this.userService.delete(user.id).subscribe(
       data => {
         this.users.splice(index, 1);
-        this.message.alert.text = "It has been deleted successfully!";
-        this.message.alert.class = "success";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "It has been deleted successfully!",
+          "class": "success",
+          "display": true
+        }
       },
       err => {
-        this.message.alert.text = "Error";
-        this.message.alert.class = "danger";
-        this.message.alert.status = true;
+        this.alertMessage = {
+          "text": "Error",
+          "class": "danger",
+          "display": true
+        }
       }
     );
   }

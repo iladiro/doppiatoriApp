@@ -7,8 +7,8 @@
       </figure>
     </div>
     <div class="col-sm-10">
-      <alertMessage [message]="message" *ngIf="message"></alertMessage>
-      <modalPrompt [message]="message" (confirm)="setConfirm($event)"></modalPrompt>
+      <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+      <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">

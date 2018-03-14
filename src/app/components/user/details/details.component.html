@@ -7,7 +7,7 @@
       </figure>
     </div>
     <div class="col-sm-10">
-      <alertMessage [message]="message" *ngIf="message"></alertMessage>
+      <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
       <form #UpdateUserForm="ngForm" (ngSubmit)="upDate(UpdateUserForm)" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': UpdateUserForm.submitted && !username.valid }">
           <label for="firstName">First Name</label>

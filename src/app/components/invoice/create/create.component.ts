@@ -15,10 +15,6 @@ export class CreateComponent implements OnInit {
 
   @Input() private dataset: any;
   @Output() event = new EventEmitter();
-  // private message = {
-  //   "text": "",
-  //   "class": ""
-  // };
 
   constructor(
     private dubberService: DubberService,
@@ -51,10 +47,18 @@ export class CreateComponent implements OnInit {
     //this.upDateDubber();
     this.dubberService.update(this.dataset).subscribe(
       data => {
-        this.event.emit({"text": "It has been created successfully!", "class": "success", "status": true});
+        this.event.emit({
+          "text": "It has been created successfully!",
+          "class": "success",
+          "display": true
+        });
       },
       err => {
-        this.event.emit({"text": "Error", "class": "danger", "status": true});
+        this.event.emit({
+          "text": "Error",
+          "class": "danger",
+          "display": true
+        });
       }
     );
     //  end

@@ -1,6 +1,6 @@
 <div class="container">
-  <alertMessage [message]="message" *ngIf="message"></alertMessage>
-  <modalPrompt [message]="message" (confirm)="setConfirm($event)"></modalPrompt>
+  <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+  <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="clearfix mb-3">
     <div class="float-left">
       <h3 class="section-title">Film list</h3>
