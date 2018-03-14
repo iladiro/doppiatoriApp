@@ -52,9 +52,10 @@ export class CreateComponent implements OnInit {
         "net": result[1]
       },
       "company": {
-        "name": currentInvoice.company[0],
-        "address": currentInvoice.company[1],
-        "partita_iva": currentInvoice.company[2]
+        "id":  currentInvoice.company[0],
+        "name": currentInvoice.company[1],
+        "address": currentInvoice.company[2],
+        "partita_iva": currentInvoice.company[3]
       }
     };
     this.dataset.invoices.push(currentInvoice);

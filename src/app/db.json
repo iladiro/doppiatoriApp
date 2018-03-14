@@ -2,7 +2,7 @@
   "companies": [
     {
       "name": "Contactlab",
-      "piva": "09480090159",
+      "piva": "09480090158",
       "address": "Via Natale Battaglia, 12 20127 Milano",
       "id": 134084
     },
@@ -82,6 +82,23 @@
             "address": " Via Tuazzo, 12 20127 Milano",
             "partita_iva": " 09480090158"
           }
+        },
+        {
+          "id": 528869,
+          "creationDate": "14/3/2018",
+          "movie": "Il gatto e la volpe",
+          "compensation": {
+            "gross": 233,
+            "taxPercetual": 20,
+            "taxEuro": 46.6,
+            "net": 186.4
+          },
+          "company": {
+            "id": "134084",
+            "name": " Contactlab",
+            "address": " Via Natale Battaglia, 12 20127 Milano",
+            "partita_iva": " 09480090158"
+          }
         }
       ],
       "avatar": "M"
@@ -150,8 +167,31 @@
       "email": "paolo.verde@gmail.com",
       "phone": "3474977880",
       "id": 234760,
-      "film": [],
-      "invoices": [],
+      "film": [
+        {
+          "id": 804376,
+          "title": "L'albero azzurro"
+        }
+      ],
+      "invoices": [
+        {
+          "id": 848133,
+          "creationDate": "14/3/2018",
+          "movie": "L'albero azzurro",
+          "compensation": {
+            "gross": 600,
+            "taxPercetual": 20,
+            "taxEuro": 120,
+            "net": 480
+          },
+          "company": {
+            "id": "134084",
+            "name": " Contactlab",
+            "address": " Via Natale Battaglia, 12 20127 Milano",
+            "partita_iva": " 09480090158"
+          }
+        }
+      ],
       "avatar": "P"
     },
     {
@@ -252,7 +292,12 @@
       "email": "adele.ferro@gmail.com",
       "phone": "3474977880",
       "id": 15621,
-      "film": [],
+      "film": [
+        {
+          "id": 804376,
+          "title": "L'albero azzurro"
+        }
+      ],
       "invoices": [],
       "avatar": "A"
     },
@@ -289,6 +334,21 @@
         }
       ],
       "id": 430070
+    },
+    {
+      "title": "L'albero azzurro",
+      "description": "lorem",
+      "dubbers": [
+        {
+          "id": "234760",
+          "name": "Paolo"
+        },
+        {
+          "id": "15621",
+          "name": "Adele"
+        }
+      ],
+      "id": 804376
     }
   ],
   "invoices": [
@@ -415,6 +475,62 @@
       "company": {
         "name": "Axenso",
         "address": " Via Tuazzo, 12 20127 Milano",
+        "partita_iva": " 09480090158"
+      },
+      "dubber": {
+        "id": 82932,
+        "name": "Mario",
+        "surname": "Rossi",
+        "email": "mario.rossii@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Agrigento",
+        "residenceplace": "Venezia",
+        "residenceaddress": "Via libertà 44"
+      }
+    },
+    {
+      "id": 848133,
+      "creationDate": "14/3/2018",
+      "movie": "L'albero azzurro",
+      "compensation": {
+        "gross": 600,
+        "taxPercetual": 20,
+        "taxEuro": 120,
+        "net": 480
+      },
+      "company": {
+        "id": "134084",
+        "name": " Contactlab",
+        "address": " Via Natale Battaglia, 12 20127 Milano",
+        "partita_iva": " 09480090158"
+      },
+      "dubber": {
+        "id": 234760,
+        "name": "Paolo",
+        "surname": "verde",
+        "email": "paolo.verde@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Firenze",
+        "residenceplace": "Roma",
+        "residenceaddress": "via tiburtina 14"
+      }
+    },
+    {
+      "id": 528869,
+      "creationDate": "14/3/2018",
+      "movie": "Il gatto e la volpe",
+      "compensation": {
+        "gross": 233,
+        "taxPercetual": 20,
+        "taxEuro": 46.6,
+        "net": 186.4
+      },
+      "company": {
+        "id": "134084",
+        "name": " Contactlab",
+        "address": " Via Natale Battaglia, 12 20127 Milano",
         "partita_iva": " 09480090158"
       },
       "dubber": {

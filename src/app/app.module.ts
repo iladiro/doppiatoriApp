@@ -26,6 +26,7 @@ import { AddDubberComponent } from './components/dubber/create/create.component'
 
 import { CompanyCreateComponent } from './components/company/create/create.component';
 import { CompanyListComponent } from './components/company/list/list.component';
+import { CompanyDetailsComponent } from './components/company/details/details.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -79,7 +80,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     EditFormComponent,
     BackButtonComponent,
     CompanyCreateComponent,
-    CompanyListComponent
+    CompanyListComponent,
+    CompanyDetailsComponent
   ],
   imports: [
     BrowserModule,

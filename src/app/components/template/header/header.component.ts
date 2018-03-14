@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from "@angular/router";
+
+// Models
 import { User } from '../../user/_models/index';
 
 @Component({

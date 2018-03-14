@@ -25,7 +25,7 @@
   <div class="form-group">
     <label for="taxPercetual">Company</label>
     <select class="form-control" required ngModel name="company">
-      <option *ngFor="let company of companies" value="{{company.name}}; {{company.address}}; {{company.piva}}">
+      <option *ngFor="let company of companies" value="{{company.id}}; {{company.name}}; {{company.address}}; {{company.piva}}">
         {{company.name}}
       </option>
     </select>

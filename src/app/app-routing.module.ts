@@ -18,6 +18,7 @@ import { DetailsInvoiceComponent } from './components/invoice/details/details.co
 
 import { CompanyCreateComponent } from './components/company/create/create.component';
 import { CompanyListComponent } from './components/company/list/list.component';
+import { CompanyDetailsComponent } from './components/company/details/details.component';
 
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -112,6 +113,11 @@ const appRoutes: Routes = [
     component: CompanyListComponent,
     canActivate: [AuthGuard],
     data: { title: 'Company List' }
+  },
+  {
+    path: 'company/:id',
+    canActivate: [AuthGuard],
+    component: CompanyDetailsComponent
   },
   // otherwise redirect to home
   {

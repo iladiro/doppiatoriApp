@@ -15,9 +15,14 @@
       <li class="nav-item" [class.active]="router.url==='/film'">
         <a class="nav-link" [routerLink]="['/film']">Film</a>
       </li>
-      <li class="nav-item" [class.active]="router.url==='/users'" *ngIf="currentUser.userType == 'administrator'">
-        <a class="nav-link" [routerLink]="['/users']">Users</a>
-      </li>
+      <ng-container *ngIf="currentUser.userType == 'administrator'">
+        <li class="nav-item" [class.active]="router.url==='/users'">
+          <a class="nav-link" [routerLink]="['/users']">Users</a>
+        </li>
+        <li class="nav-item" [class.active]="router.url==='/companies'">
+          <a class="nav-link" [routerLink]="['/companies']">Companies</a>
+        </li>
+      </ng-container>
     </ul>
     <ul class="nav nav-right">
       <li class="nav-item dropdown">
