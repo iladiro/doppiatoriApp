@@ -3,8 +3,14 @@
     {
       "name": "Contactlab",
       "piva": "09480090159",
-      "indirizzo": "Via Natale Battaglia, 12 20127 Milano",
+      "address": "Via Natale Battaglia, 12 20127 Milano",
       "id": 134084
+    },
+    {
+      "name": "Axenso",
+      "piva": "09480090158",
+      "address": "Via Tuazzo, 12 20127 Milano",
+      "id": 144014
     }
   ],
   "users": [
@@ -59,6 +65,22 @@
             "taxPercetual": 20,
             "taxEuro": 180,
             "net": 720
+          }
+        },
+        {
+          "id": 362820,
+          "creationDate": "14/3/2018",
+          "movie": "Il gatto e la volpe",
+          "compensation": {
+            "gross": 88,
+            "taxPercetual": 20,
+            "taxEuro": 17.6,
+            "net": 70.4
+          },
+          "company": {
+            "name": "Axenso",
+            "address": " Via Tuazzo, 12 20127 Milano",
+            "partita_iva": " 09480090158"
           }
         }
       ],
@@ -367,6 +389,33 @@
         "taxPercetual": 20,
         "taxEuro": 180,
         "net": 720
+      },
+      "dubber": {
+        "id": 82932,
+        "name": "Mario",
+        "surname": "Rossi",
+        "email": "mario.rossii@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Agrigento",
+        "residenceplace": "Venezia",
+        "residenceaddress": "Via libertà 44"
+      }
+    },
+    {
+      "id": 362820,
+      "creationDate": "14/3/2018",
+      "movie": "Il gatto e la volpe",
+      "compensation": {
+        "gross": 88,
+        "taxPercetual": 20,
+        "taxEuro": 17.6,
+        "net": 70.4
+      },
+      "company": {
+        "name": "Axenso",
+        "address": " Via Tuazzo, 12 20127 Milano",
+        "partita_iva": " 09480090158"
       },
       "dubber": {
         "id": 82932,

@@ -25,6 +25,7 @@ import { DubberProfileComponent } from './components/dubber/details/details.comp
 import { AddDubberComponent } from './components/dubber/create/create.component';
 
 import { CompanyCreateComponent } from './components/company/create/create.component';
+import { CompanyListComponent } from './components/company/list/list.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -77,7 +78,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     ModalPromptComponent,
     EditFormComponent,
     BackButtonComponent,
-    CompanyCreateComponent
+    CompanyCreateComponent,
+    CompanyListComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,7 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     AuthenticationService,
     UserService,
     PagerService,
-    CompanyService, 
+    CompanyService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

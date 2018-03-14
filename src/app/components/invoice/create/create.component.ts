@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 // Services
 import { InvoiceService } from '../_services/index';
 import { DubberService } from '../../dubber/_services/index';
+import { CompanyService } from '../../company/_services/index';
 
 @Component({
   selector: 'formInvoice',
@@ -16,9 +17,12 @@ export class CreateComponent implements OnInit {
   @Input() private dataset: any;
   @Output() event = new EventEmitter();
 
+  companies: any[] = [];
+
   constructor(
     private dubberService: DubberService,
-    private invoiceService: InvoiceService
+    private invoiceService: InvoiceService,
+    private companyService: CompanyService
   ) { }
 
   compensationCalculation(gross, percentual) {
@@ -27,10 +31,15 @@ export class CreateComponent implements OnInit {
     return [difference, resultNet]
   }
 
+
+  //{movie: "Il gatto e la volpe", grossCompensation: "66", taxPercetual: "20", company: "Contactlab, Via Natale Battaglia, 12 20127 Milano, 09480090159"}
+
   private create(form: NgForm, event) {
     // Genera fattura, pusha l'oggetto fattura dentro alla proprietà invoices e poi aggiorna il modello
     let date = new Date();
     let currentInvoice = form.value;
+    currentInvoice.company = currentInvoice.company.split(';');
+
     let result = this.compensationCalculation(currentInvoice.grossCompensation, currentInvoice.taxPercetual);
     currentInvoice = {
       "id": Math.floor((Math.random() * 1000000) + 1),
@@ -41,6 +50,11 @@ export class CreateComponent implements OnInit {
         "taxPercetual": +currentInvoice.taxPercetual,
         "taxEuro": result[0],
         "net": result[1]
+      },
+      "company": {
+        "name": currentInvoice.company[0],
+        "address": currentInvoice.company[1],
+        "partita_iva": currentInvoice.company[2]
       }
     };
     this.dataset.invoices.push(currentInvoice);
@@ -63,7 +77,7 @@ export class CreateComponent implements OnInit {
     );
     //  end
 
-    // Aggiungi all'oggetto fattura i dati del dubber e poi crea una nuova fattura nella tabbella invoices
+    // Aggiungi all'oggetto fattura i dati del dubber e poi crea una nuova fattura nella tabella invoices
     currentInvoice.dubber = {
       "id": this.dataset.id,
       "name": this.dataset.name,
@@ -81,6 +95,10 @@ export class CreateComponent implements OnInit {
     form.reset();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.companyService.getAll().subscribe(
+      data => { this.companies = data; }
+    );
+  }
 
 }

@@ -1,0 +1,41 @@
+<div class="container">
+  <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+  <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
+  <nav class="clearfix mb-3">
+    <div class="float-left">
+      <h3 class="section-title">Company list</h3>
+    </div>
+    <div class="align-middle float-right">
+      <a [routerLink]="['/company/add']" class="btn btn-outline-success">Add company</a>
+    </div>
+  </nav>
+  <section class="itemsList">
+    <div class="itemsList__header row">
+      <div class="col text-uppercase">Name</div>
+      <div class="col text-uppercase">Partita Iva</div>
+      <div class="col"></div>
+    </div>
+    <div class="itemsList__body">
+      <div class="itemsList__body-row row" *ngFor="let company of companies">
+        <div class="col pt-20 text-capitalize">
+          {{company.name}}
+        </div>
+        <div class="col pt-20">
+          {{company.piva}}
+        </div>
+        <div class="col text-right">
+          <a [routerLink]="['/company', company.id]" class="btn btn-outline-primary">
+            <i class="fa fa-info" aria-hidden="true"></i>
+          </a>
+          <a [routerLink]="['/company', company.id]" class="btn btn-outline-warning">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <button (click)="passCurrentDubber(company)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
+</div>
