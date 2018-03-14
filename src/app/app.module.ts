@@ -10,6 +10,7 @@ import { fakeBackendProvider } from './components/user/_helpers/index';
 // Services
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { FilmService } from './components/film/_services/index';
+import { CompanyService } from './components/company/_services/index';
 import { InvoiceService } from './components/invoice/_services/index';
 import { PagerService } from './components/widgets/paginator/_services/index';
 import { AlertService, AuthenticationService, UserService } from './components/user/_services/index';
@@ -22,6 +23,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DubbersListComponent } from './components/dubber/list/list.component';
 import { DubberProfileComponent } from './components/dubber/details/details.component';
 import { AddDubberComponent } from './components/dubber/create/create.component';
+
+import { CompanyCreateComponent } from './components/company/create/create.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -73,7 +76,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     PaginatorComponent,
     ModalPromptComponent,
     EditFormComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    CompanyCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +95,7 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     AuthenticationService,
     UserService,
     PagerService,
+    CompanyService, 
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

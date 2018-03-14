@@ -1,0 +1,23 @@
+<div class="container">
+  <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+  <form name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="name">Company name</label>
+      <input id="name" type="text" class="form-control text-capitalize" placeholder="Company name" [(ngModel)]="model.name" name="name" #name="ngModel" required>
+      <div *ngIf="f.submitted && !name.valid" class="help-block">Field is incorrect</div>
+    </div>
+    <div class="form-group">
+      <label for="piva">Partita Iva</label>
+      <input id="piva" type="text" class="form-control" placeholder="Partita Iva" [(ngModel)]="model.piva" name="piva" #piva="ngModel" required pattern="^[0-9]{11}$">
+      <div *ngIf="f.submitted && !piva.valid" class="help-block">Field is incorrect</div>
+    </div>
+    <div class="form-group">
+      <label for="indirizzo">Indirizzo</label>
+      <input id="indirizzo" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="model.indirizzo" name="indirizzo" #indirizzo="ngModel" required>
+      <div *ngIf="f.submitted && !indirizzo.valid" class="help-block">Field is incorrect</div>
+    </div>
+    <div class="form-group">
+       <button type="submit" class="btn btn-success">Create company</button>
+     </div>
+  </form>
+</div>

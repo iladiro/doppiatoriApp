@@ -16,6 +16,8 @@ import { DetailsUserComponent } from './components/user/details/details.componen
 
 import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
 
+import { CompanyCreateComponent } from './components/company/create/create.component';
+
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './components/user/_guards/auth.guard';
@@ -97,6 +99,12 @@ const appRoutes: Routes = [
     path: 'film/:id',
     canActivate: [AuthGuard],
     component: FilmDetailsComponent
+  },
+  {
+    path: 'company/add',
+    component: CompanyCreateComponent,
+    canActivate: [AuthGuard],
+    data: { title: 'Add new company' }
   },
   // otherwise redirect to home
   {

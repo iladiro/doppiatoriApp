@@ -1,4 +1,12 @@
 {
+  "companies": [
+    {
+      "name": "Contactlab",
+      "piva": "09480090159",
+      "indirizzo": "Via Natale Battaglia, 12 20127 Milano",
+      "id": 134084
+    }
+  ],
   "users": [
     {
       "firstName": "Fabiop",
