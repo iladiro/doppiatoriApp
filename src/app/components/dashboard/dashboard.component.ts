@@ -36,8 +36,4 @@ export class DashboardComponent implements OnInit {
       data => { this.dubbers = data; }
     );
   }
-
-  // private loadAllUsers() {
-  //   this.userService.getAll().subscribe(users => { this.users = users; });
-  // }
 }

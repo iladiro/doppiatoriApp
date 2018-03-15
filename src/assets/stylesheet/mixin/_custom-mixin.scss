@@ -11,15 +11,22 @@
   }
 }
 
+@mixin radius($size) {
+  width: $size;
+  height: $size;
+  line-height: $size;
+  border-radius: 50%;
+}
+
 @mixin size($width, $height){
   width: $width;
   height: $height;
 }
 
-@mixin font-style($size, $color){
+@mixin font-style($size, $color, $weight: 300){
   font-size: $size;
   color: $color;
-  font-weight: 300;
+  font-weight: $weight;
 }
 
 @mixin bg-size($size: cover){
@@ -61,4 +68,22 @@
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
           box-shadow: $shadow;
+}
+
+@mixin flex-align($x) {
+  -webkit-box-align: $x;
+  -ms-flex-align: $x;
+  align-items: $x;
+}
+
+@mixin flex-direction() {
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+@mixin flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

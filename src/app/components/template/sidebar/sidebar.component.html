@@ -1,0 +1,30 @@
+<div class="user">
+  <div class="media">
+    <img class="mr-2 rounded-circle user__photo" src="assets/images/paolo-astrone.jpg" alt="Generic placeholder image">
+    <div class="media-body">
+      <h5 class="mt-0 user__name">Ilaria Di Rosa</h5>
+      <small class="user__email">dirosa.ilaria@gmail.com</small>
+    </div>
+  </div>
+</div>
+<nav class="collapse bd-links side-navigation">
+  <ul class="nav flex-column">
+    <li class="nav-item" [class.active]="router.url==='/index'">
+      <a class="nav-link" [routerLink]="['/']">Home</a>
+    </li>
+    <li class="nav-item" [class.active]="router.url==='/dubbers'">
+      <a class="nav-link" [routerLink]="['/dubbers']">Dubbers</a>
+    </li>
+    <li class="nav-item" [class.active]="router.url==='/film'">
+      <a class="nav-link" [routerLink]="['/film']">Film</a>
+    </li>
+    <ng-container *ngIf="currentUser.userType == 'administrator'">
+      <li class="nav-item" [class.active]="router.url==='/users'">
+        <a class="nav-link" [routerLink]="['/users']">Users</a>
+      </li>
+      <li class="nav-item" [class.active]="router.url==='/companies'">
+        <a class="nav-link" [routerLink]="['/companies']">Companies</a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>

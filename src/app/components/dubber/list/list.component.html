@@ -10,41 +10,43 @@
       <a [routerLink]="['/dubbers/add']" class="btn btn-outline-success">Add Dubber</a>
     </div>
   </nav>
-  <section class="itemsList">
-    <div class="itemsList__header row">
-      <div class="col"></div>
-      <div class="col text-uppercase">Name</div>
-      <div class="col text-uppercase">Place of birth</div>
-      <div class="col text-uppercase">County of birth</div>
-      <div class="col"></div>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Birth of place</th>
+            <th>Date birth</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dubber of dubbers">
+            <td><span>{{dubber.avatar}}</span></td>
+            <td>{{dubber.name}} {{dubber.surname}}</td>
+            <td>{{dubber.birthplace}}</td>
+            <td>{{dubber.birthdate}}</td>
+            <td>{{dubber.email}}</td>
+            <td>{{dubber.phone}}</td>
+            <td>
+              <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-primary">
+                <i class="fa fa-info" aria-hidden="true"></i>
+              </a>
+              <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-warning">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <button (click)="passCurrentDubber(dubber)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
     </div>
-    <div class="itemsList__body">
-      <div class="itemsList__body-row row" *ngFor="let dubber of dubbers">
-        <div class="col">
-          <span class="itemsList__avatar">{{dubber.avatar}}</span>
-        </div>
-        <div class="col pt-20 text-capitalize">
-          {{dubber.name}} {{dubber.surname}}
-        </div>
-        <div class="col pt-20">
-          {{dubber.birthplace}}
-        </div>
-        <div class="col pt-20">
-          {{dubber.birthcounty}}
-        </div>
-        <div class="col text-right">
-          <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-primary">
-            <i class="fa fa-info" aria-hidden="true"></i>
-          </a>
-          <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-warning">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </a>
-          <button (click)="passCurrentDubber(dubber)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
+  </div>
 </div>

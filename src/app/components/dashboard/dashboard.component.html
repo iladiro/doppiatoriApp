@@ -1,68 +1,44 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="userLogged card text-center">
-        <div class="card-header">
-          <h1>Hi {{currentUser.firstName}}!</h1>
-        </div>
-        <div class="card-body">
-          <figure class="text-center">
-            <img src="../../assets/images/paolo-astrone.jpg" alt="Paolo Astrone" height="100" class="rounded-circle">
-            <figcaption class="card-text text-secondary">You are an {{currentUser.userType}} user</figcaption>
-          </figure>
+<div class="row">
+  <div class="col-lg-4 col-md-6">
+    <div class="generalCard card">
+      <h3 class="generalCard__header">
+        Lista dei doppiatori
+      </h3>
+      <div class="generalCard__body">
+        <div class="generalCard__list">
+          <ng-container *ngFor="let dubber of dubbers; let i=index">
+            <div class="media generalCard__list-item" *ngIf="i < 10">
+              <span class="d-flex justify-content-center mr-3 generalCard__list-item--avatar">{{dubber.avatar}}</span>
+              <div class="media-body">
+                <h5 class="mboth-0 generalCard__list-item--text d-flex align-items-center">
+                  <a [routerLink]="['/dubber', dubber.id]">{{dubber.name}} {{dubber.surname}}</a>
+                </h5>
+              </div>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
-    <div class="col"></div>
-    <div class="w-100"></div>
-    <div class="col">
-      <div class="generalCard card">
-        <h3 class="generalCard__header text-uppercase">
-          Lista dei doppiatori
-        </h3>
-        <div class="generalCard__body">
-          <div class="generalCard__list">
-            <ng-container *ngFor="let dubber of dubbers; let i=index">
-              <div class="media generalCard__list-item" *ngIf="i < 10">
-                <span class="d-flex justify-content-center mr-3 generalCard__list-item--avatar">{{dubber.avatar}}</span>
-                <div class="media-body">
-                  <h5 class="mboth-0 generalCard__list-item--text d-flex align-items-center">
-                    <a [routerLink]="['/dubber', dubber.id]">{{dubber.name}} {{dubber.surname}}</a>
-                  </h5>
-                </div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="generalCard">
+      <h3 class="generalCard__header">
+        Lista dei film
+      </h3>
+      <div class="generalCard__body">
+        <div class="generalCard__list">
+          <ng-container *ngFor="let film of films; let i=index">
+            <div class="media generalCard__list-item" *ngIf="i < 10">
+              <img class="d-flex mr-3 rounded-circle" src="../../assets/images/copertina.jpg" alt="{{film.title}}" height="45">
+              <div class="media-body">
+                <h5 class="mboth-0 generalCard__list-item--text d-flex align-items-center">
+                  <a [routerLink]="['/film', film.id]">{{film.title}}</a>
+                </h5>
               </div>
-            </ng-container>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="generalCard">
-        <h3 class="generalCard__header text-uppercase">
-          Lista dei film
-        </h3>
-        <div class="generalCard__body">
-          <div class="generalCard__list">
-            <ng-container *ngFor="let film of films; let i=index">
-              <div class="media generalCard__list-item" *ngIf="i < 10">
-                <img class="d-flex mr-3 rounded-circle" src="../../assets/images/copertina.jpg" alt="{{film.title}}" height="45">
-                <div class="media-body">
-                  <h5 class="mboth-0 generalCard__list-item--text d-flex align-items-center">
-                    <a [routerLink]="['/film', film.id]">{{film.title}}</a>
-                  </h5>
-                </div>
-              </div>
-            </ng-container>
-          </div>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <h3>All registered users:</h3>
-<ul>
-    <li *ngFor="let user of users">
-        {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)">Delete</a>
-    </li>
-</ul> -->

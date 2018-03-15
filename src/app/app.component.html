@@ -1,5 +1,13 @@
-<app-header></app-header>
-<div class="app pt-30">
-  <alert></alert>
-  <router-outlet></router-outlet>
+<div class="app">
+  <app-header></app-header>
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+      <aside class="col-12 col-md-3 col-xl-2 bd-sidebar pt-3 pb-3">
+        <app-sidebar></app-sidebar>
+      </aside>
+      <main class="col-12 col-md-9 col-xl-10 py-md-3 bd-content">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
 </div>

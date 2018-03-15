@@ -30,6 +30,7 @@ import { CompanyDetailsComponent } from './components/company/details/details.co
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/template/header/header.component';
+import { SidebarComponent } from './components/template/sidebar/sidebar.component';
 
 import { FilmListComponent } from './components/film/list/list.component';
 import { AddFilmComponent } from './components/film/create/create.component';
@@ -81,7 +82,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     BackButtonComponent,
     CompanyCreateComponent,
     CompanyListComponent,
-    CompanyDetailsComponent
+    CompanyDetailsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

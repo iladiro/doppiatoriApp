@@ -1,0 +1,27 @@
+@import "../../../../assets/stylesheet/mixin/custom-mixin";
+@import '../../../../assets/stylesheet/widgets/variables';
+
+.pagination {
+  .page-item {
+    margin: 0 1px 0 2px;
+    & > a {
+      cursor: pointer;
+      background-color: rgba(255,255,255,.08);
+      @include radius(30px);
+      border: 0;
+      padding: 0;
+      text-align: center;
+      @include font-style(12px,rgba(255,255,255,.65));
+      @include transition(color .3s);
+      &:hover {
+        color: black;
+      }
+    }
+    &.active {
+      & > a {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}

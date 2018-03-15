@@ -1,0 +1,57 @@
+@import "../../../../assets/stylesheet/mixin/custom-mixin";
+@import '../../../../assets/stylesheet/widgets/variables';
+
+.user {
+  margin-bottom: 15px;
+  position: relative;
+  .media {
+    border-radius: 2px;
+    overflow: hidden;
+    @include flex-align(center);
+    @include flex-direction();
+    @include flex();
+    cursor: pointer;
+    font-size: 12px;
+    background-color: rgba(255,255,255,.06);
+    @include transition(background-color .3s);
+    padding: 10px;
+    &:hover {
+      background-color: rgba(255,255,255,.1);
+    }
+  }
+  &__photo {
+    @include size(40px, 40px);
+  }
+  &__name {
+    @include font-style(13px, white, 600);
+    margin-bottom: 0;
+  }
+  &__email {
+    @include font-style(12px, rgba(255,255,255,.7));
+  }
+}
+
+.side-navigation {
+  &.collapse {
+    display: block!important;
+  }
+  .nav {
+    li {
+      &.active {
+        background-color: rgba(255,255,255,.06);
+      }
+      a {
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 2px;
+        @include transition(background-color .3s,color .3s);
+        display: block;
+        position: relative;
+        @include font-style(13px, rgba(255,255,255,.7));
+        &:hover {
+          background-color: rgba(255,255,255,.06);
+        }
+      }
+    }
+  }
+}
