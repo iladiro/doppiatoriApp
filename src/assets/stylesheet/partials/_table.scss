@@ -1,0 +1,42 @@
+.table {
+  &--light {
+    thead {
+      th {
+        border-bottom: 0;
+        border-top: 1px solid rgba(255,255,255,.125);
+      }
+    }
+    th, td {
+      border-top: 1px solid rgba(255,255,255,.125);
+    }
+  }
+  &--striped {
+    tbody {
+      tr {
+        &:nth-of-type(odd) {
+          background-color: rgba(255,255,255,.04);
+        }
+        td, th {
+          border-top: 1px solid rgba(255,255,255,.125);
+        }
+      }
+    }
+  }
+  .thead {
+    &--dark {
+      th {
+        background-color: rgba(0,0,0,.2);
+        border-bottom: 0;
+        border-top: 1px solid rgba(255,255,255,.125);
+      }
+    }
+    &--light {
+      th {
+        background-color: rgba(255,255,255,.125);
+        color: rgba(255,255,255,.85);
+        border-bottom: 0;
+        border-top: 1px solid rgba(255,255,255,.125);
+      }
+    }
+  }
+}

@@ -7,36 +7,46 @@
       <p class="mb-0">This is the list of dubbers registered with dubbers.com</p>
     </div>
     <div class="align-middle float-right">
-      <a [routerLink]="['/film/add']" class="btn btn-outline-success">Add Film</a>
+      <a [routerLink]="['/film/add']" class="btn btn--light">Add Film</a>
     </div>
   </nav>
-  <section class="itemsList">
-    <div class="itemsList__header row">
-      <div class="col text-uppercase">Title</div>
-      <div class="col text-uppercase">Description</div>
-      <div class="col"></div>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <table class="table table--striped">
+        <thead class="thead--dark">
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let film of films">
+            <td>{{film.title}}</td>
+            <td>{{film.description | slice:0:60}}...</td>
+            <td class="text-right">
+              <a [routerLink]="['/film', film.id]" class="btn btn--dark">
+                <i class="fa fa-info" aria-hidden="true"></i>
+              </a>
+              <a [routerLink]="['/film', film.id]" class="btn btn--dark">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <button (click)="passCurrentDubber(film)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
     </div>
-    <div class="itemsList__body">
-      <div class="itemsList__body-row row" *ngFor="let film of films">
-        <div class="col pt-20">
-          {{film.title}}
-        </div>
-        <div class="col pt-20">
-          {{film.description | slice:0:60}}...
-        </div>
-        <div class="col text-right">
-          <a [routerLink]="['/film', film.id]" class="btn btn-outline-primary">
-            <i class="fa fa-info" aria-hidden="true"></i>
-          </a>
-          <a [routerLink]="['/film', film.id]" class="btn btn-outline-warning">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </a>
-          <button (click)="passCurrentFilm(film)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <back-button></back-button>
     </div>
-  </section>
-  <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
+    <div class="col text-right">
+      <a [routerLink]="['/film/add']" class="btn btn--light">Add film</a>
+    </div>
+  </div>
 </div>

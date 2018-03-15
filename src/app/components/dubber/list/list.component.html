@@ -7,13 +7,13 @@
       <p class="mb-0">This is the list of dubbers registered with dubbers.com</p>
     </div>
     <div class="align-middle float-right">
-      <a [routerLink]="['/dubbers/add']" class="btn btn-outline-success">Add Dubber</a>
+      <a [routerLink]="['/dubbers/add']" class="btn btn--light">Add Dubber</a>
     </div>
   </nav>
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
-      <table class="table table-hover">
-        <thead>
+      <table class="table table--striped">
+        <thead class="thead--dark">
           <tr>
             <th></th>
             <th>Name</th>
@@ -26,20 +26,20 @@
         </thead>
         <tbody>
           <tr *ngFor="let dubber of dubbers">
-            <td><span>{{dubber.avatar}}</span></td>
+            <td><span class="avatar radius bg--trasparent">{{dubber.avatar}}</span></td>
             <td>{{dubber.name}} {{dubber.surname}}</td>
             <td>{{dubber.birthplace}}</td>
             <td>{{dubber.birthdate}}</td>
             <td>{{dubber.email}}</td>
             <td>{{dubber.phone}}</td>
-            <td>
-              <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-primary">
+            <td class="text-right">
+              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
                 <i class="fa fa-info" aria-hidden="true"></i>
               </a>
-              <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-warning">
+              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </a>
-              <button (click)="passCurrentDubber(dubber)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+              <button (click)="passCurrentDubber(dubber)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>
@@ -47,6 +47,14 @@
         </tbody>
       </table>
       <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <back-button></back-button>
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/dubber/add']" class="btn btn--light">Add dubber</a>
     </div>
   </div>
 </div>

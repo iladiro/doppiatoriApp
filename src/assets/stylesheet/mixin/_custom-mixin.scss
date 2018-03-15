@@ -16,6 +16,7 @@
   height: $size;
   line-height: $size;
   border-radius: 50%;
+  text-align: center;
 }
 
 @mixin size($width, $height){

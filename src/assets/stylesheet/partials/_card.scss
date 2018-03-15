@@ -1,0 +1,46 @@
+.generalCard {
+  background-color: rgba(0,0,0,.2);
+  position: relative;
+  border-radius: 2px;
+  @include box-shadow(0 1px 5px rgba(0,0,0,.1));
+  &__header {
+    @include border(1px, rgba(0, 0, 0, 0.09), bottom);
+    background-color: transparent;
+    @include spaces(25px 10px, 0 15px);
+    @include font-style(14px, white);
+    position: relative;
+  }
+  &__body {
+    padding: 15px;
+  }
+  &__list {
+    &-item {
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &--avatar {
+        @include radius(40px);
+        background: rgba(255,255,255,.75);
+        text-align: center;
+        text-transform: uppercase;
+        color: black;
+      }
+      &--text {
+        height: 45px;
+        @include font-style(12px, rgba(255,255,255,.7));
+        & > a {
+          @include transition(color .3s);
+          color: rgba(255,255,255,.7);
+          &:hover {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  &__footer {
+    padding: 15px;
+  }
+}

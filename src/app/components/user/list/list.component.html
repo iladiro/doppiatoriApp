@@ -1,26 +1,42 @@
 <div class="container">
-  <h3>All registered users:</h3>
+  <h3 class="section-title">All registered users</h3>
+  <p class="mb-20">This is the list of dubbers registered with dubbers.com</p>
   <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
   <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
-  <section class="itemsList">
-    <div class="itemsList__body">
-      <div class="itemsList__body-row row" *ngFor="let user of users">
-        <div class="col pt-20 text-capitalize">
-           {{user.firstName}} {{user.lastName}} ({{user.username}})
-        </div>
-        <div class="col text-right">
-          <a [routerLink]="['/user', user.id]" class="btn btn-outline-primary">
-            <i class="fa fa-info" aria-hidden="true"></i>
-          </a>
-          <a [routerLink]="['/user', user.id]" class="btn btn-outline-warning">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </a>
-          <button (click)="passCurrentUser(user)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-        </div>
-      </div>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <table class="table table--striped">
+        <thead class="thead--dark">
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td><span class="avatar radius bg--trasparent">{{user.avatar}}</span></td>
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td class="text-right">
+              <a [routerLink]="['/user', user.id]" class="btn btn-outline-primary">
+                <i class="fa fa-info" aria-hidden="true"></i>
+              </a>
+              <a [routerLink]="['/user', user.id]" class="btn btn-outline-warning">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <button (click)="passCurrentUser(user)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
     </div>
-  </section>
+  </div>
   <back-button></back-button>
 </div>
