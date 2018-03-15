@@ -1,0 +1,18 @@
+@import "../mixin/custom-mixin";
+
+.modal {
+  &-content {
+    background: rgba(0,0,0,.96);
+    @include box-shadow(0 5px 20px rgba(0,0,0,.3));
+    border-radius: 2px;
+  }
+  &-header {
+    border-bottom: 0;
+    .close {
+      color: white;
+    }
+  }
+  &-footer {
+    border-top: 0;
+  }
+}

@@ -1,23 +1,27 @@
 <div class="container">
   <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
-  <form name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate>
-    <div class="form-group">
-      <label for="name">Company name</label>
-      <input id="name" type="text" class="form-control text-capitalize" placeholder="Company name" [(ngModel)]="model.name" name="name" #name="ngModel" required>
-      <div *ngIf="f.submitted && !name.valid" class="help-block">Field is incorrect</div>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <form name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate class="form--light">
+        <div class="form-group">
+          <label for="name">Company name</label>
+          <input id="name" type="text" class="form-control text-capitalize" placeholder="Company name" [(ngModel)]="model.name" name="name" #name="ngModel" required>
+          <div *ngIf="f.submitted && !name.valid" class="help-block">Field is incorrect</div>
+        </div>
+        <div class="form-group">
+          <label for="piva">Partita Iva</label>
+          <input id="piva" type="text" class="form-control" placeholder="Partita Iva" [(ngModel)]="model.piva" name="piva" #piva="ngModel" required pattern="^[0-9]{11}$">
+          <div *ngIf="f.submitted && !piva.valid" class="help-block">Field is incorrect</div>
+        </div>
+        <div class="form-group">
+          <label for="address">Indirizzo</label>
+          <input id="address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="model.address" name="address" #address="ngModel" required>
+          <div *ngIf="f.submitted && !address.valid" class="help-block">Field is incorrect</div>
+        </div>
+        <div class="mt-30 mb-20 text-center">
+           <button type="submit" class="btn btn-outline-success">Create company</button>
+         </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="piva">Partita Iva</label>
-      <input id="piva" type="text" class="form-control" placeholder="Partita Iva" [(ngModel)]="model.piva" name="piva" #piva="ngModel" required pattern="^[0-9]{11}$">
-      <div *ngIf="f.submitted && !piva.valid" class="help-block">Field is incorrect</div>
-    </div>
-    <div class="form-group">
-      <label for="address">Indirizzo</label>
-      <input id="address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="model.address" name="address" #address="ngModel" required>
-      <div *ngIf="f.submitted && !address.valid" class="help-block">Field is incorrect</div>
-    </div>
-    <div class="form-group">
-       <button type="submit" class="btn btn-success">Create company</button>
-     </div>
-  </form>
+  </div>
 </div>

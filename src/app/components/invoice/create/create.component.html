@@ -1,34 +1,40 @@
-<form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm, $event)">
-  <div class="form-group">
-    <label for="movie">Select movie</label>
-    <select name="movie" class="form-control" ngModel>
-      <option *ngFor="let movie of dataset.film" value="{{movie.title}}">
-        {{movie.title}}
-      </option>
-      <option disabled *ngIf="!dataset.film.length">
-        There aren't associated movies
-      </option>
-    </select>
+<div class="generalCard card mb-4">
+  <div class="generalCard__body">
+    <form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm, $event)" class="form--light">
+      <div class="form-group">
+        <label for="movie">Select movie</label>
+        <select name="movie" class="form-control" ngModel>
+          <option *ngFor="let movie of dataset.film" value="{{movie.title}}">
+            {{movie.title}}
+          </option>
+          <option disabled *ngIf="!dataset.film.length">
+            There aren't associated movies
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="grossCompensation">Gross compensation</label>
+        <input id="grossCompensation" type="text" class="form-control" placeholder="Gross compensation" ngModel name="grossCompensation" #grossCompensation="ngModel" required>
+      </div>
+      <div class="form-group">
+        <label for="taxPercetual">Ritenuta d'acconto del</label>
+        <select name="taxPercetual" class="form-control" ngModel>
+          <option value="20">20%</option>
+          <option value="40">40%</option>
+          <option value="50">50%</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="taxPercetual">Company</label>
+        <select class="form-control" required ngModel name="company">
+          <option *ngFor="let company of companies" value="{{company.id}}; {{company.name}}; {{company.address}}; {{company.piva}}">
+            {{company.name}}
+          </option>
+        </select>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Generate invoice</button>
+      </div>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="grossCompensation">Gross compensation</label>
-    <input id="grossCompensation" type="text" class="form-control" placeholder="Gross compensation" ngModel name="grossCompensation" #grossCompensation="ngModel" required>
-  </div>
-  <div class="form-group">
-    <label for="taxPercetual">Ritenuta d'acconto del</label>
-    <select name="taxPercetual" class="form-control" ngModel>
-      <option value="20">20%</option>
-      <option value="40">40%</option>
-      <option value="50">50%</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="taxPercetual">Company</label>
-    <select class="form-control" required ngModel name="company">
-      <option *ngFor="let company of companies" value="{{company.id}}; {{company.name}}; {{company.address}}; {{company.piva}}">
-        {{company.name}}
-      </option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Generate invoice</button>
-</form>
+</div>

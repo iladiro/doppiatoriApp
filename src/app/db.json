@@ -116,8 +116,31 @@
       "fiscalCode": "drslri88b56f205d",
       "birthdate": "16/02/1988",
       "id": 312077,
-      "film": [],
-      "invoices": [],
+      "film": [
+        {
+          "id": 804376,
+          "title": "L'albero azzurro"
+        }
+      ],
+      "invoices": [
+        {
+          "id": 674997,
+          "creationDate": "15/3/2018",
+          "movie": "L'albero azzurro",
+          "compensation": {
+            "gross": 2000,
+            "taxPercetual": 20,
+            "taxEuro": 400,
+            "net": 1600
+          },
+          "company": {
+            "id": "144014",
+            "name": " Axenso",
+            "address": " Via Tuazzo, 12 20127 Milano",
+            "partita_iva": " 09480090158"
+          }
+        }
+      ],
       "avatar": "i"
     },
     {
@@ -346,6 +369,10 @@
         {
           "id": "15621",
           "name": "Adele"
+        },
+        {
+          "id": "312077",
+          "name": "ilaria"
         }
       ],
       "id": 804376
@@ -542,6 +569,34 @@
         "birthdate": "16/02/1988",
         "birthplace": "Agrigento",
         "residenceplace": "Venezia",
+        "residenceaddress": "Via libertà 44"
+      }
+    },
+    {
+      "id": 674997,
+      "creationDate": "15/3/2018",
+      "movie": "L'albero azzurro",
+      "compensation": {
+        "gross": 2000,
+        "taxPercetual": 20,
+        "taxEuro": 400,
+        "net": 1600
+      },
+      "company": {
+        "id": "144014",
+        "name": " Axenso",
+        "address": " Via Tuazzo, 12 20127 Milano",
+        "partita_iva": " 09480090158"
+      },
+      "dubber": {
+        "id": 312077,
+        "name": "ilaria",
+        "surname": "di rosa",
+        "email": "dirosa.ilaria@gmail.com",
+        "fiscalCode": "drslri88b56f205d",
+        "birthdate": "16/02/1988",
+        "birthplace": "Milano",
+        "residenceplace": "Gessate",
         "residenceaddress": "Via libertà 44"
       }
     }

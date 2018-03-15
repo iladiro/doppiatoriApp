@@ -11,7 +11,7 @@ import { InvoiceService } from '../_services/index';
 })
 export class InvoiceListComponent implements OnInit {
 
-  @Input() private dataset: any;
+  @Input() dataset: any;
   @Output() event = new EventEmitter();
 
   constructor(

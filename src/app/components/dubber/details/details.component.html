@@ -1,56 +1,58 @@
 <div class="container" *ngIf="model">
-  <div class="row">
-    <div class="col-sm-2">
-      <figure class="m-0">
-        <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
-        <h5 class="mt-10 text-capitalize">{{model.name}} {{model.surname}}</h5>
-      </figure>
-    </div>
-    <div class="col-sm-10">
-      <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
-      <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#personal-data" role="tab">Personal data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#collaborations" role="tab">Collaborations</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#invoices" role="tab">Invoices</a>
-        </li>
-      </ul>
-      <!-- Tab panes -->
-      <div class="tab-content pboth-15">
-        <div class="tab-pane active" id="personal-data" role="tabpanel">
-          <editForm [model]="this.model" (event)="setMessage($event)"></editForm>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <div class="row">
+        <div class="col-sm-2">
+          <figure class="m-0">
+            <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
+            <h5 class="mt-10 text-capitalize">{{model.name}} {{model.surname}}</h5>
+          </figure>
         </div>
-        <div class="tab-pane" id="collaborations" role="tabpanel">
-          <section class="itemsList" *ngIf="model.film.length; else noFilm">
-            <div class="itemsList__body">
-              <div class="itemsList__body-row row"  *ngFor="let dubberFilm of model.film">
-                <div class="col pt-20">
-                  {{dubberFilm.title}}
-                </div>
-                <div class="col text-right">
-                  <a [routerLink]="['/film', dubberFilm.id]" class="btn btn-outline-primary">
-                    <i class="fa fa-info" aria-hidden="true"></i>
-                  </a>
-                  <button (click)="passCurrentFilm(dubberFilm)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </div>
+        <div class="col-sm-10">
+          <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+          <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#personal-data" role="tab">Personal data</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#collaborations" role="tab">Collaborations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#invoices" role="tab">Invoices</a>
+            </li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content pboth-15">
+            <div class="tab-pane active" id="personal-data" role="tabpanel">
+              <editForm [model]="this.model" (event)="setMessage($event)"></editForm>
             </div>
-          </section>
-          <ng-template #noFilm>
-            <p class="alert alert-warning">There aren't associated films</p>
-          </ng-template>
-        </div>
-        <div class="tab-pane" id="invoices" role="tabpanel">
-          <invoiceList [dataset]="this.model" (event)="setMessage($event)"></invoiceList>
-          <formInvoice [dataset]="this.model" (event)="setMessage($event)"></formInvoice>
+            <div class="tab-pane" id="collaborations" role="tabpanel">
+              <table class="table table--striped" *ngIf="model.film.length; else noFilm">
+                <tbody>
+                  <tr *ngFor="let dubberFilm of model.film">
+                    <td>{{dubberFilm.title}}</td>
+                    <td class="text-right">
+                      <a [routerLink]="['/film', dubberFilm.id]" class="btn btn-outline-primary">
+                        <i class="fa fa-info" aria-hidden="true"></i>
+                      </a>
+                      <button (click)="passCurrentFilm(dubberFilm)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <ng-template #noFilm>
+                <p class="alert alert-warning">There aren't associated films</p>
+              </ng-template>
+            </div>
+            <div class="tab-pane" id="invoices" role="tabpanel">
+              <invoiceList [dataset]="this.model" (event)="setMessage($event)"></invoiceList>
+              <formInvoice [dataset]="this.model" (event)="setMessage($event)"></formInvoice>
+            </div>
+          </div>
         </div>
       </div>
     </div>
