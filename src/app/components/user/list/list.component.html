@@ -22,13 +22,13 @@
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
             <td class="text-right">
-              <a [routerLink]="['/user', user.id]" class="btn btn-outline-primary">
+              <a [routerLink]="['/user', user.id]" class="btn btn--dark">
                 <i class="fa fa-info" aria-hidden="true"></i>
               </a>
-              <a [routerLink]="['/user', user.id]" class="btn btn-outline-warning">
+              <a [routerLink]="['/user', user.id]" class="btn btn--dark">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </a>
-              <button (click)="passCurrentUser(user)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+              <button (click)="passCurrentUser(user)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>

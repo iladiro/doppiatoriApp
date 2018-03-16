@@ -12,18 +12,20 @@
       <li class="nav-item" [class.active]="router.url==='/film'">
         <a class="nav-link" [routerLink]="['/film']">Film</a>
       </li>
-      <ng-container *ngIf="currentUser.userType == 'administrator'">
-        <li class="nav-item" [class.active]="router.url==='/users'">
-          <a class="nav-link" [routerLink]="['/users']">Users</a>
-        </li>
-        <li class="nav-item" [class.active]="router.url==='/companies'">
-          <a class="nav-link" [routerLink]="['/companies']">Companies</a>
-        </li>
+      <ng-container *ngIf="currentUser">
+        <ng-container *ngIf="currentUser.userType == 'administrator'">
+          <li class="nav-item" [class.active]="router.url==='/users'">
+            <a class="nav-link" [routerLink]="['/users']">Users</a>
+          </li>
+          <li class="nav-item" [class.active]="router.url==='/companies'">
+            <a class="nav-link" [routerLink]="['/companies']">Companies</a>
+          </li>
+        </ng-container>
       </ng-container>
     </ul>
   </div>
 
-  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" *ngIf="currentUser">
     <li class="nav-item dropdown">
       <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{currentUser.firstName}}

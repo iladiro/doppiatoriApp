@@ -26,13 +26,13 @@
             <td>{{company.piva}}</td>
             <td>{{company.address}}</td>
             <td class="text-right">
-              <a [routerLink]="['/company', company.id]" class="btn btn-outline-primary">
+              <a [routerLink]="['/company', company.id]" class="btn btn--dark">
                 <i class="fa fa-info" aria-hidden="true"></i>
               </a>
-              <a [routerLink]="['/company', company.id]" class="btn btn-outline-warning">
+              <a [routerLink]="['/company', company.id]" class="btn btn--dark">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </a>
-              <button (click)="passCurrentDubber(company)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+              <button (click)="passCurrentCompany(company)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>

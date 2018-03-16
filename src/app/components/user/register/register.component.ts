@@ -24,7 +24,13 @@ export class RegisterComponent {
     private alertService: AlertService
   ) { }
 
+  // getFirstChar(whichModel, property) {
+  //   let createAvatar = whichModel.property.charAt(0);
+  //   whichModel.avatar = createAvatar;
+  // }
+
   register() {
+    //this.getFirstChar(this.model, "name");
     this.model.id = Math.floor((Math.random() * 1000000) + 1);
     this.loading = true;
     let usersEmail = [];

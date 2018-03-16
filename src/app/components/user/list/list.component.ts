@@ -10,6 +10,7 @@ import { UserService } from '../_services/index';
 export class UsersListComponent implements OnInit {
 
   users: User[] = [];
+  private DBTable:string = "users";
   private currentUser;
 
   private modalMessage = {
@@ -32,6 +33,10 @@ export class UsersListComponent implements OnInit {
   passCurrentUser(user) {
     this.modalMessage.text = "Are you sure you want to delete this user?";
     this.currentUser = user;
+  }
+
+  private dataset(items) {
+    this.users = items;
   }
 
   private delete(user) {

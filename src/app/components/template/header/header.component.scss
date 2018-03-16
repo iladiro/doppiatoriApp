@@ -30,3 +30,20 @@
     }
   }
 }
+
+@media (min-width: 768px){
+  .bd-navbar {
+    top: 0;
+    z-index: 1071;
+    .dropdown {
+      &-menu {
+        border-radius: 2px;
+        padding: 0;
+      }
+      &-item {
+        padding: 10px;
+        font-size: 13px;
+      }
+    }
+  }
+}
