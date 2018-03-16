@@ -1,7 +1,7 @@
 <div class="container" *ngIf="model">
   <div class="row">
     <div class="col-sm-2">
-      <figure>
+      <figure class="m-all-side-0">
         <img src="/assets/images/copertina.jpeg" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
         <h5 class="mt-10 text-capitalize">{{model.title}}</h5>
       </figure>
@@ -21,7 +21,7 @@
       <!-- Tab panes -->
       <div class="tab-content pboth-15">
         <div class="tab-pane active" id="informations" role="tabpanel">
-          <form #UpdateFilmForm="ngForm" (ngSubmit)="upDateFilm(UpdateFilmForm)" novalidate>
+          <form #UpdateFilmForm="ngForm" (ngSubmit)="upDateFilm(UpdateFilmForm)" novalidate class="form--light">
             <div class="form-group" [ngClass]="{ 'has-error': UpdateFilmForm.submitted && !title.valid }">
               <label for="title">Title</label>
               <input type="text" id="title" class="form-control" placeholder="Title" [(ngModel)]="model.title" name="title" #title="ngModel" required>
@@ -32,32 +32,37 @@
               <textarea id="description" rows="10" class="form-control" placeholder="Description" [(ngModel)]="model.description" name="description" #description="ngModel" required></textarea>
               <div *ngIf="UpdateFilmForm.submitted && !description.valid" class="help-block">Title is required</div>
             </div>
-            <button type="submit" class="btn btn-success">Update film</button>
+            <div class="row">
+              <div class="col-sm-6">
+                <back-button></back-button>
+              </div>
+              <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-outline-success">Update</button>
+              </div>
+            </div>
           </form>
         </div>
         <div class="tab-pane" id="collaborators" role="tabpanel">
-          <section class="itemsList" *ngIf="model.dubbers.length; else noDubbers">
-            <div class="itemsList__body">
-              <div class="itemsList__body-row row" *ngFor="let dubber of model.dubbers">
-                <div class="col pt-20">
-                  {{dubber.name}}
-                </div>
-                <div class="col text-right">
+          <table class="table table--striped" *ngIf="model.dubbers.length; else noDubbers">
+            <tbody>
+              <tr *ngFor="let dubber of model.dubbers">
+                <td>{{dubber.name}}</td>
+                <td class="text-right">
                   <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-primary">
                     <i class="fa fa-info" aria-hidden="true"></i>
                   </a>
                   <button (click)="deleteDubber(dubber.id)" class="btn btn-outline-danger">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
-                </div>
-              </div>
-            </div>
-          </section>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <ng-template #noDubbers>
             <p class="alert alert-warning">There aren't associated dubbers</p>
           </ng-template>
 
-          <form #AddDubberForm="ngForm" (ngSubmit)="addDubberHasParticipated(AddDubberForm)">
+          <form #AddDubberForm="ngForm" (ngSubmit)="addDubberHasParticipated(AddDubberForm)" class="form--light">
             <div class="form-group">
               <label for="exampleFormControlSelect2">Dubbers List</label>
               <select name="dubbers" class="form-control" ngModel name="dubbers">
@@ -66,11 +71,17 @@
                 </option>
               </select>
             </div>
-            <button type="submit" class="btn btn-success">Add</button>
+            <div class="row">
+              <div class="col-sm-6">
+                <back-button></back-button>
+              </div>
+              <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-outline-success">Add</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
-      <back-button></back-button>
     </div>
   </div>
 </div>
