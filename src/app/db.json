@@ -120,6 +120,10 @@
         {
           "id": 804376,
           "title": "L'albero azzurro"
+        },
+        {
+          "id": 170665,
+          "title": "LA CARICA DEI 101"
         }
       ],
       "invoices": [
@@ -156,7 +160,12 @@
       "email": "marikina@gmail.com",
       "phone": "3474977880",
       "id": 897568,
-      "film": [],
+      "film": [
+        {
+          "id": 170665,
+          "title": "LA CARICA DEI 101"
+        }
+      ],
       "invoices": [],
       "avatar": "m"
     },
@@ -173,7 +182,12 @@
       "email": "fabio.petrucci@gmail.com",
       "phone": "3474977880",
       "id": 247786,
-      "film": [],
+      "film": [
+        {
+          "id": 170665,
+          "title": "LA CARICA DEI 101"
+        }
+      ],
       "invoices": [],
       "avatar": "f"
     },
@@ -298,7 +312,12 @@
       "email": "simone.rossi@libero.it",
       "phone": "3474977880",
       "id": 555570,
-      "film": [],
+      "film": [
+        {
+          "id": 170665,
+          "title": "LA CARICA DEI 101"
+        }
+      ],
       "invoices": [],
       "avatar": "S"
     },
@@ -319,6 +338,10 @@
         {
           "id": 804376,
           "title": "L'albero azzurro"
+        },
+        {
+          "id": 170665,
+          "title": "LA CARICA DEI 101"
         }
       ],
       "invoices": [],
@@ -337,7 +360,12 @@
       "email": "cristina.manga@libero.it",
       "phone": "3474977880",
       "id": 860357,
-      "film": [],
+      "film": [
+        {
+          "id": 170665,
+          "title": "LA CARICA DEI 101"
+        }
+      ],
       "invoices": [],
       "avatar": "C"
     }
@@ -376,6 +404,41 @@
         }
       ],
       "id": 804376
+    },
+    {
+      "title": "LA CARICA DEI 101",
+      "description": "l compositore Rudy Radcliffe vive in un appartamento da scapolo a Londra insieme al suo dalmata Pongo. Quest'ultimo, cercando di trovare una compagna al proprio padrone, trascina Rudy ad una passeggiata al parco e lo fa rovinosamente scontrare con Anita, una bella donna padrona di un'altrettanto graziosa dalmata chiamata Peggy. L'incontro produce i suoi frutti e le due coppie finiscono per sposarsi.\n\nIn seguito, Peggy rimane incinta e dà alla luce 15 cuccioli. La notte stessa del parto vengono visitati dalla perfida Crudelia De Mon, ex compagna di scuola di Anita, una donna ricca, amante del lusso e spregiudicata. Crudelia si offre di comprare l'intera cucciolata per una grossa somma, ma Rudy si oppone chiarendo che i cuccioli non sono in vendita. Settimane dopo due tirapiedi di Crudelia, Gaspare e Orazio, entrano in casa della coppia con la forza, nonostante la governante Nilla cerchi di impedirlo, e rubano tutti i cuccioli. Quando Scotland Yard non è in grado di identificare i ladri o trovare i cuccioli, Pongo e Peggy disperati usano un sistema di passa-parola canino per cercare informazioni sui loro cuccioli.",
+      "dubbers": [
+        {
+          "id": "82932",
+          "name": "Mario"
+        },
+        {
+          "id": "312077",
+          "name": "ilaria"
+        },
+        {
+          "id": "897568",
+          "name": "marika"
+        },
+        {
+          "id": "247786",
+          "name": "fabio"
+        },
+        {
+          "id": "15621",
+          "name": "Adele"
+        },
+        {
+          "id": "860357",
+          "name": "Cristina"
+        },
+        {
+          "id": "555570",
+          "name": "Simone"
+        }
+      ],
+      "id": 170665
     }
   ],
   "invoices": [

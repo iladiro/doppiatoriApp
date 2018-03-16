@@ -13,6 +13,11 @@
           <textarea id="description" class="form-control" placeholder="Description" [(ngModel)]="model.description" name="description" #description="ngModel" required></textarea>
           <div *ngIf="f.submitted && !description.valid" class="help-block">Description field is required</div>
         </div>
+        <!-- <div class="form-group">
+          <label for="cover">Cover</label>
+          <input id="cover" type="file" class="form-control text-capitalize" placeholder="Choose cover" [(ngModel)]="model.cover" name="cover" #cover="ngModel" required>
+          <div *ngIf="f.submitted && !cover.valid" class="help-block">Cover field is required</div>
+        </div> -->
         <div class="form-group">
           <select name="dubbers" class="form-control" multiple [(ngModel)]="model.dubbers" name="dubbers">
             <option *ngFor="let dubber of dubbers" value="{{dubber.id}},{{dubber.name}}">
