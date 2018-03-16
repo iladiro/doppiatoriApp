@@ -2,12 +2,13 @@
   <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
   <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="clearfix mb-3">
-    <div class="float-left">
-      <h3 class="section-title">Dubbars list</h3>
-      <p class="mb-0">This is the list of dubbers registered with dubbers.com</p>
-    </div>
-    <div class="align-middle float-right">
-      <a [routerLink]="['/dubbers/add']" class="btn btn--light">Add Dubber</a>
+    <div class="row">
+      <div class="col">
+        <search-form (results)="setFoundValueFromSearch($event)"></search-form>
+      </div>
+      <div class="align-middle col text-right">
+        <a [routerLink]="['/dubbers/add']" class="btn btn--light">Add Dubber</a>
+      </div>
     </div>
   </nav>
   <div class="generalCard card mb-4">

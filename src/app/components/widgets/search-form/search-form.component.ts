@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+
+// Services
+import { SearchService } from './_services/index';
 
 @Component({
   selector: 'search-form',
   templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+  styleUrls: ['./search-form.component.scss'],
+  providers: [SearchService]
 })
-export class SearchFormComponent implements OnInit {
+export class SearchFormComponent {
 
-  constructor() { }
+  @Output() results = new EventEmitter();
+  searchTerm$ = new Subject<string>();
 
-  ngOnInit() {
+  private loadAll() {
+    this.searchService.getAll().subscribe(
+      data => {
+        this.results.emit(data)
+      }
+    );
+    // this.searchTerm$ = "ff";
   }
 
+  constructor(private searchService: SearchService) {
+    this.searchService.search(this.searchTerm$).subscribe(
+      data => {
+        this.results.emit(data)
+      }
+    );
+  }
 }

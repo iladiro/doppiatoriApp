@@ -35,6 +35,11 @@ export class DubbersListComponent implements OnInit {
     private filmService: FilmService
   ) {}
 
+  private setFoundValueFromSearch(value){
+    console.log(value);
+    this.dubbers = value;
+  }
+
   private dataset(items) {
     this.dubbers = items;
   }
@@ -82,6 +87,7 @@ export class DubbersListComponent implements OnInit {
     this.filmService.getAll().subscribe(
       data => { this.films = data; }
     );
+    console.log(this.dubbers);
   }
 
 }
