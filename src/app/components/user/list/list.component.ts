@@ -13,6 +13,11 @@ export class UsersListComponent implements OnInit {
   private DBTable:string = "users";
   private currentUser;
 
+  dataForRequestSearchComp = {
+    "table": "users",
+    "parameter": "firstName"
+  };
+
   private modalMessage = {
     "text": ""
   };
@@ -58,6 +63,10 @@ export class UsersListComponent implements OnInit {
         }
       }
     );
+  }
+
+  private setFoundValueFromSearch(value){
+    this.users = value;
   }
 
   ngOnInit() {
