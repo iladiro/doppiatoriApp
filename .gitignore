@@ -6,7 +6,7 @@
 /out-tsc
 
 # private file
-/src/app/db.json
+# /src/app/db.json
 
 # dependencies
 /node_modules
