@@ -18,6 +18,11 @@ export class DubbersListComponent implements OnInit {
   private currentDubber;
   private DBTable:string = "dubbers";
 
+  dataForRequestSearchComp = {
+    "table": "dubbers",
+    "parameter": "name"
+  };
+
   private modalMessage = {
     "text": ""
   };
@@ -36,7 +41,6 @@ export class DubbersListComponent implements OnInit {
   ) {}
 
   private setFoundValueFromSearch(value){
-    console.log(value);
     this.dubbers = value;
   }
 
@@ -87,7 +91,6 @@ export class DubbersListComponent implements OnInit {
     this.filmService.getAll().subscribe(
       data => { this.films = data; }
     );
-    console.log(this.dubbers);
   }
 
 }

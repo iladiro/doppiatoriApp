@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 // Services
@@ -12,20 +12,14 @@ import { SearchService } from './_services/index';
 })
 export class SearchFormComponent {
 
+  @Input() setDataForRequest;
   @Output() results = new EventEmitter();
   searchTerm$ = new Subject<string>();
 
-  private loadAll() {
-    this.searchService.getAll().subscribe(
-      data => {
-        this.results.emit(data)
-      }
-    );
-    // this.searchTerm$ = "ff";
-  }
+  constructor(private searchService: SearchService) {}
 
-  constructor(private searchService: SearchService) {
-    this.searchService.search(this.searchTerm$).subscribe(
+  ngOnInit() {
+    this.searchService.search(this.setDataForRequest, this.searchTerm$).subscribe(
       data => {
         this.results.emit(data)
       }

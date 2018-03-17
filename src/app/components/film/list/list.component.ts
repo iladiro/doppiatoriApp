@@ -12,6 +12,11 @@ export class FilmListComponent implements OnInit {
   private currentFilm;
   private DBTable:string = "film";
 
+  dataForRequestSearchComp = {
+    "table": "film",
+    "parameter": "title"
+  };
+
   private modalMessage = {
     "text": ""
   };
@@ -52,6 +57,10 @@ export class FilmListComponent implements OnInit {
   private passCurrentFilm(film) {
     this.modalMessage.text = "Are you sure you want to delete it?";
     this.currentFilm = film;
+  }
+
+  private setFoundValueFromSearch(value){
+    this.films = value;
   }
 
   ngOnInit() {}

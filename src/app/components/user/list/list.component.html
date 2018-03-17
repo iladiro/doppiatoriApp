@@ -1,6 +1,14 @@
 <div class="container">
-  <h3 class="section-title">All registered users</h3>
-  <p class="mb-20">This is the list of dubbers registered with dubbers.com</p>
+  <!-- <div class="row mb-3">
+    <div class="col">
+      <h3 class="section-title">All registered users</h3>
+    </div>
+    <div class="col">
+    </div>
+  </div> -->
+  <div class="mb-3">
+    <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
+  </div>
   <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
   <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
   <div class="generalCard card mb-4">

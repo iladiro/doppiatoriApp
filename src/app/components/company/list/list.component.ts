@@ -16,6 +16,11 @@ export class CompanyListComponent implements OnInit {
   companies: Company[] = [];
   private DBTable:string = "companies";
 
+  dataForRequestSearchComp = {
+    "table": "companies",
+    "parameter": "name"
+  };
+
   private modalMessage = {
     "text": ""
   };
@@ -26,6 +31,10 @@ export class CompanyListComponent implements OnInit {
   };
 
   constructor(private companyService: CompanyService) { }
+
+  private setFoundValueFromSearch(value){
+    this.companies = value;
+  }
 
   private dataset(items) {
     this.companies = items;

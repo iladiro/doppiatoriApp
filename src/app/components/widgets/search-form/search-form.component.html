@@ -1,8 +1,3 @@
 <form class="form-inline my-2 my-lg-0 form--light" id="search-form">
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Search for email" aria-label="Search for email" (keyup)="searchTerm$.next($event.target.value)">
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button" (click)="loadAll()">Button</button>
-    </div>
-  </div>
+  <input type="text" class="form-control" placeholder="Search for name" aria-label="Search for name" (keyup)="searchTerm$.next($event.target.value)">
 </form>

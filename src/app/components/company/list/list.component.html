@@ -1,11 +1,11 @@
 <div class="container">
   <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
   <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
-  <nav class="clearfix mb-3">
-    <div class="float-left">
-      <h3 class="section-title">Company list</h3>
+  <nav class="row mb-3">
+    <div class="col">
+      <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
     </div>
-    <div class="align-middle float-right">
+    <div class="col text-right">
       <a [routerLink]="['/company/add']" class="btn btn--light">Add company</a>
     </div>
   </nav>
