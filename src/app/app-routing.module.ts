@@ -120,14 +120,14 @@ const appRoutes: Routes = [
     component: CompanyDetailsComponent
   },
   // otherwise redirect to home
-  {
-    path: '**',
-    redirectTo: ''
-  }
   // {
   //   path: '**',
-  //   component: PageNotFoundComponent
+  //   redirectTo: ''
   // }
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
 
 ];
 

@@ -3,13 +3,13 @@
     <tr *ngFor="let invoice of dataset.invoices">
       <td>Compenso per prestazione d'opera relativa al film <strong>{{invoice.movie}}</strong></td>
       <td class="text-right">
-        <a [routerLink]="['/invoice', invoice.id]" class="btn btn-outline-primary">
+        <a [routerLink]="['/invoice', invoice.id]" class="btn btn--dark">
           <i class="fa fa-info" aria-hidden="true"></i>
         </a>
-        <a href="" class="btn btn-outline-success">
+        <a href="" class="btn btn--dark">
           <i class="fa fa-download"></i>
         </a>
-        <button (click)="delete(invoice, $event)" class="btn btn-outline-danger">
+        <button (click)="delete(invoice, $event)" class="btn btn--dark">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </td>
