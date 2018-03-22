@@ -36,19 +36,19 @@ export class CompanyListComponent implements OnInit {
     this.companies = value;
   }
 
-  private dataset(items) {
+  private datasetFromPaginator(items) {
     this.companies = items;
+  }
+
+  private passCurrentCompany(company) {
+    this.modalMessage.text = "Are you sure you want to delete it?";
+    this.currentCompany = company;
   }
 
   private setConfirm(data) {
     if(data == "true") {
       this.delete(this.currentCompany);
     }
-  }
-
-  private passCurrentCompany(company) {
-    this.modalMessage.text = "Are you sure you want to delete it?";
-    this.currentCompany = company;
   }
 
   delete(company) {
@@ -60,7 +60,14 @@ export class CompanyListComponent implements OnInit {
           "text": "It has been deleted successfully!",
           "class": "success",
           "display": true
-        }
+        };
+      },
+      err => {
+        this.alertMessage = {
+          "text": "Error occured!",
+          "class": "danger",
+          "display": true
+        };
       }
     );
   }

@@ -19,14 +19,14 @@ export class InvoiceListComponent implements OnInit {
     private invoiceService: InvoiceService
   ) { }
 
-  private delete(currentInvoice, event) {
-    let currentDubber = this.dataset;
-    currentDubber.invoices.map(function(invoice, index){
-      if(invoice.id == currentInvoice.id) {
-        currentDubber.invoices.splice(index, 1);
+  private delete(current_invoice, event) {
+    let current_dubber = this.dataset;
+    current_dubber.invoices.map(function(invoice, index){
+      if(invoice.id == current_invoice.id) {
+        current_dubber.invoices.splice(index, 1);
       }
     });
-    this.dubberService.update(currentDubber).subscribe(
+    this.dubberService.update(current_dubber).subscribe(
       data => {
         this.event.emit({
           "text": "It has been canceled successfully",
@@ -42,7 +42,7 @@ export class InvoiceListComponent implements OnInit {
         });
       }
     );
-    this.invoiceService.delete(currentInvoice.id).subscribe();
+    this.invoiceService.delete(current_invoice.id).subscribe();
   }
 
   ngOnInit() {

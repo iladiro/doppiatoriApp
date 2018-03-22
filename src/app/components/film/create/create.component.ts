@@ -16,7 +16,7 @@ import { DubberService } from '../../dubber/_services/dubbers.service';
 
 export class AddFilmComponent {
 
-  model: any = {};
+  film: any = {};
   loading = false;
 
   private alertMessage = {
@@ -34,10 +34,10 @@ export class AddFilmComponent {
   ) {}
 
   create(){
-    this.model.id = Math.floor((Math.random() * 1000000) + 1);
+    this.film.id = Math.floor((Math.random() * 1000000) + 1);
     let arrayOfDubbers = this.filmDubbersIdSelected;
     //From an array of string, create dubber's object.
-    this.model.dubbers = this.model.dubbers.map(function(item) {
+    this.film.dubbers = this.film.dubbers.map(function(item) {
       var data = item.split(',');
       arrayOfDubbers.push(data[0]);
       return {
@@ -47,7 +47,7 @@ export class AddFilmComponent {
     });
     //end
     //Send object film to server
-    this.filmService.create(this.model).subscribe(
+    this.filmService.create(this.film).subscribe(
       data => {
         this.addFilmIntoDubberSelected();
         this.alertMessage = {
@@ -72,7 +72,7 @@ export class AddFilmComponent {
   addFilmIntoDubberSelected() {
     let arrayOfDubbers = this.filmDubbersIdSelected;
     let service = this.dubberService;
-    let currentFilm = this.model;
+    let currentFilm = this.film;
     let updateDubbers = [];
     this.dubbers.map(function(dubber) {
       if(arrayOfDubbers.includes(dubber.id.toString())) {

@@ -33,11 +33,11 @@ export class RegisterComponent {
     //this.getFirstChar(this.model, "name");
     this.model.id = Math.floor((Math.random() * 1000000) + 1);
     this.loading = true;
-    let usersEmail = [];
+    let users_email = [];
     for(let user of this.users) {
-      usersEmail.push(user.email);
+      users_email.push(user.email);
     };
-    if(usersEmail.includes(this.model.email)) {
+    if(users_email.includes(this.model.email)) {
       this.alertService.error("You can't register this user because it's already used");
       this.loading = false;
       return;

@@ -22,18 +22,13 @@ export class AddDubberComponent {
     "class": ""
   };
   dubbers: Dubber[];
-  model: any = {};
-
-  getFirstChar(whichModel) {
-    let createAvatar = whichModel.name.charAt(0);
-    whichModel.avatar = createAvatar;
-  }
+  new_dubber: any = {};
 
   create(){
-    this.model.id = Math.floor((Math.random() * 1000000) + 1);
-    this.model.film = [];
-    this.model.invoices = [];
-    this.getFirstChar(this.model);
+    this.new_dubber.id = Math.floor((Math.random() * 1000000) + 1);
+    this.new_dubber.film = [];
+    this.new_dubber.invoices = [];
+    this.new_dubber.avatar = this.new_dubber.name.charAt(0);
     let dubbersEmail = [];
 
     // Cicla per recuperare la mail di tutti i Dubber registrati
@@ -43,7 +38,7 @@ export class AddDubberComponent {
     // end
 
     // Controlla prima se il dubber è già presente
-    if(dubbersEmail.includes(this.model.email)) {
+    if(dubbersEmail.includes(this.new_dubber.email)) {
       this.alertMessage = {
         "text": "You can't add this user bacause this email is already used!",
         "class": "danger",
@@ -52,26 +47,26 @@ export class AddDubberComponent {
       return;
       // se non lo è aggiungilo
     } else {
-      this.dubberService.create(this.model).subscribe(
+      this.dubberService.create(this.new_dubber).subscribe(
         data => {
           this.alertMessage = {
             "text": "Film has been created successfully!",
             "class": "success",
             "display": true
           }
-          this.model = {
-            "name": "",
-            "surname": "",
-            "fiscalCode": "",
-            "birthdate": "",
-            "birthplace": "",
-            "birthcounty": "",
-            "email": "",
-            "phone": "",
-            "residenceplace": "",
-            "residenceaddress": "",
-            "residencecountry": ""
-          };
+          // this.new_dubber = {
+          //   "name": "",
+          //   "surname": "",
+          //   "fiscal_code": "",
+          //   "birth_date": "",
+          //   "birth_place": "",
+          //   "birth_county": "",
+          //   "email": "",
+          //   "phone": "",
+          //   "residence_place": "",
+          //   "residence_address": "",
+          //   "residence_country": ""
+          // };
         },
         err => {
           this.alertMessage = {
@@ -84,10 +79,14 @@ export class AddDubberComponent {
     };
   }
 
-  ngOnInit() {
+  loadAllItems() {
     this.dubberService.getAll().subscribe(
       data => { this.dubbers = data; }
     );
+  }
+
+  ngOnInit() {
+    this.loadAllItems();
   }
 
 }

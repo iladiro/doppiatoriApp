@@ -3,15 +3,16 @@ export class Dubber {
   avatar: string;
   name: string;
   surname: string;
-  fiscalCode: string;
-  birthdate: number;
-  birthplace: string;
-  birthcounty: string;
+  gender: string;
+  fiscal_code: string;
+  birth_date: number;
+  birth_place: string;
+  birth_county: string;
   email: string;
   phone: number;
-  residenceplace: string;
-  residenceaddress: string;
-  residencecountry: string;
+  residence_place: string;
+  residence_address: string;
+  residence_country: string;
   film: [
     {
       id:number;

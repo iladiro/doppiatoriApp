@@ -13,12 +13,12 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="grossCompensation">Gross compensation</label>
-        <input id="grossCompensation" type="text" class="form-control" placeholder="Gross compensation" ngModel name="grossCompensation" #grossCompensation="ngModel" required>
+        <label for="gross_compensation">Gross compensation</label>
+        <input id="gross_compensation" type="text" class="form-control" placeholder="Gross compensation" ngModel name="gross_compensation" #gross_compensation="ngModel" required>
       </div>
       <div class="form-group">
-        <label for="taxPercetual">Ritenuta d'acconto del</label>
-        <select name="taxPercetual" class="form-control" ngModel>
+        <label for="tax_percetual">Ritenuta d'acconto del</label>
+        <select name="tax_percetual" class="form-control" ngModel>
           <option value="20">20%</option>
           <option value="40">40%</option>
           <option value="50">50%</option>
@@ -27,7 +27,7 @@
       <div class="form-group">
         <label for="taxPercetual">Company</label>
         <select class="form-control" required ngModel name="company">
-          <option *ngFor="let company of companies" value="{{company.id}}; {{company.name}}; {{company.address}}; {{company.piva}}">
+          <option *ngFor="let company of companies" value="{{company.id}}; {{company.name}}; {{company.address}}; {{company.tav}}">
             {{company.name}}
           </option>
         </select>

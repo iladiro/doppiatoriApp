@@ -11,10 +11,10 @@ import { User } from '../../user/_models/index';
 })
 export class HeaderComponent implements OnInit {
 
-  currentUser: User;
+  current_user: User;
 
   constructor( private router: Router ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.current_user = JSON.parse(localStorage.getItem('current_user'));
   }
 
   ngOnInit() {}

@@ -5,14 +5,14 @@
       <div class="generalCard__body">
         <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="form--light">
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="firstName">First Name</label>
-            <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
-            <div *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is required</div>
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
+            <div *ngIf="f.submitted && !first_name.valid" class="help-block">First Name is required</div>
           </div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-            <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+            <div *ngIf="f.submitted && !last_name.valid" class="help-block">Last Name is required</div>
           </div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <label for="email">Email</label>
@@ -30,12 +30,12 @@
             <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
           </div>
           <div class="form-group">
-            <label for="userType">Type of user</label>
-            <select class="form-control" name="userType" [(ngModel)]="model.userType" #userType="ngModel" required>
+            <label for="user_type">Type of user</label>
+            <select class="form-control" name="user_type" [(ngModel)]="model.user_type" #user_type="ngModel" required>
               <option value="administrator">Administrator</option>
               <option value="simple_user">Simple user</option>
             </select>
-            <div *ngIf="f.submitted && !userType.valid" class="help-block">Type of user field is required</div>
+            <div *ngIf="f.submitted && !user_type.valid" class="help-block">Type of user field is required</div>
           </div>
           <div class="form-group">
             <button [disabled]="loading" class="btn btn--light">Register</button>

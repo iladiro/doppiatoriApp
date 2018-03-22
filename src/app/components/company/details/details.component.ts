@@ -15,7 +15,7 @@ export class CompanyDetailsComponent implements OnInit {
 
   id: number;
   private sub: any;
-  model: any = {};
+  company: any = {};
   loading = false;
 
   private alertMessage = {
@@ -26,7 +26,7 @@ export class CompanyDetailsComponent implements OnInit {
 
   private upDate() {
     this.loading = true;
-    this.companyService.update(this.model).subscribe(
+    this.companyService.update(this.company).subscribe(
       data => {
         this.alertMessage = {
           "text": "Company has been updated successfully!",
@@ -56,7 +56,7 @@ export class CompanyDetailsComponent implements OnInit {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.companyService.getById(this.id).subscribe(
         data => {
-          this.model = data;
+          this.company = data;
         }
       );
     });

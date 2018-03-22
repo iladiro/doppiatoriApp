@@ -13,7 +13,7 @@ import { CompanyService } from '../_services/index';
 })
 export class CompanyCreateComponent implements OnInit {
 
-  model: any = {};
+  company: any = {};
   loading = false;
 
   private alertMessage = {
@@ -23,8 +23,8 @@ export class CompanyCreateComponent implements OnInit {
   };
 
   create() {
-    this.model.id = Math.floor((Math.random() * 1000000) + 1);
-    this.companyService.create(this.model).subscribe(
+    this.company.id = Math.floor((Math.random() * 1000000) + 1);
+    this.companyService.create(this.company).subscribe(
       data => {
         this.alertMessage = {
           "text": "Company has been created successfully!",
@@ -44,7 +44,6 @@ export class CompanyCreateComponent implements OnInit {
 
   constructor(private companyService: CompanyService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

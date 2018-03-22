@@ -23,7 +23,7 @@
         <tbody>
           <tr *ngFor="let company of companies">
             <td>{{company.name}}</td>
-            <td>{{company.piva}}</td>
+            <td>{{company.tav}}</td>
             <td>{{company.address}}</td>
             <td class="text-right">
               <a [routerLink]="['/company', company.id]" class="btn btn--dark">
@@ -39,7 +39,7 @@
           </tr>
         </tbody>
       </table>
-      <paginator (pagedItems)="dataset($event)" [DBtable]="DBTable"></paginator>
+      <paginator (pagedItems)="datasetFromPaginator($event)" [DBtable]="DBTable"></paginator>
     </div>
   </div>
   <div class="row">

@@ -10,13 +10,13 @@ import { DubberService } from '../../_services/index';
 })
 export class EditFormComponent implements OnInit {
 
-  @Input() model: any;
+  @Input() dubber: any;
   @Output() event = new EventEmitter();
 
   constructor(private dubberService: DubberService) { }
 
   private upDate(){
-    this.dubberService.update(this.model).subscribe(
+    this.dubberService.update(this.dubber).subscribe(
       data => {
         this.event.emit({"text": "It has been updated successfully", "class": "success", "display": true});
       },

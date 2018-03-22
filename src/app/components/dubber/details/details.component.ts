@@ -18,7 +18,7 @@ export class DubberProfileComponent implements OnInit {
   private currentFilm;
   id: number;
   private sub: any;
-  model: any;
+  dubber: any;
   films: Film[];
 
   private modalMessage = {
@@ -37,25 +37,36 @@ export class DubberProfileComponent implements OnInit {
   ) {}
 
   setMessage(message){
-    this.alertMessage.text = message.text;
-    this.alertMessage.class = message.class;
-    this.alertMessage.display = message.display;
+    this.alertMessage = {
+      "text": message.text,
+      "class": message.class,
+      "display": message.display
+    }
+    // this.alertMessage.text = message.text;
+    // this.alertMessage.class = message.class;
+    // this.alertMessage.display = message.display;
   }
 
-  getFirstChar(whichModel) {
-    let createAvatar = whichModel.name.charAt(0);
-    whichModel.avatar = createAvatar;
+  passCurrentFilm(film) {
+    this.modalMessage.text = "Are you sure you want to delete it?";
+    this.currentFilm = film;
+  }
+
+  setConfirm(data) {
+    if(data == "true") {
+      this.deleteFilm(this.currentFilm.id);
+    }
   }
 
   private deleteFilm(idFilm) {
     // Cancella film dalla lista dei film del dubber corrente
-    let currentDubber = this.model;
+    let currentDubber = this.dubber;
     currentDubber.film.map(function(film, index){
       if(film.id == idFilm) {
         currentDubber.film.splice(index, 1);
       }
     });
-    this.dubberService.update(this.model).subscribe(
+    this.dubberService.update(this.dubber).subscribe(
       data => {
         this.alertMessage = {
           "text": "It has been deleted successfully!",
@@ -87,22 +98,16 @@ export class DubberProfileComponent implements OnInit {
     // end
   }
 
-  setConfirm(data) {
-    if(data == "true") {
-      this.deleteFilm(this.currentFilm.id);
-    }
-  }
-
-  passCurrentFilm(film) {
-    this.modalMessage.text = "Are you sure you want to delete it?";
-    this.currentFilm = film;
+  getFirstChar(whichModel) {
+    let createAvatar = whichModel.name.charAt(0);
+    whichModel.avatar = createAvatar;
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.dubberService.getById(this.id).subscribe(
-        data => { this.model = data; }
+        data => { this.dubber = data; }
       );
     });
     this.filmService.getAll().subscribe(

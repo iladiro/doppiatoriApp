@@ -20,7 +20,7 @@ export class DetailsInvoiceComponent implements OnInit {
 
   id: number;
   private sub: any;
-  model: any;
+  invoice: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +34,7 @@ export class DetailsInvoiceComponent implements OnInit {
       let img = canvas.toDataURL("image/png");
       let doc = new jsPDF('l', 'pt', 'a4');
       doc.addImage(img,'PNG',0,0);
-      doc.save(id + ".pdf");
+      doc.save(id  + ".pdf");
     });
   }
 
@@ -42,7 +42,7 @@ export class DetailsInvoiceComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.invoiceService.getById(this.id).subscribe(
-        data => { this.model = data; }
+        data => { this.invoice = data; }
       );
     });
   }

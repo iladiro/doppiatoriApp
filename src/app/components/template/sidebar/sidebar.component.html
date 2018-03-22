@@ -19,7 +19,7 @@
       <a class="nav-link" [routerLink]="['/film']">Film</a>
     </li>
     <ng-container *ngIf="currentUser">
-      <ng-container *ngIf="currentUser.userType == 'administrator'">
+      <ng-container *ngIf="currentUser.user_type == 'administrator'">
       <li class="nav-item" [class.active]="router.url==='/users'">
         <a class="nav-link" [routerLink]="['/users']">Users</a>
       </li>

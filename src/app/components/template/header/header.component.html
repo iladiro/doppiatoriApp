@@ -12,8 +12,8 @@
       <li class="nav-item" [class.active]="router.url==='/film'">
         <a class="nav-link" [routerLink]="['/film']">Film</a>
       </li>
-      <ng-container *ngIf="currentUser">
-        <ng-container *ngIf="currentUser.userType == 'administrator'">
+      <ng-container *ngIf="current_user">
+        <ng-container *ngIf="current_user.user_type == 'administrator'">
           <li class="nav-item" [class.active]="router.url==='/users'">
             <a class="nav-link" [routerLink]="['/users']">Users</a>
           </li>
@@ -25,10 +25,10 @@
     </ul>
   </div>
 
-  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" *ngIf="currentUser">
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" *ngIf="current_user">
     <li class="nav-item dropdown">
       <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{currentUser.firstName}}
+        {{current_user.firstName}}
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
         <a class="dropdown-item" href="#">Settings</a>

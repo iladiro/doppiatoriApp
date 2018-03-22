@@ -17,7 +17,7 @@ import { FilmService } from '../film/_services/index';
 
 export class DashboardComponent implements OnInit {
 
-  currentUser: User;
+  current_user: User;
   dubbers: Dubber[] = [];
   films: Film[] = [];
 
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     private filmService: FilmService,
     private dubberService: DubberService
   ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.current_user = JSON.parse(localStorage.getItem('current_user'));
   }
 
   ngOnInit() {

@@ -25,40 +25,37 @@ export class CreateComponent implements OnInit {
     private companyService: CompanyService
   ) { }
 
-  compensationCalculation(gross, percentual) {
+  private compensationCalculation(gross, percentual) {
     let difference = (gross * percentual) / 100;
-    let resultNet = gross - difference;
-    return [difference, resultNet]
+    let result_net = gross - difference;
+    return [difference, result_net]
   }
-
-
-  //{movie: "Il gatto e la volpe", grossCompensation: "66", taxPercetual: "20", company: "Contactlab, Via Natale Battaglia, 12 20127 Milano, 09480090159"}
 
   private create(form: NgForm, event) {
     // Genera fattura, pusha l'oggetto fattura dentro alla proprietà invoices e poi aggiorna il modello
     let date = new Date();
-    let currentInvoice = form.value;
-    currentInvoice.company = currentInvoice.company.split(';');
+    let current_invoice = form.value;
+    current_invoice.company = current_invoice.company.split(';');
 
-    let result = this.compensationCalculation(currentInvoice.grossCompensation, currentInvoice.taxPercetual);
-    currentInvoice = {
+    let result = this.compensationCalculation(current_invoice.gross_compensation, current_invoice.tax_percetual);
+    current_invoice = {
       "id": Math.floor((Math.random() * 1000000) + 1),
-      "creationDate": date.toLocaleDateString(),
-      "movie": currentInvoice.movie,
+      "creation_date": date.toLocaleDateString(),
+      "movie": current_invoice.movie,
       "compensation": {
-        "gross": +currentInvoice.grossCompensation,
-        "taxPercetual": +currentInvoice.taxPercetual,
-        "taxEuro": result[0],
+        "gross": +current_invoice.grossCompensation,
+        "tax_percetual": +current_invoice.taxPercetual,
+        "tax_euro": result[0],
         "net": result[1]
       },
       "company": {
-        "id":  currentInvoice.company[0],
-        "name": currentInvoice.company[1],
-        "address": currentInvoice.company[2],
-        "partita_iva": currentInvoice.company[3]
+        "id":  current_invoice.company[0],
+        "name": current_invoice.company[1],
+        "address": current_invoice.company[2],
+        "tav": current_invoice.company[3]
       }
     };
-    this.dataset.invoices.push(currentInvoice);
+    this.dataset.invoices.push(current_invoice);
     //this.upDateDubber();
     this.dubberService.update(this.dataset).subscribe(
       data => {
@@ -79,18 +76,19 @@ export class CreateComponent implements OnInit {
     //  end
 
     // Aggiungi all'oggetto fattura i dati del dubber e poi crea una nuova fattura nella tabella invoices
-    currentInvoice.dubber = {
+    current_invoice.dubber = {
       "id": this.dataset.id,
       "name": this.dataset.name,
       "surname": this.dataset.surname,
+      "gender": this.dataset.gender,
       "email": this.dataset.email,
-      "fiscalCode": this.dataset.fiscalCode,
-      "birthdate": this.dataset.birthdate,
-      "birthplace": this.dataset.birthplace,
-      "residenceplace": this.dataset.residenceplace,
-      "residenceaddress": this.dataset.residenceaddress
+      "fiscal_code": this.dataset.fiscal_code,
+      "birth_date": this.dataset.birth_date,
+      "birth_place": this.dataset.birth_place,
+      "residence_place": this.dataset.residence_place,
+      "residence_address": this.dataset.residence_address
     }
-    this.invoiceService.create(currentInvoice).subscribe();
+    this.invoiceService.create(current_invoice).subscribe();
     // end
 
     form.reset();

@@ -1,11 +1,11 @@
-<div class="container" *ngIf="model">
+<div class="container" *ngIf="dubber">
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
       <div class="row">
         <div class="col-sm-2">
           <figure class="m-0">
             <img src="/assets/images/default-user-image.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
-            <h5 class="mt-10 text-capitalize">{{model.name}} {{model.surname}}</h5>
+            <h5 class="mt-10 text-capitalize">{{dubber.name}} {{dubber.surname}}</h5>
           </figure>
         </div>
         <div class="col-sm-10">
@@ -26,18 +26,18 @@
           <!-- Tab panes -->
           <div class="tab-content pboth-15">
             <div class="tab-pane active" id="personal-data" role="tabpanel">
-              <editForm [model]="this.model" (event)="setMessage($event)"></editForm>
+              <editForm [dubber]="this.dubber" (event)="setMessage($event)"></editForm>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
-              <table class="table table--striped" *ngIf="model.film.length; else noFilm">
+              <table class="table table--striped" *ngIf="dubber.film.length; else noFilm">
                 <tbody>
-                  <tr *ngFor="let dubberFilm of model.film">
+                  <tr *ngFor="let dubberFilm of dubber.film">
                     <td>{{dubberFilm.title}}</td>
                     <td class="text-right">
-                      <a [routerLink]="['/film', dubberFilm.id]" class="btn btn-outline-primary">
+                      <a [routerLink]="['/film', dubberFilm.id]" class="btn btn--dark">
                         <i class="fa fa-info" aria-hidden="true"></i>
                       </a>
-                      <button (click)="passCurrentFilm(dubberFilm)" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                      <button (click)="passCurrentFilm(dubberFilm)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </button>
                     </td>
@@ -49,8 +49,8 @@
               </ng-template>
             </div>
             <div class="tab-pane" id="invoices" role="tabpanel">
-              <invoiceList [dataset]="this.model" (event)="setMessage($event)"></invoiceList>
-              <formInvoice [dataset]="this.model" (event)="setMessage($event)"></formInvoice>
+              <invoiceList [dataset]="this.dubber" (event)="setMessage($event)"></invoiceList>
+              <formInvoice [dataset]="this.dubber" (event)="setMessage($event)"></formInvoice>
             </div>
           </div>
         </div>

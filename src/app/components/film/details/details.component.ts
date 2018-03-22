@@ -21,7 +21,7 @@ export class FilmDetailsComponent implements OnInit {
 
   id: number;
   private sub: any;
-  model: any;
+  film: any;
   dubbers: Dubber[] = [];
   films: Film[] = [];
 
@@ -38,11 +38,11 @@ export class FilmDetailsComponent implements OnInit {
   ) {}
 
   private upDateFilm(){
-    let currentFilm = this.model;
+    let currentFilm = this.film;
     let dubberService = this.dubberService;
 
     // Aggiorna il film corrente
-    this.filmService.update(this.model).subscribe(
+    this.filmService.update(this.film).subscribe(
       data => {
         this.alertMessage = {
           "text": "Film has been updated successfully!",
@@ -72,13 +72,13 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   private deleteDubber(idDubber) {
-    let currentFilm = this.model;
+    let currentFilm = this.film;
     currentFilm.dubbers.map(function(dubber, index){
       if(dubber.id == idDubber) {
         currentFilm.dubbers.splice(index, 1);
       }
     });
-    this.filmService.update(this.model).subscribe();
+    this.filmService.update(this.film).subscribe();
 
 
     //Updating dubber object after event delete film
@@ -97,7 +97,7 @@ export class FilmDetailsComponent implements OnInit {
     this.dubberService.update(dubberObject).subscribe();
   }
 
-  addDubberHasParticipated(form: NgForm) {
+  private addDubberHasParticipated(form: NgForm) {
     // Create dubber object to add
     let dubberToAdd = form.value;
     dubberToAdd = dubberToAdd.dubbers.split(",");
@@ -107,10 +107,10 @@ export class FilmDetailsComponent implements OnInit {
     };
     // end
     // Film object that we've got from the service, and then we've  extrapolated ID and title
-    let currentFilm = this.model;
+    let currentFilm = this.film;
     let objFilm = {
       "id": this.id,
-      "title": this.model.title
+      "title": this.film.title
     };
     // end
 
@@ -163,7 +163,7 @@ export class FilmDetailsComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.filmService.getById(this.id).subscribe(
-        data => { this.model = data; }
+        data => { this.film = data; }
       );
     });
     this.dubberService.getAll().subscribe(

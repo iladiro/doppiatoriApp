@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+// Models
 import { Film } from '../_models/index';
+
+//Services
 import { FilmService } from '../_services/index';
 
 @Component({
@@ -9,13 +13,17 @@ import { FilmService } from '../_services/index';
 
 export class FilmListComponent implements OnInit {
 
-  private currentFilm;
+  private current_film;
   private DBTable:string = "film";
 
+  films: Film[] = [];
+
+  // Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
   dataForRequestSearchComp = {
     "table": "film",
     "parameter": "title"
   };
+  // end
 
   private modalMessage = {
     "text": ""
@@ -26,9 +34,24 @@ export class FilmListComponent implements OnInit {
     "class": ""
   };
 
-  films: Film[] = [];
-
   constructor(private filmService: FilmService) {}
+
+  // Salva i dati passati dal componente paginator
+  private datasetFromPaginator(items) {
+    this.films = items;
+  }
+  // end
+
+  private passCurrentFilm(film) {
+    this.modalMessage.text = "Are you sure you want to delete it?";
+    this.current_film = film;
+  }
+
+  private setConfirm(data) {
+    if(data == "true") {
+      this.delete(this.current_film);
+    }
+  }
 
   delete(film) {
     let index = this.films.indexOf(film);
@@ -40,23 +63,15 @@ export class FilmListComponent implements OnInit {
           "class": "success",
           "display": true
         }
+      },
+      err => {
+        this.alertMessage = {
+          "text": "Error occured!",
+          "class": "danger",
+          "display": true
+        }
       }
     );
-  }
-
-  private dataset(items) {
-    this.films = items;
-  }
-
-  private setConfirm(data) {
-    if(data == "true") {
-      this.delete(this.currentFilm);
-    }
-  }
-
-  private passCurrentFilm(film) {
-    this.modalMessage.text = "Are you sure you want to delete it?";
-    this.currentFilm = film;
   }
 
   private setFoundValueFromSearch(value){

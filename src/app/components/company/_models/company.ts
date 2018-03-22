@@ -1,6 +1,6 @@
 export class Company {
   id: number;
   name: string;
-  piva: string;
+  tav: string;
   indirizzo: string;
 }

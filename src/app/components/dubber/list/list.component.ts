@@ -40,23 +40,31 @@ export class DubbersListComponent implements OnInit {
     private filmService: FilmService
   ) {}
 
-  private setFoundValueFromSearch(value){
-    this.dubbers = value;
-  }
-
+  // Viene chiamata quando viene pushato il componente "paginator". che salva nell'ordine corretto la lista dei dubbers
   private dataset(items) {
     this.dubbers = items;
   }
+  // end
 
-  private setConfirm(data) {
-    if(data == "true") {
-      this.delete(this.currentDubber);
-    }
+  // Per la ricerca: dopo aver eseguito la ricerca viene passato dal figlio al padre la lista dei risultati che vengono salvati in dubbers
+  private setFoundValueFromSearch(value){
+    this.dubbers = value;
   }
+  // end
 
+  // Quando vuoi cancellare un elemento della lista chiami prima questa funzione, che salva i dati dell'oggetto da cancellare
   private passCurrentDubber(dubber) {
     this.modalMessage.text = "Are you sure you want to delete it?";
     this.currentDubber = dubber;
+  }
+  // end
+
+  // Viene chiamato all'apertura del modal, esattamente quando interagisci con esso, il quale restituisce un valore "true" o "false"
+  private setConfirm(data) {
+    // Se "true" viene chiamata la funzione delete
+    if(data == "true") {
+      this.delete(this.currentDubber);
+    }
   }
 
   delete(dubber) {
@@ -86,6 +94,7 @@ export class DubbersListComponent implements OnInit {
       );
     }
   }
+  // end
 
   ngOnInit() {
     this.filmService.getAll().subscribe(
