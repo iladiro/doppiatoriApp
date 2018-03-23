@@ -1,1 +1,31 @@
-#search-form {}
+@import "../../../../assets/stylesheet/mixin/custom-mixin";
+
+.search {
+  // -webkit-box-flex: 1;
+  // -ms-flex: 1;
+  // flex: 1;
+  // margin-right: 2.5rem;
+  // position: relative;
+  &__inner {
+    position: relative;
+  }
+  &__text {
+    background-color: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.85);
+    border: 0;
+    border-radius: 2px;
+    @include size(100%, 2.9rem);
+    padding-left: 3rem;
+    @include transition(background-color .3s,color .3s);
+    @include placeholder(white);
+  }
+  &__helper {
+    @include position(left, 0, top, 0);
+    @include size(3rem, 100%);
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 2.9rem;
+    cursor: pointer;
+    @include transition(color .3s,transform .4s);
+  }
+}

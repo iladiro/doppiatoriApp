@@ -48,10 +48,10 @@
               <tr *ngFor="let dubber of film.dubbers">
                 <td>{{dubber.name}}</td>
                 <td class="text-right">
-                  <a [routerLink]="['/dubber', dubber.id]" class="btn btn-outline-primary">
+                  <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
                     <i class="fa fa-info" aria-hidden="true"></i>
                   </a>
-                  <button (click)="deleteDubber(dubber.id)" class="btn btn-outline-danger">
+                  <button (click)="deleteDubber(dubber.id)" class="btn btn--dark">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </td>
