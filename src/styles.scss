@@ -25,18 +25,3 @@ button, a {
 .bg--white {
   background-color: white;
 }
-
-input, textarea {
-  &.ng {
-    &-pristine {
-      &.ng-touched {
-        &.ng-invalid {
-          @include border(1px, red);
-        }
-        // &.ng-valid {
-        //   @include border(1px, green);
-        // }
-      }
-    }
-  }
-}

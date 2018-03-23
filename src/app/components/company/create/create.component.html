@@ -6,17 +6,17 @@
         <div class="form-group">
           <label for="name">Company name</label>
           <input id="name" type="text" class="form-control text-capitalize" placeholder="Company name" [(ngModel)]="company.name" name="name" #name="ngModel" required>
-          <div *ngIf="f.submitted && !name.valid" class="help-block">Field is incorrect</div>
+          <div *ngIf="f.submitted && !name.valid" class="is-invalid">Field value is incorrect</div>
         </div>
         <div class="form-group">
-          <label for="tav">Partita Iva</label>
+          <label for="tav">TAV</label>
           <input id="tav" type="text" class="form-control" placeholder="TAV" [(ngModel)]="company.tav" name="tav" #tav="ngModel" required pattern="^[0-9]{11}$">
-          <div *ngIf="f.submitted && !tav.valid" class="help-block">Field is incorrect</div>
+          <div *ngIf="f.submitted && !tav.valid" class="is-invalid">Field value is incorrect</div>
         </div>
         <div class="form-group">
-          <label for="address">Indirizzo</label>
+          <label for="address">Address</label>
           <input id="address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="company.address" name="address" #address="ngModel" required>
-          <div *ngIf="f.submitted && !address.valid" class="help-block">Field is incorrect</div>
+          <div *ngIf="f.submitted && !address.valid" class="is-invalid">Field value is incorrect</div>
         </div>
         <div class="row mt-30 mb-20">
           <div class="col-sm-6">

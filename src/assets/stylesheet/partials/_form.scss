@@ -7,6 +7,27 @@
       border: 0;
       font-size: 13px;
       padding: 10px 15px;
+      @include placeholder(rgba(255, 255, 255, 0.65));
     }
   }
+}
+
+input, textarea {
+  &.ng {
+    &-pristine {
+      &.ng-touched {
+        &.ng-invalid {
+          @include border(1px, #bb0808);
+        }
+        // &.ng-valid {
+        //   @include border(1px, green);
+        // }
+      }
+    }
+  }
+}
+
+.is-invalid {
+  padding: 5px 0;
+  color: #bb0808;
 }

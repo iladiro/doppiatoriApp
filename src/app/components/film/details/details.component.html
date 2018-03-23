@@ -25,12 +25,12 @@
             <div class="form-group" [ngClass]="{ 'has-error': UpdateFilmForm.submitted && !title.valid }">
               <label for="title">Title</label>
               <input type="text" id="title" class="form-control" placeholder="Title" [(ngModel)]="film.title" name="title" #title="ngModel" required>
-              <div *ngIf="UpdateFilmForm.submitted && !title.valid" class="help-block">Title is required</div>
+              <div *ngIf="UpdateFilmForm.submitted && !title.valid" class="is-invalid">Title is required</div>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': UpdateFilmForm.submitted && !description.valid }">
               <label for="description">Description</label>
               <textarea id="description" rows="10" class="form-control" placeholder="Description" [(ngModel)]="film.description" name="description" #description="ngModel" required></textarea>
-              <div *ngIf="UpdateFilmForm.submitted && !description.valid" class="help-block">Title is required</div>
+              <div *ngIf="UpdateFilmForm.submitted && !description.valid" class="is-invalid">Title is required</div>
             </div>
             <div class="row">
               <div class="col-sm-6">

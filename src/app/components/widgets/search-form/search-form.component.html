@@ -1,10 +1,6 @@
-<!-- <form class="form-inline my-2 my-lg-0 form--light" id="search-form">
-  <input type="text" class="form-control" placeholder="Search for name" aria-label="Search for name" (keyup)="searchTerm$.next($event.target.value)">
-</form> -->
-
 <form class="search" id="search-form">
   <div class="search__inner">
-    <input type="text" class="search__text" placeholder="Search for name">
+    <input type="text" class="search__text" placeholder="Search for name" (keyup)="searchTerm$.next($event.target.value)">
     <i class="fa fa-search search__helper"></i>
   </div>
 </form>
