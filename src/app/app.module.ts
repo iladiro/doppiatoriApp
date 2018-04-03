@@ -18,6 +18,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DubbersListComponent } from './components/dubber/list/list.component';
 import { DubberProfileComponent } from './components/dubber/details/details.component';
 import { AddDubberComponent } from './components/dubber/create/create.component';
+import { EditFormComponent } from './components/dubber/details/edit-form/edit-form.component';
 
 import { CompanyCreateComponent } from './components/company/create/create.component';
 import { CompanyListComponent } from './components/company/list/list.component';
@@ -44,7 +45,6 @@ import { SearchFormComponent } from './components/widgets/search-form/search-for
 import { PaginatorComponent } from './components/widgets/paginator/paginator.component';
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
-import { EditFormComponent } from './components/dubber/details/edit-form/edit-form.component';
 import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
 
 @NgModule({
