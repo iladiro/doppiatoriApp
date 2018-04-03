@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '../_models/index';
 
 // Services
-import { AlertService, UserService } from '../_services/index';
+import { UserService } from '../_services/index';
 
 @Component({
   templateUrl: './register.component.html',
@@ -20,8 +20,7 @@ export class RegisterComponent {
 
   constructor(
     private router: Router,
-    private userService: UserService,
-    private alertService: AlertService
+    private userService: UserService
   ) { }
 
   // getFirstChar(whichModel, property) {
@@ -38,17 +37,17 @@ export class RegisterComponent {
       users_email.push(user.email);
     };
     if(users_email.includes(this.model.email)) {
-      this.alertService.error("You can't register this user because it's already used");
+      //this.alertService.error("You can't register this user because it's already used");
       this.loading = false;
       return;
     } else {
       this.userService.create(this.model).subscribe(
         data => {
-          this.alertService.success('Registration successful', true);
+          //this.alertService.success('Registration successful', true);
           this.router.navigate(['/login']);
         },
         error => {
-          this.alertService.error(error);
+          //this.alertService.error(error);
           this.loading = false;
         }
       );

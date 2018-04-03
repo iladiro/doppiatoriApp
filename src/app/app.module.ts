@@ -4,18 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// used to create fake backend
-import { fakeBackendProvider } from './components/user/_helpers/index';
-
 // Services
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { FilmService } from './components/film/_services/index';
 import { CompanyService } from './components/company/_services/index';
 import { InvoiceService } from './components/invoice/_services/index';
 import { PagerService } from './components/widgets/paginator/_services/index';
-import { AlertService, AuthenticationService, UserService } from './components/user/_services/index';
-import { AuthGuard } from './components/user/_guards/index';
-import { JwtInterceptor } from './components/user/_helpers/index';
+import { UserService } from './components/user/_services/index';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -36,9 +31,7 @@ import { FilmListComponent } from './components/film/list/list.component';
 import { AddFilmComponent } from './components/film/create/create.component';
 import { FilmDetailsComponent } from './components/film/details/details.component';
 
-import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
-import { AlertComponent } from './components/user/_directives/alert/alert.component';
 import { UsersListComponent } from './components/user/list/list.component';
 import { DetailsUserComponent } from './components/user/details/details.component';
 
@@ -66,9 +59,7 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     FilmDetailsComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    LoginComponent,
     RegisterComponent,
-    AlertComponent,
     UsersListComponent,
     AlertMessageComponent,
     SearchFormComponent,
@@ -96,19 +87,9 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     DubberService,
     FilmService,
     InvoiceService,
-    AuthGuard,
-    AlertService,
-    AuthenticationService,
     UserService,
     PagerService,
-    CompanyService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    },
-    // provider used to create fake backend
-    fakeBackendProvider
+    CompanyService
   ],
   bootstrap: [AppComponent]
 })
