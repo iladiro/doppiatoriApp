@@ -9,9 +9,9 @@
           <div *ngIf="f.submitted && !name.valid" class="is-invalid">Field value is incorrect</div>
         </div>
         <div class="form-group">
-          <label for="tav">TAV</label>
-          <input id="tav" type="text" class="form-control" placeholder="TAV" [(ngModel)]="company.tav" name="tav" #tav="ngModel" required pattern="^[0-9]{11}$">
-          <div *ngIf="f.submitted && !tav.valid" class="is-invalid">Field value is incorrect</div>
+          <label for="vat">VAT</label>
+          <input id="vat" type="text" class="form-control" placeholder="vat" [(ngModel)]="company.vat" name="vat" #vat="ngModel" required pattern="^[0-9]{11}$">
+          <div *ngIf="f.submitted && !vat.valid" class="is-invalid">Field value is incorrect</div>
         </div>
         <div class="form-group">
           <label for="address">Address</label>

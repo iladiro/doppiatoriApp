@@ -52,7 +52,7 @@ export class CreateComponent implements OnInit {
         "id":  current_invoice.company[0],
         "name": current_invoice.company[1],
         "address": current_invoice.company[2],
-        "tav": current_invoice.company[3]
+        "vat": current_invoice.company[3]
       }
     };
     this.dataset.invoices.push(current_invoice);

@@ -14,9 +14,9 @@
           <div *ngIf="UpdateCompanyForm.submitted && !address.valid" class="is-invalid">Address field is required</div>
         </div>
         <div class="form-group">
-          <label for="tav">Partita Iva</label>
-          <input type="text" class="form-control" name="tav" [(ngModel)]="company.tav" #tav="ngModel" required />
-          <div *ngIf="UpdateCompanyForm.submitted && !tav.valid" class="is-invalid">Partita Iva field is required</div>
+          <label for="vat">Partita Iva</label>
+          <input type="text" class="form-control" name="vat" [(ngModel)]="company.vat" #vat="ngModel" required />
+          <div *ngIf="UpdateCompanyForm.submitted && !vat.valid" class="is-invalid">Partita Iva field is required</div>
         </div>
         <div class="row">
           <div class="col-sm-6">
