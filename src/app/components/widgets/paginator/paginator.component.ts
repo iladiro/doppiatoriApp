@@ -44,7 +44,7 @@ export class PaginatorComponent implements OnInit {
 
   ngOnInit() {
     // get dummy data
-    this.http.get("http://localhost:3000/" + this.DBtable + "/").subscribe(
+    this.http.get("http://localhost:3000/" + this.DBtable).subscribe(
       data => {
         // set items to json response
         this.allItems = data;

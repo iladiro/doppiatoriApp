@@ -14,8 +14,8 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   search(dataForRequest, terms: Observable<string>) {
-    this.baseUrl += dataForRequest.table + "/";
-    this.queryUrl += dataForRequest.parameter + "_like=";
+    this.baseUrl += dataForRequest.table;
+    this.queryUrl += dataForRequest.parameter + "=ilike.%";
     //console.log(this.queryUrl);
     return terms.debounceTime(400)
       .distinctUntilChanged()
@@ -23,7 +23,7 @@ export class SearchService {
   }
 
   searchEntries(term) {
-    return this.http.get(this.baseUrl + this.queryUrl + term);
+    return this.http.get(this.baseUrl + this.queryUrl + term + "%");
   }
 
   getAll() {

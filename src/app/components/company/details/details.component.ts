@@ -49,7 +49,7 @@ export class CompanyDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private companyService: CompanyService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -57,6 +57,7 @@ export class CompanyDetailsComponent implements OnInit {
       this.companyService.getById(this.id).subscribe(
         data => {
           this.company = data;
+          console.log(this.company);
         }
       );
     });

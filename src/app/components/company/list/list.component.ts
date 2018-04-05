@@ -52,6 +52,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   delete(company) {
+    console.log(company.id);
     let index = this.companies.indexOf(company);
     this.companyService.delete(company.id).subscribe(
       data => {

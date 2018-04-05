@@ -23,7 +23,7 @@ export class CompanyCreateComponent implements OnInit {
   };
 
   create() {
-    this.company.id = Math.floor((Math.random() * 1000000) + 1);
+    //this.company.id = Math.floor((Math.random() * 1000000) + 1);
     this.companyService.create(this.company).subscribe(
       data => {
         this.alertMessage = {
