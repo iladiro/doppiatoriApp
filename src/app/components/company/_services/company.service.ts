@@ -30,7 +30,7 @@ export class CompanyService {
   }
 
   update(company: Company) {
-    return this.http.put(this.urlRoot + company.id, company);
+    return this.http.patch(this.urlRoot + "?id=eq." + company.id, company);
   }
 
 }

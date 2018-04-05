@@ -6,7 +6,7 @@ import { User } from '../_models/index';
 @Injectable()
 export class UserService {
 
-  private urlRoot = "http://localhost:3000/users/";
+  private urlRoot = "http://localhost:3000/users";
 
   constructor(private http: HttpClient) { }
 
@@ -15,19 +15,18 @@ export class UserService {
   }
 
   getById(id: number) {
-    return this.http.get(this.urlRoot + id);
+    return this.http.get(this.urlRoot + "?id=eq." + id, {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
   create(user: User) {
-    return this.http.post('/api/users', user);
-    //return this.http.post(this.urlRoot, user);
+    return this.http.post(this.urlRoot, user);
   }
 
   update(user: User) {
-    return this.http.put(this.urlRoot + user.id, user);
+    return this.http.put(this.urlRoot + "?id=eq." + user.id, user);
   }
 
   delete(id: number) {
-    return this.http.delete(this.urlRoot + id);
+    return this.http.delete(this.urlRoot + "?id=eq." + id);
   }
 }
