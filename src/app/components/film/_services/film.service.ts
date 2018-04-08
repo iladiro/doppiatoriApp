@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {Observable} from 'rxjs';
+// import 'rxjs/Rx';
 
+// Models
 import { Film } from '../_models/index';
 
 @Injectable()
 export class FilmService {
 
-  private urlRoot = "http://localhost:3000/film/";
+  headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+
+  private urlRoot = "http://localhost:3000/films";
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}
@@ -18,19 +23,19 @@ export class FilmService {
   }
 
   getById(id: number) {
-    return this.http.get(this.urlRoot + id);
+    return this.http.get(this.urlRoot + "?id=eq." + id, {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
-  create(film: Film) {
-    return this.http.post(this.urlRoot, film);
+  create(film: Film): Observable<HttpResponse<any>> {
+    return this.http.post(this.urlRoot, film, { observe: 'response' });
   }
 
   delete(id: number) {
-    return this.http.delete(this.urlRoot + id);
+    return this.http.delete(this.urlRoot + "?id=eq." + id);
   }
 
   update(film: Film) {
-    return this.http.put(this.urlRoot + film.id, film);
+    return this.http.patch(this.urlRoot + "?id=eq." + film.id, film);
   }
 
 }

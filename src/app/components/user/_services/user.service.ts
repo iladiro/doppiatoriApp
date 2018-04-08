@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+// Models 
 import { User } from '../_models/index';
 
 @Injectable()

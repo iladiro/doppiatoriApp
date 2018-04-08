@@ -70,11 +70,11 @@ export class DubbersListComponent implements OnInit {
   delete(dubber) {
     let index = this.dubbers.indexOf(dubber);
     let filmDubbersID = [];
-    for(let film of this.films) {
-      for(let dubber of film.dubbers) {
-        filmDubbersID.push(dubber.id);
-      }
-    };
+    // for(let film of this.films) {
+    //   for(let dubber of film.dubbers) {
+    //     filmDubbersID.push(dubber.id);
+    //   }
+    // };
     if(filmDubbersID.includes(dubber.id)) {
       this.alertMessage = {
         "text": "You can't delete it, because this dubber is using!",

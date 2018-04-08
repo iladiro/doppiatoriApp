@@ -14,13 +14,13 @@ import { FilmService } from '../_services/index';
 export class FilmListComponent implements OnInit {
 
   private current_film;
-  private DBTable:string = "film";
+  private DBTable:string = "films";
 
   films: Film[] = [];
 
   // Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
   dataForRequestSearchComp = {
-    "table": "film",
+    "table": "films",
     "parameter": "title"
   };
   // end

@@ -85,16 +85,16 @@ export class DubberProfileComponent implements OnInit {
     // end
 
     // Cancella il dubber dal film che vuoi cancellare e aggiorna l'oggetto film
-    let filmObject;
-    this.films.forEach(function(film) {
-      if(film.id == idFilm) {
-        film.dubbers.map(function(dubber, index) {
-          film.dubbers.splice(index, 1);
-        });
-        filmObject = film;
-      }
-    });
-    this.filmService.update(filmObject).subscribe();
+    // let filmObject;
+    // this.films.forEach(function(film) {
+    //   if(film.id == idFilm) {
+    //     film.dubbers.map(function(dubber, index) {
+    //       film.dubbers.splice(index, 1);
+    //     });
+    //     filmObject = film;
+    //   }
+    // });
+    // this.filmService.update(filmObject).subscribe();
     // end
   }
 

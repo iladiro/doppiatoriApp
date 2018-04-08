@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Response } from "@angular/http";
 
 // Models
 import { Film } from '../_models/index';
@@ -17,7 +18,8 @@ import { DubberService } from '../../dubber/_services/dubbers.service';
 export class AddFilmComponent {
 
   film: any = {};
-  loading = false;
+  id: string = "";
+  //loading = false;
 
   private alertMessage = {
     "display": false,
@@ -25,7 +27,6 @@ export class AddFilmComponent {
     "class": ""
   };
 
-  filmDubbersIdSelected = [];
   dubbers: Dubber[] = [];
 
   constructor(
@@ -34,28 +35,22 @@ export class AddFilmComponent {
   ) {}
 
   create(){
-    this.film.id = Math.floor((Math.random() * 1000000) + 1);
-    let arrayOfDubbers = this.filmDubbersIdSelected;
-    //From an array of string, create dubber's object.
-    this.film.dubbers = this.film.dubbers.map(function(item) {
-      var data = item.split(',');
-      arrayOfDubbers.push(data[0]);
-      return {
-        "id": data[0],
-        "name": data[1]
-      };
-    });
-    //end
+    delete this.film.dubbers;
     //Send object film to server
-    this.filmService.create(this.film).subscribe(
-      data => {
-        this.addFilmIntoDubberSelected();
+    this.filmService.create(this.film)
+      // resp is of type `HttpResponse<Config>`
+    .subscribe(
+      resp => {
+        let str = resp.headers.get("location");
+        let patt = /(\d+)/g;
+        let result = str.match(patt);
+        this.id = result[0];
         this.alertMessage = {
           "text": "Film has been created successfully!",
           "class": "success",
           "display": true
         }
-      },
+      }
       err => {
         this.alertMessage = {
           "text": "Error occured!",
@@ -64,32 +59,7 @@ export class AddFilmComponent {
         }
       }
     );
-    //end
-    // form.reset();
   }
-
-  //Aggiungi film ai dubbers selezionati
-  addFilmIntoDubberSelected() {
-    let arrayOfDubbers = this.filmDubbersIdSelected;
-    let service = this.dubberService;
-    let currentFilm = this.film;
-    let updateDubbers = [];
-    this.dubbers.map(function(dubber) {
-      if(arrayOfDubbers.includes(dubber.id.toString())) {
-        let filmObj = {
-          "id": currentFilm.id,
-          "title": currentFilm.title
-        };
-        dubber.film.push(filmObj);
-        updateDubbers.push(dubber);
-        service.update(dubber).subscribe();
-      }
-    });
-    updateDubbers.forEach(function(dubber) {
-      service.update(dubber).subscribe();
-    });
-  }
-  //end
 
   ngOnInit() {
     this.dubberService.getAll().subscribe(

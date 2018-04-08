@@ -1,12 +1,5 @@
-export class Film {
+export interface Film {
   id: number;
   title: string;
   description: string;
-  cover: string;
-  dubbers: [
-    {
-      id:number;
-      name:string;
-    }
-  ];
 }
