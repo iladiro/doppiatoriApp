@@ -30,6 +30,10 @@ export class FilmService {
     return this.http.post(this.urlRoot, film, { observe: 'response' });
   }
 
+  createFilmDubbers(filmDubbers) {
+    return this.http.post("http://localhost:3000/dubbers_films", filmDubbers);
+  }
+
   delete(id: number) {
     return this.http.delete(this.urlRoot + "?id=eq." + id);
   }

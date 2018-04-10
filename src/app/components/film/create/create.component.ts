@@ -18,7 +18,9 @@ import { DubberService } from '../../dubber/_services/dubbers.service';
 export class AddFilmComponent {
 
   film: any = {};
-  id: string = "";
+  id: number;
+  dubbers: Dubber[] = [];
+  status: string = "";
   //loading = false;
 
   private alertMessage = {
@@ -27,38 +29,64 @@ export class AddFilmComponent {
     "class": ""
   };
 
-  dubbers: Dubber[] = [];
-
   constructor(
     private filmService: FilmService,
     private dubberService: DubberService
   ) {}
 
   create(){
-    delete this.film.dubbers;
+    let filmObj = Object.assign({}, this.film);
+    delete filmObj.dubbers;
     //Send object film to server
-    this.filmService.create(this.film)
+    this.filmService.create(filmObj)
       // resp is of type `HttpResponse<Config>`
     .subscribe(
       resp => {
         let str = resp.headers.get("location");
         let patt = /(\d+)/g;
         let result = str.match(patt);
-        this.id = result[0];
+        this.id = Number(result[0]);
         this.alertMessage = {
           "text": "Film has been created successfully!",
           "class": "success",
           "display": true
         }
-      }
+        this.status = "ok";
+      },
       err => {
+        this.status = "ko";
         this.alertMessage = {
           "text": "Error occured!",
           "class": "danger",
           "display": true
         }
-      }
-    );
+      },
+      () => this.addFilmDubbersInRelationTable()
+    )
+  }
+
+  private addFilmDubbersInRelationTable() {
+    let film_id = this.id;
+    let dubbers = this.film.dubbers;
+    let film_dubbers = [];
+
+    if(this.status == "ok") {
+      dubbers.map(function(dubber) {
+        let object_pair = {
+          "film_id": film_id,
+          "dubber_id": dubber
+        };
+        film_dubbers.push(object_pair);
+      });
+      this.filmService.createFilmDubbers(film_dubbers).subscribe(
+        data => {
+          console.log("ok")
+        },
+        err => {
+          console.log("ko")
+        }
+      );
+    }
   }
 
   ngOnInit() {
