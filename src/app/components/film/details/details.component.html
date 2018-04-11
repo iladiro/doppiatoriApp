@@ -7,7 +7,7 @@
       </figure>
     </div>
     <div class="col-sm-10">
-      <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+      <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -62,11 +62,11 @@
             <p class="alert alert-warning">There aren't associated dubbers</p>
           </ng-template>
 
-          <form #AddDubberForm="ngForm" (ngSubmit)="addDubberHasParticipated(AddDubberForm)" class="form--light">
+          <form #AddDubberForm="ngForm" (ngSubmit)="addDubberSelected(AddDubberForm)" class="form--light">
             <div class="form-group">
               <label for="exampleFormControlSelect2">Dubbers List</label>
-              <select name="dubbers" class="form-control" ngModel name="dubbers">
-                <option *ngFor="let dubber of dubbers" value="{{dubber.id}}">
+              <select name="dubber" class="form-control" ngModel>
+                <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}}">
                   {{dubber.name}} {{dubber.surname}}
                 </option>
               </select>

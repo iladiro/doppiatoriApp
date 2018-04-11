@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 // Models
 import { Film } from '../_models/index';
@@ -23,10 +23,8 @@ export class FilmDetailsComponent implements OnInit {
   private sub: any;
   film: any;
   dubbers: Dubber[] = [];
-  films: Film[] = [];
-  film_dubbers = [];
 
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
@@ -39,20 +37,21 @@ export class FilmDetailsComponent implements OnInit {
   ) {}
 
   private upDateFilm(){
-    let currentFilm = this.film;
-    let dubberService = this.dubberService;
+    let film_obj = Object.assign({}, this.film);
+    delete film_obj.dubbers;
+    film_obj.id = this.id;
 
     // Aggiorna il film corrente
-    this.filmService.update(this.film).subscribe(
+    this.filmService.update(film_obj).subscribe(
       data => {
-        this.alertMessage = {
+        this.alert_message = {
           "text": "Film has been updated successfully!",
           "class": "success",
           "display": true
         }
       },
       err => {
-        this.alertMessage = {
+        this.alert_message = {
           "text": "Error occured!",
           "class": "danger",
           "display": true
@@ -60,102 +59,79 @@ export class FilmDetailsComponent implements OnInit {
       }
     );
     // end
-    // Aggiorna l'oggetto dubber nel quale è contenuto il json del film che è stato appena modificato (proprietà title)
-    this.dubbers.forEach(function(dubber) {
-      dubber.film.map(function(film, index) {
-        if(film.id == currentFilm.id) {
-          film.title = currentFilm.title;
+  }
+
+  private deleteDubber(id_dubber) {
+    let current_film = this.film;
+    this.filmService.deleteFilmDubber(this.id, id_dubber).subscribe(
+      data => {
+        current_film.dubbers.map(function(dubber, index){
+          if(dubber.id == id_dubber) {
+            current_film.dubbers.splice(index, 1);
+          }
+        });
+        this.alert_message = {
+          "text": "Dubber has been deleted successfully!",
+          "class": "success",
+          "display": true
         }
-      });
-      dubberService.update(dubber).subscribe();
-    });
-    // end
+      },
+      err => {
+        this.alert_message = {
+          "text": "Error occured!",
+          "class": "danger",
+          "display": true
+        }
+      }
+    );
   }
 
-  private deleteDubber(idDubber) {
-    let currentFilm = this.film;
-    // currentFilm.dubbers.map(function(dubber, index){
-    //   if(dubber.id == idDubber) {
-    //     currentFilm.dubbers.splice(index, 1);
-    //   }
-    // });
-    // this.filmService.update(this.film).subscribe();
-
-
-    //Updating dubber object after event delete film
-    // let idCurrentFilm = this.id;
-    // let dubberObject;
-    // this.dubbers.map(function(dubber) {
-    //   if(dubber.id == idDubber) {
-    //     dubber.film.map(function(film, index) {
-    //       if(film.id == idCurrentFilm) {
-    //         dubber.film.splice(index, 1)
-    //       }
-    //     })
-    //     dubberObject = dubber;
-    //   };
-    // });
-    // this.dubberService.update(dubberObject).subscribe();
-  }
-
-  private addDubberHasParticipated(form: NgForm) {
-    // Create dubber object to add
-    let dubberToAdd = form.value;
-    dubberToAdd = dubberToAdd.dubbers.split(",");
-    dubberToAdd = {
-    	"id": dubberToAdd[0],
-    	"name": dubberToAdd[1]
+  private addDubberSelected(form: NgForm) {
+    let current_film = this.film; // oggetto film
+    let dubber_id_toadd = form.value; // dati film da aggiungere (id e name)
+    dubber_id_toadd = dubber_id_toadd.dubber.split(";");
+    dubber_id_toadd = {
+    	"id": dubber_id_toadd[0],
+    	"name": dubber_id_toadd[1]
     };
-    // end
-    // Film object that we've got from the service, and then we've  extrapolated ID and title
-    let currentFilm = this.film;
-    let objFilm = {
-      "id": this.id,
-      "title": this.film.title
-    };
-    // end
 
-    /*Create an array of dubber's id.
-    Then check if the id of the dubber that I want to add is present or not into the array of id*/
-    let dubbersID = [];
-    currentFilm.dubbers.map(function(dubber) {
-      dubbersID.push(dubber.id);
+    // /*Create an array of dubber's id.
+    // Then check if the id of the dubber that I want to add is present or not into the array of id*/
+    let dubbers_id = []; // array dove salvare gli id dei dubbers del film
+    current_film.dubbers.map(function(dubber) {
+      dubbers_id.push(dubber.id);
     });
-    if(dubbersID.includes(dubberToAdd.id)) {
-      this.alertMessage = {
+    //
+
+    if(dubbers_id.includes(Number(dubber_id_toadd.id))) {
+      this.alert_message = {
         "text": "Dubber is already present. You can't add it!",
         "class": "danger",
         "display": true
       }
     } else {
-      currentFilm.dubbers.push(dubberToAdd);
-      this.filmService.update(currentFilm).subscribe();
-      /* Cicla tutti i dubber presenti nell'app. Poi controlla se l'id del dubber su cui stai ciclando
-      è uguale all'id del dubber che vuoi aggiungere.
-      Se SI fai un push dei dati del film all'interno dell'oggetto dubber*/
-      this.dubbers.map(function(dubber) {
-        if(dubber.id == dubberToAdd.id) {
-          dubber.film.push(objFilm);
-          dubberToAdd = dubber;
-        };
-      });
-      this.dubberService.update(dubberToAdd).subscribe(
+      console.log("non ancora presente");
+      current_film.dubbers.push(dubber_id_toadd);
+      let dubber_film = {
+        "film_id": this.id,
+        "dubber_id": dubber_id_toadd.id
+      };
+      this.filmService.createFilmDubbers(dubber_film).subscribe(
         data => {
-          this.alertMessage = {
-            "text": "Dubber has been added successfully!",
+          this.alert_message = {
+            "text": "Dubber has been created successfully!",
             "class": "success",
             "display": true
           }
         },
         err => {
-          this.alertMessage = {
+          this.alert_message = {
             "text": "Error occured!",
             "class": "danger",
             "display": true
           }
         }
       );
-      // end
     }
     //end
   }
@@ -166,15 +142,13 @@ export class FilmDetailsComponent implements OnInit {
       this.filmService.getById(this.id).subscribe(
         data => {
           this.film = data;
-          console.log(data);
         }
       );
     });
     this.dubberService.getAll().subscribe(
-      data => { this.dubbers = data; }
-    );
-    this.filmService.getAll().subscribe(
-      data => { this.films = data; }
+      data => {
+        this.dubbers = data;
+      }
     );
   }
 
