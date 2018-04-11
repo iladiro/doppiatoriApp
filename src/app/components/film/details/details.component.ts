@@ -24,6 +24,7 @@ export class FilmDetailsComponent implements OnInit {
   film: any;
   dubbers: Dubber[] = [];
   films: Film[] = [];
+  film_dubbers = [];
 
   private alertMessage = {
     "display": false,
@@ -73,28 +74,28 @@ export class FilmDetailsComponent implements OnInit {
 
   private deleteDubber(idDubber) {
     let currentFilm = this.film;
-    currentFilm.dubbers.map(function(dubber, index){
-      if(dubber.id == idDubber) {
-        currentFilm.dubbers.splice(index, 1);
-      }
-    });
-    this.filmService.update(this.film).subscribe();
+    // currentFilm.dubbers.map(function(dubber, index){
+    //   if(dubber.id == idDubber) {
+    //     currentFilm.dubbers.splice(index, 1);
+    //   }
+    // });
+    // this.filmService.update(this.film).subscribe();
 
 
     //Updating dubber object after event delete film
-    let idCurrentFilm = this.id;
-    let dubberObject;
-    this.dubbers.map(function(dubber) {
-      if(dubber.id == idDubber) {
-        dubber.film.map(function(film, index) {
-          if(film.id == idCurrentFilm) {
-            dubber.film.splice(index, 1)
-          }
-        })
-        dubberObject = dubber;
-      };
-    });
-    this.dubberService.update(dubberObject).subscribe();
+    // let idCurrentFilm = this.id;
+    // let dubberObject;
+    // this.dubbers.map(function(dubber) {
+    //   if(dubber.id == idDubber) {
+    //     dubber.film.map(function(film, index) {
+    //       if(film.id == idCurrentFilm) {
+    //         dubber.film.splice(index, 1)
+    //       }
+    //     })
+    //     dubberObject = dubber;
+    //   };
+    // });
+    // this.dubberService.update(dubberObject).subscribe();
   }
 
   private addDubberHasParticipated(form: NgForm) {
@@ -163,7 +164,10 @@ export class FilmDetailsComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.filmService.getById(this.id).subscribe(
-        data => { this.film = data; }
+        data => {
+          this.film = data;
+          console.log(data);
+        }
       );
     });
     this.dubberService.getAll().subscribe(

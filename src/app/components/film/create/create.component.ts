@@ -21,7 +21,6 @@ export class AddFilmComponent {
   id: number;
   dubbers: Dubber[] = [];
   status: string = "";
-  //loading = false;
 
   private alertMessage = {
     "display": false,
@@ -67,11 +66,11 @@ export class AddFilmComponent {
 
   private addFilmDubbersInRelationTable() {
     let film_id = this.id;
-    let dubbers = this.film.dubbers;
+    let dubbers_selected = this.film.dubbers;
     let film_dubbers = [];
 
     if(this.status == "ok") {
-      dubbers.map(function(dubber) {
+      dubbers_selected.map(function(dubber) {
         let object_pair = {
           "film_id": film_id,
           "dubber_id": dubber
