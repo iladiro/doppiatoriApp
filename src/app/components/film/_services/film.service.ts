@@ -35,8 +35,6 @@ export class FilmService {
     return this.http.delete(this.url_root + "?id=eq." + id);
   }
 
-
-
   update(film: Film) {
     return this.http.patch(this.url_root + "?id=eq." + film.id, film);
   }
@@ -54,6 +52,10 @@ export class FilmService {
 
   deleteFilmDubber(film_id: number, dubber_id: number) {
     return this.http.delete(this.url_relation_table + "?film_id=eq." + film_id + "&dubber_id=eq." + dubber_id);
+  }
+
+  deleteFilmFromReationTable(film_id: number) {
+    return this.http.delete(this.url_relation_table + "?film_id=eq." + film_id);
   }
 
 }

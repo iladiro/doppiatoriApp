@@ -14,9 +14,11 @@ import { FilmService } from '../_services/index';
 export class FilmListComponent implements OnInit {
 
   private current_film;
-  private DBTable:string = "films";
+  private DB_table:string = "films";
 
   films: Film[] = [];
+
+  private status:string = "";
 
   // Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
   dataForRequestSearchComp = {
@@ -25,10 +27,10 @@ export class FilmListComponent implements OnInit {
   };
   // end
 
-  private modalMessage = {
+  private modal_message = {
     "text": ""
   };
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
@@ -43,35 +45,52 @@ export class FilmListComponent implements OnInit {
   // end
 
   private passCurrentFilm(film) {
-    this.modalMessage.text = "Are you sure you want to delete it?";
+    this.modal_message.text = "Sei sicuro? La cancellazione del film comporta la rimozione di tutti i riferimenti a questo dato";
     this.current_film = film;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete(this.current_film);
+      this.deleteInRelationTable(this.current_film);
     }
   }
 
-  delete(film) {
+  private deleteInRelationTable(film) {
     let index = this.films.indexOf(film);
-    this.filmService.delete(film.id).subscribe(
+    let film_id = film.id;
+    this.filmService.deleteFilmFromReationTable(film.id).subscribe(
       data => {
         this.films.splice(index, 1);
-        this.alertMessage = {
+        this.alert_message = {
           "text": "It has been deleted successfully!",
           "class": "success",
           "display": true
-        }
+        };
+        this.status = "ok";
       },
       err => {
-        this.alertMessage = {
+        this.status = "ko";
+        this.alert_message = {
           "text": "Error occured!",
           "class": "danger",
           "display": true
         }
-      }
-    );
+      },
+      () => this.deleteFilm(film_id)
+    )
+  }
+
+  private deleteFilm(film) {
+    if(this.status == "ok") {
+      this.filmService.delete(film).subscribe(
+        data => {
+          console.log("ok")
+        },
+        err => {
+          console.log("ko")
+        }
+      );
+    }
   }
 
   private setFoundValueFromSearch(value){
