@@ -16,9 +16,12 @@ export class EditFormComponent implements OnInit {
   constructor(private dubberService: DubberService) { }
 
   private upDate(){
-    this.dubberService.update(this.dubber).subscribe(
+    let dubber_obj = Object.assign({}, this.dubber);
+    delete dubber_obj.films;
+
+    this.dubberService.update(dubber_obj).subscribe(
       data => {
-        this.event.emit({"text": "It has been updated successfully", "class": "success", "display": true});
+        this.event.emit({"text": "Aggiornato con successo!", "class": "success", "display": true});
       },
       err => {
         this.event.emit({"text": "Error", "class": "danger", "display": true});

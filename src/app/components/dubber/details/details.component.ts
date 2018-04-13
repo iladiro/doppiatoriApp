@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
-// Models
-import { Film } from '../../film/_models/index';
-
 // Services
 import { DubberService } from '../_services/index';
-import { FilmService } from '../../film/_services/index';
 
 @Component({
   templateUrl: './details.component.html',
@@ -15,16 +11,16 @@ import { FilmService } from '../../film/_services/index';
 
 export class DubberProfileComponent implements OnInit {
 
-  private currentFilm;
   id: number;
   private sub: any;
-  dubber: any;
-  films: Film[];
 
-  private modalMessage = {
+  dubber: any;
+  dubber_film: any;
+
+  private modal_message = {
     "text": ""
   };
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
@@ -32,87 +28,63 @@ export class DubberProfileComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dubberService: DubberService,
-    private filmService: FilmService
+    private dubberService: DubberService
   ) {}
 
   setMessage(message){
-    this.alertMessage = {
+    this.alert_message = {
       "text": message.text,
       "class": message.class,
       "display": message.display
     }
-    // this.alertMessage.text = message.text;
-    // this.alertMessage.class = message.class;
-    // this.alertMessage.display = message.display;
   }
 
   passCurrentFilm(film) {
-    this.modalMessage.text = "Are you sure you want to delete it?";
-    this.currentFilm = film;
+    this.modal_message.text = "Sei sicuro di volerlo cancellare?";
+    this.dubber_film = film;
   }
 
   setConfirm(data) {
     if(data == "true") {
-      this.deleteFilm(this.currentFilm.id);
+      this.deleteFilm(this.dubber_film.id);
     }
   }
 
-  private deleteFilm(idFilm) {
+  private deleteFilm(film_id) {
     // Cancella film dalla lista dei film del dubber corrente
-    let currentDubber = this.dubber;
-    currentDubber.film.map(function(film, index){
-      if(film.id == idFilm) {
-        currentDubber.film.splice(index, 1);
-      }
-    });
-    this.dubberService.update(this.dubber).subscribe(
-      data => {
-        this.alertMessage = {
-          "text": "It has been deleted successfully!",
-          "class": "success",
-          "display": true
+    let current_dubber = this.dubber;
+    this.dubberService.deleteFilmDubber(film_id, this.dubber.id).subscribe(
+        data => {
+          current_dubber.films.map(function(film, index){
+            if(film.id == film_id) {
+              current_dubber.films.splice(index, 1);
+            }
+          });
+          this.alert_message = {
+            "text": "Cancellato con successo!",
+            "class": "success",
+            "display": true
+          }
+        },
+        err => {
+          this.alert_message = {
+            "text": "Error occured!",
+            "class": "danger",
+            "display": true
+          }
         }
-      },
-      err => {
-        this.alertMessage = {
-          "text": "Error occured!",
-          "class": "danger",
-          "display": true
-        }
-      }
-    );
-    // end
-
-    // Cancella il dubber dal film che vuoi cancellare e aggiorna l'oggetto film
-    // let filmObject;
-    // this.films.forEach(function(film) {
-    //   if(film.id == idFilm) {
-    //     film.dubbers.map(function(dubber, index) {
-    //       film.dubbers.splice(index, 1);
-    //     });
-    //     filmObject = film;
-    //   }
-    // });
-    // this.filmService.update(filmObject).subscribe();
-    // end
-  }
-
-  getFirstChar(whichModel) {
-    let createAvatar = whichModel.name.charAt(0);
-    whichModel.avatar = createAvatar;
+    )
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
       this.dubberService.getById(this.id).subscribe(
-        data => { this.dubber = data; }
+        data => {
+          this.dubber = data;
+        }
       );
     });
-    this.filmService.getAll().subscribe(
-      data => { this.films = data; }
-    );
   }
 
 }

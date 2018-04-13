@@ -16,30 +16,28 @@ export class AddDubberComponent {
 
   constructor(private dubberService: DubberService) {}
 
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
   };
+
   dubbers: Dubber[];
-  new_dubber: any = {};
+  dubber: any = {};
 
   create(){
-    this.new_dubber.id = Math.floor((Math.random() * 1000000) + 1);
-    this.new_dubber.film = [];
-    this.new_dubber.invoices = [];
-    this.new_dubber.avatar = this.new_dubber.name.charAt(0);
-    let dubbersEmail = [];
+    this.dubber.avatar = this.dubber.name.charAt(0);
+    let dubbers_email = [];
 
     // Cicla per recuperare la mail di tutti i Dubber registrati
     for(let dubber of this.dubbers) {
-      dubbersEmail.push(dubber.email);
+      dubbers_email.push(dubber.email);
     }
     // end
 
     // Controlla prima se il dubber è già presente
-    if(dubbersEmail.includes(this.new_dubber.email)) {
-      this.alertMessage = {
+    if(dubbers_email.includes(this.dubber.email)) {
+      this.alert_message = {
         "text": "You can't add this user bacause this email is already used!",
         "class": "danger",
         "display": true
@@ -47,29 +45,17 @@ export class AddDubberComponent {
       return;
       // se non lo è aggiungilo
     } else {
-      this.dubberService.create(this.new_dubber).subscribe(
+      this.dubberService.create(this.dubber).subscribe(
         data => {
-          this.alertMessage = {
-            "text": "Film has been created successfully!",
+          this.alert_message = {
+            "text": "Dubber has been created successfully!",
             "class": "success",
             "display": true
           }
-          // this.new_dubber = {
-          //   "name": "",
-          //   "surname": "",
-          //   "fiscal_code": "",
-          //   "birth_date": "",
-          //   "birth_place": "",
-          //   "birth_county": "",
-          //   "email": "",
-          //   "phone": "",
-          //   "residence_place": "",
-          //   "residence_address": "",
-          //   "residence_country": ""
-          // };
+          //this.emptyForm()
         },
         err => {
-          this.alertMessage = {
+          this.alert_message = {
             "text": "Error occured!",
             "class": "danger",
             "display": true
@@ -78,6 +64,10 @@ export class AddDubberComponent {
       );
     };
   }
+
+  // emptyForm() {
+  //   document.getElementById("dubberForm").reset()
+  // }
 
   loadAllItems() {
     this.dubberService.getAll().subscribe(

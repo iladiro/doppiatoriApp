@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 // Services
 import { DubberService } from '../_services/index';
-import { FilmService } from '../../film/_services/index';
 
 // Models
 import { Dubber } from '../_models/index';
-import { Film } from '../../film/_models/index';
 
 @Component({
   templateUrl: './list.component.html',
@@ -15,29 +13,28 @@ import { Film } from '../../film/_models/index';
 
 export class DubbersListComponent implements OnInit {
 
-  private currentDubber;
+  private current_dubber;
   private DBTable:string = "dubbers";
 
-  dataForRequestSearchComp = {
+  data_for_request_search_comp = {
     "table": "dubbers",
     "parameter": "name"
   };
 
-  private modalMessage = {
+  private modal_message = {
     "text": ""
   };
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
   };
 
   dubbers: Dubber[] = [];
-  films: Film[] = [];
+  private status:string = "";
 
   constructor(
-    private dubberService: DubberService,
-    private filmService: FilmService
+    private dubberService: DubberService
   ) {}
 
   // Viene chiamata quando viene pushato il componente "paginator". che salva nell'ordine corretto la lista dei dubbers
@@ -54,8 +51,8 @@ export class DubbersListComponent implements OnInit {
 
   // Quando vuoi cancellare un elemento della lista chiami prima questa funzione, che salva i dati dell'oggetto da cancellare
   private passCurrentDubber(dubber) {
-    this.modalMessage.text = "Are you sure you want to delete it?";
-    this.currentDubber = dubber;
+    this.modal_message.text = "Sei sicura di volerlo cancellare?";
+    this.current_dubber = dubber;
   }
   // end
 
@@ -63,43 +60,49 @@ export class DubbersListComponent implements OnInit {
   private setConfirm(data) {
     // Se "true" viene chiamata la funzione delete
     if(data == "true") {
-      this.delete(this.currentDubber);
+      this.deleteInRelationTable(this.current_dubber);
     }
   }
 
-  delete(dubber) {
+  private deleteInRelationTable(dubber) {
     let index = this.dubbers.indexOf(dubber);
-    let filmDubbersID = [];
-    // for(let film of this.films) {
-    //   for(let dubber of film.dubbers) {
-    //     filmDubbersID.push(dubber.id);
-    //   }
-    // };
-    if(filmDubbersID.includes(dubber.id)) {
-      this.alertMessage = {
-        "text": "You can't delete it, because this dubber is using!",
-        "class": "danger",
-        "display": true
-      }
-    } else {
-      this.dubberService.delete(dubber.id).subscribe(
+    let dubber_id = dubber.id;
+    this.dubberService.deleteDubberFromReationTable(dubber.id).subscribe(
+      data => {
+        this.dubbers.splice(index, 1);
+        this.alert_message = {
+          "text": "Cancellato con successo!",
+          "class": "success",
+          "display": true
+        };
+        this.status = "ok";
+      },
+      err => {
+        this.status = "ko";
+        this.alert_message = {
+          "text": "Error occured!",
+          "class": "danger",
+          "display": true
+        }
+      },
+      () => this.deleteDubber(dubber_id)
+    )
+  }
+
+  private deleteDubber(dubber) {
+    if(this.status == "ok") {
+      this.dubberService.delete(dubber).subscribe(
         data => {
-          this.dubbers.splice(index, 1);
-          this.alertMessage = {
-            "text": "It has been deleted successfully!",
-            "class": "success",
-            "display": true
-          }
+          console.log("ok")
+        },
+        err => {
+          console.log("ko")
         }
       );
     }
   }
   // end
 
-  ngOnInit() {
-    this.filmService.getAll().subscribe(
-      data => { this.films = data; }
-    );
-  }
+  ngOnInit() {}
 
 }
