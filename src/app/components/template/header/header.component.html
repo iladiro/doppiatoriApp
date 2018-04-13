@@ -9,21 +9,21 @@
         <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
       <li class="nav-item" [class.active]="router.url==='/dubbers'">
-        <a class="nav-link" [routerLink]="['/dubbers']">Dubbers</a>
+        <a class="nav-link" [routerLink]="['/dubbers']">Doppiatori</a>
       </li>
-      <li class="nav-item" [class.active]="router.url==='/film'">
-        <a class="nav-link" [routerLink]="['/film']">Film</a>
+      <li class="nav-item" [class.active]="router.url==='/films'">
+        <a class="nav-link" [routerLink]="['/films']">Film</a>
       </li>
-      <ng-container *ngIf="current_user">
+      <li class="nav-item" [class.active]="router.url==='/companies'">
+        <a class="nav-link" [routerLink]="['/companies']">Aziende</a>
+      </li>
+      <!-- <ng-container *ngIf="current_user">
         <ng-container *ngIf="current_user.user_type == 'administrator'">
           <li class="nav-item" [class.active]="router.url==='/users'">
             <a class="nav-link" [routerLink]="['/users']">Users</a>
           </li>
-          <li class="nav-item" [class.active]="router.url==='/companies'">
-            <a class="nav-link" [routerLink]="['/companies']">Companies</a>
-          </li>
         </ng-container>
-      </ng-container>
+      </ng-container> -->
     </ul>
   </div>
 

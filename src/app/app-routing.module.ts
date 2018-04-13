@@ -71,12 +71,12 @@ const appRoutes: Routes = [
     component: DetailsInvoiceComponent
   },
   {
-    path: 'film',
+    path: 'films',
     component: FilmListComponent,
     data: { title: 'Film List' }
   },
   {
-    path: 'film/add',
+    path: 'films/add',
     component: AddFilmComponent,
     data: { title: 'Add new film' }
   },

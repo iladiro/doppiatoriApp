@@ -16,6 +16,8 @@ export class EditFormComponent implements OnInit {
   constructor(private dubberService: DubberService) { }
 
   private upDate(){
+    this.dubber.avatar = this.dubber.name.charAt(0);
+    
     let dubber_obj = Object.assign({}, this.dubber);
     delete dubber_obj.films;
 
