@@ -18,7 +18,7 @@ export class DubbersListComponent implements OnInit {
 
   data_for_request_search_comp = {
     "table": "dubbers",
-    "parameter": "name"
+    "parameter": ["name", "surname", "email", "fiscal_code", "gender"]
   };
 
   private modal_message = {

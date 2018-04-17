@@ -23,7 +23,7 @@ export class FilmListComponent implements OnInit {
   // Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
   dataForRequestSearchComp = {
     "table": "films",
-    "parameter": "title"
+    "parameters": ["title", "description"]
   };
   // end
 

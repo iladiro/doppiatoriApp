@@ -14,15 +14,16 @@ export class SearchFormComponent {
 
   @Input() setDataForRequest;
   @Output() results = new EventEmitter();
-  searchTerm$ = new Subject<string>();
 
   constructor(private searchService: SearchService) {}
 
-  ngOnInit() {
-    this.searchService.search(this.setDataForRequest, this.searchTerm$).subscribe(
+  getValue(value) {
+    this.searchService.buildUrl(this.setDataForRequest, value).subscribe(
       data => {
         this.results.emit(data)
       }
     );
   }
+
+  ngOnInit() {}
 }

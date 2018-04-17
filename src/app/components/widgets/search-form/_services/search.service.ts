@@ -1,32 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/switchMap';
 
 @Injectable()
 export class SearchService {
-  baseUrl: string = 'http://localhost:3000/';
-  queryUrl: string = '?';
+  base_url: string = 'http://localhost:3000/';
+  query_url: string = '?';
+  table: string = "";
 
   constructor(private http: HttpClient) { }
 
-  search(dataForRequest, terms: Observable<string>) {
-    this.baseUrl += dataForRequest.table;
-    this.queryUrl += dataForRequest.parameter + "=ilike.%";
-    //console.log(this.queryUrl);
-    return terms.debounceTime(400)
-      .distinctUntilChanged()
-      .switchMap(term => this.searchEntries(term));
+  buildUrl(dataForRequest, value) {
+    this.table = dataForRequest.table;
+    this.query_url = "?";
+    this.base_url = 'http://localhost:3000/';
+    if(value != "") {
+      this.base_url += dataForRequest.table;
+      let params = dataForRequest.parameters;
+      let array_params = [];
+      params.map(function(par) {
+        let string = par + ".ilike.%" + value + "%";
+        array_params.push(string);
+      });
+      this.query_url += "or=(" + array_params.join(",") + ")";
+      let url = this.base_url + this.query_url;
+      let results = this.sendSearch(url);
+      return results
+    } else {
+      let results = this.getAll()
+      return results
+    }
   }
 
-  searchEntries(term) {
-    return this.http.get(this.baseUrl + this.queryUrl + term + "%");
+  private sendSearch(url) {
+    return this.http.get(url);
   }
 
-  getAll() {
-    return this.http.get(this.baseUrl);
+  private getAll() {
+    return this.http.get(this.base_url + this.table);
   }
 }
