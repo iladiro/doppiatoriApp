@@ -7,7 +7,7 @@ import { Company } from '../_models/index';
 @Injectable()
 export class CompanyService {
 
-  private urlRoot = "http://localhost:3000/companies";
+  private url_root = "http://localhost:3000/companies";
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}
@@ -15,23 +15,23 @@ export class CompanyService {
   ngOnInit(): void {}
 
   getAll() {
-    return this.http.get<Company[]>(this.urlRoot);
+    return this.http.get<Company[]>(this.url_root);
   }
 
   getById(id: number) {
-    return this.http.get(this.urlRoot + "?id=eq." + id, {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?id=eq." + id, {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
   create(company: Company) {
-    return this.http.post(this.urlRoot, company);
+    return this.http.post(this.url_root, company);
   }
 
   delete(id: number) {
-    return this.http.delete(this.urlRoot + "?id=eq." + id);
+    return this.http.delete(this.url_root + "?id=eq." + id);
   }
 
   update(company: Company) {
-    return this.http.patch(this.urlRoot + "?id=eq." + company.id, company);
+    return this.http.patch(this.url_root + "?id=eq." + company.id, company);
   }
 
 }

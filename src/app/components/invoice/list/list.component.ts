@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+// Models
+import { Invoice } from '../_models/index';
+
 // Services
 import { DubberService } from '../../dubber/_services/index';
 import { InvoiceService } from '../_services/index';
@@ -11,7 +14,7 @@ import { InvoiceService } from '../_services/index';
 })
 export class InvoiceListComponent implements OnInit {
 
-  @Input() dataset: any;
+  @Input() dubber: any;
   @Output() event = new EventEmitter();
 
   constructor(
@@ -20,32 +23,32 @@ export class InvoiceListComponent implements OnInit {
   ) { }
 
   private delete(current_invoice, event) {
-    let current_dubber = this.dataset;
-    current_dubber.invoices.map(function(invoice, index){
-      if(invoice.id == current_invoice.id) {
-        current_dubber.invoices.splice(index, 1);
-      }
-    });
-    this.dubberService.update(current_dubber).subscribe(
+    let invoices_list = this.dubber.invoices;
+    this.invoiceService.delete(current_invoice.id).subscribe(
       data => {
+        invoices_list.map(function(invoice, index){
+          if(invoice.id == current_invoice.id) {
+            invoices_list.splice(index, 1);
+          }
+        });
         this.event.emit({
-          "text": "It has been canceled successfully",
+          "text": "Cancellato con successo!",
           "class": "success",
           "display": true
         });
       },
       err => {
         this.event.emit({
-          "text": "Error",
+          "text": "Errore",
           "class": "danger",
           "display": true
         });
       }
-    );
-    this.invoiceService.delete(current_invoice.id).subscribe();
+    )
   }
 
   ngOnInit() {
+    console.log(this.dubber)
   }
 
 }

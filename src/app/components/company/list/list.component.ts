@@ -18,7 +18,7 @@ export class CompanyListComponent implements OnInit {
 
   dataForRequestSearchComp = {
     "table": "companies",
-    "parameters": ["name", "vat", "address"]
+    "parameters": ["name", "address"]
   };
 
   private modalMessage = {

@@ -1,7 +1,7 @@
-<table class="table table--striped" *ngIf="dataset.invoices.length; else noInvoices">
+<table class="table table--striped" *ngIf="dubber.invoices; else noInvoices">
   <tbody>
-    <tr *ngFor="let invoice of dataset.invoices">
-      <td>Compenso per prestazione d'opera relativa al film <strong>{{invoice.movie}}</strong></td>
+    <tr *ngFor="let invoice of dubber.invoices">
+      <td>Compenso per prestazione d'opera relativa al film <strong>{{invoice.film}}</strong></td>
       <td class="text-right">
         <a [routerLink]="['/invoice', invoice.id]" class="btn btn--dark">
           <i class="fa fa-info" aria-hidden="true"></i>
@@ -17,5 +17,5 @@
   </tbody>
 </table>
 <ng-template #noInvoices>
-  <p class="alert alert-warning">There aren't associated invoices</p>
+  <p class="alert alert-warning">Non ci sono fatture associate</p>
 </ng-template>

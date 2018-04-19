@@ -8,7 +8,7 @@ import { Invoice } from '../_models/index';
 
 export class InvoiceService {
 
-  private urlRoot = "http://localhost:3000/invoices/";
+  private url_root = "http://localhost:3000/invoices";
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}
@@ -16,23 +16,27 @@ export class InvoiceService {
   ngOnInit(): void {}
 
   getAll() {
-    return this.http.get<Invoice[]>(this.urlRoot);
+    return this.http.get<Invoice[]>(this.url_root);
   }
+
+  // getById(id: number) {
+  //   return this.http.get(this.url_root + "?id=eq." + id);
+  // }
 
   getById(id: number) {
-    return this.http.get(this.urlRoot + id);
+    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,dubber:dubbers(*),company:companies(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
-  create(invoice) {
-    return this.http.post(this.urlRoot, invoice);
+  create(invoice: Invoice) {
+    return this.http.post(this.url_root, invoice);
   }
 
   delete(id: number) {
-    return this.http.delete(this.urlRoot + id);
+    return this.http.delete(this.url_root + "?id=eq." + id);
   }
 
   update(invoice) {
-    return this.http.put(this.urlRoot + invoice.id, invoice);
+    return this.http.put(this.url_root + invoice.id, invoice);
   }
 
 }

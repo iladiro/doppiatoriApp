@@ -8,6 +8,8 @@ import { Invoice } from '../_models/index';
 
 // Services
 import { InvoiceService } from '../_services/index';
+import { CompanyService } from '../../company/_services/index';
+
 
 @Component({
   templateUrl: './details.component.html',
@@ -25,6 +27,7 @@ export class DetailsInvoiceComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private invoiceService: InvoiceService,
+    private companyService: CompanyService,
     @Inject('Window') private window: Window
   ) { }
 
@@ -42,7 +45,9 @@ export class DetailsInvoiceComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.invoiceService.getById(this.id).subscribe(
-        data => { this.invoice = data; }
+        data => {
+          this.invoice = data;
+        }
       );
     });
   }

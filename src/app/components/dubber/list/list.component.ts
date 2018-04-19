@@ -16,9 +16,9 @@ export class DubbersListComponent implements OnInit {
   private current_dubber;
   private DBTable:string = "dubbers";
 
-  data_for_request_search_comp = {
+  dataForRequestSearchComp = {
     "table": "dubbers",
-    "parameter": ["name", "surname", "email", "fiscal_code", "gender"]
+    "parameters": ["name", "surname"]
   };
 
   private modal_message = {

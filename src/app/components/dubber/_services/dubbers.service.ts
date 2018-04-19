@@ -21,7 +21,7 @@ export class DubberService {
   }
 
   getById(id: number) {
-    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,films:films(id,title)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
   create(dubber: Dubber) {

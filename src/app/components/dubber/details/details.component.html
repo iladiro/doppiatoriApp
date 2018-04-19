@@ -49,8 +49,8 @@
               </ng-template>
             </div>
             <div class="tab-pane" id="invoices" role="tabpanel">
-              <!-- <invoiceList [dataset]="this.dubber" (event)="setMessage($event)"></invoiceList>
-              <formInvoice [dataset]="this.dubber" (event)="setMessage($event)"></formInvoice> -->
+              <invoiceList [dubber]="this.dubber" (event)="setMessage($event)"></invoiceList>
+              <formInvoice [dubber]="this.dubber" (event)="setMessage($event)"></formInvoice>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@
   <nav class="clearfix mb-3">
     <div class="row">
       <div class="col">
-        <search-form [setDataForRequest]="data_for_request_search_comp" (results)="setFoundValueFromSearch($event)"></search-form>
+        <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
       </div>
       <div class="align-middle col text-right">
         <a [routerLink]="['/dubbers/add']" class="btn btn--light">Add Dubber</a>
