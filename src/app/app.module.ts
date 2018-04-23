@@ -46,6 +46,7 @@ import { PaginatorComponent } from './components/widgets/paginator/paginator.com
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
+import { QualificationComponent } from './components/settings/qualification/qualification.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     CompanyCreateComponent,
     CompanyListComponent,
     CompanyDetailsComponent,
-    SidebarComponent
+    SidebarComponent,
+    QualificationComponent
   ],
   imports: [
     BrowserModule,
