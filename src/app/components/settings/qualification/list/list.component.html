@@ -1,0 +1,51 @@
+<div class="container">
+  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
+  <nav class="row mb-3">
+    <div class="col">
+      <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/settings/qualifications/add']" class="btn btn--light">Aggiungi qualificazione</a>
+    </div>
+  </nav>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <table class="table table--striped">
+        <thead class="thead--dark">
+          <tr>
+            <th>Codice</th>
+            <th>Descrizione</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let qualification of qualifications">
+            <td>{{qualification.code}}</td>
+            <td>{{qualification.description}}</td>
+            <td class="text-right">
+              <a [routerLink]="['/settings/qualification', qualification.id]" class="btn btn--dark">
+                <i class="fa fa-info" aria-hidden="true"></i>
+              </a>
+              <a [routerLink]="['/settings/qualification', qualification.id]" class="btn btn--dark">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <button (click)="passCurrentItem(qualification)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <paginator (pagedItems)="datasetFromPaginator($event)" [DBtable]="DB_table"></paginator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <back-button></back-button>
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/settings/qualifications/add']" class="btn btn--light">Aggiungi qualificazione</a>
+    </div>
+  </div>
+</div>

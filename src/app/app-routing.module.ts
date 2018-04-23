@@ -19,6 +19,10 @@ import { CompanyCreateComponent } from './components/company/create/create.compo
 import { CompanyListComponent } from './components/company/list/list.component';
 import { CompanyDetailsComponent } from './components/company/details/details.component';
 
+import { QualificationCreateComponent } from './components/settings/qualification/create/create.component';
+import { QualificationListComponent } from './components/settings/qualification/list/list.component';
+import { QualificationDetailsComponent } from './components/settings/qualification/details/details.component';
+
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
@@ -97,6 +101,20 @@ const appRoutes: Routes = [
   {
     path: 'company/:id',
     component: CompanyDetailsComponent
+  },
+  {
+    path: 'settings/qualifications/add',
+    component: QualificationCreateComponent,
+    data: { title: 'Add new qualification' }
+  },
+  {
+    path: 'settings/qualifications',
+    component: QualificationListComponent,
+    data: { title: 'Qualification list' }
+  },
+  {
+    path: 'settings/qualification/:id',
+    component: QualificationDetailsComponent
   },
   // otherwise redirect to home
   // {

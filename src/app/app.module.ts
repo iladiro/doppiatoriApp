@@ -11,6 +11,7 @@ import { CompanyService } from './components/company/_services/index';
 import { InvoiceService } from './components/invoice/_services/index';
 import { PagerService } from './components/widgets/paginator/_services/index';
 import { UserService } from './components/user/_services/index';
+import { QualificationService } from './components/settings/qualification/_services/index';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -23,6 +24,10 @@ import { EditFormComponent } from './components/dubber/details/edit-form/edit-fo
 import { CompanyCreateComponent } from './components/company/create/create.component';
 import { CompanyListComponent } from './components/company/list/list.component';
 import { CompanyDetailsComponent } from './components/company/details/details.component';
+
+import { QualificationCreateComponent } from './components/settings/qualification/create/create.component';
+import { QualificationListComponent } from './components/settings/qualification/list/list.component';
+import { QualificationDetailsComponent } from './components/settings/qualification/details/details.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -46,7 +51,7 @@ import { PaginatorComponent } from './components/widgets/paginator/paginator.com
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
-import { QualificationComponent } from './components/settings/qualification/qualification.component';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +81,9 @@ import { QualificationComponent } from './components/settings/qualification/qual
     CompanyListComponent,
     CompanyDetailsComponent,
     SidebarComponent,
-    QualificationComponent
+    QualificationCreateComponent,
+    QualificationListComponent,
+    QualificationDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +98,8 @@ import { QualificationComponent } from './components/settings/qualification/qual
     InvoiceService,
     UserService,
     PagerService,
-    CompanyService
+    CompanyService,
+    QualificationService
   ],
   bootstrap: [AppComponent]
 })
