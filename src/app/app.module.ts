@@ -7,10 +7,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // Services
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { FilmService } from './components/film/_services/index';
-import { CompanyService } from './components/company/_services/index';
 import { InvoiceService } from './components/invoice/_services/index';
 import { PagerService } from './components/widgets/paginator/_services/index';
 import { UserService } from './components/user/_services/index';
+import { CompanyService } from './components/settings/company/_services/index';
 import { QualificationService } from './components/settings/qualification/_services/index';
 
 import { AppComponent } from './app.component';
@@ -21,10 +21,9 @@ import { DubberProfileComponent } from './components/dubber/details/details.comp
 import { AddDubberComponent } from './components/dubber/create/create.component';
 import { EditFormComponent } from './components/dubber/details/edit-form/edit-form.component';
 
-import { CompanyCreateComponent } from './components/company/create/create.component';
-import { CompanyListComponent } from './components/company/list/list.component';
-import { CompanyDetailsComponent } from './components/company/details/details.component';
-
+import { CompanyCreateComponent } from './components/settings/company/create/create.component';
+import { CompanyListComponent } from './components/settings/company/list/list.component';
+import { CompanyDetailsComponent } from './components/settings/company/details/details.component';
 import { QualificationCreateComponent } from './components/settings/qualification/create/create.component';
 import { QualificationListComponent } from './components/settings/qualification/list/list.component';
 import { QualificationDetailsComponent } from './components/settings/qualification/details/details.component';

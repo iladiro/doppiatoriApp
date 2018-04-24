@@ -15,10 +15,9 @@ import { DetailsUserComponent } from './components/user/details/details.componen
 
 import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
 
-import { CompanyCreateComponent } from './components/company/create/create.component';
-import { CompanyListComponent } from './components/company/list/list.component';
-import { CompanyDetailsComponent } from './components/company/details/details.component';
-
+import { CompanyCreateComponent } from './components/settings/company/create/create.component';
+import { CompanyListComponent } from './components/settings/company/list/list.component';
+import { CompanyDetailsComponent } from './components/settings/company/details/details.component';
 import { QualificationCreateComponent } from './components/settings/qualification/create/create.component';
 import { QualificationListComponent } from './components/settings/qualification/list/list.component';
 import { QualificationDetailsComponent } from './components/settings/qualification/details/details.component';
@@ -89,21 +88,21 @@ const appRoutes: Routes = [
     component: FilmDetailsComponent
   },
   {
-    path: 'company/add',
+    path: 'settings/company/add',
     component: CompanyCreateComponent,
     data: { title: 'Add new company' }
   },
   {
-    path: 'companies',
+    path: 'settings/companies',
     component: CompanyListComponent,
     data: { title: 'Company List' }
   },
   {
-    path: 'company/:id',
+    path: 'settings/company/:id',
     component: CompanyDetailsComponent
   },
   {
-    path: 'settings/qualifications/add',
+    path: 'settings/qualification/add',
     component: QualificationCreateComponent,
     data: { title: 'Add new qualification' }
   },

@@ -1,0 +1,52 @@
+// @import "../../../../assets/stylesheet/mixin/custom-mixin";
+// @import '../../../../assets/stylesheet/widgets/variables';
+//
+// .itemsList {
+//   margin-bottom: 40px;
+//   &__header {
+//     //color: #dadadb;
+//     &.row {
+//       margin-left: 0;
+//       margin-right: 0;
+//     }
+//     .col {
+//       padding-top: 15px;
+//       padding-bottom: 15px;
+//       background-color: white;
+//     }
+//   }
+//   &__body {
+//     &-row {
+//       @include border(1px, transparent);
+//       &.row {
+//         margin-left: 0;
+//         margin-right: 0;
+//       }
+//       &:nth-child(odd) {
+//         background-color: #fbfbfb;
+//       }
+//       &:nth-child(even) {
+//         background-color: white;
+//       }
+//       .col {
+//         padding-top: 10px;
+//         padding-bottom: 10px;
+//         color: #7F7F84;
+//       }
+//       &:hover {
+//         @include transition(all 0.3s ease-out);
+//         @include border(1px, red);
+//       }
+//     }
+//   }
+//   &__avatar {
+//     border-radius: 50%;
+//     @include size(40px, 40px);
+//     background: linear-gradient(135deg, rgb(7, 167, 227) 0%, rgb(50, 218, 195) 100%);
+//     color: white;
+//     display: inline-block;
+//     line-height: 40px;
+//     text-align: center;
+//     text-transform: uppercase;
+//   }
+// }

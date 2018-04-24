@@ -3,7 +3,7 @@ import {NgForm} from '@angular/forms';
 
 // Services
 import { InvoiceService } from '../_services/index';
-import { CompanyService } from '../../company/_services/index';
+import { CompanyService } from '../../settings/company/_services/index';
 
 @Component({
   selector: 'formInvoice',
