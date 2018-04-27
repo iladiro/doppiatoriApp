@@ -46,7 +46,7 @@ export class AddFilmComponent {
         let result = str.match(patt);
         this.id = Number(result[0]);
         this.alertMessage = {
-          "text": "Film has been created successfully!",
+          "text": "L'operazione è andata a buon fine!",
           "class": "success",
           "display": true
         }
@@ -55,7 +55,7 @@ export class AddFilmComponent {
       err => {
         this.status = "ko";
         this.alertMessage = {
-          "text": "Error occured!",
+          "text": "Si è verificato un errore!",
           "class": "danger",
           "display": true
         }

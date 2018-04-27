@@ -7,7 +7,7 @@
         <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
       </div>
       <div class="align-middle col text-right">
-        <a [routerLink]="['/dubbers/add']" class="btn btn--light">Add Dubber</a>
+        <a [routerLink]="['/dubbers/add']" class="btn btn--light">Aggiungi nuovo</a>
       </div>
     </div>
   </nav>
@@ -17,11 +17,11 @@
         <thead class="thead--dark">
           <tr>
             <th></th>
-            <th>Name</th>
-            <th>Birth of place</th>
-            <th>Date birth</th>
+            <th>N0me</th>
+            <th>Luogo di nascita</th>
+            <th>Data di nascita</th>
             <th>Email</th>
-            <th>Phone</th>
+            <th>Cellulare</th>
             <th></th>
           </tr>
         </thead>
@@ -32,7 +32,7 @@
             <td class="text-capitalize">{{dubber.birth_place}}</td>
             <td>{{dubber.birth_date}}</td>
             <td>{{dubber.email}}</td>
-            <td>{{dubber.phone}}</td>
+            <td>{{dubber.mobile_phone}}</td>
             <td class="text-right">
               <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
                 <i class="fa fa-info" aria-hidden="true"></i>
@@ -55,7 +55,7 @@
       <back-button></back-button>
     </div>
     <div class="col text-right">
-      <a [routerLink]="['/dubber/add']" class="btn btn--light">Add dubber</a>
+      <a [routerLink]="['/dubber/add']" class="btn btn--light">Aggiungi nuovo</a>
     </div>
   </div>
 </div>

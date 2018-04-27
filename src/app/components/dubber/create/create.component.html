@@ -4,104 +4,168 @@
     <div class="generalCard__body">
       <form id="dubberForm" name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate class="form--light">
         <fieldset class="pl-0 pr-0">
-          <legend>Personal information:</legend>
-          <div class="row">
-            <div class="col-md-3 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !name.valid }">
-                <label for="name">Nome</label>
-                <input id="name" type="text" class="form-control" placeholder="Nome" [(ngModel)]="dubber.name" name="name" #name="ngModel" required>
-                <div *ngIf="f.submitted && !name.valid" class="is-invalid">Nome field is required</div>
-              </div>
+          <legend>Informazioni personali:</legend>
+          <div class="form-row">
+            <div class="col-sm-5 mb-3">
+              <label for="name">Nome</label>
+              <input type="text" id="name" class="form-control text-capitalize" placeholder="First name" [(ngModel)]="dubber.name" name="name" #name="ngModel" required>
+              <div *ngIf="f.submitted && !name.valid" class="is-invalid">Campo errato</div>
             </div>
-            <div class="col-md-3 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !surname.valid }">
-                <label for="surname">Cognome</label>
-                <input id="surname" type="text" class="form-control" placeholder="Cognome" [(ngModel)]="dubber.surname" name="surname" #surname="ngModel" required>
-                <div *ngIf="f.submitted && !surname.valid" class="is-invalid">Cognome field is required</div>
-              </div>
+            <div class="col-sm-5 mb-3">
+              <label for="surname">Cognome</label>
+              <input type="text" id="surname" class="form-control text-capitalize" placeholder="Last name" [(ngModel)]="dubber.surname" name="surname" #surname="ngModel" required>
+              <div *ngIf="f.submitted && !surname.valid" class="is-invalid">Campo errato</div>
             </div>
-            <div class="col-md-4 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !fiscal_code.valid }">
-                <label for="fiscal_code">Codice fiscale</label>
-                <input id="fiscal_code" type="text" class="form-control" placeholder="Codice fiscale" [(ngModel)]="dubber.fiscal_code" name="fiscal_code" #fiscal_code="ngModel" required pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$">
-                <div *ngIf="f.submitted && !fiscal_code.valid" class="is-invalid">Codice fiscale field is required</div>
-              </div>
+            <div class="col-sm-2 mb-3">
+              <label for="gender">Sesso</label>
+              <select class="form-control" name="gender" [(ngModel)]="dubber.gender" #gender="ngModel" required>
+                <option value="F">Femmina</option>
+                <option value="M">Maschio</option>
+              </select>
             </div>
-            <div class="col-md-2 mb-3">
-              <div class="form-group">
-                <label for="gender">Sesso</label>
-                <select name="gender" class="form-control" [(ngModel)]="dubber.gender">
-                  <option value="female">
-                    Femmina
-                  </option>
-                  <option value="male">
-                    Maschio
-                  </option>
-                </select>
-              </div>
+            <div class="col-sm-6 mb-3">
+              <label for="fiscal_code">Codice fiscale</label>
+              <input type="text" id="fiscal_code" class="form-control text-uppercase" placeholder="Codice fiscale" [(ngModel)]="dubber.fiscal_code" name="fiscal_code" #fiscal_code="ngModel" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$" required>
+              <div *ngIf="f.submitted && !fiscal_code.valid" class="is-invalid">Campo errato</div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !birth_date.valid }">
-                <label for="birth_date">Data di nascita</label>
-                <input id="birth_date" type="text" class="form-control" placeholder="GG/MM/AAAA" [(ngModel)]="dubber.birth_date" name="birth_date" #birth_date="ngModel">
-                <div *ngIf="f.submitted && !birth_date.valid" class="is-invalid">Data di nascita field is required</div>
-              </div>
+            <div class="col-sm-6 mb-3">
+              <label for="nationality">Nazionalità</label>
+              <input type="text" id="nationality" class="form-control" placeholder="Nazionalità" [(ngModel)]="dubber.nationality" name="nationality" #nationality="ngModel" required>
+              <div *ngIf="f.submitted && !nationality.valid" class="is-invalid">Campo errato</div>
             </div>
-            <div class="col-md-4 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !birth_place.valid }">
-                <label for="birth_place">Luogo di nascita</label>
-                <input id="birth_place" type="text" class="form-control" placeholder="Luogo di nascita" [(ngModel)]="dubber.birth_place" name="birth_place" #birth_place="ngModel">
-                <div *ngIf="f.submitted && !birth_place.valid" class="is-invalid">Place of birth field is required</div>
-              </div>
+            <div class="col-sm-4 mb-3">
+              <label for="birth_date">Data di nascita</label>
+              <input type="text" id="birth_date" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="dubber.birth_date" name="birth_date" #birth_date="ngModel" required>
+              <div *ngIf="f.submitted && !birth_date.valid" class="is-invalid">Campo errato</div>
             </div>
-            <div class="col-md-4 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !birth_county.valid }">
-                <label for="birth_county">Paese di nascita</label>
-                <input id="birth_county" type="text" class="form-control" placeholder="Paese di nascita" [(ngModel)]="dubber.birth_county" name="birth_county" #birth_county="ngModel">
-                <div *ngIf="f.submitted && !birth_county.valid" class="is-invalid">Country of birth field is required</div>
-              </div>
+            <div class="col-sm-4 mb-3">
+              <label for="birth_place">Luogo di nascita</label>
+              <input type="text" id="birth_place" class="form-control text-capitalize" placeholder="Città" [(ngModel)]="dubber.birth_place" name="birth_place" #birth_place="ngModel" required>
+              <div *ngIf="f.submitted && !birth_place.valid" class="is-invalid">Campo errato</div>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <label for="birth_province">Provincia di nascita</label>
+              <input type="text" id="birth_province" class="form-control text-capitalize" placeholder="Provincia" [(ngModel)]="dubber.birth_province" name="birth_province" #birth_province="ngModel" required maxlength="2">
+              <div *ngIf="f.submitted && !birth_province.valid" class="is-invalid">Campo errato</div>
             </div>
           </div>
         </fieldset>
         <fieldset class="pl-0 pr-0">
           <legend>Informazioni fiscali:</legend>
-          <div class="row">
+          <h5>Residenza</h5>
+          <div class="form-row">
             <div class="col-md-4 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !residence_place.valid }">
-                <label for="residence_place">Residenza</label>
-                <input id="residence_place" type="text" class="form-control" placeholder="Residenza" [(ngModel)]="dubber.residence_place" name="residence_place" #residence_place="ngModel" required>
-                <div *ngIf="f.submitted && !residence_place.valid" class="is-invalid">Place of residence field is required</div>
+              <div class="form-group">
+                <label for="residence_city">Città</label>
+                <input id="residence_city" type="text" class="form-control" placeholder="Città" [(ngModel)]="address.residence_city" name="residence_city" #residence_city="ngModel" required>
+                <div *ngIf="f.submitted && !residence_city.valid" class="is-invalid">Campo errato</div>
               </div>
             </div>
             <div class="col-md-4 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !residence_address.valid }">
+              <div class="form-group">
                 <label for="residence_address">Indirizzo</label>
-                <input id="residence_address" type="text" class="form-control" placeholder="Indirizzo" [(ngModel)]="dubber.residence_address" name="residence_address" #residence_address="ngModel" required>
-                <div *ngIf="f.submitted && !residence_address.valid" class="is-invalid">Address field is required</div>
+                <input id="residence_address" type="text" class="form-control" placeholder="Indirizzo" [(ngModel)]="address.residence_address" name="residence_address" #residence_address="ngModel" required>
+                <div *ngIf="f.submitted && !residence_address.valid" class="is-invalid">Campo errato</div>
               </div>
             </div>
             <div class="col-md-4 mb-3">
-              <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !residence_country.valid }">
-                <label for="residence_country">Stato</label>
-                <input id="residence_country" type="text" class="form-control" placeholder="Stato" [(ngModel)]="dubber.residence_country" name="residence_country" #residence_country="ngModel">
-                <div *ngIf="f.submitted && !residence_country.valid" class="is-invalid">Country of residence field is required</div>
+              <div class="form-group">
+                <label for="residence_postcode">Cap</label>
+                <input id="residence_postcode" type="text" class="form-control" placeholder="Cap" [(ngModel)]="address.residence_postcode" name="residence_postcode" #residence_postcode="ngModel" required>
+                <div *ngIf="f.submitted && !residence_postcode.valid" class="is-invalid">Campo errato</div>
               </div>
+            </div>
+          </div>
+          <h5>Domicilio</h5>
+          <div class="form-row">
+            <div class="col-sm-12 col-md-4 mb-3">
+              <label for="home_city">Città</label>
+              <input id="home_city" type="text" class="form-control text-capitalize" placeholder="Città" [(ngModel)]="address.home_city" name="home_city" #home_city="ngModel" required>
+              <div *ngIf="f.submitted && !home_city.valid" class="is-invalid">Campo errato</div>
+            </div>
+            <div class="col-sm-12 col-md-4 mb-3">
+              <label for="home_address">Indirizzo</label>
+              <input id="home_address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="address.home_address" name="home_address" #home_address="ngModel" required>
+              <div *ngIf="f.submitted && !home_address.valid" class="is-invalid">Campo errato</div>
+            </div>
+            <div class="col-sm-12 col-md-4 mb-3">
+              <label for="home_postcode">Cap</label>
+              <input id="home_postcode" type="text" class="form-control text-capitalize" placeholder="Cap" [(ngModel)]="address.home_postcode" name="home_postcode" #home_postcode="ngModel" required>
+              <div *ngIf="f.submitted && !home_postcode.valid" class="is-invalid">Campo errato</div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="pl-0 pr-0">
+          <legend>Qualifica:</legend>
+          <div class="form-group">
+            <select id="qualification" class="form-control" [(ngModel)]="dubber.qualification" name="qualification" #qualification="ngModel">
+              <option *ngFor="let qualification of qualifications" value="{{qualification.code}}">
+                {{qualification.description}}
+              </option>
+            </select>
+          </div>
+        </fieldset>
+        <fieldset class="pl-0 pr-0">
+          <legend>Partita Iva:</legend>
+          <div class="form-group">
+            <input id="vat" type="text" class="form-control text-capitalize" placeholder="Codice" [(ngModel)]="dubber.vat" name="vat" #vat="ngModel" required>
+            <div *ngIf="f.submitted && !vat.valid" class="is-invalid">Campo errato</div>
+          </div>
+        </fieldset>
+        <fieldset class="pl-0 pr-0">
+          <legend>Dati Bancari:</legend>
+          <div class="form-row">
+            <div class="col-sm-12 col-md-6 mb-3">
+              <label for="bank_name">Nome Banca</label>
+              <input id="bank_name" type="text" class="form-control text-capitalize" placeholder="Nome Banca" [(ngModel)]="bank.bank_name" name="bank_name" #bank_name="ngModel" required>
+              <div *ngIf="f.submitted && !bank_name.valid" class="is-invalid">Campo errato</div>
+            </div>
+            <div class="col-sm-12 col-md-6 mb-3">
+              <label for="bank_agency">Agenzia</label>
+              <input id="bank_agency" type="text" class="form-control text-capitalize" placeholder="Agenzia" [(ngModel)]="bank.bank_agency" name="bank_agency" #bank_agency="ngModel" required>
+              <div *ngIf="f.submitted && !bank_agency.valid" class="is-invalid">Campo errato</div>
+            </div>
+            <div class="col-sm-12 col-md-4 mb-3">
+              <label for="bank_account">Conto Corrente</label>
+              <input id="bank_account" type="text" class="form-control text-capitalize" placeholder="C/C" [(ngModel)]="bank.bank_account" name="bank_account" #bank_account="ngModel" required>
+              <div *ngIf="f.submitted && !bank_account.valid" class="is-invalid">Campo errato</div>
+            </div>
+            <div class="col-sm-12 col-md-4 mb-3">
+              <label for="abi">ABI</label>
+              <input id="abi" type="text" class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="bank.abi" name="abi" #abi="ngModel" required>
+              <div *ngIf="f.submitted && !abi.valid" class="is-invalid">Campo errato</div>
+            </div>
+            <div class="col-sm-12 col-md-4 mb-3">
+              <label for="cab">CAB</label>
+              <input id="cab" type="text" class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="bank.cab" name="cab" #cab="ngModel" required>
+              <div *ngIf="f.submitted && !cab.valid" class="is-invalid">Campo errato</div>
             </div>
           </div>
         </fieldset>
         <fieldset class="pl-0 pr-0">
           <legend>Contatti:</legend>
-          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !email.valid }">
-            <label>Email</label>
-            <input id="email" type="email" class="form-control" placeholder="Email" [(ngModel)]="dubber.email" name="email" #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-            <div *ngIf="f.submitted && !email.valid" class="is-invalid">Email field is required</div>
-          </div>
-          <div class="form-group" [ngClass]="{ 'border-warning': f.submitted && !phone.valid }">
-            <label>Telefono</label>
-            <input id="phone" type="phone" class="form-control" placeholder="Telefono" [(ngModel)]="dubber.phone" name="phone" #phone="ngModel" required pattern="[0-9]+">
-            <div *ngIf="f.submitted && !phone.valid" class="is-invalid">Phone field is required</div>
+          <div class="form-row">
+            <div class="col-sm-4 mb-3">
+              <div class="form-group">
+                <label>Email</label>
+                <input id="email" type="email" class="form-control" placeholder="Email" [(ngModel)]="dubber.email" name="email" #email="ngModel" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <div *ngIf="f.submitted && !email.valid" class="is-invalid">Campo errato</div>
+              </div>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <div class="form-group">
+                <label>Telefono</label>
+                <input id="phone" type="phone" class="form-control" placeholder="Telefono" [(ngModel)]="dubber.phone" name="phone" #phone="ngModel" required pattern="[0-9]+">
+                <div *ngIf="f.submitted && !phone.valid" class="is-invalid">Campo errato</div>
+              </div>
+            </div>
+            <div class="col-sm-4 mb-3">
+              <div class="form-group">
+                <label for="mobile_phone">Cellulare</label>
+                <input type="phone" id="mobile_phone" class="form-control" placeholder="Cellulare" [(ngModel)]="dubber.mobile_phone" name="mobile_phone" required #mobile_phone="ngModel" pattern="[0-9]+" maxlength="10">
+                <div *ngIf="f.submitted && !mobile_phone.valid" class="is-invalid">Campo errato</div>
+              </div>
+            </div>
           </div>
         </fieldset>
         <div class="row mt-30 mb-20">
@@ -110,7 +174,6 @@
           </div>
           <div class="col text-right">
             <button type="submit" class="btn btn-outline-success">Crea</button>
-            <!-- <button *ngIf="f.submitted" (click)="emptyForm()" class="btn btn-outline-success">Svuota</button> -->
           </div>
         </div>
       </form>

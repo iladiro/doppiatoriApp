@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 // Models
 import { Dubber } from '../_models/index';
@@ -24,8 +25,12 @@ export class DubberService {
     return this.http.get(this.url_root + "?id=eq." + id + "&select=*,films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
-  create(dubber: Dubber) {
-    return this.http.post(this.url_root, dubber);
+  // create(dubber: Dubber) {
+  //   return this.http.post(this.url_root, dubber);
+  // }
+
+  create(dubber: Dubber): Observable<HttpResponse<any>> {
+    return this.http.post(this.url_root, dubber, { observe: 'response' });
   }
 
   delete(id: number) {
