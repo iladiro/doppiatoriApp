@@ -22,12 +22,8 @@ export class DubberService {
   }
 
   getById(id: number) {
-    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,addresses:addresses(*),banks:banks(*),films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
-
-  // create(dubber: Dubber) {
-  //   return this.http.post(this.url_root, dubber);
-  // }
 
   create(dubber: Dubber): Observable<HttpResponse<any>> {
     return this.http.post(this.url_root, dubber, { observe: 'response' });
@@ -51,4 +47,6 @@ export class DubberService {
   deleteDubberFromReationTable(dubber_id: number) {
     return this.http.delete(this.url_relation_table + "?dubber_id=eq." + dubber_id);
   }
+
+  /*-------------------------------------------------------------------------*/
 }
