@@ -7,6 +7,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // Services
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { BankService } from './components/dubber/_services/bank.service';
+import { HomeAddressService } from './components/dubber/_services/home-address.service';
+import { ResidenceAddressService } from './components/dubber/_services/residence-address.service';
 import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/invoice/_services/index';
 import { PagerService } from './components/widgets/paginator/_services/index';
@@ -104,7 +106,9 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     PagerService,
     CompanyService,
     QualificationService,
-    BankService
+    BankService,
+    HomeAddressService,
+    ResidenceAddressService
   ],
   bootstrap: [AppComponent]
 })

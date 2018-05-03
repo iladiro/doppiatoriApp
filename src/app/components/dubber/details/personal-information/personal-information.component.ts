@@ -38,6 +38,7 @@ export class DubberPersonalInformationComponent implements OnInit {
   }
 
   ngOnInit() {
+    //console.log(this.dubber);
     this.banks = this.dubber.banks;
     this.addresses = this.dubber.addresses;
   }
