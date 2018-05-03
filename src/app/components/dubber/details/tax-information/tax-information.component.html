@@ -1,0 +1,58 @@
+<form name="form" (ngSubmit)="f.form.valid && upDate()" #f="ngForm" novalidate class="form--light"  *ngFor="let address of dubber.addresses">
+  <h5>Residenza</h5>
+  <fieldset class="pl-0 pr-0">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <div class="form-group">
+          <label for="residence_place">Residenza</label>
+          <input id="residence_place" type="text" class="form-control" placeholder="Residenza" [(ngModel)]="address.residence_city" name="residence_place" #residence_place="ngModel" required>
+          <div *ngIf="f.submitted && !residence_place.valid" class="is-invalid">Campo errato</div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="form-group">
+          <label for="residence_address">Indirizzo</label>
+          <input id="residence_address" type="text" class="form-control" placeholder="Indirizzo" [(ngModel)]="address.residence_address" name="residence_address" #residence_address="ngModel" required>
+          <div *ngIf="f.submitted && !residence_address.valid" class="is-invalid">Campo errato</div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="form-group">
+          <label for="residence_postcode">Cap</label>
+          <input id="residence_postcode" type="text" class="form-control" placeholder="Cap" [(ngModel)]="address.residence_postcode" name="residence_postcode" #residence_postcode="ngModel" required>
+          <div *ngIf="f.submitted && !residence_postcode.valid" class="is-invalid">Campo errato</div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <button type="submit" class="btn btn-outline-success">Aggiorna</button>
+</form>
+<form name="form" (ngSubmit)="f.form.valid && upDate()" #f="ngForm" novalidate class="form--light"  *ngFor="let address of dubber.addresses">
+  <h5>Domicilio</h5>
+  <fieldset class="pl-0 pr-0">
+    <div class="form-row" *ngFor="let address of dubber.addresses">
+      <div class="col-sm-12 col-md-4 mb-3">
+        <div class="form-group">
+          <label for="home_city">Città</label>
+          <input id="home_city" type="text" class="form-control text-capitalize" placeholder="Città" [(ngModel)]="address.home_city" name="home_city" #home_city="ngModel" required>
+          <div *ngIf="f.submitted && !home_city.valid" class="is-invalid">Campo errato</div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 mb-3">
+        <div class="form-group">
+          <label for="home_address">Indirizzo</label>
+          <input id="home_address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="address.home_address" name="home_address" #home_address="ngModel" required>
+          <div *ngIf="f.submitted && !home_address.valid" class="is-invalid">Campo errato</div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 mb-3">
+        <div class="form-group">
+          <label for="home_postcode">Cap</label>
+          <input id="home_postcode" type="text" class="form-control text-capitalize" placeholder="Cap" [(ngModel)]="address.home_postcode" name="home_postcode" #home_postcode="ngModel" required>
+          <div *ngIf="f.submitted && !home_postcode.valid" class="is-invalid">Campo errato</div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <button type="submit" class="btn btn-outline-success">Aggiorna</button>
+</form>

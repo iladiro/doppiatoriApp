@@ -47,22 +47,6 @@ export class DubberBanksComponent implements OnInit {
     this.resetAllAsDefault(bank)
   }
 
-  setAsDefault(bank) {
-    let set = {
-      "default_bank": true
-    }
-    this.bankService.setAsDefault(bank.id, set).subscribe(
-      data => {
-        console.log("ok");
-        this.resetBankArrayValue(bank.id);
-      },
-      err => {
-        console.log(err)
-      }
-    )
-  }
-
-
   resetAllAsDefault(bank) {
     let reset = {
       "default_bank": false
@@ -78,6 +62,21 @@ export class DubberBanksComponent implements OnInit {
     )
   }
 
+  setAsDefault(bank) {
+    let set = {
+      "default_bank": true
+    }
+    this.bankService.setAsDefault(bank.id, set).subscribe(
+      data => {
+        console.log("ok");
+        this.resetBankArrayValue(bank.id);
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
   resetBankArrayValue(bank_id) {
     this.dubber.banks.map(function(bank) {
       if(bank.id == bank_id) {
@@ -89,8 +88,6 @@ export class DubberBanksComponent implements OnInit {
   }
 
 
-  ngOnInit() {
-    console.log(this.dubber.banks)
-  }
+  ngOnInit() {}
 
 }

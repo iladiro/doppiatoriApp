@@ -17,6 +17,9 @@
               <a class="nav-link active" data-toggle="tab" href="#personal-data" role="tab">Dati personali</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tax-information" role="tab">Informazioni fiscali</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#banks" role="tab">Banche associate</a>
             </li>
             <li class="nav-item">
@@ -29,7 +32,10 @@
           <!-- Tab panes -->
           <div class="tab-content pboth-15">
             <div class="tab-pane active" id="personal-data" role="tabpanel">
-              <editForm [dubber]="this.dubber" (event)="setMessage($event)"></editForm>
+              <personal-information [dubber]="this.dubber" (event)="setMessage($event)"></personal-information>
+            </div>
+            <div class="tab-pane" id="tax-information" role="tabpanel">
+              <tax-information [dubber]="this.dubber"></tax-information>
             </div>
             <div class="tab-pane" id="banks" role="tabpanel">
               <banks [dubber]="this.dubber"></banks>

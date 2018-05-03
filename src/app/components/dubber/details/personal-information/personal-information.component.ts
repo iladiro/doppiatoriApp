@@ -4,11 +4,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DubberService } from '../../_services/index';
 
 @Component({
-  selector: 'editForm',
-  templateUrl: './edit-form.component.html',
-  styleUrls: ['./edit-form.component.scss']
+  selector: 'personal-information',
+  templateUrl: './personal-information.component.html',
+  styleUrls: ['./personal-information.component.scss']
 })
-export class EditFormComponent implements OnInit {
+export class DubberPersonalInformationComponent implements OnInit {
 
   @Input() dubber: any;
   @Output() event = new EventEmitter();

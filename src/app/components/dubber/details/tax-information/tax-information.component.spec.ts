@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditFormComponent } from './edit-form.component';
+import { TaxInformationComponent } from './tax-information.component';
 
-describe('EditFormComponent', () => {
-  let component: EditFormComponent;
-  let fixture: ComponentFixture<EditFormComponent>;
+describe('TaxInformationComponent', () => {
+  let component: TaxInformationComponent;
+  let fixture: ComponentFixture<TaxInformationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditFormComponent ]
+      declarations: [ TaxInformationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditFormComponent);
+    fixture = TestBed.createComponent(TaxInformationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

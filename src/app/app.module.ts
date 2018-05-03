@@ -20,8 +20,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DubbersListComponent } from './components/dubber/list/list.component';
 import { DubberProfileComponent } from './components/dubber/details/details.component';
 import { AddDubberComponent } from './components/dubber/create/create.component';
-import { EditFormComponent } from './components/dubber/details/edit-form/edit-form.component';
+import { DubberPersonalInformationComponent } from './components/dubber/details/personal-information/personal-information.component';
 import { DubberBanksComponent } from './components/dubber/details/banks/banks.component';
+import { DubberTaxInformationComponent } from './components/dubber/details/tax-information/tax-information.component';
 
 import { CompanyCreateComponent } from './components/settings/company/create/create.component';
 import { CompanyListComponent } from './components/settings/company/list/list.component';
@@ -76,7 +77,7 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     InvoiceListComponent,
     PaginatorComponent,
     ModalPromptComponent,
-    EditFormComponent,
+    DubberPersonalInformationComponent,
     BackButtonComponent,
     CompanyCreateComponent,
     CompanyListComponent,
@@ -85,7 +86,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     QualificationCreateComponent,
     QualificationListComponent,
     QualificationDetailsComponent,
-    DubberBanksComponent
+    DubberBanksComponent,
+    DubberTaxInformationComponent
   ],
   imports: [
     BrowserModule,
