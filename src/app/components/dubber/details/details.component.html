@@ -17,6 +17,9 @@
               <a class="nav-link active" data-toggle="tab" href="#personal-data" role="tab">Dati personali</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#banks" role="tab">Banche associate</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#collaborations" role="tab">Collaborazioni</a>
             </li>
             <li class="nav-item">
@@ -27,6 +30,9 @@
           <div class="tab-content pboth-15">
             <div class="tab-pane active" id="personal-data" role="tabpanel">
               <editForm [dubber]="this.dubber" (event)="setMessage($event)"></editForm>
+            </div>
+            <div class="tab-pane" id="banks" role="tabpanel">
+              <banks [dubber]="this.dubber"></banks>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
               <table class="table table--striped" *ngIf="dubber.films.length; else noFilm">

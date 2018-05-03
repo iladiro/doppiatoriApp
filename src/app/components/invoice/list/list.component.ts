@@ -48,7 +48,6 @@ export class InvoiceListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.dubber)
   }
 
 }

@@ -40,7 +40,6 @@ export class EditFormComponent implements OnInit {
   ngOnInit() {
     this.banks = this.dubber.banks;
     this.addresses = this.dubber.addresses;
-    console.log(this.addresses)
   }
 
 }

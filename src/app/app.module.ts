@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Services
 import { DubberService } from './components/dubber/_services/dubbers.service';
+import { BankService } from './components/dubber/_services/bank.service';
 import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/invoice/_services/index';
 import { PagerService } from './components/widgets/paginator/_services/index';
@@ -20,6 +21,7 @@ import { DubbersListComponent } from './components/dubber/list/list.component';
 import { DubberProfileComponent } from './components/dubber/details/details.component';
 import { AddDubberComponent } from './components/dubber/create/create.component';
 import { EditFormComponent } from './components/dubber/details/edit-form/edit-form.component';
+import { DubberBanksComponent } from './components/dubber/details/banks/banks.component';
 
 import { CompanyCreateComponent } from './components/settings/company/create/create.component';
 import { CompanyListComponent } from './components/settings/company/list/list.component';
@@ -82,7 +84,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     SidebarComponent,
     QualificationCreateComponent,
     QualificationListComponent,
-    QualificationDetailsComponent
+    QualificationDetailsComponent,
+    DubberBanksComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +101,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     UserService,
     PagerService,
     CompanyService,
-    QualificationService
+    QualificationService,
+    BankService
   ],
   bootstrap: [AppComponent]
 })

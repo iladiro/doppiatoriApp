@@ -34,7 +34,6 @@ export class DubberService {
   }
 
   update(dubber: Dubber) {
-    console.log(dubber);
     return this.http.patch(this.url_root + "?id=eq." + dubber.id, dubber);
   }
 
