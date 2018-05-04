@@ -22,7 +22,7 @@ export class DubberService {
   }
 
   getById(id: number) {
-    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,home_addresses:home_addresses(*),residence_addresses:residence_addresses(*),banks:banks(*),films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,addresses:addresses(*),banks:banks(*),films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
   create(dubber: Dubber): Observable<HttpResponse<any>> {
