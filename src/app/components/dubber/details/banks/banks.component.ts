@@ -24,11 +24,9 @@ export class DubberBanksComponent implements OnInit {
     this.service.create("banks", this.bank).subscribe(
       data => {
         this.dubber.banks.push(this.bank);
-        console.log("ok");
-        //this.bank = {};
       },
       err => {
-        console.log("ko")
+        console.log(err)
       }
     );
   }
@@ -37,11 +35,10 @@ export class DubberBanksComponent implements OnInit {
     let index = this.dubber.banks.indexOf(bank);
     this.service.delete("banks", "id", bank.id).subscribe(
       data => {
-        console.log("ok");
         this.dubber.banks.splice(index, 1);
       },
       err => {
-        console.log("ko")
+        console.log(err)
       }
     )
   }
@@ -56,9 +53,7 @@ export class DubberBanksComponent implements OnInit {
       "_default": false
     }
     this.bankService.resetDefault(bank.dubber_id, reset).subscribe(
-      data => {
-        console.log("ok");
-      },
+      data => {},
       err => {
         console.log(err)
       },
@@ -72,7 +67,6 @@ export class DubberBanksComponent implements OnInit {
     }
     this.bankService.setAsDefault(bank.id, set).subscribe(
       data => {
-        console.log("ok");
         this.resetBankArrayValue(bank.id);
       },
       err => {

@@ -30,11 +30,7 @@ export class FilmListComponent implements OnInit {
   private modal_message = {
     "text": ""
   };
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private service: Service
@@ -63,20 +59,12 @@ export class FilmListComponent implements OnInit {
     this.service.delete("dubbers_films", "film_id", film.id).subscribe(
       data => {
         this.films.splice(index, 1);
-        this.alert_message = {
-          "text": "Cancellato con successo!",
-          "class": "success",
-          "display": true
-        };
+        this.alert_message = "success";
         this.status = "ok";
       },
       err => {
         this.status = "ko";
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       },
       () => this.deleteFilm(film_id)
     )
@@ -85,11 +73,9 @@ export class FilmListComponent implements OnInit {
   private deleteFilm(film) {
     if(this.status == "ok") {
       this.service.delete("films", "id", film).subscribe(
-        data => {
-          console.log("ok")
-        },
+        data => {},
         err => {
-          console.log("ko")
+          console.log(err)
         }
       );
     }

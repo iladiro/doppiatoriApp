@@ -21,11 +21,9 @@ export class DubberTaxInformationComponent implements OnInit {
 
   update() {
     this.service.update("addresses", this.address).subscribe(
-      data => {
-        console.log("ok")
-      },
+      data => {},
       err => {
-        console.log("ko")
+        console.log(err)
       }
     )
   }

@@ -22,11 +22,7 @@ export class AddFilmComponent {
   // dubbers: Dubber[] = [];
   status: string = "";
 
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private service: Service
@@ -44,20 +40,12 @@ export class AddFilmComponent {
         let patt = /(\d+)/g;
         let result = str.match(patt);
         this.id = Number(result[0]);
-        this.alert_message = {
-          "text": "L'operazione è andata a buon fine!",
-          "class": "success",
-          "display": true
-        }
+        this.alert_message = "success";
         this.status = "ok";
       },
       err => {
         this.status = "ko";
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       },
       () => this.addFilmDubbersInRelationTable()
     )
@@ -77,11 +65,9 @@ export class AddFilmComponent {
         film_dubbers.push(object_pair);
       });
       this.service.create("dubbers_films", film_dubbers).subscribe(
-        data => {
-          console.log("ok")
-        },
+        data => {},
         err => {
-          console.log("ko")
+          console.log(err)
         }
       );
     }

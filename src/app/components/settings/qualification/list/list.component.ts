@@ -22,11 +22,7 @@ export class QualificationListComponent implements OnInit {
   private modal_message = {
     "text": ""
   };
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   // Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
   dataForRequestSearchComp = {
@@ -68,19 +64,11 @@ export class QualificationListComponent implements OnInit {
     let index = this.qualifications.indexOf(qualification);
     this.service.delete("qualifications", "id", qualification.id).subscribe(
       data => {
-        this.alert_message = {
-          "text": "L'elemento è stato cancellato con successo come richiesto!",
-          "class": "success",
-          "display": true
-        };
+        this.alert_message = "delete";
         this.qualifications.splice(index, 1);
       },
       err => {
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       }
     );
   }

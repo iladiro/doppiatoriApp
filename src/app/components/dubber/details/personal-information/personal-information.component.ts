@@ -39,11 +39,9 @@ export class DubberPersonalInformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.dubber);
     this.service.getAll("qualifications").subscribe(
       data => {
         this.qualifications = data;
-        console.log(data);
       }
     )
   }

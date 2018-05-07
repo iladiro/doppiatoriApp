@@ -19,11 +19,7 @@ export class AddDubberComponent {
     private service: Service
   ) {}
 
-  alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   id: number;
   status: string = "";
@@ -44,11 +40,7 @@ export class AddDubberComponent {
       return elem.email == this.dubber.email;
     });
     if(results) {
-      this.alert_message = {
-        "text": "Non puoi aggiungere questo doppiatore perché la mail con cui vuoi registralo è già presente nel Database",
-        "class": "danger",
-        "display": true
-      }
+      this.alert_message = "prohibition";
     } else {
       this.save();
     };
@@ -62,19 +54,11 @@ export class AddDubberComponent {
         let patt = /(\d+)/g;
         let result = str.match(patt);
         this.id = Number(result[0]);
-        this.alert_message = {
-          "text": "L'operazione è andata a buon fine, doppiatore creato correttamente.",
-          "class": "success",
-          "display": true
-        }
+        this.alert_message = "success";
         this.status = "ok";
       },
       err => {
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       },
       () => this.addDataInRelationTable()
     );

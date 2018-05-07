@@ -20,11 +20,7 @@ export class DubberProfileComponent implements OnInit {
   private modal_message = {
     "text": ""
   };
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private route: ActivatedRoute,
@@ -60,18 +56,10 @@ export class DubberProfileComponent implements OnInit {
               current_dubber.films.splice(index, 1);
             }
           });
-          this.alert_message = {
-            "text": "Cancellato con successo!",
-            "class": "success",
-            "display": true
-          }
+          this.alert_message = "success";
         },
         err => {
-          this.alert_message = {
-            "text": "Error occured!",
-            "class": "danger",
-            "display": true
-          }
+          this.alert_message = "rejected";
         }
     )
   }

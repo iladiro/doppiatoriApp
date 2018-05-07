@@ -19,11 +19,7 @@ export class CompanyDetailsComponent implements OnInit {
   company: any = {};
   loading = false;
 
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private service: Service,
@@ -35,19 +31,11 @@ export class CompanyDetailsComponent implements OnInit {
     this.loading = true;
     this.service.update("companies", this.company).subscribe(
       data => {
-        this.alert_message = {
-          "text": "Aggiornato con successo!",
-          "class": "success",
-          "display": true
-        }
+        this.alert_message = "success";
         this.loading = false;
       },
       err => {
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
         this.loading = false;
       }
     );

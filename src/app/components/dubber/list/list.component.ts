@@ -24,11 +24,7 @@ export class DubbersListComponent implements OnInit {
   private modal_message = {
     "text": ""
   };
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   dubbers: Dubber[] = [];
   private status:string = "";
@@ -70,20 +66,12 @@ export class DubbersListComponent implements OnInit {
     this.service.delete("dubbers_films", "dubber_id", dubber.id).subscribe(
       data => {
         this.dubbers.splice(index, 1);
-        this.alert_message = {
-          "text": "Cancellato con successo!",
-          "class": "success",
-          "display": true
-        };
+        this.alert_message = "delete";
         this.status = "ok";
       },
       err => {
         this.status = "ko";
-        this.alert_message = {
-          "text": "Error occured!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected"
       },
       () => this.deleteDubber(dubber_id)
     )
@@ -92,11 +80,9 @@ export class DubbersListComponent implements OnInit {
   private deleteDubber(dubber) {
     if(this.status == "ok") {
       this.service.delete("dubbers", "id", dubber).subscribe(
-        data => {
-          console.log("ok")
-        },
+        data => {},
         err => {
-          console.log("ko")
+          console.log(err)
         }
       );
     }

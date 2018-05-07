@@ -24,11 +24,7 @@ export class FilmDetailsComponent implements OnInit {
   film: any;
   dubbers: any = [];
 
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,18 +40,10 @@ export class FilmDetailsComponent implements OnInit {
     // Aggiorna il film corrente
     this.service.update("films", film_obj).subscribe(
       data => {
-        this.alert_message = {
-          "text": "Aggiornato con successo!",
-          "class": "success",
-          "display": true
-        }
+        this.alert_message = "success";
       },
       err => {
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       }
     );
     // end
@@ -70,18 +58,10 @@ export class FilmDetailsComponent implements OnInit {
             current_film.dubbers.splice(index, 1);
           }
         });
-        this.alert_message = {
-          "text": "Cancellato con successo!",
-          "class": "success",
-          "display": true
-        }
+        this.alert_message = "success";
       },
       err => {
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       }
     );
   }
@@ -104,11 +84,7 @@ export class FilmDetailsComponent implements OnInit {
     //
 
     if(dubbers_id.includes(Number(dubber_id_toadd.id))) {
-      this.alert_message = {
-        "text": "Non puoi aggiungerlo poichè è già presente!",
-        "class": "danger",
-        "display": true
-      }
+      this.alert_message = "prohibition";
     } else {
       current_film.dubbers.push(dubber_id_toadd);
       let dubber_film = {
@@ -117,18 +93,10 @@ export class FilmDetailsComponent implements OnInit {
       };
       this.service.create("dubbers_films", dubber_film).subscribe(
         data => {
-          this.alert_message = {
-            "text": "Creato con successo!",
-            "class": "success",
-            "display": true
-          }
+          this.alert_message = "success";
         },
         err => {
-          this.alert_message = {
-            "text": "Si è verificato un errore!",
-            "class": "danger",
-            "display": true
-          }
+          this.alert_message = "rejected";
         }
       );
     }

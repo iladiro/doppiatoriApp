@@ -15,32 +15,19 @@ export class QualificationCreateComponent implements OnInit {
 
   qualification: any = {};
 
-  alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private service: Service
   ) { }
 
   create() {
-    console.log(this.qualification);
     this.service.create("qualifications", this.qualification).subscribe(
       data => {
-        this.alert_message = {
-          "text": "Creazione andata a buon fine!",
-          "class": "success",
-          "display": true
-        }
+        this.alert_message = "success";
       },
       err => {
-        this.alert_message = {
-          "text": "Errore",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       }
     );
   }

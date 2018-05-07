@@ -24,11 +24,7 @@ export class CompanyListComponent implements OnInit {
   private modal_message = {
     "text": ""
   };
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private service: Service
@@ -59,18 +55,10 @@ export class CompanyListComponent implements OnInit {
     this.service.delete("companies", "id", company.id).subscribe(
       data => {
         this.companies.splice(index, 1);
-        this.alert_message = {
-          "text": "Cancellato con successo!",
-          "class": "success",
-          "display": true
-        };
+        this.alert_message = "delete";
       },
       err => {
-        this.alert_message = {
-          "text": "Si è verificato un errore!",
-          "class": "danger",
-          "display": true
-        };
+        this.alert_message = "rejected";
       }
     );
   }

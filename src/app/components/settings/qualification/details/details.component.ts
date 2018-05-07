@@ -18,11 +18,7 @@ export class QualificationDetailsComponent implements OnInit {
   private sub: any;
   qualification: any = {};
 
-  private alert_message = {
-    "display": false,
-    "text": "",
-    "class": ""
-  };
+  private alert_message;
 
   constructor(
     private service: Service,
@@ -33,18 +29,10 @@ export class QualificationDetailsComponent implements OnInit {
   private upDate() {
     this.service.update("qualifications", this.qualification).subscribe(
       data => {
-        this.alert_message = {
-          "text": "La stringa è stata modificata con successo!",
-          "class": "success",
-          "display": true
-        }
+        this.alert_message = "success";
       },
       err => {
-        this.alert_message = {
-          "text": "Abbiamo riscontrato un errore!",
-          "class": "danger",
-          "display": true
-        }
+        this.alert_message = "rejected";
       }
     );
   }

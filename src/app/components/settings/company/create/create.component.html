@@ -1,5 +1,5 @@
 <div class="container">
-  <alert_message [message]="alert_message" *ngIf="alert_message"></alert_message>
+  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
       <form name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate class="form--light">

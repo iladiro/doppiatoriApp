@@ -9,7 +9,7 @@
   <div class="mb-3">
     <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
   </div>
-  <alert_message [message]="alert_message" *ngIf="alert_message"></alert_message>
+  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
   <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
