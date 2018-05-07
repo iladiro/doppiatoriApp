@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 // Models
-import { Company } from '../_models/index';
+import { EnpalParameter } from '../_models/index';
 
 // Services
 import { Service } from '../../../../services/index';
@@ -11,13 +11,11 @@ import { Service } from '../../../../services/index';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class CompanyDetailsComponent implements OnInit {
+export class EnpalsParameterDetailsComponent implements OnInit {
 
   id: number;
   private sub: any;
-  company: any = {};
-  loading = false;
-
+  enpals_parameter: any = {};
   private alert_message;
 
   constructor(
@@ -25,16 +23,13 @@ export class CompanyDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  private upDate() {
-    this.loading = true;
-    this.service.update("companies", this.company).subscribe(
+  private update() {
+    this.service.update("enpals_parameters", this.enpals_parameter).subscribe(
       data => {
         this.alert_message = "success";
-        this.loading = false;
       },
       err => {
         this.alert_message = "rejected";
-        this.loading = false;
       }
     );
   }
@@ -42,9 +37,9 @@ export class CompanyDetailsComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.service.getById("companies", "id", this.id).subscribe(
+      this.service.getById("enpals_parameters", "id", this.id).subscribe(
         data => {
-          this.company = data;
+          this.enpals_parameter = data;
         }
       );
     });

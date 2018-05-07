@@ -22,6 +22,7 @@ import { QualificationCreateComponent } from './components/settings/qualificatio
 import { QualificationListComponent } from './components/settings/qualification/list/list.component';
 import { QualificationDetailsComponent } from './components/settings/qualification/details/details.component';
 import { EnpalsParametersListComponent } from './components/settings/enpals-parameters/list/list.component';
+import { EnpalsParameterDetailsComponent } from './components/settings/enpals-parameters/details/details.component';
 
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -120,6 +121,10 @@ const appRoutes: Routes = [
     path: 'settings/enpals-parameters',
     component: EnpalsParametersListComponent,
     data: { title: 'Enpals Parameters list' }
+  },
+  {
+    path: 'settings/enpals-parameter/:id',
+    component: EnpalsParameterDetailsComponent
   },
   // otherwise redirect to home
   // {

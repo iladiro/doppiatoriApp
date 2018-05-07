@@ -1,0 +1,104 @@
+<div class="container">
+  <h4 class="mb-20 mt-0">Dati Enpals/Inps</h4>
+  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <form #form="ngForm" (ngSubmit)="update(form)" novalidate class="form--light">
+        <div class="form-row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="quota_enpals_lavoratore">Quota enpals lavoratore %</label>
+              <input type="text" class="form-control" name="quota_enpals_lavoratore" [(ngModel)]="enpals_parameter.quota_enpals_lavoratore" #quota_enpals_lavoratore="ngModel" required />
+              <div *ngIf="form.submitted && !quota_enpals_lavoratore.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="quota_enpals_ditta">Quota enpals ditta %</label>
+              <input type="text" class="form-control" name="quota_enpals_ditta" [(ngModel)]="enpals_parameter.quota_enpals_ditta" #quota_enpals_ditta="ngModel" required />
+              <div *ngIf="form.submitted && !quota_enpals_ditta.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="minimale_inps">Minimale inps</label>
+              <input type="text" class="form-control" name="minimale_inps" [(ngModel)]="enpals_parameter.minimale_inps" #minimale_inps="ngModel" required />
+              <div *ngIf="form.submitted && !minimale_inps.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="percentuale_minimale_inps">Percentuale minimale inps %</label>
+              <input type="text" class="form-control" name="percentuale_minimale_inps" [(ngModel)]="enpals_parameter.percentuale_minimale_inps" #percentuale_minimale_inps="ngModel" required />
+              <div *ngIf="form.submitted && !percentuale_minimale_inps.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="minimale_enpals">Minimale enpals</label>
+              <input type="text" class="form-control" name="minimale_enpals" [(ngModel)]="enpals_parameter.minimale_enpals" #minimale_enpals="ngModel" required />
+              <div *ngIf="form.submitted && !minimale_enpals.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="trattenuta_pensione">Trattenuta pensione</label>
+              <input type="text" class="form-control" name="trattenuta_pensione" [(ngModel)]="enpals_parameter.trattenuta_pensione" #trattenuta_pensione="ngModel" required />
+              <div *ngIf="form.submitted && !trattenuta_pensione.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="massimale_enpals_ante">Massimale enpals  &lt; '95</label>
+              <input type="text" class="form-control" name="massimale_enpals_ante" [(ngModel)]="enpals_parameter.massimale_enpals_ante" #massimale_enpals_ante="ngModel" required />
+              <div *ngIf="form.submitted && !massimale_enpals_ante.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="massimale_enpals_dopo">Massimale enpals &gt; '95</label>
+              <input type="text" class="form-control" name="massimale_enpals_dopo" [(ngModel)]="enpals_parameter.massimale_enpals_dopo" #massimale_enpals_dopo="ngModel" required />
+              <div *ngIf="form.submitted && !massimale_enpals_dopo.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="quota_enpals_ecc_massimale_lavoratore">Quota enpals ecc massimale lavoratore  %</label>
+              <input type="text" class="form-control" name="quota_enpals_ecc_massimale_lavoratore" [(ngModel)]="enpals_parameter.quota_enpals_ecc_massimale_lavoratore" #quota_enpals_ecc_massimale_lavoratore="ngModel" required />
+              <div *ngIf="form.submitted && !quota_enpals_ecc_massimale_lavoratore.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="quota_enpals_ecc_massimale_ditta">Quota enpals ecc massimale ditta  %</label>
+              <input type="text" class="form-control" name="quota_enpals_ecc_massimale_ditta" [(ngModel)]="enpals_parameter.quota_enpals_ecc_massimale_ditta" #quota_enpals_ecc_massimale_ditta="ngModel" required />
+              <div *ngIf="form.submitted && !quota_enpals_ecc_massimale_ditta.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="minimale_giornaliero_aliquota_aggiuntiva">Minimale giornaliero aliquota aggiuntiva</label>
+              <input type="text" class="form-control" name="minimale_giornaliero_aliquota_aggiuntiva" [(ngModel)]="enpals_parameter.minimale_giornaliero_aliquota_aggiuntiva" #minimale_giornaliero_aliquota_aggiuntiva="ngModel" required />
+              <div *ngIf="form.submitted && !minimale_giornaliero_aliquota_aggiuntiva.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="percentuale_aliquota_aggiuntiva">Aliquota aggiuntiva %</label>
+              <input type="text" class="form-control" name="percentuale_aliquota_aggiuntiva" [(ngModel)]="enpals_parameter.percentuale_aliquota_aggiuntiva" #percentuale_aliquota_aggiuntiva="ngModel" required />
+              <div *ngIf="form.submitted && !percentuale_aliquota_aggiuntiva.valid" class="is-invalid">Valore non valido</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <back-button></back-button>
+          </div>
+          <div class="col-sm-6 text-right">
+            <button class="btn btn-outline-success">Salva modifiche</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

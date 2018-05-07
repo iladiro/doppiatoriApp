@@ -32,6 +32,7 @@ import { QualificationCreateComponent } from './components/settings/qualificatio
 import { QualificationListComponent } from './components/settings/qualification/list/list.component';
 import { QualificationDetailsComponent } from './components/settings/qualification/details/details.component';
 import { EnpalsParametersListComponent } from './components/settings/enpals-parameters/list/list.component';
+import { EnpalsParameterDetailsComponent } from './components/settings/enpals-parameters/details/details.component';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/template/header/header.component';
@@ -85,7 +86,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     QualificationDetailsComponent,
     DubberBanksComponent,
     DubberTaxInformationComponent,
-    EnpalsParametersListComponent
+    EnpalsParametersListComponent,
+    EnpalsParameterDetailsComponent
   ],
   imports: [
     BrowserModule,
