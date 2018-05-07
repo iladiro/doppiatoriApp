@@ -7,8 +7,8 @@ import { Film } from '../_models/index';
 import { Dubber } from '../../dubber/_models/index';
 
 // Services
+import { Service } from '../../../services/index';
 import { FilmService } from '../_services/index';
-import { DubberService } from '../../dubber/_services/dubbers.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class FilmDetailsComponent implements OnInit {
   id: number;
   private sub: any;
   film: any;
-  dubbers: Dubber[] = [];
+  dubbers: any = [];
 
   private alert_message = {
     "display": false,
@@ -32,8 +32,8 @@ export class FilmDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private filmService: FilmService,
-    private dubberService: DubberService
+    private service: Service,
+    private filmService: FilmService
   ) {}
 
   private upDateFilm(){
@@ -42,17 +42,17 @@ export class FilmDetailsComponent implements OnInit {
     film_obj.id = this.id;
 
     // Aggiorna il film corrente
-    this.filmService.update(film_obj).subscribe(
+    this.service.update("films", film_obj).subscribe(
       data => {
         this.alert_message = {
-          "text": "Film has been updated successfully!",
+          "text": "Aggiornato con successo!",
           "class": "success",
           "display": true
         }
       },
       err => {
         this.alert_message = {
-          "text": "Error occured!",
+          "text": "Si è verificato un errore!",
           "class": "danger",
           "display": true
         }
@@ -71,14 +71,14 @@ export class FilmDetailsComponent implements OnInit {
           }
         });
         this.alert_message = {
-          "text": "Dubber has been deleted successfully!",
+          "text": "Cancellato con successo!",
           "class": "success",
           "display": true
         }
       },
       err => {
         this.alert_message = {
-          "text": "Error occured!",
+          "text": "Si è verificato un errore!",
           "class": "danger",
           "display": true
         }
@@ -105,28 +105,27 @@ export class FilmDetailsComponent implements OnInit {
 
     if(dubbers_id.includes(Number(dubber_id_toadd.id))) {
       this.alert_message = {
-        "text": "Dubber is already present. You can't add it!",
+        "text": "Non puoi aggiungerlo poichè è già presente!",
         "class": "danger",
         "display": true
       }
     } else {
-      console.log("non ancora presente");
       current_film.dubbers.push(dubber_id_toadd);
       let dubber_film = {
         "film_id": this.id,
         "dubber_id": dubber_id_toadd.id
       };
-      this.filmService.createFilmDubbers(dubber_film).subscribe(
+      this.service.create("dubbers_films", dubber_film).subscribe(
         data => {
           this.alert_message = {
-            "text": "Dubber has been created successfully!",
+            "text": "Creato con successo!",
             "class": "success",
             "display": true
           }
         },
         err => {
           this.alert_message = {
-            "text": "Error occured!",
+            "text": "Si è verificato un errore!",
             "class": "danger",
             "display": true
           }
@@ -145,7 +144,7 @@ export class FilmDetailsComponent implements OnInit {
         }
       );
     });
-    this.dubberService.getAll().subscribe(
+    this.service.getAll("dubbers").subscribe(
       data => {
         this.dubbers = data;
       }

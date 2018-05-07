@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Response } from "@angular/http";
-import { HttpClient } from '@angular/common/http';
 
 // Services
-import { DubberService } from '../_services/index';
+import { Service } from '../../../services/index';
 
 // Models
 import { Dubber } from '../_models/index';
@@ -17,8 +16,7 @@ import { Dubber } from '../_models/index';
 export class AddDubberComponent {
 
   constructor(
-    private dubberService: DubberService,
-    private http: HttpClient
+    private service: Service
   ) {}
 
   alert_message = {
@@ -29,7 +27,8 @@ export class AddDubberComponent {
 
   id: number;
   status: string = "";
-  dubbers: Dubber[];
+  // dubbers: Dubber[];
+  dubbers: any = [];
   qualifications;
 
   dubber: any = {};
@@ -41,23 +40,15 @@ export class AddDubberComponent {
   }
 
   check() {
-    let dubbers_email = [];
-
-    // Cicla per recuperare la mail di tutti i Dubber registrati
-    for(let dubber of this.dubbers) {
-      dubbers_email.push(dubber.email);
-    }
-    // end
-
-    // Controlla prima se il dubber è già presente
-    if(dubbers_email.includes(this.dubber.email)) {
+    let results = this.dubbers.some(elem => {
+      return elem.email == this.dubber.email;
+    });
+    if(results) {
       this.alert_message = {
         "text": "Non puoi aggiungere questo doppiatore perché la mail con cui vuoi registralo è già presente nel Database",
         "class": "danger",
         "display": true
       }
-      return;
-      // se non lo è, aggiungilo
     } else {
       this.save();
     };
@@ -65,7 +56,7 @@ export class AddDubberComponent {
 
   save() {
     this.dubber.avatar = this.dubber.name.charAt(0);
-    this.dubberService.create(this.dubber).subscribe(
+    this.service.create("dubbers", this.dubber).subscribe(
       resp => {
         let str = resp.headers.get("location");
         let patt = /(\d+)/g;
@@ -93,12 +84,12 @@ export class AddDubberComponent {
     if(this.status == "ok") {
       this.bank.dubber_id = this.id;
       this.address.dubber_id = this.id;
-      this.http.post("http://localhost:3000/banks", this.bank).subscribe(
+      this.service.create("banks", this.bank).subscribe(
         err => {
           console.log(err)
         }
       );
-      this.http.post("http://localhost:3000/addresses", this.address).subscribe(
+      this.service.create("addresses", this.address).subscribe(
         err => {
           console.log(err)
         }
@@ -107,7 +98,7 @@ export class AddDubberComponent {
   }
 
   loadAllItems() {
-    this.dubberService.getAll().subscribe(
+    this.service.getAll("dubbers").subscribe(
       data => {
         this.dubbers = data;
       }
@@ -116,8 +107,7 @@ export class AddDubberComponent {
 
   ngOnInit() {
     this.loadAllItems();
-
-    this.http.get("http://localhost:3000/qualifications").subscribe(
+    this.service.getAll("qualifications").subscribe(
       data => {
         this.qualifications = data;
       },

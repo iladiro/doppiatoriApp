@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'alertMessage',
+  selector: 'alert_message',
   templateUrl: './alert-message.component.html',
   styleUrls: ['./alert-message.component.scss']
 })

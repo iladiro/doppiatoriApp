@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // Services
-import { DubberService } from '../../_services/index';
+import { Service } from '../../../../services/index';
 
 @Component({
   selector: 'personal-information',
@@ -13,10 +13,11 @@ export class DubberPersonalInformationComponent implements OnInit {
   @Input() dubber: any;
   @Output() event = new EventEmitter();
 
-  banks;
-  addresses;
+  private qualifications;
 
-  constructor(private dubberService: DubberService) { }
+  constructor(
+    private service: Service
+  ) { }
 
   private upDate(){
     this.dubber.avatar = this.dubber.name.charAt(0);
@@ -27,7 +28,7 @@ export class DubberPersonalInformationComponent implements OnInit {
     delete dubber_obj.banks;
     delete dubber_obj.addresses;
 
-    this.dubberService.update(dubber_obj).subscribe(
+    this.service.update("dubbers", dubber_obj).subscribe(
       data => {
         this.event.emit({"text": "Aggiornato con successo!", "class": "success", "display": true});
       },
@@ -38,9 +39,13 @@ export class DubberPersonalInformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    //console.log(this.dubber);
-    this.banks = this.dubber.banks;
-    this.addresses = this.dubber.addresses;
+    console.log(this.dubber);
+    this.service.getAll("qualifications").subscribe(
+      data => {
+        this.qualifications = data;
+        console.log(data);
+      }
+    )
   }
 
 }

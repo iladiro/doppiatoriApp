@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Services
-import { CompanyService } from '../_services/index';
+import { Service } from '../../../../services/index';
 
 // Models
 import { Company } from '../_models/index';
@@ -12,25 +12,27 @@ import { Company } from '../_models/index';
 })
 export class CompanyListComponent implements OnInit {
 
-  private currentCompany;
+  private current_company;
   companies: Company[] = [];
-  private DBTable:string = "companies";
+  private DB_table:string = "companies";
 
   dataForRequestSearchComp = {
     "table": "companies",
     "parameters": ["name", "address"]
   };
 
-  private modalMessage = {
+  private modal_message = {
     "text": ""
   };
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
   };
 
-  constructor(private companyService: CompanyService) { }
+  constructor(
+    private service: Service
+  ) { }
 
   private setFoundValueFromSearch(value){
     this.companies = value;
@@ -41,31 +43,31 @@ export class CompanyListComponent implements OnInit {
   }
 
   private passCurrentCompany(company) {
-    this.modalMessage.text = "Are you sure you want to delete it?";
-    this.currentCompany = company;
+    this.modal_message.text = "Sei sicuro di volerlo cancellare?";
+    this.current_company = company;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete(this.currentCompany);
+      this.delete(this.current_company);
     }
   }
 
   delete(company) {
     console.log(company.id);
     let index = this.companies.indexOf(company);
-    this.companyService.delete(company.id).subscribe(
+    this.service.delete("companies", "id", company.id).subscribe(
       data => {
         this.companies.splice(index, 1);
-        this.alertMessage = {
-          "text": "It has been deleted successfully!",
+        this.alert_message = {
+          "text": "Cancellato con successo!",
           "class": "success",
           "display": true
         };
       },
       err => {
-        this.alertMessage = {
-          "text": "Error occured!",
+        this.alert_message = {
+          "text": "Si è verificato un errore!",
           "class": "danger",
           "display": true
         };

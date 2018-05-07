@@ -5,7 +5,7 @@ import {NgForm} from '@angular/forms';
 import { Company } from '../_models/index';
 
 // Services
-import { CompanyService } from '../_services/index';
+import { Service } from '../../../../services/index';
 
 @Component({
   templateUrl: './create.component.html',
@@ -16,33 +16,35 @@ export class CompanyCreateComponent implements OnInit {
   company: any = {};
   loading = false;
 
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
   };
 
+  constructor(
+    private service: Service
+  ) { }
+
   create() {
     //this.company.id = Math.floor((Math.random() * 1000000) + 1);
-    this.companyService.create(this.company).subscribe(
+    this.service.create("companies", this.company).subscribe(
       data => {
-        this.alertMessage = {
-          "text": "Company has been created successfully!",
+        this.alert_message = {
+          "text": "Creato con successo!",
           "class": "success",
           "display": true
         }
       },
       err => {
-        this.alertMessage = {
-          "text": "Error occured!",
+        this.alert_message = {
+          "text": "Si è verificato un errore",
           "class": "danger",
           "display": true
         }
       }
     );
   }
-
-  constructor(private companyService: CompanyService) { }
 
   ngOnInit() {}
 

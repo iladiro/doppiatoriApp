@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Qualification } from '../_models/index';
 
 //Services
-import { QualificationService } from '../_services/index';
+import { Service } from '../../../../services/index';
 
 @Component({
   // selector: 'app-list',
@@ -35,7 +35,9 @@ export class QualificationListComponent implements OnInit {
   };
   // end
 
-  constructor(private qualifService: QualificationService) { }
+  constructor(
+    private service: Service
+  ) { }
 
   // Valori che ritornano dopo la ricerca
   private setFoundValueFromSearch(value){
@@ -63,11 +65,9 @@ export class QualificationListComponent implements OnInit {
   }
 
   private delete(qualification) {
-    console.log(qualification);
     let index = this.qualifications.indexOf(qualification);
-    this.qualifService.delete(qualification.id).subscribe(
+    this.service.delete("qualifications", "id", qualification.id).subscribe(
       data => {
-        console.log("ok");
         this.alert_message = {
           "text": "L'elemento è stato cancellato con successo come richiesto!",
           "class": "success",
@@ -76,7 +76,6 @@ export class QualificationListComponent implements OnInit {
         this.qualifications.splice(index, 1);
       },
       err => {
-        console.log("ko");
         this.alert_message = {
           "text": "Si è verificato un errore!",
           "class": "danger",

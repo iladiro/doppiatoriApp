@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 // Services
+import { Service } from '../../../../services/index';
 import { BankService } from '../../_services/bank.service';
 
 @Component({
@@ -13,11 +14,14 @@ export class DubberBanksComponent implements OnInit {
   @Input() dubber: any;
   private bank: any = {};
 
-  constructor(private bankService: BankService) { }
+  constructor(
+    private service: Service,
+    private bankService: BankService
+  ) { }
 
   create() {
     this.bank.dubber_id = this.dubber.id;
-    this.bankService.create(this.bank).subscribe(
+    this.service.create("banks", this.bank).subscribe(
       data => {
         this.dubber.banks.push(this.bank);
         console.log("ok");
@@ -31,7 +35,7 @@ export class DubberBanksComponent implements OnInit {
 
   delete(bank) {
     let index = this.dubber.banks.indexOf(bank);
-    this.bankService.delete(bank.id).subscribe(
+    this.service.delete("banks", "id", bank.id).subscribe(
       data => {
         console.log("ok");
         this.dubber.banks.splice(index, 1);
@@ -49,7 +53,7 @@ export class DubberBanksComponent implements OnInit {
 
   resetAllAsDefault(bank) {
     let reset = {
-      "default_bank": false
+      "_default": false
     }
     this.bankService.resetDefault(bank.dubber_id, reset).subscribe(
       data => {
@@ -64,7 +68,7 @@ export class DubberBanksComponent implements OnInit {
 
   setAsDefault(bank) {
     let set = {
-      "default_bank": true
+      "_default": true
     }
     this.bankService.setAsDefault(bank.id, set).subscribe(
       data => {
@@ -80,9 +84,9 @@ export class DubberBanksComponent implements OnInit {
   resetBankArrayValue(bank_id) {
     this.dubber.banks.map(function(bank) {
       if(bank.id == bank_id) {
-        bank.default_bank = true
+        bank._default = true
       } else {
-        bank.default_bank = false
+        bank._default = false
       }
     })
   }

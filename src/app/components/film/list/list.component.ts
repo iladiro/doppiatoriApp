@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Film } from '../_models/index';
 
 //Services
-import { FilmService } from '../_services/index';
+import { Service } from '../../../services/index';
 
 @Component({
   templateUrl: './list.component.html',
@@ -36,7 +36,9 @@ export class FilmListComponent implements OnInit {
     "class": ""
   };
 
-  constructor(private filmService: FilmService) {}
+  constructor(
+    private service: Service
+  ) {}
 
   // Salva i dati passati dal componente paginator
   private datasetFromPaginator(items) {
@@ -58,11 +60,11 @@ export class FilmListComponent implements OnInit {
   private deleteInRelationTable(film) {
     let index = this.films.indexOf(film);
     let film_id = film.id;
-    this.filmService.deleteFilmFromReationTable(film.id).subscribe(
+    this.service.delete("dubbers_films", "film_id", film.id).subscribe(
       data => {
         this.films.splice(index, 1);
         this.alert_message = {
-          "text": "It has been deleted successfully!",
+          "text": "Cancellato con successo!",
           "class": "success",
           "display": true
         };
@@ -71,7 +73,7 @@ export class FilmListComponent implements OnInit {
       err => {
         this.status = "ko";
         this.alert_message = {
-          "text": "Error occured!",
+          "text": "Si è verificato un errore!",
           "class": "danger",
           "display": true
         }
@@ -82,7 +84,7 @@ export class FilmListComponent implements OnInit {
 
   private deleteFilm(film) {
     if(this.status == "ok") {
-      this.filmService.delete(film).subscribe(
+      this.service.delete("films", "id", film).subscribe(
         data => {
           console.log("ok")
         },

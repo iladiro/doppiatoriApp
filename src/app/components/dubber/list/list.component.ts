@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Services
-import { DubberService } from '../_services/index';
+import { Service } from '../../../services/index';
 
 // Models
 import { Dubber } from '../_models/index';
@@ -14,7 +14,7 @@ import { Dubber } from '../_models/index';
 export class DubbersListComponent implements OnInit {
 
   private current_dubber;
-  private DBTable:string = "dubbers";
+  private DB_table:string = "dubbers";
 
   dataForRequestSearchComp = {
     "table": "dubbers",
@@ -34,7 +34,7 @@ export class DubbersListComponent implements OnInit {
   private status:string = "";
 
   constructor(
-    private dubberService: DubberService
+    private service: Service
   ) {}
 
   // Viene chiamata quando viene pushato il componente "paginator". che salva nell'ordine corretto la lista dei dubbers
@@ -67,7 +67,7 @@ export class DubbersListComponent implements OnInit {
   private deleteInRelationTable(dubber) {
     let index = this.dubbers.indexOf(dubber);
     let dubber_id = dubber.id;
-    this.dubberService.deleteDubberFromReationTable(dubber.id).subscribe(
+    this.service.delete("dubbers_films", "dubber_id", dubber.id).subscribe(
       data => {
         this.dubbers.splice(index, 1);
         this.alert_message = {
@@ -91,7 +91,7 @@ export class DubbersListComponent implements OnInit {
 
   private deleteDubber(dubber) {
     if(this.status == "ok") {
-      this.dubberService.delete(dubber).subscribe(
+      this.service.delete("dubbers", "id", dubber).subscribe(
         data => {
           console.log("ok")
         },

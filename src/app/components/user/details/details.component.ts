@@ -19,7 +19,7 @@ export class DetailsUserComponent implements OnInit {
   model: any = {};
   loading = false;
 
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
@@ -34,7 +34,7 @@ export class DetailsUserComponent implements OnInit {
     this.loading = true;
     this.userService.update(this.model).subscribe(
       data => {
-        this.alertMessage = {
+        this.alert_message = {
           "text": "User has been updated successfully!",
           "class": "success",
           "display": true
@@ -42,7 +42,7 @@ export class DetailsUserComponent implements OnInit {
         this.loading = false;
       },
       err => {
-        this.alertMessage = {
+        this.alert_message = {
           "text": "Error occured!",
           "class": "danger",
           "display": true

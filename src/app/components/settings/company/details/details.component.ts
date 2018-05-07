@@ -5,6 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Company } from '../_models/index';
 
 // Services
+import { Service } from '../../../../services/index';
 import { CompanyService } from '../_services/index';
 
 @Component({
@@ -18,26 +19,32 @@ export class CompanyDetailsComponent implements OnInit {
   company: any = {};
   loading = false;
 
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
   };
 
+  constructor(
+    private service: Service,
+    private route: ActivatedRoute,
+    private companyService: CompanyService
+  ) {}
+
   private upDate() {
     this.loading = true;
-    this.companyService.update(this.company).subscribe(
+    this.service.update("companies", this.company).subscribe(
       data => {
-        this.alertMessage = {
-          "text": "Company has been updated successfully!",
+        this.alert_message = {
+          "text": "Aggiornato con successo!",
           "class": "success",
           "display": true
         }
         this.loading = false;
       },
       err => {
-        this.alertMessage = {
-          "text": "Error occured!",
+        this.alert_message = {
+          "text": "Si è verificato un errore!",
           "class": "danger",
           "display": true
         }
@@ -46,18 +53,12 @@ export class CompanyDetailsComponent implements OnInit {
     );
   }
 
-  constructor(
-    private route: ActivatedRoute,
-    private companyService: CompanyService
-  ) {}
-
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.companyService.getById(this.id).subscribe(
         data => {
           this.company = data;
-          console.log(this.company);
         }
       );
     });

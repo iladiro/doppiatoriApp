@@ -9,7 +9,7 @@
           </figure>
         </div>
         <div class="col-sm-10">
-          <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
+          <alert_message [message]="alert_message" *ngIf="alert_message"></alert_message>
           <form #UpdateUserForm="ngForm" (ngSubmit)="upDate(UpdateUserForm)" novalidate class="form--light">
             <div class="form-group" [ngClass]="{ 'has-error': UpdateUserForm.submitted && !username.valid }">
               <label for="firstName">First Name</label>

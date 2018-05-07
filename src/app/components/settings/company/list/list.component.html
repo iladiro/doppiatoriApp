@@ -1,6 +1,6 @@
 <div class="container">
-  <alertMessage [message]="alertMessage" *ngIf="alertMessage"></alertMessage>
-  <modalPrompt [message]="modalMessage" (confirm)="setConfirm($event)"></modalPrompt>
+  <alert_message [message]="alert_message" *ngIf="alert_message"></alert_message>
+  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="row mb-3">
     <div class="col">
       <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
@@ -39,7 +39,7 @@
           </tr>
         </tbody>
       </table>
-      <paginator (pagedItems)="datasetFromPaginator($event)" [DBtable]="DBTable"></paginator>
+      <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator>
     </div>
   </div>
   <div class="row">

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Qualification } from '../_models/index';
 
 // Services
-import { QualificationService } from '../_services/index';
+import { Service } from '../../../../services/index';
 
 @Component({
   //selector: 'app-create',
@@ -21,13 +21,14 @@ export class QualificationCreateComponent implements OnInit {
     "class": ""
   };
 
-  constructor(private qualifService: QualificationService) { }
+  constructor(
+    private service: Service
+  ) { }
 
   create() {
     console.log(this.qualification);
-    this.qualifService.create(this.qualification).subscribe(
+    this.service.create("qualifications", this.qualification).subscribe(
       data => {
-        console.log("ok");
         this.alert_message = {
           "text": "Creazione andata a buon fine!",
           "class": "success",
@@ -35,7 +36,6 @@ export class QualificationCreateComponent implements OnInit {
         }
       },
       err => {
-        console.log("ko");
         this.alert_message = {
           "text": "Errore",
           "class": "danger",

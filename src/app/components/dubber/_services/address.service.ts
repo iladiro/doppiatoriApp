@@ -12,16 +12,16 @@ export class AddressService {
 
   ngOnInit(): void {}
 
-  create(address) {
-    return this.http.post(this.url_root, address);
-  }
-
-  delete(id: number) {
-    return this.http.delete(this.url_root + "?id=eq." + id);
-  }
-
-  update(address) {
-    return this.http.patch(this.url_root + "?id=eq." + address.id, address);
-  }
+  // create(address) {
+  //   return this.http.post(this.url_root, address);
+  // }
+  //
+  // delete(id: number) {
+  //   return this.http.delete(this.url_root + "?id=eq." + id);
+  // }
+  //
+  // update(address) {
+  //   return this.http.patch(this.url_root + "?id=eq." + address.id, address);
+  // }
 
 }

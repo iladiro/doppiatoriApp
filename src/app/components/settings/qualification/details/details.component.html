@@ -1,5 +1,5 @@
 <div class="container">
-  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <alert_message [message]="alert_message" *ngIf="alert_message"></alert_message>
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
       <form #f="ngForm" (ngSubmit)="upDate(f)" novalidate class="form--light">

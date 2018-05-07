@@ -6,6 +6,7 @@ import { Dubber } from '../dubber/_models/index';
 import { Film } from '../film/_models/index';
 
 // Services
+import { Service } from '../../services/index';
 import { DubberService } from '../dubber/_services/dubbers.service';
 import { FilmService } from '../film/_services/index';
 
@@ -18,10 +19,13 @@ import { FilmService } from '../film/_services/index';
 export class DashboardComponent implements OnInit {
 
   current_user: User;
-  dubbers: Dubber[] = [];
-  films: Film[] = [];
+  // dubbers: Dubber[] = [];
+  dubbers: any = [];
+  // films: Film[] = [];
+  films: any = [];
 
   constructor(
+    private service: Service,
     private filmService: FilmService,
     private dubberService: DubberService
   ) {
@@ -29,10 +33,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filmService.getAll().subscribe(
+    this.service.getAll("films").subscribe(
       data => { this.films = data; }
     );
-    this.dubberService.getAll().subscribe(
+    this.service.getAll("dubbers").subscribe(
       data => { this.dubbers = data; }
     );
   }

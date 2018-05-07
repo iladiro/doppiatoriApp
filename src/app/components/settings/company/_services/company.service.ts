@@ -14,24 +14,24 @@ export class CompanyService {
 
   ngOnInit(): void {}
 
-  getAll() {
-    return this.http.get<Company[]>(this.url_root);
-  }
+  // getAll() {
+  //   return this.http.get<Company[]>(this.url_root);
+  // }
 
   getById(id: number) {
     return this.http.get(this.url_root + "?id=eq." + id, {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
-  create(company: Company) {
-    return this.http.post(this.url_root, company);
-  }
-
-  delete(id: number) {
-    return this.http.delete(this.url_root + "?id=eq." + id);
-  }
-
-  update(company: Company) {
-    return this.http.patch(this.url_root + "?id=eq." + company.id, company);
-  }
+  // create(company: Company) {
+  //   return this.http.post(this.url_root, company);
+  // }
+  //
+  // delete(id: number) {
+  //   return this.http.delete(this.url_root + "?id=eq." + id);
+  // }
+  //
+  // update(company: Company) {
+  //   return this.http.patch(this.url_root + "?id=eq." + company.id, company);
+  // }
 
 }

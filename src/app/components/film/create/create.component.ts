@@ -6,8 +6,7 @@ import { Film } from '../_models/index';
 import { Dubber } from '../../dubber/_models/index';
 
 // Services
-import { FilmService } from '../_services/index';
-import { DubberService } from '../../dubber/_services/dubbers.service';
+import { Service } from '../../../services/index';
 
 @Component({
   moduleId: module.id,
@@ -19,25 +18,25 @@ export class AddFilmComponent {
 
   film: any = {};
   id: number;
-  dubbers: Dubber[] = [];
+  dubbers: any = [];
+  // dubbers: Dubber[] = [];
   status: string = "";
 
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
   };
 
   constructor(
-    private filmService: FilmService,
-    private dubberService: DubberService
+    private service: Service
   ) {}
 
   create(){
     let filmObj = Object.assign({}, this.film);
     delete filmObj.dubbers;
     //Send object film to server
-    this.filmService.create(filmObj)
+    this.service.create("films", filmObj)
       // resp is of type `HttpResponse<Config>`
     .subscribe(
       resp => {
@@ -45,7 +44,7 @@ export class AddFilmComponent {
         let patt = /(\d+)/g;
         let result = str.match(patt);
         this.id = Number(result[0]);
-        this.alertMessage = {
+        this.alert_message = {
           "text": "L'operazione è andata a buon fine!",
           "class": "success",
           "display": true
@@ -54,7 +53,7 @@ export class AddFilmComponent {
       },
       err => {
         this.status = "ko";
-        this.alertMessage = {
+        this.alert_message = {
           "text": "Si è verificato un errore!",
           "class": "danger",
           "display": true
@@ -77,7 +76,7 @@ export class AddFilmComponent {
         };
         film_dubbers.push(object_pair);
       });
-      this.filmService.createFilmDubbers(film_dubbers).subscribe(
+      this.service.create("dubbers_films", film_dubbers).subscribe(
         data => {
           console.log("ok")
         },
@@ -89,7 +88,7 @@ export class AddFilmComponent {
   }
 
   ngOnInit() {
-    this.dubberService.getAll().subscribe(
+    this.service.getAll("dubbers").subscribe(
       data => { this.dubbers = data; }
     );
   }

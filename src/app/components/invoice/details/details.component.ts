@@ -8,7 +8,6 @@ import { Invoice } from '../_models/index';
 
 // Services
 import { InvoiceService } from '../_services/index';
-import { CompanyService } from '../../settings/company/_services/index';
 
 
 @Component({
@@ -27,7 +26,6 @@ export class DetailsInvoiceComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private invoiceService: InvoiceService,
-    private companyService: CompanyService,
     @Inject('Window') private window: Window
   ) { }
 

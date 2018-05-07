@@ -1,5 +1,5 @@
 <div class="container">
-  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <alert_message [message]="alert_message" *ngIf="alert_message"></alert_message>
   <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="row mb-3">
     <div class="col">
@@ -37,7 +37,7 @@
           </tr>
         </tbody>
       </table>
-      <paginator (pagedItems)="datasetFromPaginator($event)" [DBtable]="DB_table"></paginator>
+      <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator>
     </div>
   </div>
   <div class="row">

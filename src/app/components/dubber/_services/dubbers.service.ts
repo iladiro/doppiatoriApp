@@ -17,25 +17,25 @@ export class DubberService {
 
   ngOnInit(): void {}
 
-  getAll() {
-    return this.http.get<Dubber[]>(this.url_root);
-  }
+  // getAll() {
+  //   return this.http.get<Dubber[]>(this.url_root);
+  // }
 
   getById(id: number) {
     return this.http.get(this.url_root + "?id=eq." + id + "&select=*,addresses:addresses(*),banks:banks(*),films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
-  create(dubber: Dubber): Observable<HttpResponse<any>> {
-    return this.http.post(this.url_root, dubber, { observe: 'response' });
-  }
-
-  delete(id: number) {
-    return this.http.delete(this.url_root + "?id=eq." + id);
-  }
-
-  update(dubber: Dubber) {
-    return this.http.patch(this.url_root + "?id=eq." + dubber.id, dubber);
-  }
+  // create(dubber: Dubber): Observable<HttpResponse<any>> {
+  //   return this.http.post(this.url_root, dubber, { observe: 'response' });
+  // }
+  //
+  // delete(id: number) {
+  //   return this.http.delete(this.url_root + "?id=eq." + id);
+  // }
+  //
+  // update(dubber: Dubber) {
+  //   return this.http.patch(this.url_root + "?id=eq." + dubber.id, dubber);
+  // }
 
   /*-------------------------------------------------------------------------*/
 

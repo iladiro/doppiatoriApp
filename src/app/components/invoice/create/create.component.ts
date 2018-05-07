@@ -2,8 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 // Services
-import { InvoiceService } from '../_services/index';
-import { CompanyService } from '../../settings/company/_services/index';
+import { Service } from '../../../services/index';
 
 @Component({
   selector: 'formInvoice',
@@ -16,11 +15,10 @@ export class CreateComponent implements OnInit {
   @Input() dubber: any;
   @Output() event = new EventEmitter();
 
-  companies: any[] = [];
+  companies: any = [];
 
   constructor(
-    private invoiceService: InvoiceService,
-    private companyService: CompanyService
+    private service: Service
   ) { }
 
   private compensationCalculation(gross, percentual) {
@@ -43,7 +41,7 @@ export class CreateComponent implements OnInit {
     current_invoice.dubber_id = +this.dubber.id;
     current_invoice.company_id = +current_invoice.company_id;
 
-    this.invoiceService.create(current_invoice).subscribe(
+    this.service.create("invoices", current_invoice).subscribe(
       data => {
         this.dubber.invoices.push(current_invoice);
         this.event.emit({
@@ -65,7 +63,7 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.companyService.getAll().subscribe(
+    this.service.getAll("companies").subscribe(
       data => {
         this.companies = data;
       }

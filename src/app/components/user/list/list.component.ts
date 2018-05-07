@@ -14,7 +14,7 @@ import { UserService } from '../_services/index';
 export class UsersListComponent implements OnInit {
 
   users: User[] = [];
-  private DBTable:string = "users";
+  private DB_table:string = "users";
   private currentUser;
 
   dataForRequestSearchComp = {
@@ -25,7 +25,7 @@ export class UsersListComponent implements OnInit {
   private modalMessage = {
     "text": ""
   };
-  private alertMessage = {
+  private alert_message = {
     "display": false,
     "text": "",
     "class": ""
@@ -53,14 +53,14 @@ export class UsersListComponent implements OnInit {
     this.userService.delete(user.id).subscribe(
       data => {
         this.users.splice(index, 1);
-        this.alertMessage = {
+        this.alert_message = {
           "text": "It has been deleted successfully!",
           "class": "success",
           "display": true
         }
       },
       err => {
-        this.alertMessage = {
+        this.alert_message = {
           "text": "Error",
           "class": "danger",
           "display": true

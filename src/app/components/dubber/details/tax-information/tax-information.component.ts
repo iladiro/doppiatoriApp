@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // Services
-import { AddressService } from '../../_services/address.service';
+import { Service } from '../../../../services/index';
 
 @Component({
   selector: 'tax-information',
@@ -15,12 +15,12 @@ export class DubberTaxInformationComponent implements OnInit {
   address: any = {};
 
   constructor(
-    private addressService: AddressService,
+    private service: Service,
     private http: HttpClient
   ) {}
 
   update() {
-    this.addressService.update(this.address).subscribe(
+    this.service.update("addresses", this.address).subscribe(
       data => {
         console.log("ok")
       },

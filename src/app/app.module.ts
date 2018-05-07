@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Services
+import { Service } from './services/http.service';
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { BankService } from './components/dubber/_services/bank.service';
 import { AddressService } from './components/dubber/_services/address.service';
@@ -98,6 +99,7 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     HttpClientModule
   ],
   providers: [
+    Service,
     DubberService,
     FilmService,
     InvoiceService,

@@ -28,7 +28,7 @@ export class PaginatorComponent implements OnInit {
   pager: any = {};
   // paged items
   @Output() pagedItems = new EventEmitter();
-  @Input() DBtable:string;
+  @Input() DB_table:string;
 
   setPage(page: number) {
     if (page < 1 || page > this.pager.totalPages) {
@@ -44,7 +44,7 @@ export class PaginatorComponent implements OnInit {
 
   ngOnInit() {
     // get dummy data
-    this.http.get("http://localhost:3000/" + this.DBtable).subscribe(
+    this.http.get("http://localhost:3000/" + this.DB_table).subscribe(
       data => {
         // set items to json response
         this.allItems = data;

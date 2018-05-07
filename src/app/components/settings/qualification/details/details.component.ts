@@ -5,6 +5,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Qualification } from '../_models/index';
 
 // Services
+import { Service } from '../../../../services/index';
 import { QualificationService } from '../_services/index';
 
 @Component({
@@ -24,12 +25,13 @@ export class QualificationDetailsComponent implements OnInit {
   };
 
   constructor(
-    private route: ActivatedRoute,
-    private qualifService: QualificationService
+    private service: Service,
+    private qualifService: QualificationService,
+    private route: ActivatedRoute
   ) { }
 
   private upDate() {
-    this.qualifService.update(this.qualification).subscribe(
+    this.service.update("qualifications", this.qualification).subscribe(
       data => {
         this.alert_message = {
           "text": "La stringa è stata modificata con successo!",
