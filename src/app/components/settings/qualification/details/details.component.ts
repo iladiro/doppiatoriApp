@@ -6,7 +6,7 @@ import { Qualification } from '../_models/index';
 
 // Services
 import { Service } from '../../../../services/index';
-import { QualificationService } from '../_services/index';
+// import { QualificationService } from '../_services/index';
 
 @Component({
   templateUrl: './details.component.html',
@@ -22,7 +22,7 @@ export class QualificationDetailsComponent implements OnInit {
 
   constructor(
     private service: Service,
-    private qualifService: QualificationService,
+    //private qualifService: QualificationService,
     private route: ActivatedRoute
   ) { }
 
@@ -40,7 +40,7 @@ export class QualificationDetailsComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.qualifService.getById(this.id).subscribe(
+      this.service.getById("qualifications", "id", this.id).subscribe(
         data => {
           this.qualification = data;
         },

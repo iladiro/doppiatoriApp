@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
 // Services
-import { Service } from '../../../services/index';
+import { Service } from '../../../../../services/index';
 
 @Component({
   selector: 'formInvoice',
@@ -10,7 +10,7 @@ import { Service } from '../../../services/index';
   styleUrls: ['./create.component.scss']
 })
 
-export class CreateComponent implements OnInit {
+export class InvoiceCreateComponent implements OnInit {
 
   @Input() dubber: any;
   @Output() event = new EventEmitter();

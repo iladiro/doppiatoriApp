@@ -6,7 +6,7 @@ import { Company } from '../_models/index';
 
 // Services
 import { Service } from '../../../../services/index';
-import { CompanyService } from '../_services/index';
+// import { CompanyService } from '../_services/index';
 
 @Component({
   templateUrl: './details.component.html',
@@ -24,7 +24,7 @@ export class CompanyDetailsComponent implements OnInit {
   constructor(
     private service: Service,
     private route: ActivatedRoute,
-    private companyService: CompanyService
+    //private companyService: CompanyService
   ) {}
 
   private upDate() {
@@ -44,7 +44,7 @@ export class CompanyDetailsComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.companyService.getById(this.id).subscribe(
+      this.service.getById("companies", "id", this.id).subscribe(
         data => {
           this.company = data;
         }

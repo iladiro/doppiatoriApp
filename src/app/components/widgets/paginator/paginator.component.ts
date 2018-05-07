@@ -1,12 +1,14 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Headers, RequestOptions, Response } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+// import { Headers, RequestOptions, Response } from '@angular/http';
+// import { HttpClient } from '@angular/common/http';
+// import { Observable } from 'rxjs/Observable';
+// import 'rxjs/add/operator/map';
 
 import * as _ from 'underscore';
 
-import { PagerService } from './_services/index'
+// Services
+import { PagerService } from './_services/index';
+import { Service } from '../../../services/index';
 
 @Component({
   moduleId: module.id,
@@ -18,7 +20,8 @@ import { PagerService } from './_services/index'
 export class PaginatorComponent implements OnInit {
 
   constructor(
-    private http: HttpClient,
+    // private http: HttpClient,
+    private service: Service,
     private pagerService: PagerService
   ) { }
 
@@ -43,8 +46,7 @@ export class PaginatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    // get dummy data
-    this.http.get("http://localhost:3000/" + this.DB_table).subscribe(
+    this.service.getAll(this.DB_table).subscribe(
       data => {
         // set items to json response
         this.allItems = data;
@@ -52,5 +54,13 @@ export class PaginatorComponent implements OnInit {
         this.setPage(1);
       }
     );
+    // this.http.get("http://localhost:3000/" + this.DB_table).subscribe(
+    //   data => {
+    //     // set items to json response
+    //     this.allItems = data;
+    //     // initialize to page 1
+    //     this.setPage(1);
+    //   }
+    // );
   }
 }

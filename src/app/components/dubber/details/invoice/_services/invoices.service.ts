@@ -15,24 +15,8 @@ export class InvoiceService {
 
   ngOnInit(): void {}
 
-  // getAll() {
-  //   return this.http.get<Invoice[]>(this.url_root);
-  // }
-
   getById(id: number) {
     return this.http.get(this.url_root + "?id=eq." + id + "&select=*,dubber:dubbers(*),company:companies(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
-
-  // create(invoice: Invoice) {
-  //   return this.http.post(this.url_root, invoice);
-  // }
-  //
-  // delete(id: number) {
-  //   return this.http.delete(this.url_root + "?id=eq." + id);
-  // }
-  //
-  // update(invoice) {
-  //   return this.http.put(this.url_root + invoice.id, invoice);
-  // }
 
 }

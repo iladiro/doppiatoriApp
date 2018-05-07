@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 // Services
+import { Service } from '../../../services/index';
 import { DubberService } from '../_services/index';
 
 @Component({
@@ -23,6 +24,7 @@ export class DubberProfileComponent implements OnInit {
   private alert_message;
 
   constructor(
+    private service: Service,
     private route: ActivatedRoute,
     private dubberService: DubberService
   ) {}
@@ -49,7 +51,7 @@ export class DubberProfileComponent implements OnInit {
   private deleteFilm(film_id) {
     // Cancella film dalla lista dei film del dubber corrente
     let current_dubber = this.dubber;
-    this.dubberService.deleteFilmDubber(film_id, this.dubber.id).subscribe(
+    this.service.deleteFilmDubber("dubbers_films", film_id, this.dubber.id).subscribe(
         data => {
           current_dubber.films.map(function(film, index){
             if(film.id == film_id) {

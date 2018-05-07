@@ -13,7 +13,7 @@ import { RegisterComponent } from './components/user/register/register.component
 import { UsersListComponent } from './components/user/list/list.component';
 import { DetailsUserComponent } from './components/user/details/details.component';
 
-import { DetailsInvoiceComponent } from './components/invoice/details/details.component';
+import { DetailsInvoiceComponent } from './components/dubber/details/invoice/details/details.component';
 
 import { CompanyCreateComponent } from './components/settings/company/create/create.component';
 import { CompanyListComponent } from './components/settings/company/list/list.component';
@@ -21,6 +21,7 @@ import { CompanyDetailsComponent } from './components/settings/company/details/d
 import { QualificationCreateComponent } from './components/settings/qualification/create/create.component';
 import { QualificationListComponent } from './components/settings/qualification/list/list.component';
 import { QualificationDetailsComponent } from './components/settings/qualification/details/details.component';
+import { EnpalsParametersListComponent } from './components/settings/enpals-parameters/list/list.component';
 
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -114,6 +115,11 @@ const appRoutes: Routes = [
   {
     path: 'settings/qualification/:id',
     component: QualificationDetailsComponent
+  },
+  {
+    path: 'settings/enpals-parameters',
+    component: EnpalsParametersListComponent,
+    data: { title: 'Enpals Parameters list' }
   },
   // otherwise redirect to home
   // {

@@ -11,10 +11,10 @@
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#informations" role="tab">Informations</a>
+          <a class="nav-link active" data-toggle="tab" href="#informations" role="tab">Informazioni</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#collaborators" role="tab">Collaborators</a>
+          <a class="nav-link" data-toggle="tab" href="#collaborators" role="tab">Collaboratori</a>
         </li>
       </ul>
 
@@ -23,21 +23,21 @@
         <div class="tab-pane active" id="informations" role="tabpanel">
           <form #UpdateFilmForm="ngForm" (ngSubmit)="upDateFilm(UpdateFilmForm)" novalidate class="form--light">
             <div class="form-group" [ngClass]="{ 'has-error': UpdateFilmForm.submitted && !title.valid }">
-              <label for="title">Title</label>
+              <label for="title">Titolo</label>
               <input type="text" id="title" class="form-control" placeholder="Title" [(ngModel)]="film.title" name="title" #title="ngModel" required>
-              <div *ngIf="UpdateFilmForm.submitted && !title.valid" class="is-invalid">Title is required</div>
+              <div *ngIf="UpdateFilmForm.submitted && !title.valid" class="is-invalid">Campo non valido</div>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': UpdateFilmForm.submitted && !description.valid }">
-              <label for="description">Description</label>
+              <label for="description">Descrizione</label>
               <textarea id="description" rows="10" class="form-control" placeholder="Description" [(ngModel)]="film.description" name="description" #description="ngModel" required></textarea>
-              <div *ngIf="UpdateFilmForm.submitted && !description.valid" class="is-invalid">Title is required</div>
+              <div *ngIf="UpdateFilmForm.submitted && !description.valid" class="is-invalid">Campo non valido</div>
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <back-button></back-button>
               </div>
               <div class="col-sm-6 text-right">
-                <button type="submit" class="btn btn-outline-success">Update</button>
+                <button type="submit" class="btn btn-outline-success">Salva modifiche</button>
               </div>
             </div>
           </form>
@@ -59,12 +59,12 @@
             </tbody>
           </table>
           <ng-template #noDubbers>
-            <p class="alert alert-warning">There aren't associated dubbers</p>
+            <p class="alert alert-warning">Non ci sono doppiatori associati</p>
           </ng-template>
 
           <form #AddDubberForm="ngForm" (ngSubmit)="addDubberSelected(AddDubberForm)" class="form--light">
             <div class="form-group">
-              <label for="exampleFormControlSelect2">Dubbers List</label>
+              <label for="exampleFormControlSelect2">Lista doppiatori</label>
               <select name="dubber" class="form-control" ngModel>
                 <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}}">
                   {{dubber.name}} {{dubber.surname}}
@@ -76,7 +76,7 @@
                 <back-button></back-button>
               </div>
               <div class="col-sm-6 text-right">
-                <button type="submit" class="btn btn-outline-success">Add</button>
+                <button type="submit" class="btn btn-outline-success">Aggiungi</button>
               </div>
             </div>
           </form>

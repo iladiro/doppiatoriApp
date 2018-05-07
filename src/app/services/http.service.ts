@@ -17,10 +17,6 @@ export class Service {
     return this.http.get(this.url_root + table);
   }
 
-  // getById(table, id: number) {
-  //   return this.http.get(this.url_root + table + "?id=eq." + id + "&select=*,addresses:addresses(*),banks:banks(*),films:films(id,title),invoices:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
-  // }
-
   create(table, item): Observable<HttpResponse<any>> {
     return this.http.post(this.url_root + table, item, { observe: 'response' });
   }
@@ -33,12 +29,24 @@ export class Service {
     return this.http.patch(this.url_root + table + "?id=eq." + item.id, item);
   }
 
-  // setAsDefault(table, item_id, set) {
-  //   return this.http.patch(this.url_root + table + "?id=eq." + item_id, set);
-  // }
-  //
-  // resetDefault(table, item_id, reset) {
-  //   return this.http.patch(this.url_root + table + "?dubber_id=eq." + item_id + "&_default=is." + true, reset);
-  // }
+  getById(table, column, id: number) {
+    return this.http.get(this.url_root + table + "?" + column + "=eq." + id, {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+  }
+
+  getManyById(table, column, id: number) {
+    return this.http.get(this.url_root + table + "?" + column + "=eq." + id);
+  }
+
+  setAsDefault(table, item_id, set) {
+    return this.http.patch(this.url_root + table + "?id=eq." + item_id, set);
+  }
+
+  resetDefault(table, item_id, reset) {
+    return this.http.patch(this.url_root + table + "?dubber_id=eq." + item_id + "&_default=is." + true, reset);
+  }
+
+  deleteFilmDubber(table, film_id: number, dubber_id: number) {
+    return this.http.delete(this.url_root + table + "?film_id=eq." + film_id + "&dubber_id=eq." + dubber_id);
+  }
 
 }

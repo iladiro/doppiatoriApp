@@ -51,7 +51,7 @@ export class FilmDetailsComponent implements OnInit {
 
   private deleteDubber(id_dubber) {
     let current_film = this.film;
-    this.filmService.deleteFilmDubber(this.id, id_dubber).subscribe(
+    this.service.deleteFilmDubber("dubbers_films", this.id, id_dubber).subscribe(
       data => {
         current_film.dubbers.map(function(dubber, index){
           if(dubber.id == id_dubber) {

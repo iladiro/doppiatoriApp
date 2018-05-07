@@ -4,7 +4,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Invoice } from '../_models/index';
 
 // Services
-import { Service } from '../../../services/index';
+import { Service } from '../../../../../services/index';
 
 @Component({
   selector: 'invoiceList',

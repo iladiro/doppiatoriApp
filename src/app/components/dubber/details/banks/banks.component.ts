@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 // Services
 import { Service } from '../../../../services/index';
-import { BankService } from '../../_services/bank.service';
 
 @Component({
   selector: 'banks',
@@ -15,8 +14,7 @@ export class DubberBanksComponent implements OnInit {
   private bank: any = {};
 
   constructor(
-    private service: Service,
-    private bankService: BankService
+    private service: Service
   ) { }
 
   create() {
@@ -52,7 +50,7 @@ export class DubberBanksComponent implements OnInit {
     let reset = {
       "_default": false
     }
-    this.bankService.resetDefault(bank.dubber_id, reset).subscribe(
+    this.service.resetDefault("banks", bank.dubber_id, reset).subscribe(
       data => {},
       err => {
         console.log(err)
@@ -65,7 +63,7 @@ export class DubberBanksComponent implements OnInit {
     let set = {
       "_default": true
     }
-    this.bankService.setAsDefault(bank.id, set).subscribe(
+    this.service.setAsDefault("banks", bank.id, set).subscribe(
       data => {
         this.resetBankArrayValue(bank.id);
       },
