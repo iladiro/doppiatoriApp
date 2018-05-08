@@ -14,13 +14,7 @@ export class DubberProfileComponent implements OnInit {
 
   id: number;
   private sub: any;
-
   dubber: any;
-  dubber_film: any;
-
-  private modal_message = {
-    "text": ""
-  };
   private alert_message;
 
   constructor(
@@ -30,40 +24,7 @@ export class DubberProfileComponent implements OnInit {
   ) {}
 
   setMessage(message){
-    this.alert_message = {
-      "text": message.text,
-      "class": message.class,
-      "display": message.display
-    }
-  }
-
-  passCurrentFilm(film) {
-    this.modal_message.text = "Sei sicuro di volerlo cancellare?";
-    this.dubber_film = film;
-  }
-
-  setConfirm(data) {
-    if(data == "true") {
-      this.deleteFilm(this.dubber_film.id);
-    }
-  }
-
-  private deleteFilm(film_id) {
-    // Cancella film dalla lista dei film del dubber corrente
-    let current_dubber = this.dubber;
-    this.service.deleteFilmDubber("dubbers_films", film_id, this.dubber.id).subscribe(
-        data => {
-          current_dubber.films.map(function(film, index){
-            if(film.id == film_id) {
-              current_dubber.films.splice(index, 1);
-            }
-          });
-          this.alert_message = "success";
-        },
-        err => {
-          this.alert_message = "rejected";
-        }
-    )
+    this.alert_message = message;
   }
 
   ngOnInit() {

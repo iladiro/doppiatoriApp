@@ -52,6 +52,7 @@ import { PaginatorComponent } from './components/widgets/paginator/paginator.com
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
+import { DubberFilmsComponent } from './components/dubber/details/films/films.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     DubberBanksComponent,
     DubberTaxInformationComponent,
     EnpalsParametersListComponent,
-    EnpalsParameterDetailsComponent
+    EnpalsParameterDetailsComponent,
+    DubberFilmsComponent
   ],
   imports: [
     BrowserModule,

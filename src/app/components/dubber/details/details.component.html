@@ -10,7 +10,7 @@
         </div>
         <div class="col-sm-10">
           <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-          <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
+          <!-- <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
@@ -41,24 +41,7 @@
               <banks [dubber]="this.dubber"></banks>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
-              <table class="table table--striped" *ngIf="dubber.films.length; else noFilm">
-                <tbody>
-                  <tr *ngFor="let film of dubber.films">
-                    <td>{{film.title}}</td>
-                    <td class="text-right">
-                      <a [routerLink]="['/film', film.id]" class="btn btn--dark">
-                        <i class="fa fa-info" aria-hidden="true"></i>
-                      </a>
-                      <button (click)="passCurrentFilm(film)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <ng-template #noFilm>
-                <p class="alert alert-warning">Non ci sono film associati</p>
-              </ng-template>
+              <dubber-films [dubber]="this.dubber"></dubber-films>
             </div>
             <div class="tab-pane" id="invoices" role="tabpanel">
               <invoiceList [dubber]="this.dubber" (event)="setMessage($event)"></invoiceList>

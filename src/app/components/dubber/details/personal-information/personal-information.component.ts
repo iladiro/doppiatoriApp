@@ -30,10 +30,10 @@ export class DubberPersonalInformationComponent implements OnInit {
 
     this.service.update("dubbers", dubber_obj).subscribe(
       data => {
-        this.event.emit({"text": "Aggiornato con successo!", "class": "success", "display": true});
+        this.event.emit("success");
       },
       err => {
-        this.event.emit({"text": "!Si è verificato un errore", "class": "danger", "display": true});
+        this.event.emit("rejected");
       }
     );
   }

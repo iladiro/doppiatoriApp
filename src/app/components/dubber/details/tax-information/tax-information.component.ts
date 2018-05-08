@@ -21,7 +21,9 @@ export class DubberTaxInformationComponent implements OnInit {
 
   update() {
     this.service.update("addresses", this.address).subscribe(
-      data => {},
+      data => {
+        console.log("ok")
+      },
       err => {
         console.log(err)
       }
@@ -29,6 +31,7 @@ export class DubberTaxInformationComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.dubber);
     this.address = this.dubber.addresses[0];
   }
 

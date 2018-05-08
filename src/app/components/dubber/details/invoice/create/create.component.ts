@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { Response } from "@angular/http";
 
 // Services
 import { Service } from '../../../../../services/index';
@@ -14,7 +15,7 @@ export class InvoiceCreateComponent implements OnInit {
 
   @Input() dubber: any;
   @Output() event = new EventEmitter();
-
+  id: number;
   companies: any = [];
 
   constructor(
@@ -43,26 +44,34 @@ export class InvoiceCreateComponent implements OnInit {
 
     this.service.create("invoices", current_invoice).subscribe(
       data => {
-        this.dubber.invoices.push(current_invoice);
-        this.event.emit({
-          "text": "Generato con successo!",
-          "class": "success",
-          "display": true
-        });
+        let str = data.headers.get("location");
+        let patt = /(\d+)/g;
+        let result = str.match(patt);
+        this.id = Number(result[0]);
+        this.reloadList();
+        this.event.emit("success");
       },
       err => {
-        this.event.emit({
-          "text": "Errore",
-          "class": "danger",
-          "display": true
-        });
+        this.event.emit("rejected");
       }
     );
 
     form.reset();
   }
 
+  private reloadList() {
+    this.service.getManyById("invoices", "dubber_id", this.dubber.id).subscribe(
+      data => {
+        this.dubber.invoices = data;
+      },
+      err => {
+        console.log(err)
+      }
+    );
+  }
+
   ngOnInit() {
+    //console.log(this.dubber);
     this.service.getAll("companies").subscribe(
       data => {
         this.companies = data;
