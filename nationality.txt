@@ -1,0 +1,674 @@
+[
+  {
+  	"nation": "afghanistan",
+  	"nationality": "afghana"
+  },
+  {
+  	"nation": "Albania",
+  	"nationality": "albanese"
+  },
+  {
+  	"nation": "Algeria",
+  	"nationality": "algerina"
+  },
+  {
+  	"nation": "andorrana",
+  	"nationality": "andorra"
+  },
+  {
+  	"nation": "angola",
+  	"nationality": "angolana"
+  },
+  {
+  	"nation": "argentina",
+  	"nationality": "argentina"
+  },
+  {
+  	"nation": "armenia",
+  	"nationality": "armena"
+  },
+  {
+  	"nation": "australia",
+  	"nationality": "australiana"
+  },
+  {
+  	"nation": "austria",
+  	"nationality": "austriaca"
+  },
+  {
+  	"nation": "Azerbaijan",
+  	"nationality": "azera"
+  },
+  {
+  	"nation": "Bahamas",
+  	"nationality": "bahamense"
+  },
+  {
+  	"nation": "Bahrein",
+  	"nationality": "bahreinita"
+  },
+  {
+  	"nation": "Barbados",
+  	"nationality": "barbadiana"
+  },
+  {
+  	"nation": "belgio",
+  	"nationality": "belga"
+  },
+  {
+  	"nation": "bengala",
+  	"nationality": "bengalese"
+  },
+  {
+  	"nation": "Benin",
+  	"nationality": "beninese"
+  },
+  {
+  	"nation": "Bhutan",
+  	"nationality": "bhutanese"
+  },
+  {
+  	"nation": "Bielorussia",
+  	"nationality": "bielorussa"
+  },
+  {
+  	"nation": "Birmania",
+  	"nationality": "birmana"
+  },
+  {
+  	"nation": "bolivia",
+  	"nationality": "boliviana"
+  },
+  {
+  	"nation": "bosnia",
+  	"nationality": "bosniaca"
+  },
+  {
+  	"nation": "Botswana",
+  	"nationality": "botswana"
+  },
+  {
+  	"nation": "brasile",
+  	"nationality": "brasiliana"
+  },
+  {
+  	"nation": "Inghilterra",
+  	"nationality": "britannica"
+  },
+  {
+  	"nation": "Brunei",
+  	"nationality": "bruneiana"
+  },
+  {
+  	"nation": "bulgaria",
+  	"nationality": "bulgara"
+  },
+  {
+  	"nation": "Burkina Faso",
+  	"nationality": "burkinabé"
+  },
+  {
+  	"nation": "burundi",
+  	"nationality": "burundese"
+  },
+  {
+  	"nation": "cambogia",
+  	"nationality": "cambogiana"
+  },
+  {
+  	"nation": "Camerun",
+  	"nationality": "camerunense"
+  },
+  {
+  	"nation": "canada",
+  	"nationality": "canadese"
+  },
+  {
+  	"nation": "capoverde",
+  	"nationality": "capoverdiana"
+  },
+  {
+  	"nation": "Repubblica Ceca",
+  	"nationality": "ceca"
+  },
+  {
+  	"nation": "Repubblica Centrafricana",
+  	"nationality": "centrafricana"
+  },
+  {
+  	"nation": "Ciad",
+  	"nationality": "ciadiana"
+  },
+  {
+  	"nation": "Cile",
+  	"nationality": "cilena"
+  },
+  {
+  	"nation": "Cina",
+  	"nationality": "cinese"
+  },
+  {
+  	"nation": "Sri Lanka",
+  	"nationality": "cingalese"
+  },
+  {
+  	"nation": "Cipro",
+  	"nationality": "cipriota"
+  },
+  {
+  	"nation": "Colombia",
+  	"nationality": "colombiana"
+  },
+  {
+    "nation": "Comore",
+    "nationality": "comoriana"
+  },
+  {
+    "nation": "kongo",
+    "nationality": "congolese"
+  },
+  {
+    "nation": "Costarica",
+    "nationality": "costaricana"
+  },
+  {
+    "nation": "Croazia",
+    "nationality": "croata"
+  },
+  {
+    "nation": "Cuba",
+    "nationality": "cubana"
+  },
+  {
+    "nation": "Danimarca",
+    "nationality": "danese"
+  },
+  {
+    "nation": "Repubblica Dominicana",
+    "nationality": "dominicana"
+  },
+  {
+    "nation": "Ecuador",
+    "nationality": "ecuadoregna"
+  },
+  {
+    "nation": "egitto",
+    "nationality": "egiziana"
+  },
+  {
+    "nation": "Arabia Saudita",
+    "nationality": "emiratina"
+  },
+  {
+    "nation": "Eritrea",
+    "nationality": "eritrea"
+  },
+  {
+    "nation": "Estonia",
+    "nationality": "estone"
+  },
+  {
+    "nation": "Etiopia",
+    "nationality": "etiope"
+  },
+  {
+    "nation": "Figi",
+    "nationality": "figiana"
+  },
+  {
+    "nation": "Filippine",
+    "nationality": "filippina"
+  },
+  {
+    "nation": "Finlandia",
+    "nationality": "finlandese"
+  },
+  {
+    "nation": "Francia",
+    "nationality": "francese"
+  },
+  {
+    "nation": "Gabon",
+    "nationality": "gabonese"
+  },
+  {
+    "nation": "Gambia",
+    "nationality": "gambiana"
+  },
+  {
+    "nation": "Georgia",
+    "nationality": "georgiana"
+  },
+  {
+    "nation": "Ghana",
+    "nationality": "ghanese"
+  },
+  {
+    "nation": "Giamaica",
+    "nationality": "giamaicana"
+  },
+  {
+    "nation": "Giappone",
+    "nationality": "giapponese"
+  },
+  {
+    "nation": "Gibuti",
+    "nationality": "gibutiana"
+  },
+  {
+    "nation": "Giordania",
+    "nationality": "giordana"
+  },
+  {
+    "nation": "Grecia",
+    "nationality": "greca"
+  },
+  {
+    "nation": "Grenada",
+    "nationality": "grenadina"
+  },
+  {
+    "nation": "Guatemala",
+    "nationality": "guatemalteca"
+  },
+  {
+    "nation": "Guinea",
+    "nationality": "guineana"
+  },
+  {
+    "nation": "Guyana",
+    "nationality": "guyanese"
+  },
+  {
+    "nation": "Haiti",
+    "nationality": "haitiana"
+  },
+  {
+    "nation": "Honduras",
+    "nationality": "honduregna"
+  },
+  {
+    "nation": "India",
+    "nationality": "indiana"
+  },
+  {
+    "nation": "Indonesia",
+    "nationality": "indonesiana"
+  },
+  {
+    "nation": "Iraq",
+    "nationality": "irachena"
+  },
+  {
+    "nation": "Iran",
+    "nationality": "iraniana"
+  },
+  {
+    "nation": "Irlanda",
+    "nationality": "irlandese"
+  },
+  {
+    "nation": "Islanda",
+    "nationality": "islandese"
+  },
+  {
+    "nation": "Israele",
+    "nationality": "israeliana"
+  },
+  {
+    "nation": "Italia",
+    "nationality": "italiana"
+  },
+  {
+    "nation": "Costa d'Avorio",
+    "nationality": "ivoriana"
+  },
+  {
+    "nation": "Kenya",
+    "nationality": "keniana"
+  },
+  {
+    "nation": "Kirghizistan",
+    "nationality": "kirgisa"
+  },
+  {
+    "nation": "Kosovo",
+    "nationality": "kosovara"
+  },
+  {
+    "nation": "Laos",
+    "nationality": "laotiana"
+  },
+  {
+    "nation": "Lesotho",
+    "nationality": "lesothiana"
+  },
+  {
+    "nation": "Lettonia",
+    "nationality": "lettone"
+  },
+  {
+    "nation": "Libano",
+    "nationality": "libanese"
+  },
+  {
+    "nation": "Liberia",
+    "nationality": "liberiana"
+  },
+  {
+    "nation": "Libia",
+    "nationality": "libica"
+  },
+  {
+    "nation": "Liechtenstein",
+    "nationality": "liechtensteiniana"
+  },
+  {
+    "nation": "Lituania",
+    "nationality": "lituana"
+  },
+  {
+    "nation": "Lussemburgo",
+    "nationality": "lussemburghese"
+  },
+  {
+    "nation": "Macedonia",
+    "nationality": "macedone"
+  },
+  {
+    "nation": "Malawi",
+    "nationality": "malawiana"
+  },
+  {
+    "nation": "Maldive",
+    "nationality": "maldiviana"
+  },
+  {
+    "nation": "Malesia",
+    "nationality": "malesiana"
+  },
+  {
+    "nation": "Madagascar",
+    "nationality": "malgascia"
+  },
+  {
+    "nation": "Mali",
+    "nationality": "maliana"
+  },
+  {
+    "nation": "Malta",
+    "nationality": "maltese"
+  },
+  {
+    "nation": "Marocco",
+    "nationality": "marocchina"
+  },
+  {
+    "nation": "Isole Marshall",
+    "nationality": "marshallese"
+  },
+  {
+    "nation": "Mauritania",
+    "nationality": "mauritana"
+  },
+  {
+    "nation": "Mauritius",
+    "nationality": "mauriziana"
+  },
+  {
+    "nation": "Messico",
+    "nationality": "messicana"
+  },
+  {
+    "nation": "Moldavia",
+    "nationality": "moldava"
+  },
+  {
+    "nation": "Monaco",
+    "nationality": "monegasca"
+  },
+  {
+    "nation": "Mongolia",
+    "nationality": "mongola"
+  },
+  {
+    "nation": "Montenegro",
+    "nationality": "montenegrina"
+  },
+  {
+    "nation": "Mozambico",
+    "nationality": "mozambicana"
+  },
+  {
+    "nation": "Namibia",
+    "nationality": "namibiana"
+  },
+  {
+    "nation": "Nauru",
+    "nationality": "nauruana"
+  },
+  {
+    "nation": "Nuova Zelanda",
+    "nationality": "neozelandese"
+  },
+  {
+    "nation": "Nepal",
+    "nationality": "nepalese"
+  },
+  {
+    "nation": "Nigeria",
+    "nationality": "nigeriana"
+  },
+  {
+    "nation": "Niger",
+    "nationality": "nigerina"
+  },
+  {
+    "nation": "Nord Corea",
+    "nationality": "nordcoreana"
+  },
+  {
+    "nation": "Panama",
+    "nationality": "panamense"
+  },
+  {
+    "nation": "Papua Nuova Guinea",
+    "nationality": "papuana"
+  },
+  {
+    "nation": "Paraguay",
+    "nationality": "paraguaiana"
+  },
+  {
+    "nation": "Perù",
+    "nationality": "peruviana"
+  },
+  {
+    "nation": "Polonia",
+    "nationality": "polacca"
+  },
+  {
+    "nation": "Portogallo",
+    "nationality": "portoghese"
+  },
+  {
+    "nation": "Qatar",
+    "nationality": "qatariota"
+  },
+  {
+    "nation": "Romania",
+    "nationality": "romena"
+  },
+  {
+    "nation": "Ruanda",
+    "nationality": "ruandese"
+  },
+  {
+    "nation": "Russia",
+    "nationality": "russa"
+  },
+  {
+    "nation": "Salvador",
+    "nationality": "salvadoregna"
+  },
+  {
+    "nation": "Samoa",
+    "nationality": "samoana"
+  },
+  {
+    "nation": "San Marino",
+    "nationality": "sanmarinese"
+  },
+  {
+    "nation": "Arabia Saudita",
+    "nationality": "saudita"
+  },
+  {
+    "nation": "Senegal",
+    "nationality": "senegalese"
+  },
+  {
+    "nation": "Serbia",
+    "nationality": "serba"
+  },
+  {
+    "nation": "Sierra Leone",
+    "nationality": "sierraleonese"
+  },
+  {
+    "nation": "Singapore",
+    "nationality": "singaporiana"
+  },
+  {
+    "nation": "Siria",
+    "nationality": "siriana"
+  },
+  {
+    "nation": "Slovacchia",
+    "nationality": "slovacca"
+  },
+  {
+    "nation": "Slovenia",
+    "nationality": "slovena"
+  },
+  {
+    "nation": "Somalia",
+    "nationality": "somala"
+  },
+  {
+    "nation": "Spagna",
+    "nationality": "spagnola"
+  },
+  {
+    "nation": "Stati Uniti",
+    "nationality": "statunitense"
+  },
+  {
+    "nation": "Sudafrica",
+    "nationality": "sudafricana"
+  },
+  {
+    "nation": "Sudan",
+    "nationality": "sudanese"
+  },
+  {
+    "nation": "Sud Corea",
+    "nationality": "sudcoreana"
+  },
+  {
+    "nation": "Svezia",
+    "nationality": "svedese"
+  },
+  {
+    "nation": "svizzera",
+    "nationality": "svizzera"
+  },
+  {
+    "nation": "Tagikistan",
+    "nationality": "tagika"
+  },
+  {
+    "nation": "Thailandia",
+    "nationality": "tailandese"
+  },
+  {
+    "nation": "Taiwan",
+    "nationality": "taiwanese"
+  },
+  {
+    "nation": "Tanzania",
+    "nationality": "tanzaniana"
+  },
+  {
+    "nation": "Germania",
+    "nationality": "tedesca"
+  },
+  {
+    "nation": "Togo",
+    "nationality": "togolese"
+  },
+  {
+    "nation": "Tonga",
+    "nationality": "tongana"
+  },
+  {
+    "nation": "Tunisia",
+    "nationality": "tunisina"
+  },
+  {
+    "nation": "Turchia",
+    "nationality": "turca"
+  },
+  {
+    "nation": "Turkmenistan",
+    "nationality": "turkmena"
+  },
+  {
+    "nation": "ucraina",
+    "nationality": "ucraina"
+  },
+  {
+    "nation": "Uganda",
+    "nationality": "ugandese"
+  },
+  {
+    "nation": "Ungheria",
+    "nationality": "ungherese"
+  },
+  {
+    "nation": "Uruguay",
+    "nationality": "uruguaiana"
+  },
+  {
+    "nation": "Uzbekistan",
+    "nationality": "uzbeka"
+  },
+  {
+    "nation": "Vanuatu",
+    "nationality": "vanuatuana"
+  },
+  {
+    "nation": "Città del Vaticano",
+    "nationality": "vaticana"
+  },
+  {
+    "nation": "Venezuela",
+    "nationality": "venezuelana"
+  },
+  {
+    "nation": "Vietnam",
+    "nationality": "vietnamita"
+  },
+  {
+    "nation": "Yemen",
+    "nationality": "yemenita"
+  },
+  {
+    "nation": "Zambesi",
+    "nationality": "zambese"
+  },
+  {
+    "nation": "Zimbabwe",
+    "nationality": "zimbabwese"
+  }
+]

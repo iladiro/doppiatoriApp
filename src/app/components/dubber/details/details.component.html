@@ -38,13 +38,14 @@
               <tax-information [dubber]="this.dubber"></tax-information>
             </div>
             <div class="tab-pane" id="banks" role="tabpanel">
-              <banks [dubber]="this.dubber"></banks>
+              <banksList [dubber]="this.dubber" (event)="setMessage($event)"></banksList>
+              <bankForm [dubber]="this.dubber" (event)="setMessage($event)"></bankForm>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
               <dubber-films [dubber]="this.dubber"></dubber-films>
             </div>
             <div class="tab-pane" id="invoices" role="tabpanel">
-              <invoiceList [dubber]="this.dubber" (event)="setMessage($event)"></invoiceList>
+              <invoicesesList [dubber]="this.dubber" (event)="setMessage($event)"></invoicesesList>
               <formInvoice [dubber]="this.dubber" (event)="setMessage($event)"></formInvoice>
             </div>
           </div>

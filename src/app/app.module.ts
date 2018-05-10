@@ -19,7 +19,8 @@ import { DubbersListComponent } from './components/dubber/list/list.component';
 import { DubberProfileComponent } from './components/dubber/details/details.component';
 import { AddDubberComponent } from './components/dubber/create/create.component';
 import { DubberPersonalInformationComponent } from './components/dubber/details/personal-information/personal-information.component';
-import { DubberBanksComponent } from './components/dubber/details/banks/banks.component';
+import { BankCreateComponent } from './components/dubber/details/banks/create/create.component';
+import { BanksListComponent } from './components/dubber/details/banks/list/list.component';
 import { DubberTaxInformationComponent } from './components/dubber/details/tax-information/tax-information.component';
 import { InvoiceCreateComponent } from './components/dubber/details/invoice/create/create.component';
 import { DetailsInvoiceComponent } from './components/dubber/details/invoice/details/details.component';
@@ -85,7 +86,8 @@ import { DubberFilmsComponent } from './components/dubber/details/films/films.co
     QualificationCreateComponent,
     QualificationListComponent,
     QualificationDetailsComponent,
-    DubberBanksComponent,
+    BankCreateComponent,
+    BanksListComponent,
     DubberTaxInformationComponent,
     EnpalsParametersListComponent,
     EnpalsParameterDetailsComponent,

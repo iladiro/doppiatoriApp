@@ -25,7 +25,8 @@ export class AddDubberComponent {
   status: string = "";
   // dubbers: Dubber[];
   dubbers: any = [];
-  qualifications;
+  qualifications: any = [];
+  nationalities: any = [];
 
   dubber: any = {};
   bank: any = {};
@@ -81,24 +82,18 @@ export class AddDubberComponent {
     }
   }
 
-  loadAllItems() {
-    this.service.getAll("dubbers").subscribe(
+  loadAllItems(table, variable) {
+    this.service.getAll(table).subscribe(
       data => {
-        this.dubbers = data;
+        this[variable] = data;
       }
     );
   }
 
   ngOnInit() {
-    this.loadAllItems();
-    this.service.getAll("qualifications").subscribe(
-      data => {
-        this.qualifications = data;
-      },
-      err => {
-        console.log(err)
-      }
-    );
+    this.loadAllItems("dubbers", "dubbers");
+    this.loadAllItems("qualifications", "qualifications");
+    this.loadAllItems("nationalities", "nationalities");
   }
 
 }

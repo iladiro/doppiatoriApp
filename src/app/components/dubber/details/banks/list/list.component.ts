@@ -1,42 +1,45 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // Services
-import { Service } from '../../../../services/index';
+import { Service } from '../../../../../services/index';
 
 @Component({
-  selector: 'banks',
-  templateUrl: './banks.component.html',
-  styleUrls: ['./banks.component.scss']
+  selector: 'banksList',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
-export class DubberBanksComponent implements OnInit {
+export class BanksListComponent implements OnInit {
 
   @Input() dubber: any;
-  private bank: any = {};
+  @Output() event = new EventEmitter();
+
+  private current_bank;
+
+  private modal_message = {
+    "text": "Sei sicuro di voler cancellarlo?"
+  };
 
   constructor(
     private service: Service
   ) { }
 
-  create() {
-    this.bank.dubber_id = this.dubber.id;
-    this.service.create("banks", this.bank).subscribe(
-      data => {
-        this.dubber.banks.push(this.bank);
-      },
-      err => {
-        console.log(err)
-      }
-    );
+  private setConfirm(data) {
+    if(data == "true") {
+      this.delete(this.current_bank);
+    }
   }
 
   delete(bank) {
     let index = this.dubber.banks.indexOf(bank);
     this.service.delete("banks", "id", bank.id).subscribe(
       data => {
-        this.dubber.banks.splice(index, 1);
+        if(index > -1) {
+          this.dubber.banks.splice(index, 1);
+        }
+        this.event.emit("delete");
       },
       err => {
-        console.log(err)
+        this.event.emit("rejected");
       }
     )
   }
@@ -84,6 +87,8 @@ export class DubberBanksComponent implements OnInit {
   }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    //console.log(this.dubber)
+  }
 
 }

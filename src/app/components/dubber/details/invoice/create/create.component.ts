@@ -70,13 +70,16 @@ export class InvoiceCreateComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-    //console.log(this.dubber);
-    this.service.getAll("companies").subscribe(
+  loadAllItems(table, variable) {
+    this.service.getAll(table).subscribe(
       data => {
-        this.companies = data;
+        this[variable] = data;
       }
     );
+  }
+
+  ngOnInit() {
+    this.loadAllItems("companies", "companies");
   }
 
 }

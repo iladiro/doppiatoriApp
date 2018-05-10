@@ -30,8 +30,12 @@
             </div>
             <div class="col-sm-6 mb-3">
               <label for="nationality">Nazionalità</label>
-              <input type="text" id="nationality" class="form-control" placeholder="Nazionalità" [(ngModel)]="dubber.nationality" name="nationality" #nationality="ngModel" required>
-              <div *ngIf="f.submitted && !nationality.valid" class="is-invalid">Campo errato</div>
+              <select id="nationality" class="form-control" [(ngModel)]="dubber.nationality" name="nationality" #nationality="ngModel">
+                <option [value]="null">Seleziona categoria</option>
+                <option class="text-capitalize" *ngFor="let nationality of nationalities" [value]="nationality.nationality">
+                  {{nationality.nationality}}
+                </option>
+              </select>
             </div>
             <div class="col-sm-4 mb-3">
               <label for="birth_date">Data di nascita</label>

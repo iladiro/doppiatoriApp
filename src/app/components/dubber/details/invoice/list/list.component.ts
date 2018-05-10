@@ -7,7 +7,7 @@ import { Invoice } from '../_models/index';
 import { Service } from '../../../../../services/index';
 
 @Component({
-  selector: 'invoiceList',
+  selector: 'invoicesesList',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })

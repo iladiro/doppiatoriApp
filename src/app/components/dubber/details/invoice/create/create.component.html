@@ -1,40 +1,37 @@
-<div class="generalCard card mb-4">
-  <div class="generalCard__body">
-    <form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm, $event)" class="form--light">
-      <div class="form-group">
-        <label for="film">Seleziona film</label>
-        <select name="film" class="form-control" ngModel>
-          <option *ngFor="let film of dubber.films" value="{{film.title}}">
-            {{film.title}}
-          </option>
-          <option disabled *ngIf="!dubber.films.length">
-            Non ci sono film associati
-          </option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="gross">Lordo</label>
-        <input id="gross" type="text" class="form-control" placeholder="Gross compensation" ngModel name="gross" #gross="ngModel" required>
-      </div>
-      <div class="form-group">
-        <label for="tax_percetual">Ritenuta d'acconto del</label>
-        <select name="tax_percetual" class="form-control" ngModel>
-          <option value="20">20%</option>
-          <option value="40">40%</option>
-          <option value="50">50%</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="company">Azienda</label>
-        <select id="company" class="form-control" required ngModel name="company_id">
-          <option *ngFor="let company of companies" value="{{company.id}}">
-            {{company.name}}
-          </option>
-        </select>
-      </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Genera fattura</button>
-      </div>
-    </form>
+<h4 class="mb-20">Crea nuova fattura</h4>
+<form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm, $event)" class="form--light bg-light p-all-side-20">
+  <div class="form-group">
+    <label for="film">Seleziona film</label>
+    <select name="film" class="form-control" ngModel>
+      <option *ngFor="let film of dubber.films" value="{{film.title}}">
+        {{film.title}}
+      </option>
+      <option disabled *ngIf="!dubber.films.length">
+        Non ci sono film associati
+      </option>
+    </select>
   </div>
-</div>
+  <div class="form-group">
+    <label for="gross">Lordo</label>
+    <input id="gross" type="text" class="form-control" placeholder="Gross compensation" ngModel name="gross" #gross="ngModel" required>
+  </div>
+  <div class="form-group">
+    <label for="tax_percetual">Ritenuta d'acconto del</label>
+    <select name="tax_percetual" class="form-control" ngModel>
+      <option value="20">20%</option>
+      <option value="40">40%</option>
+      <option value="50">50%</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="company">Azienda</label>
+    <select id="company" class="form-control" required ngModel name="company_id">
+      <option *ngFor="let company of companies" value="{{company.id}}">
+        {{company.name}}
+      </option>
+    </select>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Genera fattura</button>
+  </div>
+</form>

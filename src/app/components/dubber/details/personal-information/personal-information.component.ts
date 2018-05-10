@@ -13,7 +13,7 @@ export class DubberPersonalInformationComponent implements OnInit {
   @Input() dubber: any;
   @Output() event = new EventEmitter();
 
-  private qualifications;
+  private qualifications: any = [];
 
   constructor(
     private service: Service
@@ -38,12 +38,21 @@ export class DubberPersonalInformationComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-    this.service.getAll("qualifications").subscribe(
+  loadAllItems(table, variable) {
+    this.service.getAll(table).subscribe(
       data => {
-        this.qualifications = data;
+        this[variable] = data;
       }
-    )
+    );
+  }
+
+  ngOnInit() {
+    this.loadAllItems("qualifications", "qualifications");
+    // this.service.getAll("qualifications").subscribe(
+    //   data => {
+    //     this.qualifications = data;
+    //   }
+    // )
   }
 
 }
