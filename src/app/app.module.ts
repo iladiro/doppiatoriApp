@@ -26,6 +26,7 @@ import { InvoiceCreateComponent } from './components/dubber/details/invoice/crea
 import { DetailsInvoiceComponent } from './components/dubber/details/invoice/details/details.component';
 import { InvoiceListComponent } from './components/dubber/details/invoice/list/list.component';
 import { DubberArchivedComponent } from './components/dubber/archived/archived.component';
+import { DubberFilmsComponent } from './components/dubber/details/films/films.component';
 
 import { CompanyCreateComponent } from './components/settings/company/create/create.component';
 import { CompanyListComponent } from './components/settings/company/list/list.component';
@@ -43,6 +44,9 @@ import { SidebarComponent } from './components/template/sidebar/sidebar.componen
 import { FilmListComponent } from './components/film/list/list.component';
 import { AddFilmComponent } from './components/film/create/create.component';
 import { FilmDetailsComponent } from './components/film/details/details.component';
+import { FilmMainInformationsComponent } from './components/film/details/main-informations/main-informations.component';
+import { FilmDubbersListComponent } from './components/film/details/dubbers/list/list.component';
+import { AddFilmDubberComponent } from './components/film/details/dubbers/create/create.component';
 
 import { RegisterComponent } from './components/user/register/register.component';
 import { UsersListComponent } from './components/user/list/list.component';
@@ -54,7 +58,6 @@ import { PaginatorComponent } from './components/widgets/paginator/paginator.com
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
-import { DubberFilmsComponent } from './components/dubber/details/films/films.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +96,10 @@ import { DubberFilmsComponent } from './components/dubber/details/films/films.co
     EnpalsParametersListComponent,
     EnpalsParameterDetailsComponent,
     DubberFilmsComponent,
-    DubberArchivedComponent
+    DubberArchivedComponent,
+    FilmMainInformationsComponent,
+    FilmDubbersListComponent,
+    AddFilmDubberComponent
   ],
   imports: [
     BrowserModule,

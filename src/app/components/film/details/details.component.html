@@ -1,4 +1,4 @@
-<div class="container" *ngIf="film">
+<div class="container bg-dark p-all-side-15" *ngIf="film">
   <div class="row">
     <div class="col-sm-2">
       <figure class="m-all-side-0">
@@ -21,65 +21,11 @@
       <!-- Tab panes -->
       <div class="tab-content pboth-15">
         <div class="tab-pane active" id="informations" role="tabpanel">
-          <form #UpdateFilmForm="ngForm" (ngSubmit)="upDateFilm(UpdateFilmForm)" novalidate class="form--light">
-            <div class="form-group" [ngClass]="{ 'has-error': UpdateFilmForm.submitted && !title.valid }">
-              <label for="title">Titolo</label>
-              <input type="text" id="title" class="form-control" placeholder="Title" [(ngModel)]="film.title" name="title" #title="ngModel" required>
-              <div *ngIf="UpdateFilmForm.submitted && !title.valid" class="is-invalid">Campo non valido</div>
-            </div>
-            <div class="form-group" [ngClass]="{ 'has-error': UpdateFilmForm.submitted && !description.valid }">
-              <label for="description">Descrizione</label>
-              <textarea id="description" rows="10" class="form-control" placeholder="Description" [(ngModel)]="film.description" name="description" #description="ngModel" required></textarea>
-              <div *ngIf="UpdateFilmForm.submitted && !description.valid" class="is-invalid">Campo non valido</div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <back-button></back-button>
-              </div>
-              <div class="col-sm-6 text-right">
-                <button type="submit" class="btn btn-outline-success">Salva modifiche</button>
-              </div>
-            </div>
-          </form>
+          <film-main-informations [film]="this.film" (event)="setMessage($event)"></film-main-informations>
         </div>
         <div class="tab-pane" id="collaborators" role="tabpanel">
-          <table class="table table--striped" *ngIf="film.dubbers.length; else noDubbers">
-            <tbody>
-              <tr *ngFor="let dubber of film.dubbers">
-                <td>{{dubber.name}}</td>
-                <td class="text-right">
-                  <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
-                    <i class="fa fa-info" aria-hidden="true"></i>
-                  </a>
-                  <button (click)="deleteDubber(dubber.id)" class="btn btn--dark">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <ng-template #noDubbers>
-            <p class="alert alert-warning">Non ci sono doppiatori associati</p>
-          </ng-template>
-
-          <form #AddDubberForm="ngForm" (ngSubmit)="addDubberSelected(AddDubberForm)" class="form--light">
-            <div class="form-group">
-              <label for="exampleFormControlSelect2">Lista doppiatori</label>
-              <select name="dubber" class="form-control" ngModel>
-                <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}}">
-                  {{dubber.name}} {{dubber.surname}}
-                </option>
-              </select>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <back-button></back-button>
-              </div>
-              <div class="col-sm-6 text-right">
-                <button type="submit" class="btn btn-outline-success">Aggiungi</button>
-              </div>
-            </div>
-          </form>
+          <film-dubbers-list [film]="this.film" (event)="setMessage($event)"></film-dubbers-list>
+          <add-film-dubber [film]="this.film" (event)="setMessage($event)"></add-film-dubber>
         </div>
       </div>
     </div>
