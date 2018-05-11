@@ -19,7 +19,6 @@ export class AddFilmComponent {
   film: any = {};
   id: number;
   dubbers: any = [];
-  // dubbers: Dubber[] = [];
   status: string = "";
 
   private alert_message;
@@ -73,10 +72,16 @@ export class AddFilmComponent {
     }
   }
 
-  ngOnInit() {
-    this.service.getAll("dubbers", "all").subscribe(
-      data => { this.dubbers = data; }
+  loadAllItems(table, variable) {
+    this.service.getAll(table, "not_archived").subscribe(
+      data => {
+        this[variable] = data;
+      }
     );
+  }
+
+  ngOnInit() {
+    this.loadAllItems("dubbers", "dubbers");
   }
 
 }
