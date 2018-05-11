@@ -12,7 +12,7 @@ import { Service } from '../../../../services/index';
 export class DubberTaxInformationComponent implements OnInit {
 
   @Input() dubber: any;
-  address: any = {};
+  private address: any = {};
 
   constructor(
     private service: Service,
@@ -31,6 +31,7 @@ export class DubberTaxInformationComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.dubber);
     this.address = this.dubber.addresses[0];
   }
 

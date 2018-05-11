@@ -1,5 +1,5 @@
 <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
-<table class="table table--striped" *ngIf="dubber.invoices; else noInvoices">
+<table class="table table--striped" *ngIf="dubber.invoices.length; else noInvoices">
   <tbody>
     <tr *ngFor="let invoice of dubber.invoices">
       <td>Compenso per prestazione d'opera relativa al film <strong>{{invoice.film}}</strong></td>
@@ -18,5 +18,5 @@
   </tbody>
 </table>
 <ng-template #noInvoices>
-  <p class="alert alert-warning">Non ci sono fatture associate</p>
+  <p class="alert alert-warning mb-30">Non sono ancora state create fatture.</p>
 </ng-template>

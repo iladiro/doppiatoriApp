@@ -103,6 +103,14 @@ export class FilmDetailsComponent implements OnInit {
     //end
   }
 
+  loadAllItems(table, variable) {
+    this.service.getAll(table, "not_archived").subscribe(
+      data => {
+        this[variable] = data;
+      }
+    );
+  }
+
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
@@ -112,11 +120,7 @@ export class FilmDetailsComponent implements OnInit {
         }
       );
     });
-    this.service.getAll("dubbers", "all").subscribe(
-      data => {
-        this.dubbers = data;
-      }
-    );
+    this.loadAllItems("dubbers", "dubbers");
   }
 
 }
