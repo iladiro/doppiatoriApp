@@ -68,7 +68,7 @@ export class EnpalsParametersListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.service.getAll("enpals_parameters").subscribe(
+    this.service.getAll("enpals_parameters", "all").subscribe(
       data => {
         this.enpals_parameters = data;
       },

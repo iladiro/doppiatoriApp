@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DubbersListComponent } from './components/dubber/list/list.component';
 import { DubberProfileComponent } from './components/dubber/details/details.component';
 import { AddDubberComponent } from './components/dubber/create/create.component';
+import { DubberArchivedComponent } from './components/dubber/archived/archived.component';
 
 import { FilmListComponent } from './components/film/list/list.component';
 import { AddFilmComponent } from './components/film/create/create.component';
@@ -58,9 +59,14 @@ const appRoutes: Routes = [
     data: { title: 'Dashboard' }
   },
   {
-    path: 'dubbers',
+    path: 'dubbers/list',
     component: DubbersListComponent,
     data: { title: 'Dubbers List' }
+  },
+  {
+    path: 'dubbers/archived',
+    component: DubberArchivedComponent,
+    data: { title: 'Dubbers Archived' }
   },
   {
     path: 'dubbers/add',

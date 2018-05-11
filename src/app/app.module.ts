@@ -25,6 +25,7 @@ import { DubberTaxInformationComponent } from './components/dubber/details/tax-i
 import { InvoiceCreateComponent } from './components/dubber/details/invoice/create/create.component';
 import { DetailsInvoiceComponent } from './components/dubber/details/invoice/details/details.component';
 import { InvoiceListComponent } from './components/dubber/details/invoice/list/list.component';
+import { DubberArchivedComponent } from './components/dubber/archived/archived.component';
 
 import { CompanyCreateComponent } from './components/settings/company/create/create.component';
 import { CompanyListComponent } from './components/settings/company/list/list.component';
@@ -91,7 +92,8 @@ import { DubberFilmsComponent } from './components/dubber/details/films/films.co
     DubberTaxInformationComponent,
     EnpalsParametersListComponent,
     EnpalsParameterDetailsComponent,
-    DubberFilmsComponent
+    DubberFilmsComponent,
+    DubberArchivedComponent
   ],
   imports: [
     BrowserModule,

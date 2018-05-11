@@ -112,7 +112,7 @@ export class FilmDetailsComponent implements OnInit {
         }
       );
     });
-    this.service.getAll("dubbers").subscribe(
+    this.service.getAll("dubbers", "all").subscribe(
       data => {
         this.dubbers = data;
       }

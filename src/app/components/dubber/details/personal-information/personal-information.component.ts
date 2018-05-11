@@ -14,6 +14,7 @@ export class DubberPersonalInformationComponent implements OnInit {
   @Output() event = new EventEmitter();
 
   private qualifications: any = [];
+  private nationalities: any = [];
 
   constructor(
     private service: Service
@@ -39,7 +40,7 @@ export class DubberPersonalInformationComponent implements OnInit {
   }
 
   loadAllItems(table, variable) {
-    this.service.getAll(table).subscribe(
+    this.service.getAll(table, "all").subscribe(
       data => {
         this[variable] = data;
       }
@@ -48,6 +49,7 @@ export class DubberPersonalInformationComponent implements OnInit {
 
   ngOnInit() {
     this.loadAllItems("qualifications", "qualifications");
+    this.loadAllItems("nationalities", "nationalities");
     // this.service.getAll("qualifications").subscribe(
     //   data => {
     //     this.qualifications = data;

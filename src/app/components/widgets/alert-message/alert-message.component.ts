@@ -17,7 +17,7 @@ export class AlertMessageComponent implements OnInit {
   constructor() { }
 
   switchAlert(type) {
-    let message = {"success": 1, "delete": 2, "rejected": 3, "prohibition": 4};
+    let message = {"success": 1, "delete": 2, "rejected": 3, "prohibition": 4, "archive": 5, "rollback": 6};
     switch(message[type]) {
       case 1:
         this.alert = {
@@ -44,6 +44,20 @@ export class AlertMessageComponent implements OnInit {
         this.alert = {
           "text": "Non puoi aggiungerlo poichè è già presente!",
           "class": "danger",
+          "display": true
+        };
+        break;
+      case 5:
+        this.alert = {
+          "text": "Archiviato con successo! NOTA: Hai la possibilità di ripristinarlo!",
+          "class": "success",
+          "display": true
+        };
+        break;
+      case 6:
+        this.alert = {
+          "text": "Ripristinato con successo!",
+          "class": "success",
           "display": true
         };
         break;

@@ -46,7 +46,7 @@ export class PaginatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getAll(this.DB_table).subscribe(
+    this.service.getAll(this.DB_table, "all").subscribe(
       data => {
         // set items to json response
         this.allItems = data;

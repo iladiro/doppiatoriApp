@@ -71,7 +71,7 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   loadAllItems(table, variable) {
-    this.service.getAll(table).subscribe(
+    this.service.getAll(table, "all").subscribe(
       data => {
         this[variable] = data;
       }

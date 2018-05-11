@@ -33,10 +33,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getAll("films").subscribe(
+    this.service.getAll("films", "all").subscribe(
       data => { this.films = data; }
     );
-    this.service.getAll("dubbers").subscribe(
+    this.service.getAll("dubbers", "all").subscribe(
       data => { this.dubbers = data; }
     );
   }

@@ -7,25 +7,18 @@ import { Service } from '../../../services/index';
 import { Dubber } from '../_models/index';
 
 @Component({
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  selector: 'app-archived',
+  templateUrl: './archived.component.html',
+  styleUrls: ['./archived.component.scss']
 })
-
-export class DubbersListComponent implements OnInit {
-
-  private current_dubber;
-  //private DB_table:string = "dubbers";
-
-  dataForRequestSearchComp = {
-    "table": "dubbers",
-    "parameters": ["name", "surname"]
-  };
+export class DubberArchivedComponent implements OnInit {
 
   private modal_message = {
     "text": ""
   };
   private alert_message;
 
+  private current_dubber;
   dubbers: Dubber[] = [];
   private type_request:string = "";
 
@@ -33,51 +26,36 @@ export class DubbersListComponent implements OnInit {
     private service: Service
   ) {}
 
-  // Viene chiamata quando viene pushato il componente "paginator". che salva nell'ordine corretto la lista dei dubbers
-  // private dataset(items) {
-  //   this.dubbers = items;
-  // }
-  // end
-
-  // Per la ricerca: dopo aver eseguito la ricerca viene passato dal figlio al padre la lista dei risultati che vengono salvati in dubbers
-  private setFoundValueFromSearch(value){
-    this.dubbers = value;
-  }
-  // end
-
-  // Quando vuoi cancellare un elemento della lista chiami prima questa funzione, che salva i dati dell'oggetto da cancellare
   private passCurrentDubber(dubber, type_request) {
-    if(type_request == "archive") {
+    if(type_request == "rollback") {
       this.type_request = type_request;
-      this.modal_message.text = "Sei sicura di volerlo archiviare?";
+      this.modal_message.text = "Sei sicura di volerlo ripristinare?";
     } else if (type_request == "delete") {
       this.type_request = type_request;
       this.modal_message.text = "Sei sicura di volerlo definitivamente cancellare?";
     }
     this.current_dubber = dubber;
   }
-  // end
 
-  // Viene chiamato all'apertura del modal, esattamente quando interagisci con esso, il quale restituisce un valore "true" o "false"
   private setConfirm(data) {
     if(data == "true") {
-      if(this.type_request == "archive") {
-        this.archive(this.current_dubber);
+      if(this.type_request == "rollback") {
+        this.rollback(this.current_dubber);
       } else if(this.type_request == "delete") {
         this.delete(this.current_dubber);
       }
     }
   }
 
-  private archive(dubber) {
+  private rollback(dubber) {
     let index = this.dubbers.indexOf(dubber);
     let archived = {
-      "archived": true
+      "archived": false
     };
     this.service.archived("dubbers", dubber.id, archived).subscribe(
       data => {
         this.dubbers.splice(index, 1);
-        this.alert_message = "archive";
+        this.alert_message = "rollback";
       },
       err => {
         console.log(err)
@@ -97,10 +75,9 @@ export class DubbersListComponent implements OnInit {
       }
     );
   }
-  // end
 
   loadAllItems(table, variable) {
-    this.service.getAll(table, "not_archived").subscribe(
+    this.service.getAll(table, "archived").subscribe(
       data => {
         this[variable] = data;
       }

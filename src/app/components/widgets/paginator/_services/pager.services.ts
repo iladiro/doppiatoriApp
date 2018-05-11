@@ -2,7 +2,7 @@ import * as _ from 'underscore';
 
 export class PagerService {
 
-  getPager(totalItems: number, currentPage: number = 1, pageSize: number = 5) {
+  getPager(totalItems: number, currentPage: number = 1, pageSize: number = 15) {
     // calculate total pages
     let totalPages = Math.ceil(totalItems / pageSize);
 

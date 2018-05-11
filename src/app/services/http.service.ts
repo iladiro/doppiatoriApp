@@ -13,9 +13,23 @@ export class Service {
 
   ngOnInit(): void {}
 
-  getAll(table) {
-    return this.http.get(this.url_root + table);
+  getAll(table, condition) {
+    if(condition == "all") {
+      return this.http.get(this.url_root + table);
+    } else if(condition == "archived") {
+      return this.http.get(this.url_root + table + "?" + "&archived=" + "is.true");
+    } else if(condition == "not_archived") {
+      return this.http.get(this.url_root + table + "?" + "&archived=" + "is.false");
+    }
   }
+
+  // getAllNotArchived(table) {
+  //   return this.http.get(this.url_root + table + "?" + "&archived=" + "is.false");
+  // }
+  //
+  // getAllArchived(table) {
+  //   return this.http.get(this.url_root + table + "?" + "&archived=" + "is.true");
+  // }
 
   create(table, item): Observable<HttpResponse<any>> {
     return this.http.post(this.url_root + table, item, { observe: 'response' });
@@ -23,6 +37,10 @@ export class Service {
 
   delete(table, column, id: number) {
     return this.http.delete(this.url_root + table + "?" + column + "=eq." + id);
+  }
+
+  archived(table, id: number, set) {
+    return this.http.patch(this.url_root + table + "?id=eq." + id, set);
   }
 
   update(table, item) {
