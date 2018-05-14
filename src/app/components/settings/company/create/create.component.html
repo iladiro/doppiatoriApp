@@ -4,26 +4,44 @@
     <div class="generalCard__body">
       <form name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate class="form--light">
         <div class="form-group">
-          <label for="name">Company name</label>
+          <label for="name">Nome Azienda</label>
           <input id="name" type="text" class="form-control text-capitalize" placeholder="Company name" [(ngModel)]="company.name" name="name" #name="ngModel" required>
-          <div *ngIf="f.submitted && !name.valid" class="is-invalid">Field value is incorrect</div>
+          <div *ngIf="f.submitted && !name.valid" class="is-invalid">Campo non valido</div>
         </div>
         <div class="form-group">
-          <label for="vat">VAT</label>
+          <label for="vat">Partita IVA</label>
           <input id="vat" type="text" class="form-control" placeholder="vat" [(ngModel)]="company.vat" name="vat" #vat="ngModel" required pattern="^[0-9]{11}$">
-          <div *ngIf="f.submitted && !vat.valid" class="is-invalid">Field value is incorrect</div>
+          <div *ngIf="f.submitted && !vat.valid" class="is-invalid">Campo non valido</div>
         </div>
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input id="address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="company.address" name="address" #address="ngModel" required>
-          <div *ngIf="f.submitted && !address.valid" class="is-invalid">Field value is incorrect</div>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="city">Città</label>
+              <input id="city" type="text" class="form-control text-capitalize" placeholder="Città" [(ngModel)]="company.city" name="city" #city="ngModel" required>
+              <div *ngIf="f.submitted && !city.valid" class="is-invalid">Campo non valido</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="address">Indirizzo</label>
+              <input id="address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="company.address" name="address" #address="ngModel" required>
+              <div *ngIf="f.submitted && !address.valid" class="is-invalid">Campo non valido</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="postcode">Cap</label>
+              <input id="city" type="text" class="form-control text-capitalize" placeholder="Cap" [(ngModel)]="company.postcode" name="postcode" #postcode="ngModel" required>
+              <div *ngIf="f.submitted && !postcode.valid" class="is-invalid">Campo non valido</div>
+            </div>
+          </div>
         </div>
         <div class="row mt-30 mb-20">
           <div class="col-sm-6">
             <back-button></back-button>
           </div>
           <div class="col-sm-6 text-right">
-            <button type="submit" class="btn btn-outline-success">Create company</button>
+            <button type="submit" class="btn btn-outline-success">Crea</button>
           </div>
         </div>
       </form>

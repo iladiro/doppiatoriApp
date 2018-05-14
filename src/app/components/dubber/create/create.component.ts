@@ -31,6 +31,7 @@ export class AddDubberComponent {
   dubber: any = {};
   bank: any = {};
   address: any = {};
+  enpals_categories: any = {};
 
   create(){
     this.check();

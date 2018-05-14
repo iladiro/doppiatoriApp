@@ -34,10 +34,10 @@
               <!-- <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
                 <i class="fa fa-info" aria-hidden="true"></i>
               </a> -->
-              <button (click)="passCurrentDubber(dubber, 'rollback')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
+              <button (click)="passCurrentDubber(dubber, 'rollback')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Ripristina">
                 <i class="fa fa-reply" aria-hidden="true"></i>
               </button>
-              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
+              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella definitivamente">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>

@@ -16,7 +16,6 @@ export class CompanyDetailsComponent implements OnInit {
   id: number;
   private sub: any;
   company: any = {};
-  loading = false;
 
   private alert_message;
 
@@ -25,16 +24,13 @@ export class CompanyDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  private upDate() {
-    this.loading = true;
+  private update() {
     this.service.update("companies", this.company).subscribe(
       data => {
         this.alert_message = "success";
-        this.loading = false;
       },
       err => {
         this.alert_message = "rejected";
-        this.loading = false;
       }
     );
   }

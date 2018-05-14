@@ -34,16 +34,16 @@
             <td>{{dubber.email}}</td>
             <td>{{dubber.mobile_phone}}</td>
             <td class="text-right">
-              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
+              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
                 <i class="fa fa-info" aria-hidden="true"></i>
               </a>
-              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
+              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </a>
-              <button (click)="passCurrentDubber(dubber, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
+              <button (click)="passCurrentDubber(dubber, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Archivia">
                 <i class="fa fa-archive" aria-hidden="true"></i>
               </button>
-              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
+              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella definitivamente">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>
