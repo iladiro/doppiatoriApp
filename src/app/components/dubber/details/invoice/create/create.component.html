@@ -1,37 +1,106 @@
 <h4 class="mb-20">Crea nuova fattura</h4>
 <form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm, $event)" class="form--light bg-light p-all-side-20">
-  <div class="form-group">
-    <label for="film">Seleziona film</label>
-    <select name="film" class="form-control" ngModel>
-      <option *ngFor="let film of dubber.films" value="{{film.title}}">
-        {{film.title}}
-      </option>
-      <option disabled *ngIf="!dubber.films.length">
-        Non ci sono film associati
-      </option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="gross">Lordo</label>
-    <input id="gross" type="text" class="form-control" placeholder="Gross compensation" ngModel name="gross" #gross="ngModel" required>
-  </div>
-  <div class="form-group">
-    <label for="tax_percetual">Ritenuta d'acconto del</label>
-    <select name="tax_percetual" class="form-control" ngModel>
-      <option value="20">20%</option>
-      <option value="40">40%</option>
-      <option value="50">50%</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="company">Azienda</label>
-    <select id="company" class="form-control" required ngModel name="company_id">
-      <option *ngFor="let company of companies" value="{{company.id}}">
-        {{company.name}}
-      </option>
-    </select>
-  </div>
-  <div class="text-center">
-    <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Genera fattura</button>
-  </div>
+  <section>
+    <div class="form-group">
+      <label for="film">Seleziona film</label>
+      <select name="film" class="form-control" ngModel>
+        <option *ngFor="let film of dubber.films" value="{{film.title}}">
+          {{film.title}}
+        </option>
+        <option disabled *ngIf="!dubber.films.length">
+          Non ci sono film associati
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <label for="gross">Lavoro svolto dal giorno</label>
+          <input type="date" class="form-control" ngModel name="work-from">
+        </div>
+        <div class="col">
+          <label for="gross">Al giorno</label>
+          <input type="date" class="form-control" ngModel name="work-to">
+        </div>
+        <div class="col">
+          <label for="gross">Numero di giorni</label>
+          <input type="number" class="form-control" ngModel name="number_of_days" maxlength="3">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gross">Importo</label>
+      <input id="gross" type="text" class="form-control" placeholder="Importo" ngModel name="amount" #amount="ngModel" required>
+    </div>
+    <!-- <div class="form-group">
+      <label for="tax_percetual">Ritenuta d'acconto del</label>
+      <select name="tax_percetual" class="form-control" ngModel>
+        <option value="20">20%</option>
+        <option value="40">40%</option>
+        <option value="50">50%</option>
+      </select>
+    </div> -->
+    <div class="form-group">
+      <label for="company">Azienda</label>
+      <select id="company" class="form-control" required ngModel name="company_id">
+        <option *ngFor="let company of companies" value="{{company.id}}">
+          {{company.name}}
+        </option>
+      </select>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Calcola</button>
+      <span class="pl-2 pr-2">or</span>
+      <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Genera fattura</button>
+    </div>
+  </section>
+  <section *ngIf="data_empals_inps">
+    <h3>Dati Enpals/Inps:</h3>
+    <div class="form-row">
+      <div class="col-sm-3">
+        <label for="quota_enpals_lavoratore">Quota enpals lav.</label>
+        <input type="number" id="quota_enpals_lavoratore" class="form-control" [ngModel]="data_empals_inps.quota_enpals_lavoratore" name="quota_enpals_lavoratore" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="quota_enpals_ditta">Quota enpals ditta</label>
+        <input type="number" id="quota_enpals_ditta" class="form-control" [ngModel]="data_empals_inps.quota_enpals_ditta" name="quota_enpals_ditta" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="max_enpals">Massimale enpals</label>
+        <input type="number" id="max_enpals" class="form-control" [ngModel]="data_empals_inps.max_enpals" name="max_enpals" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="amount_ecc_max">Importo eccedente</label>
+        <input type="number" id="amount_ecc_max" class="form-control" [ngModel]="data_empals_inps.amount_ecc_max" name="amount_ecc_max" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="quota_enpals_ecc_massimale_lavoratore">Quota enpals ecc. lav.</label>
+        <input type="number" id="quota_enpals_ecc_massimale_lavoratore" class="form-control" [ngModel]="data_empals_inps.quota_enpals_ecc_massimale_lavoratore" name="quota_enpals_ecc_massimale_lavoratore" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="quota_enpals_ecc_massimale_ditta">Quota enpals ecc. ditta</label>
+        <input type="number" id="quota_enpals_ecc_massimale_ditta" class="form-control" [ngModel]="data_empals_inps.quota_enpals_ecc_massimale_ditta" name="quota_enpals_ecc_massimale_ditta" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="minimale_inps">Minimale Inps</label>
+        <input type="number" id="minimale_inps" class="form-control" [ngModel]="data_empals_inps.minimale_inps" name="minimale_inps" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="min_contribution_inps">Contrib. min. Inps</label>
+        <input type="number" id="min_contribution_inps" class="form-control" [ngModel]="data_empals_inps.min_contribution_inps" name="min_contribution_inps" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="additional_rate">Aliquota aggiuntiva</label>
+        <input type="number" id="additional_rate" class="form-control" [ngModel]="data_empals_inps.additional_rate" name="additional_rate" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="trattenuta_pensione">Trattenuta pensione</label>
+        <input type="number" id="trattenuta_pensione" class="form-control" [ngModel]="data_empals_inps.trattenuta_pensione" name="trattenuta_pensione" maxlength="10" readonly>
+      </div>
+      <div class="col-sm-3">
+        <label for="total_enpals">Totale enpals</label>
+        <input type="number" id="total_enpals" class="form-control" [ngModel]="data_empals_inps.total_enpals" name="total_enpals" maxlength="10" readonly>
+      </div>
+    </div>
+  </section>
 </form>

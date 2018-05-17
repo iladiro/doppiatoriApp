@@ -8,7 +8,7 @@
           <div class="form-row">
             <div class="col-sm-5 mb-3">
               <label for="name">Nome*</label>
-              <input type="text" id="name" class="form-control text-capitalize" placeholder="Nome" (ngModel)="dubber.name" name="name" #name="ngModel" required>
+              <input type="text" id="name" class="form-control text-capitalize" placeholder="Nome" [(ngModel)]="dubber.name" name="name" #name="ngModel" required>
               <div *ngIf="f.submitted && !name.valid" class="is-invalid">Campo errato</div>
             </div>
             <div class="col-sm-5 mb-3">
@@ -119,27 +119,15 @@
             <div class="col-sm-12 col-md-6 mb-3">
               <label>Cat. contrib.</label>
               <div class="form-group">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="cat_contrib" id="cat_contrib_A" value="A" [(ngModel)]="enpals_categories.cat_contrib_A">
-                  <label class="form-check-label" for="cat_contrib_A">
-                    Ante '95
-                  </label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="cat_contrib" id="cat_contrib_B" value="B" [(ngModel)]="enpals_categories.cat_contrib_B">
-                  <label class="form-check-label" for="cat_contrib_B">
-                    Dopo '95
-                  </label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="cat_contrib" id="cat_contrib_C" value="C" [(ngModel)]="enpals_categories.cat_contrib_C">
-                  <label class="form-check-label" for="cat_contrib_C">
-                    Dopo '95 (a.c.p.)
-                  </label>
-                </div>
+                <select id="qualification" class="form-control text-capitalize" [(ngModel)]="dubber.cat_contrib" name="cat_contrib" #cat_contrib="ngModel">
+                  <option [value]="null">Seleziona categoria</option>
+                  <option value="A">Ante '95</option>
+                  <option value="B">Dopo '95</option>
+                  <option value="C">Dopo '95 (a.c.p.)</option>
+                </select>
               </div>
             </div>
-            <div class="col-sm-12 col-md-23 mb-3">
+            <div class="col-sm-12 col-md-6 mb-3">
               <div class="form-group">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="pensionato" value="pensionato" [(ngModel)]="enpals_categories.pensionato">

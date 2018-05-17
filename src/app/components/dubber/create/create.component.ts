@@ -80,6 +80,11 @@ export class AddDubberComponent {
           console.log(err)
         }
       );
+      this.service.create("enpals_categories", this.enpals_categories).subscribe(
+        err => {
+          console.log(err)
+        }
+      );
     }
   }
 
