@@ -20,7 +20,6 @@ export class InvoiceCreateComponent implements OnInit {
   enpals_parameters: any = [];
   income_classes: any = [];
   data_empals_inps: any = {};
-  data_empals_inps:any = {};
 
   enpals_category_cat_before = "A";
   enpals_category_cat_after = "B";
@@ -31,11 +30,11 @@ export class InvoiceCreateComponent implements OnInit {
   ) { }
 
   private calcola_quota_enpals_lavoratore(max_enpals, enpals_parameters) {
-    return (max_enpals * enpals_parameters.quota_enpals_lavoratore) / 100;
+    return (+max_enpals * enpals_parameters.quota_enpals_lavoratore) / 100;
   }
 
   private calcola_quota_enpals_ditta(max_enpals, enpals_parameters) {
-    return (max_enpals * enpals_parameters.quota_enpals_ditta) / 100;
+    return (+max_enpals * enpals_parameters.quota_enpals_ditta) / 100;
   }
 
   private calcola_massimale_enpals(amount, days, enpals_category, enpals_parameters, income_classes) {
@@ -101,12 +100,14 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   private calcola_minimale_inps(amount, days, enpals_parameters) {
-    let min_inps = null;
-    if((amount / days) < enpals_parameters.minimale_inps) {
+    let min_inps:number;
+    if((+amount / days) < enpals_parameters.minimale_inps) {
       min_inps = amount;
     } else {
       min_inps = (+enpals_parameters.minimale_inps * days)
     }
+
+    console.log(min_inps)
 
     return min_inps
   }
@@ -125,7 +126,7 @@ export class InvoiceCreateComponent implements OnInit {
       }
     } else if((amount > (enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days)) && (amount > (enpals_parameters.massimale_enpals_ante * days))) {
       taxable = (+enpals_parameters.massimale_enpals_ante * days) - (+enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days);
-      additional_rate = (taxable * 1) / 100;
+      additional_rate = (+taxable * 1) / 100;
     } else {
       if((amount > (enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days)) && (amount < (enpals_parameters.massimale_enpals_dopo * days))) {
         taxable = amount - (+enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days);
@@ -135,6 +136,8 @@ export class InvoiceCreateComponent implements OnInit {
         additional_rate = (+taxable * 1) / 100;
       }
     }
+
+    return additional_rate
   }
 
   private get_importo_fascia_retributiva(amount, income_classes) {
@@ -150,7 +153,7 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   private calcola_totale_enpals(commessa) {
-    return (commessa.quota_enpals_lavoratore + commessa.quota_enpals_ditta + commessa.quota_enpals_ecc_massimale_lavoratore + commessa.quota_enpals_ecc_massimale_ditta);
+    return (+commessa.quota_enpals_lavoratore + commessa.quota_enpals_ditta + commessa.quota_enpals_ecc_massimale_lavoratore + commessa.quota_enpals_ecc_massimale_ditta);
   }
 
   private computes(form: NgForm) {
@@ -162,11 +165,11 @@ export class InvoiceCreateComponent implements OnInit {
     commessa.amount_ecc_max = this.calcola_importo_eccedente_massimale(invoice.amount, invoice.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
     commessa.quota_enpals_lavoratore = this.calcola_quota_enpals_lavoratore(commessa.max_enpals, this.enpals_parameters);
     commessa.quota_enpals_ditta = this.calcola_quota_enpals_ditta(commessa.max_enpals, this.enpals_parameters);
-    commessa.quota_enpals_ecc_massimale_lavoratore = this.calcola_quota_enpals_eccedente_lavoratore(commessa.amount_ecc_max, this.enpals_parameters);
-    commessa.calcola_quota_enpals_eccedente_ditta = this.calcola_quota_enpals_eccedente_ditta(commessa.amount_ecc_max, this.enpals_parameters);
+    commessa.quota_enpals_ecc_max_lavoratore = this.calcola_quota_enpals_eccedente_lavoratore(commessa.amount_ecc_max, this.enpals_parameters);
+    commessa.quota_enpals_ecc_max_ditta = this.calcola_quota_enpals_eccedente_ditta(commessa.amount_ecc_max, this.enpals_parameters);
     commessa.min_inps = this.calcola_minimale_inps(invoice.amount, invoice.number_of_days, this.enpals_parameters);
     commessa.min_inps_contribution = this.calcola_contributo_minimale_inps(commessa.min_inps, this.enpals_parameters);
-    commessa.aliquota_aggiuntiva = this.calcola_aliquota_aggiuntiva(invoice.amount, invoice.number_of_days, enpals_category, this.enpals_parameters);
+    commessa.additional_rate = this.calcola_aliquota_aggiuntiva(invoice.amount, invoice.number_of_days, enpals_category, this.enpals_parameters);
     commessa.total_enpals = this.calcola_totale_enpals(commessa);
     this.data_empals_inps = commessa;
   }
