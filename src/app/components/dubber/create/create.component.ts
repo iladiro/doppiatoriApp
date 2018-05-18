@@ -70,6 +70,7 @@ export class AddDubberComponent {
     if(this.status == "ok") {
       this.bank.dubber_id = this.id;
       this.address.dubber_id = this.id;
+      this.enpals_categories.dubber_id = this.id;
       this.service.create("banks", this.bank).subscribe(
         err => {
           console.log(err)
@@ -81,8 +82,11 @@ export class AddDubberComponent {
         }
       );
       this.service.create("enpals_categories", this.enpals_categories).subscribe(
+        data => {
+          console.log("ok");
+        },
         err => {
-          console.log(err)
+          console.log("ko");
         }
       );
     }

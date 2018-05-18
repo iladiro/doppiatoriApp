@@ -1,5 +1,5 @@
 <h4 class="mb-20">Crea nuova fattura</h4>
-<form #InvoiceForm="ngForm" (ngSubmit)="create(InvoiceForm, $event)" class="form--light bg-light p-all-side-20">
+<form #data="ngForm" (ngSubmit)="computes(data, $event)" class="form--light bg-light p-all-side-20">
   <section>
     <div class="form-group">
       <label for="film">Seleziona film</label>
@@ -15,31 +15,23 @@
     <div class="form-group">
       <div class="row">
         <div class="col">
-          <label for="gross">Lavoro svolto dal giorno</label>
-          <input type="date" class="form-control" ngModel name="work-from">
+          <label for="work-from">Lavoro svolto dal giorno</label>
+          <input type="date" id="work-from" class="form-control" ngModel name="work-from">
         </div>
         <div class="col">
-          <label for="gross">Al giorno</label>
-          <input type="date" class="form-control" ngModel name="work-to">
+          <label for="work-to">Al giorno</label>
+          <input type="date" id="work-to" class="form-control" ngModel name="work-to">
         </div>
         <div class="col">
-          <label for="gross">Numero di giorni</label>
-          <input type="number" class="form-control" ngModel name="number_of_days" maxlength="3">
+          <label for="number_of_days">Numero di giorni</label>
+          <input type="number" class="form-control" id="number_of_days" ngModel name="number_of_days" maxlength="3" required>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="gross">Importo</label>
-      <input id="gross" type="text" class="form-control" placeholder="Importo" ngModel name="amount" #amount="ngModel" required>
+      <label for="amount">Importo</label>
+      <input id="amount" type="text" class="form-control" placeholder="Importo" ngModel name="amount" required>
     </div>
-    <!-- <div class="form-group">
-      <label for="tax_percetual">Ritenuta d'acconto del</label>
-      <select name="tax_percetual" class="form-control" ngModel>
-        <option value="20">20%</option>
-        <option value="40">40%</option>
-        <option value="50">50%</option>
-      </select>
-    </div> -->
     <div class="form-group">
       <label for="company">Azienda</label>
       <select id="company" class="form-control" required ngModel name="company_id">
@@ -49,12 +41,14 @@
       </select>
     </div>
     <div class="text-center">
-      <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Calcola</button>
-      <span class="pl-2 pr-2">or</span>
-      <button type="submit" class="btn btn-success" [disabled]="!InvoiceForm.valid">Genera fattura</button>
+      <button type="submit" class="btn btn-success" [disabled]="!data.valid">Calcola</button>
+      <!-- <span class="pl-2 pr-2">or</span>
+      <button type="submit" class="btn btn-success" [disabled]="!data.valid">Genera fattura</button> -->
     </div>
   </section>
-  <section *ngIf="data_empals_inps">
+</form>
+<form>
+  <section>
     <h3>Dati Enpals/Inps:</h3>
     <div class="form-row">
       <div class="col-sm-3">

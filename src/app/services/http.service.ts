@@ -20,16 +20,10 @@ export class Service {
       return this.http.get(this.url_root + table + "?" + "&archived=" + "is.true");
     } else if(condition == "not_archived") {
       return this.http.get(this.url_root + table + "?" + "&archived=" + "is.false");
+    } else if(condition == "default") {
+      return this.http.get(this.url_root + table + "?" + "&_default=" + "is.true", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
     }
   }
-
-  // getAllNotArchived(table) {
-  //   return this.http.get(this.url_root + table + "?" + "&archived=" + "is.false");
-  // }
-  //
-  // getAllArchived(table) {
-  //   return this.http.get(this.url_root + table + "?" + "&archived=" + "is.true");
-  // }
 
   create(table, item): Observable<HttpResponse<any>> {
     return this.http.post(this.url_root + table, item, { observe: 'response' });
