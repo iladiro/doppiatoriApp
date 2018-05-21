@@ -19,11 +19,71 @@ export class InvoiceCreateComponent implements OnInit {
   companies: any = [];
   enpals_parameters: any = [];
   income_classes: any = [];
-  data_empals_inps: any = {};
+  invoice: any = {};
 
   enpals_category_cat_before = "A";
   enpals_category_cat_after = "B";
   enpals_category_cat_after_ACP = "C";
+
+  date = new Date();
+  months = [
+    {
+      "index": 1,
+      "text": "Gennaio"
+    },
+    {
+      "index": 2,
+      "text": "febbraio"
+    },
+    {
+      "index": 3,
+      "text": "marzo"
+    },
+    {
+      "index": 4,
+      "text": "aprile"
+    },
+    {
+      "index": 5,
+      "text": "maggio"
+    },
+    {
+      "index": 6,
+      "text": "giugno"
+    },
+    {
+      "index": 7,
+      "text": "luglio"
+    },
+    {
+      "index": 8,
+      "text": "agosto"
+    },
+    {
+      "index": 9,
+      "text": "settembre"
+    },
+    {
+      "index": 10,
+      "text": "ottobre"
+    },
+    {
+      "index": 11,
+      "text": "novembre"
+    },
+    {
+      "index": 12,
+      "text": "dicembre"
+    }
+  ];
+  years: any = [];
+
+  printYears(from) {
+    let current_year = this.date.getFullYear();
+    for(let i = from; i <= current_year; i++) {
+      this.years.push(i)
+    }
+  }
 
   constructor(
     private service: Service
@@ -107,8 +167,6 @@ export class InvoiceCreateComponent implements OnInit {
       min_inps = (+enpals_parameters.minimale_inps * days)
     }
 
-    console.log(min_inps)
-
     return min_inps
   }
 
@@ -152,56 +210,62 @@ export class InvoiceCreateComponent implements OnInit {
     return result
   }
 
-  private calcola_totale_enpals(commessa) {
-    return (+commessa.quota_enpals_lavoratore + commessa.quota_enpals_ditta + commessa.quota_enpals_ecc_massimale_lavoratore + commessa.quota_enpals_ecc_massimale_ditta);
+  private calcola_trattenuta_pensione(commessa) {
+    return 0.0
+  }
+
+  private calcola_total_enpals(commessa) {
+    return +(commessa.quota_enpals_lavoratore + commessa.quota_enpals_ditta + commessa.quota_enpals_ecc_massimale_lavoratore + commessa.quota_enpals_ecc_massimale_ditta);
   }
 
   private computes(form: NgForm) {
-    //console.log(this.enpals_parameters);
-    let invoice = form.value;
+    let commessa = form.value;
     let enpals_category = this.dubber.enpals_categories[0];
-    let commessa:any = {};
-    commessa.max_enpals = this.calcola_massimale_enpals(invoice.amount, invoice.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
-    commessa.amount_ecc_max = this.calcola_importo_eccedente_massimale(invoice.amount, invoice.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
+    commessa.max_enpals = this.calcola_massimale_enpals(commessa.amount, commessa.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
+    commessa.amount_ecc_max = this.calcola_importo_eccedente_massimale(commessa.amount, commessa.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
     commessa.quota_enpals_lavoratore = this.calcola_quota_enpals_lavoratore(commessa.max_enpals, this.enpals_parameters);
     commessa.quota_enpals_ditta = this.calcola_quota_enpals_ditta(commessa.max_enpals, this.enpals_parameters);
-    commessa.quota_enpals_ecc_max_lavoratore = this.calcola_quota_enpals_eccedente_lavoratore(commessa.amount_ecc_max, this.enpals_parameters);
-    commessa.quota_enpals_ecc_max_ditta = this.calcola_quota_enpals_eccedente_ditta(commessa.amount_ecc_max, this.enpals_parameters);
-    commessa.min_inps = this.calcola_minimale_inps(invoice.amount, invoice.number_of_days, this.enpals_parameters);
-    commessa.min_inps_contribution = this.calcola_contributo_minimale_inps(commessa.min_inps, this.enpals_parameters);
-    commessa.additional_rate = this.calcola_aliquota_aggiuntiva(invoice.amount, invoice.number_of_days, enpals_category, this.enpals_parameters);
-    commessa.total_enpals = this.calcola_totale_enpals(commessa);
-    this.data_empals_inps = commessa;
+    commessa.quota_enpals_ecc_massimale_lavoratore = this.calcola_quota_enpals_eccedente_lavoratore(commessa.amount_ecc_max, this.enpals_parameters);
+    commessa.quota_enpals_ecc_massimale_ditta = this.calcola_quota_enpals_eccedente_ditta(commessa.amount_ecc_max, this.enpals_parameters);
+    commessa.min_inps = this.calcola_minimale_inps(commessa.amount, commessa.number_of_days, this.enpals_parameters);
+    commessa.min_contribution_inps = this.calcola_contributo_minimale_inps(commessa.min_inps, this.enpals_parameters);
+    commessa.additional_rate = this.calcola_aliquota_aggiuntiva(commessa.amount, commessa.number_of_days, enpals_category, this.enpals_parameters);
+    commessa.trattenuta_pensione = this.calcola_trattenuta_pensione(commessa);
+    commessa.total_enpals = this.calcola_total_enpals(commessa);
+    this.invoice = commessa;
   }
 
-  // private save(form: ngForm) {
-  //   let date = new Date();
-  //   this.service.create("invoices", current_invoice).subscribe(
-  //     data => {
-  //       let str = data.headers.get("location");
-  //       let patt = /(\d+)/g;
-  //       let result = str.match(patt);
-  //       this.id = Number(result[0]);
-  //       this.reloadList();
-  //       this.event.emit("success");
-  //     },
-  //     err => {
-  //       this.event.emit("rejected");
-  //     }
-  //   );
-  //   form.reset();
-  // }
+  private save() {
+    this.invoice.company_id = parseInt(this.invoice.company_id);
+    this.invoice.creation_date = this.date.toLocaleDateString();
+    this.invoice.dubber_id = this.dubber.id;
+    console.log(this.invoice);
+    this.service.create("invoices", this.invoice).subscribe(
+      data => {
+        let str = data.headers.get("location");
+        let patt = /(\d+)/g;
+        let result = str.match(patt);
+        this.id = Number(result[0]);
+        this.reloadList();
+        this.event.emit("success");
+      },
+      err => {
+        this.event.emit("rejected");
+      }
+    );
+    // form.reset();
+  }
 
-  // private reloadList() {
-  //   this.service.getManyById("invoices", "dubber_id", this.dubber.id).subscribe(
-  //     data => {
-  //       this.dubber.invoices = data;
-  //     },
-  //     err => {
-  //       console.log(err)
-  //     }
-  //   );
-  // }
+  private reloadList() {
+    this.service.getManyById("invoices", "dubber_id", this.dubber.id).subscribe(
+      data => {
+        this.dubber.invoices = data;
+      },
+      err => {
+        console.log(err)
+      }
+    );
+  }
 
   loadAllItems(table, variable, condition) {
     this.service.getAll(table, condition).subscribe(
@@ -212,6 +276,7 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.printYears("1960");
     this.loadAllItems("enpals_parameters", "enpals_parameters", "default");
     this.loadAllItems("companies", "companies", "all");
     this.loadAllItems("income_classes", "income_classes", "all");
