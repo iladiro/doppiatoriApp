@@ -8,6 +8,7 @@ import { Invoice } from '../_models/index';
 
 // Services
 import { InvoiceService } from '../_services/index';
+import { Service } from '../../../../../services/index';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class DetailsInvoiceComponent implements OnInit {
   invoice: any;
 
   constructor(
+    private service: Service,
     private route: ActivatedRoute,
     private invoiceService: InvoiceService,
     @Inject('Window') private window: Window
@@ -45,6 +47,22 @@ export class DetailsInvoiceComponent implements OnInit {
       this.invoiceService.getById(this.id).subscribe(
         data => {
           this.invoice = data;
+          this.service.getById("addresses", "dubber_id", this.invoice.dubber_id).subscribe(
+            data => {
+              this.invoice.dubber.address = data;
+            }
+          );
+          this.service.getById("enpals_categories", "dubber_id", this.invoice.dubber_id).subscribe(
+            data => {
+              this.invoice.dubber.enpals_categories = data;
+            }
+          );
+          this.service.getById("dubber_enpals_data", "dubber_id", this.invoice.dubber_id).subscribe(
+            data => {
+              this.invoice.enpals_data = data;
+              console.log(this.invoice)
+            }
+          );
         }
       );
     });

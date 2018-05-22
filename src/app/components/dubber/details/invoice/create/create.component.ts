@@ -20,6 +20,7 @@ export class InvoiceCreateComponent implements OnInit {
   enpals_parameters: any = [];
   income_classes: any = [];
   invoice: any = {};
+  enpals_data: any = {};
 
   enpals_category_cat_before = "A";
   enpals_category_cat_after = "B";
@@ -218,28 +219,41 @@ export class InvoiceCreateComponent implements OnInit {
     return +(commessa.quota_enpals_lavoratore + commessa.quota_enpals_ditta + commessa.quota_enpals_ecc_massimale_lavoratore + commessa.quota_enpals_ecc_massimale_ditta);
   }
 
-  private computes(form: NgForm) {
-    let commessa = form.value;
+  private computesEnpalsData(form: NgForm) {
+    let form_data = form.value;
+    let commessa: any = {};
     let enpals_category = this.dubber.enpals_categories[0];
-    commessa.max_enpals = this.calcola_massimale_enpals(commessa.amount, commessa.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
-    commessa.amount_ecc_max = this.calcola_importo_eccedente_massimale(commessa.amount, commessa.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
+    commessa.max_enpals = this.calcola_massimale_enpals(form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
+    commessa.amount_ecc_max = this.calcola_importo_eccedente_massimale(form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
     commessa.quota_enpals_lavoratore = this.calcola_quota_enpals_lavoratore(commessa.max_enpals, this.enpals_parameters);
     commessa.quota_enpals_ditta = this.calcola_quota_enpals_ditta(commessa.max_enpals, this.enpals_parameters);
     commessa.quota_enpals_ecc_massimale_lavoratore = this.calcola_quota_enpals_eccedente_lavoratore(commessa.amount_ecc_max, this.enpals_parameters);
     commessa.quota_enpals_ecc_massimale_ditta = this.calcola_quota_enpals_eccedente_ditta(commessa.amount_ecc_max, this.enpals_parameters);
-    commessa.min_inps = this.calcola_minimale_inps(commessa.amount, commessa.number_of_days, this.enpals_parameters);
+    commessa.min_inps = this.calcola_minimale_inps(form_data.amount, form_data.number_of_days, this.enpals_parameters);
     commessa.min_contribution_inps = this.calcola_contributo_minimale_inps(commessa.min_inps, this.enpals_parameters);
-    commessa.additional_rate = this.calcola_aliquota_aggiuntiva(commessa.amount, commessa.number_of_days, enpals_category, this.enpals_parameters);
+    commessa.additional_rate = this.calcola_aliquota_aggiuntiva(form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters);
     commessa.trattenuta_pensione = this.calcola_trattenuta_pensione(commessa);
     commessa.total_enpals = this.calcola_total_enpals(commessa);
-    this.invoice = commessa;
+    this.enpals_data = commessa;
+    this.invoice = form_data;
   }
 
-  private save() {
+  private computesVAT() {
+    if(this.dubber.vat != "") {
+      this.invoice.vat = (+this.invoice.amount * 22) / 100;
+      this.totalAmountCalculation();
+    }
+  }
+
+  private totalAmountCalculation() {
+    this.invoice.total_amount = this.invoice.amount - this.invoice.vat;
+  }
+
+  private saveInvoice() {
+    this.computesVAT();
     this.invoice.company_id = parseInt(this.invoice.company_id);
     this.invoice.creation_date = this.date.toLocaleDateString();
     this.invoice.dubber_id = this.dubber.id;
-    console.log(this.invoice);
     this.service.create("invoices", this.invoice).subscribe(
       data => {
         let str = data.headers.get("location");
@@ -253,7 +267,23 @@ export class InvoiceCreateComponent implements OnInit {
         this.event.emit("rejected");
       }
     );
-    // form.reset();
+  }
+
+  private saveEnpalsData() {
+    this.enpals_data.dubber_id = this.dubber.id;
+    this.service.create("dubber_enpals_data", this.enpals_data).subscribe(
+      data => {
+        console.log("ok");
+      },
+      err => {
+        this.event.emit("rejected");
+      }
+    );
+  }
+
+  private save() {
+    this.saveEnpalsData();
+    this.saveInvoice();
   }
 
   private reloadList() {

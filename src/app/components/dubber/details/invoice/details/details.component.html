@@ -1,19 +1,25 @@
 <div class="container" *ngIf="invoice">
-  <section class="invoice bg--white mb-40" id="invoice">
+  <section class="invoice bg-white mb-40" id="invoice">
     <div>
       <p class="text-capitalize mb-0 font-weight-bold">
         {{invoice.dubber.name}} {{invoice.dubber.surname}}
       </p>
       <p class=" mb-0">
-        <ng-container *ngIf="invoice.dubber.gender == 'male'; else female">Nato</ng-container>
+        <ng-container *ngIf="invoice.dubber.gender == 'M'; else female">Nato</ng-container>
         <ng-template #female>Nata</ng-template> a
         <span class="text-capitalize">{{invoice.dubber.birth_place}}</span> il {{invoice.dubber.birth_date}}
       </p>
       <p class=" mb-0">
-        Residente a <span class="text-capitalize">{{invoice.dubber.residence_place}}, {{invoice.dubber.residence_address}}, {{invoice.dubber.residence_country}}</span>
+        Residente a <span class="text-capitalize">{{invoice.dubber.address.residence_city}}, {{invoice.dubber.address.residence_address}}, {{invoice.dubber.address.residence_postcode}}</span>
       </p>
       <p class=" mb-0">
-        Codice fiscale <span class="text-uppercase">{{invoice.dubber.fiscal_code}}</span>
+        P.Iva <span class="text-uppercase">{{invoice.dubber.vat}}</span>
+      </p>
+      <p class=" mb-0">
+        C.F. <span class="text-uppercase">{{invoice.dubber.fiscal_code}}</span>
+      </p>
+      <p class=" mb-0">
+        Enpals <span class="text-uppercase">{{invoice.dubber.enpals_categories.matricola_enpals}}</span>
       </p>
     </div>
     <div class="text-right">
@@ -24,25 +30,48 @@
         {{invoice.company.address}}
       </p>
       <p class=" mb-0">
-        P.I. {{invoice.company.vat}}
+        C.F. e P.IVA {{invoice.company.vat}}
       </p>
     </div>
     <div>
-      <p class="mb-30">Nota n° <span class="font-weight-bold">{{invoice.id}}</span></p>
-      <p class="mb-30">Compenso per prestazione d'opera relativa al doppiaggio del film "<strong>{{invoice.film}}</strong>"</p>
+      <p class="mb-30">
+        FATTURA N. <span class="font-weight-bold">{{invoice.id}}</span><br>
+        Per prestazione d'opera del film "<strong>{{invoice.film}}</strong>"
+        PER GG. DI LAVORAZIONE: <span class="font-weight-bold">{{invoice.number_of_days}}</span>
+      </p>
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <td>Compenso lordo</td>
-            <td class="text-right">{{invoice.gross}} Euro</td>
+            <td>Imponibile</td>
+            <td class="text-right">{{invoice.amount}} Euro</td>
           </tr>
           <tr>
-            <td>Ritenuta d'acconto del {{invoice.tax_percetual}}%</td>
-            <td class="text-right">{{invoice.tax_euro}} Euro</td>
+            <td>Iva 22%</td>
+            <td class="text-right">{{invoice.vat}} Euro</td>
           </tr>
           <tr>
-            <td>Compenso netto</td>
-            <td class="text-right">{{invoice.net}} Euro</td>
+            <td>Compenso totale</td>
+            <td class="text-right">{{invoice.total_amount}} Euro</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered mt-30">
+        <tbody>
+          <tr>
+            <td>Tratt. Pens.</td>
+            <td class="text-right">{{invoice.enpals_data.trattenuta_pensione}} Euro</td>
+          </tr>
+          <tr>
+            <td>Enpals</td>
+            <td class="text-right">{{invoice.enpals_data.total_enpals}} Euro</td>
+          </tr>
+          <tr>
+            <td>Aliquota aggiuntiva</td>
+            <td class="text-right">{{invoice.enpals_data.additional_rate}} Euro</td>
+          </tr>
+          <tr>
+            <td>Totale</td>
+            <td class="text-right">{{invoice.enpals_data.additional_rate}} Euro</td>
           </tr>
         </tbody>
       </table>
