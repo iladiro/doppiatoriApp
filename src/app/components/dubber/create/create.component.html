@@ -168,7 +168,7 @@
         <fieldset class="pl-0 pr-0">
           <legend>Partita Iva:</legend>
           <div class="form-group">
-            <input id="vat" type="text" class="form-control text-capitalize" placeholder="Codice" [(ngModel)]="dubber.vat" name="vat" #vat="ngModel" >
+            <input id="vat" type="text" class="form-control text-capitalize" placeholder="Codice" [(ngModel)]="dubber.vat" name="vat" #vat="ngModel">
             <div *ngIf="f.submitted && !vat.valid" class="is-invalid">Campo errato</div>
           </div>
         </fieldset>

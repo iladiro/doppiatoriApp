@@ -57,7 +57,7 @@ export class DetailsInvoiceComponent implements OnInit {
               this.invoice.dubber.enpals_categories = data;
             }
           );
-          this.service.getById("dubber_enpals_data", "dubber_id", this.invoice.dubber_id).subscribe(
+          this.service.getById("dubber_enpals_data", "invoice_id", this.id).subscribe(
             data => {
               this.invoice.enpals_data = data;
               console.log(this.invoice)

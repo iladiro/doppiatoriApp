@@ -240,13 +240,14 @@ export class InvoiceCreateComponent implements OnInit {
 
   private computesVAT() {
     if(this.dubber.vat != "") {
+      console.log("non è vuoto");
       this.invoice.vat = (+this.invoice.amount * 22) / 100;
-      this.totalAmountCalculation();
+      this.invoice.total_amount = this.invoice.amount - this.invoice.vat;
+    } else {
+      console.log("è vuoto");
+      this.invoice.vat = 0;
+      this.invoice.total_amount = this.invoice.amount;
     }
-  }
-
-  private totalAmountCalculation() {
-    this.invoice.total_amount = this.invoice.amount - this.invoice.vat;
   }
 
   private saveInvoice() {
@@ -254,22 +255,27 @@ export class InvoiceCreateComponent implements OnInit {
     this.invoice.company_id = parseInt(this.invoice.company_id);
     this.invoice.creation_date = this.date.toLocaleDateString();
     this.invoice.dubber_id = this.dubber.id;
+    //console.log(this.invoice);
     this.service.create("invoices", this.invoice).subscribe(
       data => {
+        console.log("su invoice è passato");
         let str = data.headers.get("location");
         let patt = /(\d+)/g;
         let result = str.match(patt);
         this.id = Number(result[0]);
         this.reloadList();
+        this.saveEnpalsData(this.id);
         this.event.emit("success");
       },
       err => {
+        console.log("ko su invoice");
         this.event.emit("rejected");
       }
     );
   }
 
-  private saveEnpalsData() {
+  private saveEnpalsData(invoice_id) {
+    this.enpals_data.invoice_id = invoice_id;
     this.enpals_data.dubber_id = this.dubber.id;
     this.service.create("dubber_enpals_data", this.enpals_data).subscribe(
       data => {
@@ -282,7 +288,7 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   private save() {
-    this.saveEnpalsData();
+    //this.saveEnpalsData();
     this.saveInvoice();
   }
 

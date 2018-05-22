@@ -40,10 +40,10 @@
               <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </a>
-              <button (click)="passCurrentDubber(dubber, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Archivia">
+              <button (click)="passCurrentDubber(dubber, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
                 <i class="fa fa-archive" aria-hidden="true"></i>
               </button>
-              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella definitivamente">
+              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Cancella definitivamente">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>

@@ -12,7 +12,7 @@
       <p class=" mb-0">
         Residente a <span class="text-capitalize">{{invoice.dubber.address.residence_city}}, {{invoice.dubber.address.residence_address}}, {{invoice.dubber.address.residence_postcode}}</span>
       </p>
-      <p class=" mb-0">
+      <p class=" mb-0" *ngIf="invoice.dubber.vat != 0">
         P.Iva <span class="text-uppercase">{{invoice.dubber.vat}}</span>
       </p>
       <p class=" mb-0">
@@ -43,15 +43,21 @@
         <tbody>
           <tr>
             <td>Imponibile</td>
-            <td class="text-right">{{invoice.amount}} Euro</td>
+            <td class="text-right">{{invoice.amount}} €</td>
           </tr>
-          <tr>
+          <tr *ngIf="invoice.dubber.vat != 0; else noVat">
             <td>Iva 22%</td>
-            <td class="text-right">{{invoice.vat}} Euro</td>
+            <td class="text-right">{{invoice.vat}} €</td>
           </tr>
+          <ng-template #noVat>
+            <tr>
+              <td>Iva</td>
+              <td class="text-right">0,00 €</td>
+            </tr>
+          </ng-template>
           <tr>
             <td>Compenso totale</td>
-            <td class="text-right">{{invoice.total_amount}} Euro</td>
+            <td class="text-right">{{invoice.total_amount}} €</td>
           </tr>
         </tbody>
       </table>
@@ -59,19 +65,19 @@
         <tbody>
           <tr>
             <td>Tratt. Pens.</td>
-            <td class="text-right">{{invoice.enpals_data.trattenuta_pensione}} Euro</td>
+            <td class="text-right">{{invoice.enpals_data.trattenuta_pensione}} €</td>
           </tr>
           <tr>
             <td>Enpals</td>
-            <td class="text-right">{{invoice.enpals_data.total_enpals}} Euro</td>
+            <td class="text-right">{{invoice.enpals_data.total_enpals}} €</td>
           </tr>
           <tr>
             <td>Aliquota aggiuntiva</td>
-            <td class="text-right">{{invoice.enpals_data.additional_rate}} Euro</td>
+            <td class="text-right">{{invoice.enpals_data.additional_rate}} €</td>
           </tr>
           <tr>
             <td>Totale</td>
-            <td class="text-right">{{invoice.enpals_data.additional_rate}} Euro</td>
+            <td class="text-right">{{invoice.enpals_data.additional_rate}} €</td>
           </tr>
         </tbody>
       </table>

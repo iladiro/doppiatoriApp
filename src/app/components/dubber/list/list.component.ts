@@ -86,6 +86,7 @@ export class DubbersListComponent implements OnInit {
   }
 
   private delete(dubber) {
+    console.log(dubber);
     let index = this.dubbers.indexOf(dubber);
     this.service.delete("dubbers", "id", dubber.id).subscribe(
       data => {
