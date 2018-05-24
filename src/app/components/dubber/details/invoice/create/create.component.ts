@@ -15,7 +15,7 @@ export class InvoiceCreateComponent implements OnInit {
 
   @Input() dubber: any;
   @Output() event = new EventEmitter();
-  id: number;
+  id_enpals_data: number;
   companies: any = [];
   enpals_parameters: any = [];
   income_classes: any = [];
@@ -250,36 +250,34 @@ export class InvoiceCreateComponent implements OnInit {
     }
   }
 
-  private saveInvoice() {
+  private saveInvoice(id_enapals_data) {
     this.computesVAT();
     this.invoice.company_id = parseInt(this.invoice.company_id);
     this.invoice.creation_date = this.date.toLocaleDateString();
     this.invoice.dubber_id = this.dubber.id;
+    this.invoice.enpals_data_id = id_enapals_data;
     //console.log(this.invoice);
     this.service.create("invoices", this.invoice).subscribe(
       data => {
-        console.log("su invoice è passato");
-        let str = data.headers.get("location");
-        let patt = /(\d+)/g;
-        let result = str.match(patt);
-        this.id = Number(result[0]);
-        this.reloadList();
-        this.saveEnpalsData(this.id);
         this.event.emit("success");
       },
       err => {
-        console.log("ko su invoice");
         this.event.emit("rejected");
       }
     );
   }
 
-  private saveEnpalsData(invoice_id) {
-    this.enpals_data.invoice_id = invoice_id;
+  private saveEnpalsData() {
+    //this.enpals_data.invoice_id = invoice_id;
     this.enpals_data.dubber_id = this.dubber.id;
     this.service.create("dubber_enpals_data", this.enpals_data).subscribe(
       data => {
-        console.log("ok");
+        let str = data.headers.get("location");
+        let patt = /(\d+)/g;
+        let result = str.match(patt);
+        this.enpals_data.id = Number(result[0]);
+        this.reloadList();
+        this.saveInvoice(this.enpals_data.id);
       },
       err => {
         this.event.emit("rejected");
@@ -288,8 +286,8 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   private save() {
-    //this.saveEnpalsData();
-    this.saveInvoice();
+    this.saveEnpalsData();
+    //this.saveInvoice();
   }
 
   private reloadList() {

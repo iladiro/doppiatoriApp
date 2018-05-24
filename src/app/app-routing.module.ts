@@ -78,7 +78,7 @@ const appRoutes: Routes = [
     component: DubberProfileComponent
   },
   {
-    path: 'invoice/:id',
+    path: 'invoice/:id/:dubber_id',
     component: DetailsInvoiceComponent
   },
   {

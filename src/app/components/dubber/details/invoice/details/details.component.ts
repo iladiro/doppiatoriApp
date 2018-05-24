@@ -22,7 +22,9 @@ export class DetailsInvoiceComponent implements OnInit {
 
   id: number;
   private sub: any;
-  invoice: any;
+  private address: any;
+  private enpals_categories: any;
+  private invoice: any;
 
   constructor(
     private service: Service,
@@ -44,25 +46,20 @@ export class DetailsInvoiceComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
+      let dubber_id = +params['dubber_id'];
+      this.service.getById("addresses", "dubber_id", dubber_id).subscribe(
+        data => {
+          this.address = data;
+        }
+      );
+      this.service.getById("enpals_categories", "dubber_id", dubber_id).subscribe(
+        data => {
+          this.enpals_categories = data;
+        }
+      );
       this.invoiceService.getById(this.id).subscribe(
         data => {
           this.invoice = data;
-          this.service.getById("addresses", "dubber_id", this.invoice.dubber_id).subscribe(
-            data => {
-              this.invoice.dubber.address = data;
-            }
-          );
-          this.service.getById("enpals_categories", "dubber_id", this.invoice.dubber_id).subscribe(
-            data => {
-              this.invoice.dubber.enpals_categories = data;
-            }
-          );
-          this.service.getById("dubber_enpals_data", "invoice_id", this.id).subscribe(
-            data => {
-              this.invoice.enpals_data = data;
-              console.log(this.invoice)
-            }
-          );
         }
       );
     });
