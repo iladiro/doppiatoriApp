@@ -33,7 +33,7 @@
         C.F. e P.IVA {{invoice.company.vat}}
       </p>
     </div>
-    <div>
+    <div class="mb-40">
       <p class="mb-30">
         FATTURA N. <span class="font-weight-bold">{{invoice.id}}</span><br>
         Per prestazione d'opera del film "<strong>{{invoice.film}}</strong>"
@@ -67,9 +67,17 @@
             <td>Tratt. Pens.</td>
             <td class="text-right">{{invoice.enpals_data.trattenuta_pensione}} €</td>
           </tr>
+          <tr *ngIf="enpals_categories.trattenuta_sindacale">
+            <td>Tratt. Sind.</td>
+            <td class="text-right">{{invoice.trattenuta_sindacale}} €</td>
+          </tr>
           <tr>
             <td>Enpals</td>
-            <td class="text-right">{{invoice.enpals_data.total_enpals}} €</td>
+            <td class="text-right">{{invoice.total_enpals}} €</td>
+          </tr>
+          <tr *ngIf="enpals_categories.ritenuta_acconto == 1">
+            <td>Ritenuta acconto</td>
+            <td class="text-right">{{invoice.total_deductions}} €</td>
           </tr>
           <tr>
             <td>Aliquota aggiuntiva</td>
@@ -77,12 +85,39 @@
           </tr>
           <tr>
             <td>Totale</td>
-            <td class="text-right">{{invoice.enpals_data.additional_rate}} €</td>
+            <td class="text-right">{{invoice.total_deductions}} €</td>
           </tr>
         </tbody>
       </table>
+      <table class="table table-bordered mt-30">
+        <tr>
+          <td>Netto a pagare</td>
+          <td class="text-right">{{invoice.total_net}}</td>
+        </tr>
+      </table>
     </div>
-    <p class="small mboth-40">Trattasi di prestazione di lavoro autonomo ai sensi dell’art. 2222 cod. civ. non esercitato abitualmente. Operazione fuori campo IVA ai sensi dell’art. 5 D.P.R. 633/72 e successive modifiche.</p>
+    <div *ngIf="enpals_categories.forfettone == 1" class="mb-50">
+      <p class="small">
+        Operazione effettuata ai sensi dell'articolo 27 commi 1  e 2 D.L. 6 luglio 2011 n. 98.
+      </p>
+      <p class="small">
+        Imposta di bollo assolta ai sensi dell’art. 13 della Tariffa allegata al DPR 26.10.72 n. 642.
+      </p>
+      <p class="small">
+        Prestazione non soggetta a ritenuta d’acconto ai sensi del comma 5.2 del Provvedimento Agenzia delle entrate del 22.12.2011 n. 185820.
+      </p>
+    </div>
+    <div *ngIf="enpals_categories.forfettone == 2" class="mb-50">
+      <p class="small">
+        Operazione soggetta a regime forfettario ex art. 1 comma 58 L. 190/14
+      </p>
+      <p class="small">
+        Imposta di bollo assolta ai sensi dell'art. 13 della Tariffa allegata al DPR 26.10.72 n. 642.
+      </p>
+      <p class="small">
+        Prestazione non soggetta a ritenuta d'acconto ex art. 1 comma 67 Legge 190/14
+      </p>
+    </div>
     <div class="row">
       <div class="col">Milano {{invoice.creation_date}}</div>
       <div class="col text-right">Firma</div>

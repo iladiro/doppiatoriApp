@@ -238,25 +238,39 @@ export class InvoiceCreateComponent implements OnInit {
     this.invoice = form_data;
   }
 
-  private computesVAT() {
-    if(this.dubber.vat != "") {
-      console.log("non è vuoto");
-      this.invoice.vat = (+this.invoice.amount * 22) / 100;
-      this.invoice.total_amount = this.invoice.amount - this.invoice.vat;
-    } else {
+  private computes() {
+    let enpals_category = this.dubber.enpals_categories[0];
+    if((this.dubber.vat == "") || (enpals_category.forfettone == 1) || (enpals_category.forfettone == 2)) {
       console.log("è vuoto");
       this.invoice.vat = 0;
       this.invoice.total_amount = this.invoice.amount;
+    } else {
+      console.log("non è vuoto");
+      this.invoice.vat = (+this.invoice.amount * 22) / 100;
+      this.invoice.total_amount = this.invoice.amount - this.invoice.vat;
     }
+
+    this.invoice.total_enpals = this.enpals_data.quota_enpals_lavoratore + this.enpals_data.quota_enpals_ecc_massimale_lavoratore;
+    this.invoice.total_deductions = this.enpals_data.trattenuta_pensione + this.invoice.total_enpals + this.enpals_data.additional_rate;
+    if (enpals_category.ritenuta_acconto == true) {
+      this.invoice.total_deductions += (+this.invoice.amount * 20 /100);
+    }
+
+    if(enpals_category.trattenuta_sindacale == true) {
+      this.invoice.trattenuta_sindacale = +(this.invoice.amount - this.invoice.total_deductions) * this.enpals_parameters.percentuale_trattenuta_sindacale / 100;
+      this.invoice.total_deductions += this.invoice.trattenuta_sindacale;
+    }
+
+    this.invoice.total_net = (+this.invoice.total_amount - this.invoice.total_deductions);
   }
 
   private saveInvoice(id_enapals_data) {
-    this.computesVAT();
+    this.computes();
     this.invoice.company_id = parseInt(this.invoice.company_id);
     this.invoice.creation_date = this.date.toLocaleDateString();
     this.invoice.dubber_id = this.dubber.id;
     this.invoice.enpals_data_id = id_enapals_data;
-    //console.log(this.invoice);
+    console.log(this.invoice);
     this.service.create("invoices", this.invoice).subscribe(
       data => {
         this.event.emit("success");

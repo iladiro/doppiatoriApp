@@ -16,7 +16,7 @@ export class InvoiceService {
   ngOnInit(): void {}
 
   getById(id: number) {
-    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,dubber:dubbers(name, surname, birth_place, birth_date, vat, fiscal_code),company:companies(*),enpals_data:dubber_enpals_data(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,dubber:dubbers(name,surname,birth_place,birth_date,vat,fiscal_code),company:companies(*),enpals_data:dubber_enpals_data(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
 }

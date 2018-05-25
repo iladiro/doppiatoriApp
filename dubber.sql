@@ -76,3 +76,7 @@ ALTER TABLE residence_addresses
   ADD COLUMN "_default" BOOLEAN DEFAULT FALSE;
 
 ALTER TABLE home_address RENAME TO home_addresses;
+
+UPDATE enpals_categories
+SET forfettone = 2
+WHERE id = 1;
