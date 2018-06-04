@@ -34,11 +34,18 @@
       </p>
     </div>
     <div class="mb-40">
-      <p class="mb-30">
-        FATTURA N. <span class="font-weight-bold">{{invoice.id}}</span><br>
-        Per prestazione d'opera del film "<strong>{{invoice.film}}</strong>"
-        PER GG. DI LAVORAZIONE: <span class="font-weight-bold">{{invoice.number_of_days}}</span>
+      <p class="mb-40">
+        FATTURA N. <span class="font-weight-bold">{{invoice.id}}</span><br><br>
+        Compenso per prestazione d'opera del film "<strong>{{invoice.film}}</strong>"
       </p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>GG. DI LAVORAZIONE</td>
+            <td class="text-right font-weight-bold">{{invoice.number_of_days}}</td>
+          </tr>
+        </tbody>
+      </table>
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -61,7 +68,7 @@
           </tr>
         </tbody>
       </table>
-      <table class="table table-bordered mt-30">
+      <table class="table table-bordered">
         <tbody>
           <tr>
             <td>Tratt. Pens.</td>
@@ -89,7 +96,7 @@
           </tr>
         </tbody>
       </table>
-      <table class="table table-bordered mt-30">
+      <table class="table table-bordered">
         <tr>
           <td>Netto a pagare</td>
           <td class="text-right">{{invoice.total_net}}</td>

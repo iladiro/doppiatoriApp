@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.service.getAll("films", "all").subscribe(
       data => { this.films = data; }
     );
-    this.service.getAll("dubbers", "all").subscribe(
+    this.service.getAll("dubbers", "not_archived").subscribe(
       data => { this.dubbers = data; }
     );
   }
