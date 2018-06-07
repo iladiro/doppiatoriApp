@@ -39,8 +39,8 @@ export class DubberPersonalInformationComponent implements OnInit {
     );
   }
 
-  loadAllItems(table, variable) {
-    this.service.getAll(table, "all").subscribe(
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
       data => {
         this[variable] = data;
       }
@@ -48,8 +48,8 @@ export class DubberPersonalInformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadAllItems("qualifications", "qualifications");
-    this.loadAllItems("nationalities", "nationalities");
+    this.loadAllItems("qualifications", "qualifications", "all");
+    this.loadAllItems("nationalities", "nationalities", "all");
   }
 
 }

@@ -10,7 +10,7 @@ export class FilmService {
 
   //headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
 
-  private url_root = "http://localhost:3000/films";
+  private url_root = "http://localhost:2000/films";
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}

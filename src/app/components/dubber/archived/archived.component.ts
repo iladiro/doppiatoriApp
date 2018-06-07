@@ -76,8 +76,8 @@ export class DubberArchivedComponent implements OnInit {
     );
   }
 
-  loadAllItems(table, variable) {
-    this.service.getAll(table, "archived").subscribe(
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
       data => {
         this[variable] = data;
       }
@@ -85,7 +85,7 @@ export class DubberArchivedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadAllItems("dubbers", "dubbers");
+    this.loadAllItems("dubbers", "dubbers", "archived");
   }
 
 }

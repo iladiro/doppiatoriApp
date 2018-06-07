@@ -54,7 +54,7 @@ export class PaginatorComponent implements OnInit {
         this.setPage(1);
       }
     );
-    // this.http.get("http://localhost:3000/" + this.DB_table).subscribe(
+    // this.http.get("http://localhost:2000/" + this.DB_table).subscribe(
     //   data => {
     //     // set items to json response
     //     this.allItems = data;

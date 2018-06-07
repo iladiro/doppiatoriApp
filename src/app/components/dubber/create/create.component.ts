@@ -92,8 +92,8 @@ export class AddDubberComponent {
     }
   }
 
-  loadAllItems(table, variable) {
-    this.service.getAll(table, "all").subscribe(
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
       data => {
         this[variable] = data;
       }
@@ -101,9 +101,9 @@ export class AddDubberComponent {
   }
 
   ngOnInit() {
-    this.loadAllItems("dubbers", "dubbers");
-    this.loadAllItems("qualifications", "qualifications");
-    this.loadAllItems("nationalities", "nationalities");
+    this.loadAllItems("dubbers", "dubbers", "all");
+    this.loadAllItems("qualifications", "qualifications", "all");
+    this.loadAllItems("nationalities", "nationalities", "all");
   }
 
 }

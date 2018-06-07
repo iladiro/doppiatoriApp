@@ -59,6 +59,9 @@ import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-pr
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
 
+import { EnpalsPaymentsCreateComponent } from './components/enapls_payments/create/create.component';
+import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +102,9 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
     DubberArchivedComponent,
     FilmMainInformationsComponent,
     FilmDubbersListComponent,
-    AddFilmDubberComponent
+    AddFilmDubberComponent,
+    EnpalsPaymentsCreateComponent,
+    EnpalsPaymentsListComponent
   ],
   imports: [
     BrowserModule,

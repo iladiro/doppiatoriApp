@@ -28,6 +28,9 @@ import { EnpalsParameterDetailsComponent } from './components/settings/enpals-pa
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+import { EnpalsPaymentsCreateComponent } from './components/enapls_payments/create/create.component';
+import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/list.component';
+
 const appRoutes: Routes = [
 
   {
@@ -131,6 +134,16 @@ const appRoutes: Routes = [
   {
     path: 'settings/enpals-parameter/:id',
     component: EnpalsParameterDetailsComponent
+  },
+  {
+    path: 'enaplspayments',
+    component: EnpalsPaymentsListComponent,
+    data: { title: 'Enapls versamenti' }
+  },
+  {
+    path: 'enaplspayments/add',
+    component: EnpalsPaymentsCreateComponent,
+    data: { title: 'Enapls versamenti' }
   },
   // otherwise redirect to home
   // {

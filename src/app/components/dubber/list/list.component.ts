@@ -99,8 +99,8 @@ export class DubbersListComponent implements OnInit {
   }
   // end
 
-  loadAllItems(table, variable) {
-    this.service.getAll(table, "not_archived").subscribe(
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
       data => {
         this[variable] = data;
       }
@@ -108,7 +108,7 @@ export class DubbersListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadAllItems("dubbers", "dubbers");
+    this.loadAllItems("dubbers", "dubbers", "not_archived");
   }
 
 }

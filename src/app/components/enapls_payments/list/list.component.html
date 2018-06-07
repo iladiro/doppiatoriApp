@@ -1,0 +1,54 @@
+<div class="container">
+  <!-- <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
+  <nav class="row mb-3">
+    <div class="col">
+      <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/enaplspayments/add']" class="btn btn--light">Aggiungi versamento enpals</a>
+    </div>
+  </nav>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <table class="table table--striped">
+        <thead class="thead--dark">
+          <tr>
+            <th>Data versamento</th>
+            <th>Importo</th>
+            <th>ABI</th>
+            <th>CAB</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of enpals_payments">
+            <td>{{item.data_payments}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.abi}}</td>
+            <td>{{item.cab}}</td>
+            <td class="text-right">
+              <!-- <a [routerLink]="['/film', film.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
+                <i class="fa fa-info" aria-hidden="true"></i>
+              </a> -->
+              <!-- <a [routerLink]="['/film', film.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a> -->
+              <button (click)="passCurrentFilm(item)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <back-button></back-button>
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/enaplspayments/add']" class="btn btn--light">Aggiungi versamento enpals</a>
+    </div>
+  </div>
+</div>

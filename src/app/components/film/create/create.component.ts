@@ -72,8 +72,8 @@ export class AddFilmComponent {
     }
   }
 
-  loadAllItems(table, variable) {
-    this.service.getAll(table, "not_archived").subscribe(
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
       data => {
         this[variable] = data;
       }
@@ -81,7 +81,7 @@ export class AddFilmComponent {
   }
 
   ngOnInit() {
-    this.loadAllItems("dubbers", "dubbers");
+    this.loadAllItems("dubbers", "dubbers", "not_archived");
   }
 
 }
