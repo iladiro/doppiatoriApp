@@ -31,7 +31,7 @@
             <div class="col-sm-6 mb-3">
               <label for="nationality">Nazionalità</label>
               <select id="nationality" class="form-control text-capitalize" [(ngModel)]="dubber.nationality" name="nationality" #nationality="ngModel">
-                <option [value]="null">Seleziona categoria</option>
+                <option [value]="null" selected disabled>Seleziona categoria</option>
                 <option *ngFor="let nationality of nationalities" [value]="nationality.nationality">
                   {{nationality.nationality}}
                 </option>
@@ -110,7 +110,7 @@
             <div class="col-sm-12 col-md-6 mb-3">
               <label for="qualification">Qualifica</label>
               <select id="qualification" class="form-control text-capitalize" [(ngModel)]="dubber.qualification" name="qualification" #qualification="ngModel">
-                <option [value]="null">Seleziona categoria</option>
+                <option [value]="null" selected disabled>Seleziona categoria</option>
                 <option *ngFor="let qualification of qualifications" [value]="qualification.code">
                   {{qualification.description}}
                 </option>
@@ -120,7 +120,7 @@
               <label>Cat. contrib.</label>
               <div class="form-group">
                 <select id="cat_contrib" class="form-control text-capitalize" [(ngModel)]="enpals_categories.cat_contrib" name="cat_contrib" #cat_contrib="ngModel">
-                  <option [value]="null">Seleziona categoria</option>
+                  <option [value]="null" selected disabled>Seleziona categoria</option>
                   <option value="A">Ante '95</option>
                   <option value="B">Dopo '95</option>
                   <option value="C">Dopo '95 (a.c.p.)</option>

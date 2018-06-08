@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 // Services
 import { Service } from '../../../services/index';
@@ -11,10 +11,23 @@ import { Service } from '../../../services/index';
 export class EnpalsPaymentsListComponent implements OnInit {
 
   enpals_payments: any = [];
+  private editable_values = false;
+
+  //@Input() highlightColor: string;
 
   constructor(
     private service: Service
   ) {}
+
+  setEditableInput() {
+    this.editable_values = true;
+    //this.highlightColor = "editable";
+  }
+
+  restoreReadonlyInput() {
+    //this.highlightColor = "readonly";
+    this.editable_values = false;
+  }
 
   loadAllItems(table, variable, condition) {
     this.service.getAll(table, condition).subscribe(

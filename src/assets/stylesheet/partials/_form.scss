@@ -10,6 +10,11 @@
       @include placeholder(rgba(255, 255, 255, 0.65));
     }
     .form-control{
+      &[readonly] {
+        &:focus {
+          color: white;
+        }
+      }
       &:disabled {
         background-color: rgba(255,255,255,.08);
       }
