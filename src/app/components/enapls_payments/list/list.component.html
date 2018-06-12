@@ -1,6 +1,6 @@
 <div class="container">
-  <!-- <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
+  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <!-- <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
   <nav class="row mb-3">
     <div class="col">
       <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
@@ -32,13 +32,28 @@
               </ng-template>
             </td>
             <td>
-              <input type="text" id="amount" class="form-control text-capitalize" placeholder="Importo" [(ngModel)]="item.amount" name="amount" #amount="ngModel" required>
+              <ng-container *ngIf="!editable_values; else editable">
+                <input type="text" id="amount" readonly class="form-control text-capitalize" placeholder="Importo" [(ngModel)]="item.amount" name="amount" #amount="ngModel" required>
+              </ng-container>
+              <ng-template #editable>
+                <input type="text" id="amount" class="form-control text-capitalize" placeholder="Importo" [(ngModel)]="item.amount" name="amount" #amount="ngModel" required>
+              </ng-template>
             </td>
             <td>
-              <input type="text" id="abi" readonly class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="item.abi" name="abi" #abi="ngModel" required>
+              <ng-container *ngIf="!editable_values; else editable">
+                <input type="text" id="abi" readonly class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="item.abi" name="abi" #abi="ngModel" required>
+              </ng-container>
+              <ng-template #editable>
+                <input type="text" id="abi" class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="item.abi" name="abi" #abi="ngModel" required>
+              </ng-template>
             </td>
             <td>
-              <input type="text" id="cab" readonly class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="item.cab" name="cab" #cab="ngModel" required>
+              <ng-container *ngIf="!editable_values; else editable">
+                <input type="text" id="cab" readonly class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="item.cab" name="cab" #cab="ngModel" required>
+              </ng-container>
+              <ng-template #editable>
+                <input type="text" id="cab" class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="item.cab" name="cab" #cab="ngModel" required>
+              </ng-template>
             </td>
             <td class="text-right">
               <ng-container *ngIf="editable_values">

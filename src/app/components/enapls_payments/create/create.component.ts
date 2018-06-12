@@ -18,12 +18,15 @@ export class EnpalsPaymentsCreateComponent implements OnInit {
     private service: Service
   ) {}
 
-  create(){
-    console.log(typeof this.enpalspayment.amount)
-    this.service.create("enpals_payments", this.enpalspayment)
-    .subscribe(
+  create(form){
+    console.log(form);
+    this.service.create("enpals_payments", this.enpalspayment).subscribe(
       data => {
         this.alert_message = "success";
+        if (form.valid) {
+          console.log("Form Submitted!");
+          form.reset();
+        }
       },
       err => {
         console.log(err);
@@ -31,6 +34,10 @@ export class EnpalsPaymentsCreateComponent implements OnInit {
       }
     )
   }
+
+  // reset() {
+  //   this.heroes = HEROES.slice();
+  // }
 
   ngOnInit() {
   }
