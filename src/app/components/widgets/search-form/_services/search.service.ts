@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class SearchService {
-  base_url: string = 'http://localhost:2000/';
+  base_url: string = 'http://localhost:3000/';
   query_url: string = '?';
   table: string = "";
 
@@ -15,10 +15,10 @@ export class SearchService {
     Ogni volta che entro in questa funzione ( quindi a ogni keyup), devo resettare
     query_url e base_url perchè ogni volta che entra a base_url aggiunge il nome della tabella
     passata quindi se non elimini la stringa della tabella passata la riaggiunege
-    nuovamente, ottenendo la seguente stringa: "http://localhost:2000/dubbersdubbers"
+    nuovamente, ottenendo la seguente stringa: "http://localhost:3000/dubbersdubbers"
     */
     this.query_url = "?";
-    this.base_url = 'http://localhost:2000/';
+    this.base_url = 'http://localhost:3000/';
     // end
     if(value != "") {
       this.base_url += dataForRequest.table;

@@ -9,7 +9,7 @@ import { Dubber } from '../_models/index';
 
 export class DubberService {
 
-  private url_root = "http://localhost:2000/dubbers";
+  private url_root = "http://localhost:3000/dubbers";
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}
