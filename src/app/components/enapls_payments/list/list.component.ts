@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
+import { TableRowEnpalsPaymentsComponent } from './viewchild/table-row.component';
 
 // Services
 import { Service } from '../../../services/index';
@@ -11,23 +12,12 @@ import { Service } from '../../../services/index';
 export class EnpalsPaymentsListComponent implements OnInit {
 
   enpals_payments: any = [];
-  private editable_values = false;
 
-  //@Input() highlightColor: string;
+  @ViewChild(TableRowEnpalsPaymentsComponent) row: TableRowEnpalsPaymentsComponent;
 
   constructor(
     private service: Service
   ) {}
-
-  setEditableInput() {
-    this.editable_values = true;
-    //this.highlightColor = "editable";
-  }
-
-  restoreReadonlyInput() {
-    //this.highlightColor = "readonly";
-    this.editable_values = false;
-  }
 
   loadAllItems(table, variable, condition) {
     this.service.getAll(table, condition).subscribe(

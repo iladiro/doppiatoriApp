@@ -61,6 +61,9 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
 
 import { EnpalsPaymentsCreateComponent } from './components/enapls_payments/create/create.component';
 import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/list.component';
+import { TableRowEnpalsPaymentsComponent } from './components/enapls_payments/list/viewchild/table-row.component';
+
+
 
 @NgModule({
   declarations: [
@@ -104,7 +107,8 @@ import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/l
     FilmDubbersListComponent,
     AddFilmDubberComponent,
     EnpalsPaymentsCreateComponent,
-    EnpalsPaymentsListComponent
+    EnpalsPaymentsListComponent,
+    TableRowEnpalsPaymentsComponent
   ],
   imports: [
     BrowserModule,

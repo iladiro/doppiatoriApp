@@ -12,7 +12,7 @@
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
       <table class="table table--striped">
-        <thead class="thead--dark">
+        <!-- <thead class="thead--dark">
           <tr>
             <th>Data versamento</th>
             <th>Importo</th>
@@ -20,55 +20,11 @@
             <th>CAB</th>
             <th></th>
           </tr>
-        </thead>
+        </thead> -->
         <tbody class="form--light">
-          <tr *ngFor="let item of enpals_payments">
-            <td>
-              <ng-container *ngIf="!editable_values; else editable">
-                <input type="text" id="data_payments" readonly class="form-control text-capitalize" placeholder="Data versamento" [(ngModel)]="item.data_payments" name="data_payments" #data_payments="ngModel" required>
-              </ng-container>
-              <ng-template #editable>
-                <input type="text" id="data_payments" class="form-control text-capitalize" placeholder="Data versamento" [(ngModel)]="item.data_payments" name="data_payments" #data_payments="ngModel" required>
-              </ng-template>
-            </td>
-            <td>
-              <ng-container *ngIf="!editable_values; else editable">
-                <input type="text" id="amount" readonly class="form-control text-capitalize" placeholder="Importo" [(ngModel)]="item.amount" name="amount" #amount="ngModel" required>
-              </ng-container>
-              <ng-template #editable>
-                <input type="text" id="amount" class="form-control text-capitalize" placeholder="Importo" [(ngModel)]="item.amount" name="amount" #amount="ngModel" required>
-              </ng-template>
-            </td>
-            <td>
-              <ng-container *ngIf="!editable_values; else editable">
-                <input type="text" id="abi" readonly class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="item.abi" name="abi" #abi="ngModel" required>
-              </ng-container>
-              <ng-template #editable>
-                <input type="text" id="abi" class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="item.abi" name="abi" #abi="ngModel" required>
-              </ng-template>
-            </td>
-            <td>
-              <ng-container *ngIf="!editable_values; else editable">
-                <input type="text" id="cab" readonly class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="item.cab" name="cab" #cab="ngModel" required>
-              </ng-container>
-              <ng-template #editable>
-                <input type="text" id="cab" class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="item.cab" name="cab" #cab="ngModel" required>
-              </ng-template>
-            </td>
-            <td class="text-right">
-              <ng-container *ngIf="editable_values">
-                <button (click)="restoreReadonlyInput()" class="btn btn--dark" title="Salva">
-                  <i class="fa fa-save" aria-hidden="true"></i>
-                </button>
-              </ng-container>
-              <button *ngIf="!editable_values" (click)="setEditableInput()" class="btn btn--dark" title="Modifica">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </button>
-              <button (click)="passCurrentFilm(item)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </button>
-            </td>
-          </tr>
+          <ng-container *ngFor="let item of enpals_payments">
+            <row [data]="item"></row>
+          </ng-container>
         </tbody>
       </table>
     </div>
