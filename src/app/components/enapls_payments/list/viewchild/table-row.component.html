@@ -1,15 +1,42 @@
-<tr>
+<!-- <div class="row">
+  <div class="col-sm-2">
+    <input type="text" id="data_payments" [readonly]="_readonly" [class.black]="_readonly" [class.form-control]="_readonly" class="text-capitalize" placeholder="Data versamento" [(ngModel)]="data.data_payments" name="data_payments" #data_payments="ngModel" required>
+  </div>
+  <div class="col-sm-2">
+    <input type="text" id="data_payments" [readonly]="_readonly" [class.black]="_readonly" [class.form-control]="_readonly" class="text-capitalize" placeholder="Data versamento" [(ngModel)]="data.data_payments" name="data_payments" #data_payments="ngModel" required>
+  </div>
+  <div class="col-sm-2">
+    <input type="text" id="data_payments" [readonly]="_readonly" [class.black]="_readonly" [class.form-control]="_readonly" class="text-capitalize" placeholder="Data versamento" [(ngModel)]="data.data_payments" name="data_payments" #data_payments="ngModel" required>
+  </div>
+  <div class="col-sm-2">
+    <input type="text" id="data_payments" [readonly]="_readonly" [class.black]="_readonly" [class.form-control]="_readonly" class="text-capitalize" placeholder="Data versamento" [(ngModel)]="data.data_payments" name="data_payments" #data_payments="ngModel" required>
+  </div>
+  <div class="col-sm-4">
+    <button *ngIf="!_readonly" (click)="readonly()" class="btn btn--dark" title="Salva">
+      <i class="fa fa-save" aria-hidden="true"></i>
+    </button>
+    <button *ngIf="_readonly" (click)="editable()" class="btn btn--dark" title="Modifica">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
+    <button (click)="passCurrentFilm(item)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </div>
+</div> -->
+
+
+<tr id="{{data.id}}">
   <td>
-    <input type="text" id="data_payments" [readonly]="_readonly" class="form-control text-capitalize" placeholder="Data versamento" [(ngModel)]="data.data_payments" name="data_payments" #data_payments="ngModel" required>
+    <input type="text" id="data_payments" [readonly]="_readonly" [class.black]="_readonly" [class.form-control]="_readonly" class="text-capitalize" placeholder="Data versamento" [(ngModel)]="data.data_payments" name="data_payments" #data_payments="ngModel" required>
   </td>
   <td>
-    <input type="text" id="amount" [readonly]="_readonly" class="form-control text-capitalize" placeholder="Importo" [(ngModel)]="data.amount" name="amount" #amount="ngModel" required>
+    <input type="text" id="amount" [readonly]="_readonly" [class.black]="_readonly" [class.form-control]="_readonly" class="text-capitalize" placeholder="Importo" [(ngModel)]="data.amount" name="amount" #amount="ngModel" required>
   </td>
   <td>
-    <input type="text" id="abi" [readonly]="_readonly" class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="data.abi" name="abi" #abi="ngModel" required>
+    <input type="text" id="abi" [readonly]="_readonly" [class.black]="_readonly" class="form-control text-capitalize" placeholder="ABI" [(ngModel)]="data.abi" name="abi" #abi="ngModel" required>
   </td>
   <td>
-    <input type="text" id="cab" [readonly]="_readonly" class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="data.cab" name="cab" #cab="ngModel" required>
+    <input type="text" id="cab" [readonly]="_readonly" [class.black]="_readonly" class="form-control text-capitalize" placeholder="CAB" [(ngModel)]="data.cab" name="cab" #cab="ngModel" required>
   </td>
   <td class="text-right">
     <button *ngIf="!_readonly" (click)="readonly()" class="btn btn--dark" title="Salva">
@@ -18,8 +45,8 @@
     <button *ngIf="_readonly" (click)="editable()" class="btn btn--dark" title="Modifica">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </button>
-    <!-- <button (click)="passCurrentFilm(item)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella">
+    <button (click)="setData(data)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Cancella">
       <i class="fa fa-trash" aria-hidden="true"></i>
-    </button> -->
+    </button>
   </td>
 </tr>

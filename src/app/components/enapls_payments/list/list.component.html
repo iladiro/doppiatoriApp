@@ -1,6 +1,6 @@
 <div class="container">
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-  <!-- <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
+  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="row mb-3">
     <div class="col">
       <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
@@ -11,8 +11,18 @@
   </nav>
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
+      <!-- <div>
+        <div class="row">
+          <div class="col-sm-2">Data versamento</div>
+          <div class="col-sm-2">Importo</div>
+          <div class="col-sm-2">ABI</div>
+          <div class="col-sm-2">CAB</div>
+          <div class="col-sm-4"></div>
+        </div>
+        <row [data]="item" *ngFor="let item of enpals_payments"></row>
+      </div> -->
       <table class="table table--striped">
-        <!-- <thead class="thead--dark">
+        <thead class="thead--dark">
           <tr>
             <th>Data versamento</th>
             <th>Importo</th>
@@ -20,11 +30,9 @@
             <th>CAB</th>
             <th></th>
           </tr>
-        </thead> -->
+        </thead>
         <tbody class="form--light">
-          <ng-container *ngFor="let item of enpals_payments">
-            <row [data]="item"></row>
-          </ng-container>
+          <row [data]="item" *ngFor="let item of enpals_payments" (set_data)="getData($event)" (set_msg)="setMessage($event)"></row>
         </tbody>
       </table>
     </div>

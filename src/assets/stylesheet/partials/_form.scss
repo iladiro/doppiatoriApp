@@ -1,15 +1,17 @@
 .form {
   &--light {
     input, textarea, select {
-      background-color: rgba(255,255,255,.08);
-      color: rgba(255,255,255,.85);
       border-radius: 2px;
       border: 0;
       font-size: 13px;
       padding: 10px 15px;
-      @include placeholder(rgba(255, 255, 255, 0.65));
     }
     .form-control{
+      &.black {
+        background-color: rgba(255,255,255,.08);
+        color: rgba(255,255,255,.85);
+        @include placeholder(rgba(255, 255, 255, 0.65));
+      }
       &[readonly] {
         &:focus {
           color: white;
