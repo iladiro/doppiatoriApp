@@ -11,16 +11,6 @@
   </nav>
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
-      <!-- <div>
-        <div class="row">
-          <div class="col-sm-2">Data versamento</div>
-          <div class="col-sm-2">Importo</div>
-          <div class="col-sm-2">ABI</div>
-          <div class="col-sm-2">CAB</div>
-          <div class="col-sm-4"></div>
-        </div>
-        <row [data]="item" *ngFor="let item of enpals_payments"></row>
-      </div> -->
       <table class="table table--striped">
         <thead class="thead--dark">
           <tr>
@@ -32,7 +22,7 @@
           </tr>
         </thead>
         <tbody class="form--light">
-          <row [data]="item" *ngFor="let item of enpals_payments" (set_data)="getData($event)" (set_msg)="setMessage($event)"></row>
+          <tr [data]="item" *ngFor="let item of enpals_payments" (set_data)="getData($event)" (set_msg)="setMessage($event)" row></tr>
         </tbody>
       </table>
     </div>

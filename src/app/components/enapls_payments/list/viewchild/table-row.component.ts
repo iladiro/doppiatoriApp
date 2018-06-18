@@ -4,7 +4,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Service } from '../../../../services/index';
 
 @Component({
-  selector: 'row',
+  selector: '[row]',
   templateUrl: './table-row.component.html',
   styleUrls: ['./table-row.component.scss']
 })
