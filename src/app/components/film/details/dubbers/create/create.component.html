@@ -2,7 +2,7 @@
 <form #form="ngForm" (ngSubmit)="addDubberSelected(form)" class="form--light bg-light p-all-side-20">
   <div class="form-group">
     <label for="exampleFormControlSelect2">Lista doppiatori</label>
-    <select name="dubber" class="form-control text-capitalize" ngModel>
+    <select name="dubber" class="form-control black text-capitalize" ngModel>
       <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}};{{dubber.surname}}">
         {{dubber.name}} {{dubber.surname}}
       </option>

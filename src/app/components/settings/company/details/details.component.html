@@ -5,33 +5,33 @@
       <form #form="ngForm" (ngSubmit)="update(form)" novalidate class="form--light">
         <div class="form-group">
           <label for="name">Nome azienda</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="company.name" #name="ngModel" required />
+          <input type="text" class="form-control black" name="name" [(ngModel)]="company.name" #name="ngModel" required />
           <div *ngIf="form.submitted && !name.valid" class="is-invalid">Campo non valido</div>
         </div>
         <div class="form-group">
           <label for="vat">Partita Iva</label>
-          <input type="text" class="form-control" name="vat" [(ngModel)]="company.vat" #vat="ngModel" required />
+          <input type="text" class="form-control black" name="vat" [(ngModel)]="company.vat" #vat="ngModel" required />
           <div *ngIf="form.submitted && !vat.valid" class="is-invalid">Campo non valido</div>
         </div>
         <div class="form-row">
           <div class="col">
             <div class="form-group">
               <label for="city">Città</label>
-              <input id="city" type="text" class="form-control text-capitalize" placeholder="Città" [(ngModel)]="company.city" name="city" #city="ngModel" required>
+              <input id="city" type="text" class="form-control black text-capitalize" placeholder="Città" [(ngModel)]="company.city" name="city" #city="ngModel" required>
               <div *ngIf="form.submitted && !city.valid" class="is-invalid">Campo non valido</div>
             </div>
           </div>
           <div class="col">
             <div class="form-group">
               <label for="address">Indirizzo</label>
-              <input id="address" type="text" class="form-control text-capitalize" placeholder="Indirizzo" [(ngModel)]="company.address" name="address" #address="ngModel" required>
+              <input id="address" type="text" class="form-control black text-capitalize" placeholder="Indirizzo" [(ngModel)]="company.address" name="address" #address="ngModel" required>
               <div *ngIf="form.submitted && !address.valid" class="is-invalid">Campo non valido</div>
             </div>
           </div>
           <div class="col">
             <div class="form-group">
               <label for="postcode">Cap</label>
-              <input id="city" type="text" class="form-control text-capitalize" placeholder="Cap" [(ngModel)]="company.postcode" name="postcode" #postcode="ngModel" required>
+              <input id="city" type="text" class="form-control black text-capitalize" placeholder="Cap" [(ngModel)]="company.postcode" name="postcode" #postcode="ngModel" required>
               <div *ngIf="form.submitted && !postcode.valid" class="is-invalid">Campo non valido</div>
             </div>
           </div>

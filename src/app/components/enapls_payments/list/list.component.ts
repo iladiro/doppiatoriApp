@@ -55,7 +55,8 @@ export class EnpalsPaymentsListComponent implements OnInit {
     this.service.getAll(table, condition).subscribe(
       data => {
         this[variable] = data;
-      }
+      },
+      err => {}
     );
   }
 

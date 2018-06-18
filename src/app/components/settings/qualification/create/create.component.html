@@ -5,7 +5,7 @@
       <form name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate class="form--light">
         <div class="form-group">
           <label for="code">Codice</label>
-          <input id="code" type="text" class="form-control text-capitalize" placeholder="Codice" [(ngModel)]="qualification.code" name="code" #code="ngModel" maxlength="3" required>
+          <input id="code" type="text" class="form-control black text-capitalize" placeholder="Codice" [(ngModel)]="qualification.code" name="code" #code="ngModel" maxlength="3" required>
           <div *ngIf="f.submitted && !code.valid" class="is-invalid">Campo errato!</div>
           <div *ngIf="code.errors?.maxlength">
             Name can be max 10 characters long.
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
           <label for="description">Descrizione</label>
-          <textarea id="description" class="form-control" placeholder="Descrizione" [(ngModel)]="qualification.description" name="description" #description="ngModel" maxlength="100" required></textarea>
+          <textarea id="description" class="form-control black" placeholder="Descrizione" [(ngModel)]="qualification.description" name="description" #description="ngModel" maxlength="100" required></textarea>
           <div *ngIf="f.submitted && !description.valid" class="is-invalid">Campo errato!</div>
         </div>
         <div class="row mt-30 mb-20">
