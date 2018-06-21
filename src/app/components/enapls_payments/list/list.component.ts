@@ -23,6 +23,7 @@ export class EnpalsPaymentsListComponent implements OnInit {
   ) {}
 
   private getData(data){
+    console.log(data)
     this.current_enpals_payment = data;
   }
 

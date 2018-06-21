@@ -9,10 +9,9 @@ import { Service } from '../../../../services/index';
   styleUrls: ['./table-row.component.scss']
 })
 export class TableRowEnpalsPaymentsComponent {
-
-  @Input() data;
+  @Input() current_data;
+  @Output() msg =  new EventEmitter();
   @Output() set_data = new EventEmitter();
-  @Output() set_msg =  new EventEmitter();
   _readonly:boolean = true;
 
   constructor(
@@ -29,15 +28,14 @@ export class TableRowEnpalsPaymentsComponent {
   }
 
   private update() {
-    this.service.update("enpals_payments", this.data).subscribe(
+    this.service.update("enpals_payments", this.current_data).subscribe(
       data => {
-        this.set_msg.emit("success");
-        console.log("ok");
+        this.msg.emit("success");
       }
     );
   }
 
-  private setData(item) {
+  private delete(item) {
     this.set_data.emit(item)
   }
 }

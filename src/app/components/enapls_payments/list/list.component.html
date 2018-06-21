@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody class="form--light">
-          <tr [data]="item" *ngFor="let item of enpals_payments" (set_data)="getData($event)" (set_msg)="setMessage($event)" row></tr>
+          <tr [current_data]="item" *ngFor="let item of enpals_payments" (set_data)="getData($event)" (msg)="setMessage($event)" row></tr>
         </tbody>
       </table>
     </div>
