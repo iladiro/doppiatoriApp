@@ -33,6 +33,13 @@ export class AddDubberComponent {
   address: any = {};
   enpals_categories: any = {};
 
+  private check_domicilio:string = "";
+
+  onSelectionChange(value) {
+    this.check_domicilio = value;
+    console.log(this.check_domicilio);
+  }
+
   create(){
     this.check();
   }

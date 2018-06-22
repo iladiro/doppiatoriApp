@@ -6,23 +6,42 @@
       font-size: 13px;
       padding: 10px 15px;
     }
+    select {
+      &.form-control {
+        &.black {
+          option {
+            color: black;
+          }
+        }
+      }
+    }
     .form-control{
       &.black {
         background-color: rgba(255,255,255,.08);
         color: rgba(255,255,255,.85);
         @include placeholder(rgba(255, 255, 255, 0.65));
-      }
-      &[readonly] {
-        &:focus {
-          color: white;
+        &:disabled {
+          background-color: rgba(255,255,255,.08);
+        }
+        &[readonly] {
+          background-color: rgba(255,255,255,.08);
+          &:focus {
+            color: white;
+          }
         }
       }
-      &:disabled {
-        background-color: rgba(255,255,255,.08);
-      }
-      &[readonly] {
-        background-color: rgba(255,255,255,.08);
-      }
+    }
+  }
+  &-check {
+    position: relative;
+    &-input {
+      top: 6px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+    &-label {
+      padding-left: 15px;
+
     }
   }
 }

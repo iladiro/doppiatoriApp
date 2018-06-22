@@ -54,7 +54,7 @@
             </div>
           </div>
         </fieldset>
-        <fieldset class="pl-0 pr-0">
+        <fieldset class="pl-0 pr-0 mt-30">
           <legend>Informazioni fiscali:</legend>
           <h5>Residenza</h5>
           <div class="form-row">
@@ -80,34 +80,47 @@
               </div>
             </div>
           </div>
-          <h5>Domicilio</h5>
-          <div class="form-row">
-            <div class="col-sm-12 col-md-4 mb-3">
-              <label for="home_city">Città</label>
-              <input id="home_city" type="text" class="form-control black black text-capitalize" placeholder="Città" [(ngModel)]="address.home_city" name="home_city" #home_city="ngModel" >
-              <div *ngIf="f.submitted && !home_city.valid" class="is-invalid">Campo errato</div>
+          <div>
+            <p>Il tuo domicilio coincide con la tua residenza? </p>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" name="check_domicilio" value="yes" (change)="onSelectionChange('yes')">
+              <label class="form-check-label" for="same_domicilio">SI</label>
             </div>
-            <div class="col-sm-12 col-md-4 mb-3">
-              <label for="home_address">Indirizzo</label>
-              <input id="home_address" type="text" class="form-control black black text-capitalize" placeholder="Indirizzo" [(ngModel)]="address.home_address" name="home_address" #home_address="ngModel" >
-              <div *ngIf="f.submitted && !home_address.valid" class="is-invalid">Campo errato</div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" name="check_domicilio" value="no" (change)="onSelectionChange('no')">
+              <label class="form-check-label" for="different_domicilio">NO</label>
             </div>
-            <div class="col-sm-12 col-md-4 mb-3">
-              <label for="home_postcode">Cap</label>
-              <input id="home_postcode" type="text" class="form-control black black text-capitalize" placeholder="Cap" [(ngModel)]="address.home_postcode" name="home_postcode" #home_postcode="ngModel" >
-              <div *ngIf="f.submitted && !home_postcode.valid" class="is-invalid">Campo errato</div>
+          </div>
+          <div *ngIf="check_domicilio == 'no'" class="mt-15">
+            <h5 class="mb-3">Domicilio</h5>
+            <div class="form-row">
+              <div class="col-sm-12 col-md-4 mb-3">
+                <label for="home_city">Città</label>
+                <input id="home_city" type="text" class="form-control black black text-capitalize" placeholder="Città" [(ngModel)]="address.home_city" name="home_city" #home_city="ngModel" >
+                <div *ngIf="f.submitted && !home_city.valid" class="is-invalid">Campo errato</div>
+              </div>
+              <div class="col-sm-12 col-md-4 mb-3">
+                <label for="home_address">Indirizzo</label>
+                <input id="home_address" type="text" class="form-control black black text-capitalize" placeholder="Indirizzo" [(ngModel)]="address.home_address" name="home_address" #home_address="ngModel" >
+                <div *ngIf="f.submitted && !home_address.valid" class="is-invalid">Campo errato</div>
+              </div>
+              <div class="col-sm-12 col-md-4 mb-3">
+                <label for="home_postcode">Cap</label>
+                <input id="home_postcode" type="text" class="form-control black black text-capitalize" placeholder="Cap" [(ngModel)]="address.home_postcode" name="home_postcode" #home_postcode="ngModel" >
+                <div *ngIf="f.submitted && !home_postcode.valid" class="is-invalid">Campo errato</div>
+              </div>
             </div>
           </div>
         </fieldset>
-        <fieldset class="pl-0 pr-0">
+        <fieldset class="pl-0 pr-0 mt-30">
           <legend>Categoria Enpals:</legend>
           <div class="form-row">
-            <div class="col-sm-12 col-md-6 mb-3">
+            <div class="col-sm-12 col-md-4 mb-3">
               <label for="matricola_enpals">Matricola enpals</label>
               <input id="matricola_enpals" type="text" class="form-control black black text-capitalize" placeholder="Matricola" [(ngModel)]="enpals_categories.matricola_enpals" name="matricola_enpals" #matricola_enpals="ngModel" >
               <div *ngIf="f.submitted && !matricola_enpals.valid" class="is-invalid">Campo errato</div>
             </div>
-            <div class="col-sm-12 col-md-6 mb-3">
+            <div class="col-sm-12 col-md-4 mb-3">
               <label for="qualification">Qualifica</label>
               <select id="qualification" class="form-control black black text-capitalize" [(ngModel)]="dubber.qualification" name="qualification" #qualification="ngModel">
                 <option [value]="null" selected disabled>Seleziona categoria</option>
@@ -116,7 +129,7 @@
                 </option>
               </select>
             </div>
-            <div class="col-sm-12 col-md-6 mb-3">
+            <div class="col-sm-12 col-md-4 mb-3">
               <label>Cat. contrib.</label>
               <div class="form-group">
                 <select id="cat_contrib" class="form-control black black text-capitalize" [(ngModel)]="enpals_categories.cat_contrib" name="cat_contrib" #cat_contrib="ngModel">
@@ -127,7 +140,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-sm-12 col-md-6 mb-3">
+            <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="checkbox" id="pensionato" value="pensionato" [(ngModel)]="enpals_categories.pensionato" name="pensionato">
@@ -147,7 +160,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-12 col-md-23 mb-3">
+            <div class="col-sm-12 col-md-6">
               <div class="form-group">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="forfettone" id="forfettone_0" value="0" [(ngModel)]="enpals_categories.forfettone">
@@ -165,14 +178,14 @@
             </div>
           </div>
         </fieldset>
-        <fieldset class="pl-0 pr-0">
+        <fieldset class="pl-0 pr-0 mt-30">
           <legend>Partita Iva:</legend>
           <div class="form-group">
             <input id="vat" type="text" class="form-control black black text-capitalize" placeholder="Codice" [(ngModel)]="dubber.vat" name="vat" #vat="ngModel">
             <div *ngIf="f.submitted && !vat.valid" class="is-invalid">Campo errato</div>
           </div>
         </fieldset>
-        <fieldset class="pl-0 pr-0">
+        <fieldset class="pl-0 pr-0 mt-30">
           <legend>Dati Bancari:</legend>
           <div class="form-row">
             <div class="col-sm-12 col-md-6 mb-3">
@@ -202,7 +215,7 @@
             </div>
           </div>
         </fieldset>
-        <fieldset class="pl-0 pr-0">
+        <fieldset class="pl-0 pr-0 mt-30">
           <legend>Contatti:</legend>
           <div class="form-row">
             <div class="col-sm-4 mb-3">

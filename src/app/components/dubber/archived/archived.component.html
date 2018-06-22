@@ -37,7 +37,7 @@
               <button (click)="passCurrentDubber(dubber, 'rollback')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Ripristina">
                 <i class="fa fa-reply" aria-hidden="true"></i>
               </button>
-              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Cancella definitivamente">
+              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Cancella definitivamente">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>
@@ -45,7 +45,7 @@
         </tbody>
       </table>
       <ng-template #noDubbers>
-        <p class="alert alert-warning">Non ci sono elementi archiviati</p>
+        <p class="alert alert-warning mb-0">Non ci sono elementi archiviati</p>
       </ng-template>
       <!-- <paginator (pagedItems)="dataset($event)" [DB_table]="DB_table"></paginator> -->
     </div>

@@ -43,6 +43,10 @@
       &-item {
         padding: 10px;
         font-size: 13px;
+        &:active {
+          color: black;
+          background-color: transparent;
+        }
       }
     }
   }
