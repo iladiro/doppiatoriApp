@@ -290,8 +290,8 @@ export class InvoiceCreateComponent implements OnInit {
         let patt = /(\d+)/g;
         let result = str.match(patt);
         this.enpals_data.id = Number(result[0]);
-        this.reloadList();
         this.saveInvoice(this.enpals_data.id);
+        this.reloadList();
       },
       err => {
         this.event.emit("rejected");

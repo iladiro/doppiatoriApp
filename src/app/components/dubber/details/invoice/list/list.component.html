@@ -4,13 +4,13 @@
     <tr *ngFor="let invoice of dubber.invoices">
       <td>Compenso per prestazione d'opera relativa al film <strong>{{invoice.film}}</strong></td>
       <td class="text-right">
-        <a [routerLink]="['/invoice', invoice.id, dubber.id]" class="btn btn--dark">
-          <i class="fa fa-info" aria-hidden="true"></i>
+        <a [routerLink]="['/invoice', invoice.id, dubber.id]" class="btn btn--dark" title="Visualizza">
+          <i class="fa fa-eye" aria-hidden="true"></i>
         </a>
-        <a href="" class="btn btn--dark">
+        <!-- <a href="" class="btn btn--dark">
           <i class="fa fa-download"></i>
-        </a>
-        <button (click)="this.current_invoice = invoice" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal">
+        </a> -->
+        <button (click)="this.current_invoice = invoice" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
       </td>

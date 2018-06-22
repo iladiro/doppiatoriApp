@@ -33,11 +33,10 @@ export class AddDubberComponent {
   address: any = {};
   enpals_categories: any = {};
 
-  private check_domicilio:string = "";
+  private check_domicilio:string = "no";
 
   onSelectionChange(value) {
     this.check_domicilio = value;
-    console.log(this.check_domicilio);
   }
 
   create(){
@@ -77,6 +76,12 @@ export class AddDubberComponent {
     if(this.status == "ok") {
       this.bank.dubber_id = this.id;
       this.address.dubber_id = this.id;
+      if(this.check_domicilio == "yes") {
+        this.address.home_address = this.address.residence_address;
+        this.address.home_postcode = this.address.residence_postcode;
+        this.address.home_city = this.address.residence_city;
+      }
+      console.log(this.dubber);
       this.enpals_categories.dubber_id = this.id;
       this.service.create("banks", this.bank).subscribe(
         err => {
