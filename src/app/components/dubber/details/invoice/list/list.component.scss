@@ -40,13 +40,10 @@
     }
   }
   &__avatar {
-    border-radius: 50%;
-    @include size(40px, 40px);
-    background-color: #99b8c3;
+    @include radius(40px);
+    background: linear-gradient(135deg, rgb(7, 167, 227) 0%, rgb(50, 218, 195) 100%);
     color: white;
     display: inline-block;
-    line-height: 40px;
-    text-align: center;
     text-transform: uppercase;
   }
 }

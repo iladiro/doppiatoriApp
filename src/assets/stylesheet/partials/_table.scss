@@ -3,11 +3,13 @@
     thead {
       th {
         border-bottom: 0;
-        border-top: 1px solid rgba(255,255,255,.125);
+        @include border(1px, rgba(255,255,255,.125), top);
+        //border-top: 1px solid rgba(255,255,255,.125);
       }
     }
     th, td {
-      border-top: 1px solid rgba(255,255,255,.125);
+      @include border(1px, rgba(255,255,255,.125), top);
+      //border-top: 1px solid rgba(255,255,255,.125);
     }
   }
   &--striped {
@@ -17,7 +19,8 @@
           background-color: rgba(255,255,255,.04);
         }
         td, th {
-          border-top: 1px solid rgba(255,255,255,.125);
+          @include border(1px, rgba(255,255,255,.125), top);
+          //border-top: 1px solid rgba(255,255,255,.125);
         }
       }
     }
@@ -27,7 +30,8 @@
       th {
         background-color: rgba(0,0,0,.2);
         border-bottom: 0;
-        border-top: 1px solid rgba(255,255,255,.125);
+        @include border(1px, rgba(255,255,255,.125), top);
+        //border-top: 1px solid rgba(255,255,255,.125);
       }
     }
     &--light {
@@ -35,7 +39,8 @@
         background-color: rgba(255,255,255,.125);
         color: rgba(255,255,255,.85);
         border-bottom: 0;
-        border-top: 1px solid rgba(255,255,255,.125);
+        @include border(1px, rgba(255,255,255,.125), top);
+        //border-top: 1px solid rgba(255,255,255,.125);
       }
     }
   }

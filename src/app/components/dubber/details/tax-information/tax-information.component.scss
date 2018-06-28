@@ -1,14 +1,12 @@
+@import "../../../../../assets/stylesheet/mixin/custom-mixin";
+@import '../../../../../assets/stylesheet/widgets/variables';
+
 .add-new-address-button {
-  border-style: dashed;
-  height: 319px;
-  width: 100%;
-  border-width: 2px;
-  border-color: #C7C7C7;
   color: white;
+  @include size(100%, 319px);
+  @include border(2px, #C7C7C7, nill, dashed);
   &__icon {
     font-size: 40px
   }
-  &__text {
-
-  }
+  &__text {}
 }
