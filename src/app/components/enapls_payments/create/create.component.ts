@@ -19,12 +19,10 @@ export class EnpalsPaymentsCreateComponent implements OnInit {
   ) {}
 
   create(form){
-    console.log(form);
     this.service.create("enpals_payments", this.enpalspayment).subscribe(
       data => {
         this.alert_message = "success";
         if (form.valid) {
-          console.log("Form Submitted!");
           form.reset();
         }
       },

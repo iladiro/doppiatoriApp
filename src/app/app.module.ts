@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 // Services
 import { Service } from './services/http.service';
@@ -11,6 +12,7 @@ import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/dubber/details/invoice/_services/index';
 import { PagerService } from './components/widgets/paginator/_services/index';
 import { UserService } from './components/user/_services/index';
+import { EnpalsPaymentsService } from './components/enapls_payments/_services/index';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -62,6 +64,7 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
 import { EnpalsPaymentsCreateComponent } from './components/enapls_payments/create/create.component';
 import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/list.component';
 import { TableRowEnpalsPaymentsComponent } from './components/enapls_payments/list/viewchild/table-row.component';
+import { ChartEnpalsPaymentsComponent } from './components/enapls_payments/charts/chart-enpals-payments/chart-enpals-payments.component';
 
 
 
@@ -108,14 +111,16 @@ import { TableRowEnpalsPaymentsComponent } from './components/enapls_payments/li
     AddFilmDubberComponent,
     EnpalsPaymentsCreateComponent,
     EnpalsPaymentsListComponent,
-    TableRowEnpalsPaymentsComponent
+    TableRowEnpalsPaymentsComponent,
+    ChartEnpalsPaymentsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,  // Add this!
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     Service,
@@ -123,7 +128,8 @@ import { TableRowEnpalsPaymentsComponent } from './components/enapls_payments/li
     FilmService,
     InvoiceService,
     UserService,
-    PagerService
+    PagerService,
+    EnpalsPaymentsService
   ],
   bootstrap: [AppComponent]
 })
