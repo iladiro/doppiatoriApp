@@ -15,8 +15,13 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
   private enpals_payments:any = [];
   date = new Date();
   years: any = [];
+  months: Array<number> = [0,0,0,0,0,0,0,0,0,0,0,0];
 
-  //selected_date:string=''
+  chartData:any = [];
+  chartOptions = {
+    responsive: true
+  };
+  chartLabels = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
 
   constructor(
     private service: Service,
@@ -31,15 +36,15 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
   }
 
   getDate(value){
-    let date = value + '-01' + '-01';
-    console.log(date);
-    this.sendRequest(date);
+    let date_from = value + '-01' + '-01';
+    let date_to = value + '-12' + '-31';
+    this.sendRequest(date_from, date_to);
   }
 
-  sendRequest(date) {
-    this.own_service.getFromDate(date).subscribe(
+  sendRequest(date_from, date_to) {
+    this.own_service.getFromDate(date_from, date_to).subscribe(
       data => {
-        console.log(data);
+        this.calcolate(data);
       },
       err => {
         console.log(err);
@@ -47,57 +52,35 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
     )
   }
 
-  // chartOptions = {
-  //   responsive: true
-  // };
-  //
+  calcolate(data) {
+    let result:any = [];
+    let it_self = this;
+    let year;
+    data.map(function(elem) {
+      let date = new Date(elem.data_payments);
+      year = date.getFullYear();
+      let month = date.getMonth();
+      let amount = parseInt(elem.amount);
+      it_self.months[month] += amount;
+    });
+    let obj = {
+      "data": this.months,
+      "label": year
+    }
+    this.chartData.push(obj);
+    console.log(this.chartData);
+  }
+
   // chartData = [
-  //   { data: [330, 600, 260, 700], label: '2016' },
-  //
-  //
-  //
-  //   { data: [120, 455, 100, 340], label: '2017' },
-  //   { data: [45, 67, 800, 500], label: '2018' }
+  //   { data: [330, 600, 260, 700], label: '2018' },
   // ];
-  //
-  // chartLabels = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
-  //
-  // onChartClick(event) {
-  //   console.log(event);
-  // }
 
-  // loadAllItems(table, variable, condition) {
-  //   this.service.getAll(table, condition).subscribe(
-  //     data => {
-  //       this[variable] = data;
-  //     },
-  //     err => {
-  //       console.log(err)
-  //     }
-  //   );
-  // }
-
-  // createObjPassingToChart(item) {
-  //   let resultes = [];
-  //   item.map(function(element) {
-  //     let amount = element.amount;
-  //     let date = element.data_payments;
-  //     let splitted_date = date.split('-');
-  //     let year = splitted_date[0];
-  //     let month = splitted_date[1];
-  //     let obj = {
-  //       "year": year,
-  //       "month": month,
-  //       "amount": amount
-  //     }
-  //     resultes.push(obj);
-  //   })
-  //   console.log(resultes);
-  // }
+  onChartClick(event) {
+    console.log(event);
+  }
 
   ngOnInit() {
     this.printYears("1960");
-    //this.loadAllItems("enpals_payments", "enpals_payments", "all");
   }
 
 }

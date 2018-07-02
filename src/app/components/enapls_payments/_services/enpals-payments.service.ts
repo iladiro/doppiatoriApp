@@ -12,8 +12,8 @@ export class EnpalsPaymentsService {
 
   ngOnInit(): void {}
 
-  getFromDate(date) {
-    return this.http.get(this.url_root + "?data_payments=gte." + date);
+  getFromDate(date_from, date_to) {
+    return this.http.get(this.url_root + "?data_payments=gte." + date_from + "&" + "data_payments=lte." + date_to);
   }
 
 }
