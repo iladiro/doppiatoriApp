@@ -12,7 +12,6 @@ import { EnpalsPaymentsService } from '../../_services/index';
 })
 export class ChartEnpalsPaymentsComponent implements OnInit {
 
-  private enpals_payments:any = [];
   date = new Date();
   years: any = [];
   months: Array<number> = [0,0,0,0,0,0,0,0,0,0,0,0];
@@ -56,6 +55,7 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
     let result:any = [];
     let it_self = this;
     let year;
+    this.months = [0,0,0,0,0,0,0,0,0,0,0,0];
     data.map(function(elem) {
       let date = new Date(elem.data_payments);
       year = date.getFullYear();
@@ -65,22 +65,31 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
     });
     let obj = {
       "data": this.months,
-      "label": year
-    }
+      "label": JSON.stringify(year)
+    };
     this.chartData.push(obj);
-    console.log(this.chartData);
+    this.newDataPoint(this.months, JSON.stringify(year))
   }
 
-  // chartData = [
-  //   { data: [330, 600, 260, 700], label: '2018' },
-  // ];
-
   onChartClick(event) {
-    console.log(event);
+    console.log("pip");
+  }
+
+
+  newDataPoint(dataArr = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100], label) {
+    this.chartData.forEach((dataset, index) => {
+      console.log(dataset);
+      this.chartData[index] = Object.assign({}, this.chartData[index], {
+        data: [...this.chartData[index].data]
+      });
+    });
+    this.chartLabels = [...this.chartLabels];
   }
 
   ngOnInit() {
+    let current_year = this.date.getFullYear();
     this.printYears("1960");
+    this.getDate(current_year);
   }
 
 }
