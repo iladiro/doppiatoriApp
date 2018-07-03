@@ -75,7 +75,6 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
     console.log("pip");
   }
 
-
   newDataPoint(dataArr = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100], label) {
     this.chartData.forEach((dataset, index) => {
       console.log(dataset);
