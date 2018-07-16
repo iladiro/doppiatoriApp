@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// Models
+import { EnpalsPayments } from '../_models/index';
+
 // Services
 import { Service } from '../../../services/index';
 
@@ -10,7 +13,7 @@ import { Service } from '../../../services/index';
 })
 export class EnpalsPaymentsCreateComponent implements OnInit {
 
-  enpalspayment: any = {};
+  enpalspayment: EnpalsPayments = {};
 
   private alert_message;
 

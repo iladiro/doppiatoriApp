@@ -34,9 +34,24 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
     }
   }
 
-  getDate(value){
-    let date_from = value + '-01' + '-01';
-    let date_to = value + '-12' + '-31';
+  checkValidation(year) {
+    //cd this.chartData.includes()
+    // this.chartData.filter(function (obj) {
+    //   if(obj.label != year) {
+    //     console.log(obj)
+    //   }
+    // });
+  }
+
+  getDate(year){
+    this.chartData.forEach((item, i) => {
+      if(item.label != year) {
+        return item;
+      }
+    });
+
+    let date_from = year + '-01' + '-01';
+    let date_to = year + '-12' + '-31';
     this.sendRequest(date_from, date_to);
   }
 
