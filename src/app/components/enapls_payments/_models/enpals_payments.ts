@@ -1,4 +1,4 @@
-export interface EnpalsPayments {
+export class EnpalsPayments {
   //id: number;
   amount: number;
   data_payments: string;

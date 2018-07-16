@@ -2,37 +2,48 @@
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
-      <form name="form" (ngSubmit)="f.form.valid && create()" #f="ngForm" novalidate class="form--light">
-        <div class="form-group">
-          <label for="name">Nome Azienda</label>
-          <input id="name" type="text" class="form-control black text-capitalize" placeholder="Company name" [(ngModel)]="company.name" name="name" #name="ngModel" required>
-          <div *ngIf="f.submitted && !name.valid" class="is-invalid">Campo non valido</div>
+      <form name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate class="form--light">
+        <div class="form-group" [ngClass]="{
+          'has-danger': name.invalid && (name.dirty || name.touched),
+          'has-success': name.valid && (name.dirty || name.touched)
+        }">
+          <label for="name">Nome Azienda **</label> <span *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">* Campo non valido</span>
+          <input id="name" type="text" class="form-control black text-capitalize" placeholder="Company name" ngModel name="name" #name="ngModel" required>
         </div>
-        <div class="form-group">
-          <label for="vat">Partita IVA</label>
-          <input id="vat" type="text" class="form-control black" placeholder="vat" [(ngModel)]="company.vat" name="vat" #vat="ngModel" required pattern="^[0-9]{11}$">
+        <div class="form-group" [ngClass]="{
+          'has-danger': vat.invalid && (vat.dirty || vat.touched),
+          'has-success': vat.valid && (vat.dirty || vat.touched)
+        }">
+          <label for="vat">Partita IVA **</label> <span *ngIf="vat.invalid && (vat.dirty || vat.touched)" class="text-danger">* Campo non valido</span>
+          <input id="vat" type="text" class="form-control black" placeholder="vat" ngModel name="vat" #vat="ngModel" required pattern="^[0-9]{11}$">
           <div *ngIf="f.submitted && !vat.valid" class="is-invalid">Campo non valido</div>
         </div>
         <div class="form-row">
           <div class="col">
-            <div class="form-group">
-              <label for="city">Città</label>
-              <input id="city" type="text" class="form-control black text-capitalize" placeholder="Città" [(ngModel)]="company.city" name="city" #city="ngModel" required>
-              <div *ngIf="f.submitted && !city.valid" class="is-invalid">Campo non valido</div>
+            <div class="form-group" [ngClass]="{
+              'has-danger': city.invalid && (city.dirty || city.touched),
+              'has-success': city.valid && (city.dirty || city.touched)
+            }">
+              <label for="city">Città **</label> <span *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">* Campo non valido</span>
+              <input id="city" type="text" class="form-control black text-capitalize" placeholder="Città" ngModel name="city" #city="ngModel" required>
             </div>
           </div>
           <div class="col">
-            <div class="form-group">
-              <label for="address">Indirizzo</label>
-              <input id="address" type="text" class="form-control black text-capitalize" placeholder="Indirizzo" [(ngModel)]="company.address" name="address" #address="ngModel" required>
-              <div *ngIf="f.submitted && !address.valid" class="is-invalid">Campo non valido</div>
+            <div class="form-group" [ngClass]="{
+              'has-danger': address.invalid && (address.dirty || address.touched),
+              'has-success': address.valid && (address.dirty || address.touched)
+            }">
+              <label for="address">Indirizzo **</label> <span *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">* Campo non valido</span>
+              <input id="address" type="text" class="form-control black text-capitalize" placeholder="Indirizzo" ngModel name="address" #address="ngModel" required>
             </div>
           </div>
           <div class="col">
-            <div class="form-group">
-              <label for="postcode">Cap</label>
-              <input id="city" type="text" class="form-control black text-capitalize" placeholder="Cap" [(ngModel)]="company.postcode" name="postcode" #postcode="ngModel" required>
-              <div *ngIf="f.submitted && !postcode.valid" class="is-invalid">Campo non valido</div>
+            <div class="form-group" [ngClass]="{
+              'has-danger': postcode.invalid && (postcode.dirty || postcode.touched),
+              'has-success': postcode.valid && (postcode.dirty || postcode.touched)
+            }">
+              <label for="postcode">Cap **</label>  <span *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="text-danger">* Campo non valido</span>
+              <input id="postcode" type="text" class="form-control black text-capitalize" placeholder="Cap" ngModel name="postcode" #postcode="ngModel" required>
             </div>
           </div>
         </div>

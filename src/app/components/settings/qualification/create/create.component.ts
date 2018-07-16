@@ -13,18 +13,17 @@ import { Service } from '../../../../services/index';
 })
 export class QualificationCreateComponent implements OnInit {
 
-  qualification: any = {};
-
   private alert_message;
 
   constructor(
     private service: Service
   ) { }
 
-  create() {
-    this.service.create("qualifications", this.qualification).subscribe(
+  create(form) {
+    this.service.create("qualifications", form.value).subscribe(
       data => {
         this.alert_message = "success";
+        form.reset();
       },
       err => {
         this.alert_message = "rejected";

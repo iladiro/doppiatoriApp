@@ -3,33 +3,43 @@
   <div class="generalCard card mb-4">
     <div class="generalCard__body">
       <form name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate class="form--light">
-        <div class="form-group">
-          <label for="data_payments">Data versamento</label>
-          <input id="data_payments" type="date" class="form-control black text-capitalize" placeholder="Data versamento" [(ngModel)]="enpalspayment.data_payments" name="data_payments" #data_payments="ngModel" required>
-          <div *ngIf="f.updateOn && !data_payments.valid" class="is-invalid">Campo non valido</div>
-        </div>
-        <div class="form-group">
-          <label for="amount">Importo</label>
-          <input id="amount" type="number" class="form-control black text-capitalize" placeholder="Importo" [(ngModel)]="enpalspayment.amount" name="amount" #amount="ngModel" required>
-          <div *ngIf="f.updateOn && !amount.valid" class="is-invalid">Campo non valido</div>
-        </div>
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
-              <label for="abi">ABI</label>
-              <input id="abi" type="text" class="form-control black text-capitalize" placeholder="ABI" [(ngModel)]="enpalspayment.abi" name="abi" #abi="ngModel" required>
-              <div *ngIf="f.updateOn && !abi.valid" class="is-invalid">Campo non valido</div>
+        <div class="mb-30">
+          <div class="form-group" [ngClass]="{
+            'has-danger': data_payments.invalid && (data_payments.dirty || data_payments.touched),
+            'has-success': data_payments.valid && (data_payments.dirty || data_payments.touched)
+          }">
+            <label for="data_payments">Data versamento **</label> <span *ngIf="data_payments.invalid && (data_payments.dirty || data_payments.touched)" class="text-danger">* Campo non valido</span>
+            <input id="data_payments" type="date" class="form-control black text-capitalize" placeholder="Data versamento" [(ngModel)]="enpalspayment.data_payments" name="data_payments" #data_payments="ngModel" required>
+          </div>
+          <div class="form-group" [ngClass]="{
+            'has-danger': amount.invalid && (amount.dirty || amount.touched),
+            'has-success': amount.valid && (amount.dirty || amount.touched)
+          }">
+            <label for="amount">Importo **</label> <span *ngIf="amount.invalid && (amount.dirty || amount.touched)" class="text-danger">* Campo non valido</span>
+            <input id="amount" type="number" class="form-control black text-capitalize" placeholder="Importo" [(ngModel)]="enpalspayment.amount" name="amount" #amount="ngModel" required>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group" [ngClass]="{
+                'has-danger': abi.invalid && (abi.dirty || abi.touched),
+                'has-success': abi.valid && (abi.dirty || abi.touched)
+              }">
+                <label for="abi">ABI **</label> <span *ngIf="abi.invalid && (abi.dirty || abi.touched)" class="text-danger">* Campo non valido</span>
+                <input id="abi" type="text" class="form-control black text-capitalize" placeholder="ABI" [(ngModel)]="enpalspayment.abi" name="abi" #abi="ngModel" required>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [ngClass]="{
+                'has-danger': cab.invalid && (cab.dirty || cab.touched),
+                'has-success': cab.valid && (cab.dirty || cab.touched)
+              }">
+                <label for="cab">CAB **</label> <span *ngIf="cab.invalid && (cab.dirty || cab.touched)" class="text-danger">* Campo non valido</span>
+                <input id="cab" type="text" class="form-control black text-capitalize" placeholder="CAB" [(ngModel)]="enpalspayment.cab" name="cab" #cab="ngModel" required>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="form-group">
-              <label for="cab">CAB</label>
-              <input id="cab" type="text" class="form-control black text-capitalize" placeholder="CAB" [(ngModel)]="enpalspayment.cab" name="cab" #cab="ngModel" required>
-              <div *ngIf="f.updateOn && !cab.valid" class="is-invalid">Campo non valido</div>
-            </div>
-          </div>
         </div>
-        <div class="row mt-30 mb-20">
+        <div class="row mb-20">
           <div class="col">
             <back-button></back-button>
           </div>

@@ -13,20 +13,17 @@ import { Service } from '../../../../services/index';
 })
 export class CompanyCreateComponent implements OnInit {
 
-  company: any = {};
-  loading = false;
-
   private alert_message;
 
   constructor(
     private service: Service
   ) { }
 
-  create() {
-    //this.company.id = Math.floor((Math.random() * 1000000) + 1);
-    this.service.create("companies", this.company).subscribe(
+  create(form) {
+    this.service.create("companies", form.value).subscribe(
       data => {
         this.alert_message = "success";
+        form.reset();
       },
       err => {
         this.alert_message = "rejected";

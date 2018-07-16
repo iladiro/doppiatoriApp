@@ -27,7 +27,7 @@ export class AddFilmComponent {
     private service: Service
   ) {}
 
-  create(){
+  create(form){
     let filmObj = Object.assign({}, this.film);
     delete filmObj.dubbers;
     //Send object film to server
@@ -64,7 +64,9 @@ export class AddFilmComponent {
         film_dubbers.push(object_pair);
       });
       this.service.create("dubbers_films", film_dubbers).subscribe(
-        data => {},
+        data => {
+          form.reset();
+        },
         err => {
           console.log(err)
         }

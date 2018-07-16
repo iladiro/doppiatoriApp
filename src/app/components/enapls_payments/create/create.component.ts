@@ -13,7 +13,7 @@ import { Service } from '../../../services/index';
 })
 export class EnpalsPaymentsCreateComponent implements OnInit {
 
-  enpalspayment: EnpalsPayments = {};
+  enpalspayment: any = {};
 
   private alert_message;
 
@@ -36,11 +36,6 @@ export class EnpalsPaymentsCreateComponent implements OnInit {
     )
   }
 
-  // reset() {
-  //   this.heroes = HEROES.slice();
-  // }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

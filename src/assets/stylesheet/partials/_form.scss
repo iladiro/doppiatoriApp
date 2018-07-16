@@ -10,7 +10,7 @@
       &.form-control {
         &.black {
           option {
-            color: black;
+            color: white;
           }
         }
       }
@@ -46,22 +46,33 @@
   }
 }
 
-input, textarea {
-  &.ng {
-    &-pristine {
-      &.ng-touched {
-        &.ng-invalid {
-          @include border(1px, #bb0808);
-        }
-        // &.ng-valid {
-        //   @include border(1px, green);
-        // }
-      }
+// input, textarea {
+//   &.ng {
+//     &-pristine {
+//       &.ng-touched {
+//         &.ng-invalid {
+//           @include border(1px, #bb0808);
+//         }
+//         // &.ng-valid {
+//         //   @include border(1px, green);
+//         // }
+//       }
+//     }
+//   }
+// }
+
+.form-group {
+  .required {
+    color: #bb0808;
+  }
+  &.has-success {
+    input, textarea {
+      @include border(1px, #5cb85c);
     }
   }
-}
-
-.is-invalid {
-  padding: 5px 0;
-  color: #bb0808;
+  &.has-danger {
+    input, textarea {
+      @include border(1px, #bb0808);
+    }
+  }
 }
