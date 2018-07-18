@@ -46,11 +46,11 @@ export class AddFilmComponent {
         this.status = "ko";
         this.alert_message = "rejected";
       },
-      () => this.addFilmDubbersInRelationTable()
+      () => this.addFilmDubbersInRelationTable(form)
     )
   }
 
-  private addFilmDubbersInRelationTable() {
+  private addFilmDubbersInRelationTable(form) {
     let film_id = this.id;
     let dubbers_selected = this.film.dubbers;
     let film_dubbers = [];

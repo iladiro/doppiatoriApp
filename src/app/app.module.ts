@@ -66,6 +66,9 @@ import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/l
 import { TableRowEnpalsPaymentsComponent } from './components/enapls_payments/list/viewchild/table-row.component';
 import { ChartEnpalsPaymentsComponent } from './components/enapls_payments/charts/chart-enpals-payments/chart-enpals-payments.component';
 
+import { ToDoCreateComponent } from './components/todo/create/create.component';
+import { ToDoListComponent } from './components/todo/list/list.component';
+
 
 
 @NgModule({
@@ -112,7 +115,9 @@ import { ChartEnpalsPaymentsComponent } from './components/enapls_payments/chart
     EnpalsPaymentsCreateComponent,
     EnpalsPaymentsListComponent,
     TableRowEnpalsPaymentsComponent,
-    ChartEnpalsPaymentsComponent
+    ChartEnpalsPaymentsComponent,
+    ToDoCreateComponent,
+    ToDoListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,41 @@
+<div class="container">
+  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <form name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate class="form--light">
+        <div class="mb-30">
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label>Giorno</label>
+                <input type="date" id="date" name="date" class="form-control black" ngModel>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label>Ora</label>
+                <input type="time" class="form-control black" id="time" name="time" ngModel>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Titolo</label>
+            <input type="text" class="form-control black" id="title" name="title" ngModel>
+          </div>
+          <div class="form-group">
+            <label>Descrizione</label>
+            <textarea id="description" class="form-control black" placeholder="Descrizione" ngModel name="description"></textarea>
+          </div>
+        </div>
+        <div class="row mb-20">
+          <div class="col">
+            <back-button></back-button>
+          </div>
+          <div class="col text-right">
+            <button type="submit" class="btn btn-outline-success" [disabled]="f.invalid">Crea</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

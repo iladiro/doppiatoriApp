@@ -31,6 +31,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EnpalsPaymentsCreateComponent } from './components/enapls_payments/create/create.component';
 import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/list.component';
 
+import { ToDoCreateComponent } from './components/todo/create/create.component';
+import { ToDoListComponent } from './components/todo/list/list.component';
+
 const appRoutes: Routes = [
 
   {
@@ -42,6 +45,16 @@ const appRoutes: Routes = [
   //   redirectTo: '/index',
   //   pathMatch: 'full'
   // },
+  {
+    path: 'todo/list',
+    component: ToDoListComponent,
+    data: { title: 'To Do' }
+  },
+  {
+    path: 'todo/add',
+    component: ToDoCreateComponent,
+    data: { title: 'To Do' }
+  },
   {
     path: 'register',
     component: RegisterComponent,

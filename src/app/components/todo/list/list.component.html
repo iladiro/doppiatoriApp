@@ -1,0 +1,52 @@
+<div class="container">
+  <nav class="row mb-3">
+    <div class="col">
+      <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/todo/add']" class="btn btn--light">Aggiungi nuovo evento</a>
+    </div>
+  </nav>
+  <div class="generalCard card mb-4">
+    <div class="generalCard__body">
+      <table class="table table--striped" *ngIf="todo_list.length; else noTodo">
+        <thead class="thead--dark">
+          <tr>
+            <th>Titolo</th>
+            <th>Descrizione</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of todo_list">
+            <td>{{item.title}}</td>
+            <td>{{item.description | slice:0:60}}...</td>
+            <td class="text-right">
+              <a [routerLink]="['/todo', item.id]" class="btn btn--dark" title="Info">
+                <i class="fa fa-info" aria-hidden="true"></i>
+              </a>
+              <a [routerLink]="['/todo', item.id]" class="btn btn--dark" title="Modifica">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <button (click)="passCurrentFilm(item)" class="btn btn--dark" data-target="#exampleModal" title="Elimina">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <back-button></back-button>
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/todo/add']" class="btn btn--light">Aggiungi nuovo evento</a>
+    </div>
+  </div>
+</div>
+<ng-template #noTodo>
+  <p class="alert alert-warning mb-0">Questa lista è ancora vuota.</p>
+</ng-template>

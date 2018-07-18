@@ -1,39 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 
-// Models
-import { EnpalsPayments } from '../_models/index';
-
-// Services
+//Services
 import { Service } from '../../../services/index';
 
 @Component({
-  //selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
-export class EnpalsPaymentsCreateComponent implements OnInit {
-
-  enpalspayment: any = {};
-
-  private alert_message;
+export class ToDoCreateComponent implements OnInit {
 
   constructor(
     private service: Service
   ) {}
 
+  private alert_message;
+
   create(form){
-    this.service.create("enpals_payments", this.enpalspayment).subscribe(
+    this.service.create("todo", form.value).subscribe(
       data => {
         this.alert_message = "success";
         form.reset();
       },
       err => {
-        console.log(err);
         this.alert_message = "rejected";
       }
     )
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

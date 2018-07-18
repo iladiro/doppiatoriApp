@@ -33,6 +33,16 @@
       <li class="nav-item" [class.active]="router.url==='/enaplspayments'">
         <a class="nav-link" [routerLink]="['/enaplspayments']">Enapls versamenti</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          To Do
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="['/todo/list']">List</a>
+          <!-- <a class="dropdown-item" [routerLink]="['/settings/companies']">Archiviati</a>
+          <a class="dropdown-item" [routerLink]="['/settings/enpals-parameters']">Risolti</a> -->
+        </div>
+      </li>
     </ul>
   </div>
 
