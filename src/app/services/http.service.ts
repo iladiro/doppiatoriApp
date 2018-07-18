@@ -61,4 +61,9 @@ export class Service {
     return this.http.delete(this.url_root + table + "?film_id=eq." + film_id + "&dubber_id=eq." + dubber_id);
   }
 
+  getByDate(table, date) {
+    console.log(table);
+    return this.http.get(this.url_root + table + "?date=eq." + date);
+  }
+
 }

@@ -1,0 +1,20 @@
+@import "../../../../assets/stylesheet/mixin/custom-mixin";
+
+.icons-nav {
+  margin: 0 0 0 auto;
+  padding: 0;
+  .dropdown-menu {
+    @include font-style(1rem, rgba(255,255,255,.85));
+    text-align: left;
+    background-color: rgba(0,0,0,.96);
+    @include box-shadow(0 4px 18px rgba(0,0,0,.5));
+    border-radius: 2px;
+    @include border(0, transparent);
+  }
+  .dropdown-header {
+    font-size: 1rem;
+    padding: 1.1rem 1.8rem .9rem;
+    @include border(1px, rgba(255,255,255,.06), bottom);
+  }
+  &__notifications {}
+}

@@ -1,0 +1,9 @@
+@import "../../../../../assets/stylesheet/mixin/custom-mixin";
+
+.icons-nav {
+  &__notify {
+    line-height: 100%;
+    padding: 0;
+    @include font-style(1.65rem, white);
+  }
+}

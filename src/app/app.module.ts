@@ -68,6 +68,8 @@ import { ChartEnpalsPaymentsComponent } from './components/enapls_payments/chart
 
 import { ToDoCreateComponent } from './components/todo/create/create.component';
 import { ToDoListComponent } from './components/todo/list/list.component';
+import { IconsNavComponent } from './components/template/icons-nav/icons-nav.component';
+import { NotificationsComponent } from './components/template/icons-nav/notifications/notifications.component';
 
 
 
@@ -117,7 +119,9 @@ import { ToDoListComponent } from './components/todo/list/list.component';
     TableRowEnpalsPaymentsComponent,
     ChartEnpalsPaymentsComponent,
     ToDoCreateComponent,
-    ToDoListComponent
+    ToDoListComponent,
+    IconsNavComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
