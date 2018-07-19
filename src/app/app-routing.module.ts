@@ -33,6 +33,7 @@ import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/l
 
 import { ToDoCreateComponent } from './components/todo/create/create.component';
 import { ToDoListComponent } from './components/todo/list/list.component';
+import { ToDoArchivedComponent } from './components/todo/archived/archived.component';
 
 const appRoutes: Routes = [
 
@@ -48,7 +49,12 @@ const appRoutes: Routes = [
   {
     path: 'todo/list',
     component: ToDoListComponent,
-    data: { title: 'To Do' }
+    data: { title: 'To Do List' }
+  },
+  {
+    path: 'todo/archived',
+    component: ToDoArchivedComponent,
+    data: { title: 'To Do archived' }
   },
   {
     path: 'todo/add',

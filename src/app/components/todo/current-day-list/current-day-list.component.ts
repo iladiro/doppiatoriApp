@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-// Services
-import { Service } from '../../../../services/index';
+//Services
+import { Service } from '../../../services/index';
 
 @Component({
-  selector: 'notifications',
-  templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.scss']
+  selector: 'app-current-day-list',
+  templateUrl: './current-day-list.component.html',
+  styleUrls: ['./current-day-list.component.scss']
 })
-export class NotificationsComponent implements OnInit {
+export class CurrentDayListComponent implements OnInit {
 
   todo_list: any = [];
   date = new Date();

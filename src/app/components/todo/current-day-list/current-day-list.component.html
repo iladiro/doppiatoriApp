@@ -1,6 +1,6 @@
 <div class="container">
-  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
+  <!-- <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
   <nav class="row mb-3">
     <div class="col">
       <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
@@ -27,9 +27,9 @@
               <a [routerLink]="['/todo', item.id]" class="btn btn--dark" title="Info">
                 <i class="fa fa-info" aria-hidden="true"></i>
               </a>
-              <a [routerLink]="['/todo', item.id]" class="btn btn--dark" title="Modifica">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </a>
+              <button (click)="passCurrentRecord(item, 'done')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </button>
               <button (click)="passCurrentRecord(item, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
                 <i class="fa fa-archive" aria-hidden="true"></i>
               </button>

@@ -21,19 +21,13 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of todo_list">
-            <td>{{item.title}}</td>
+            <td>{{item.title}} <span class="badge badge-light">Archiviato</span></td>
             <td>{{item.description | slice:0:60}}...</td>
             <td class="text-right">
-              <a [routerLink]="['/todo', item.id]" class="btn btn--dark" title="Info">
-                <i class="fa fa-info" aria-hidden="true"></i>
-              </a>
-              <a [routerLink]="['/todo', item.id]" class="btn btn--dark" title="Modifica">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </a>
-              <button (click)="passCurrentRecord(item, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
-                <i class="fa fa-archive" aria-hidden="true"></i>
+              <button (click)="passCurrentRecord(item, 'rollback')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Ripristina">
+                <i class="fa fa-reply" aria-hidden="true"></i>
               </button>
-              <button (click)="passCurrentRecord(item, 'delete')" class="btn btn--dark" data-target="#exampleModal" title="Elimina">
+              <button (click)="passCurrentRecord(item, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Cancella definitivamente">
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </td>

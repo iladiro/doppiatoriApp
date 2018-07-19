@@ -17,11 +17,11 @@ export class Service {
     if(condition == "all") {
       return this.http.get(this.url_root + table);
     } else if(condition == "archived") {
-      return this.http.get(this.url_root + table + "?" + "&archived=" + "is.true");
+      return this.http.get(this.url_root + table + "?" + "archived=" + "is.true");
     } else if(condition == "not_archived") {
-      return this.http.get(this.url_root + table + "?" + "&archived=" + "is.false");
+      return this.http.get(this.url_root + table + "?" + "archived=" + "is.false");
     } else if(condition == "default") {
-      return this.http.get(this.url_root + table + "?" + "&_default=" + "is.true", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+      return this.http.get(this.url_root + table + "?" + "_default=" + "is.true", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
     }
   }
 
@@ -34,11 +34,11 @@ export class Service {
   }
 
   archived(table, id: number, set) {
-    return this.http.patch(this.url_root + table + "?id=eq." + id, set);
+    return this.http.patch(this.url_root + table + "?" + "id=eq." + id, set);
   }
 
   update(table, item) {
-    return this.http.patch(this.url_root + table + "?id=eq." + item.id, item);
+    return this.http.patch(this.url_root + table + "?" + "id=eq." + item.id, item);
   }
 
   getById(table, column, id: number) {
@@ -50,20 +50,25 @@ export class Service {
   }
 
   setAsDefault(table, item_id, set) {
-    return this.http.patch(this.url_root + table + "?id=eq." + item_id, set);
+    return this.http.patch(this.url_root + table + "?" + "id=eq." + item_id, set);
   }
 
   resetDefault(table, item_id, reset) {
-    return this.http.patch(this.url_root + table + "?dubber_id=eq." + item_id + "&_default=is." + true, reset);
+    return this.http.patch(this.url_root + table + "?" + "dubber_id=eq." + item_id + "&" + "_default=is." + true, reset);
   }
 
   deleteFilmDubber(table, film_id: number, dubber_id: number) {
-    return this.http.delete(this.url_root + table + "?film_id=eq." + film_id + "&dubber_id=eq." + dubber_id);
+    return this.http.delete(this.url_root + table + "?" + "film_id=eq." + film_id + "&" + "dubber_id=eq." + dubber_id);
   }
 
-  getByDate(table, date) {
-    console.log(table);
-    return this.http.get(this.url_root + table + "?date=eq." + date);
+  getByDate(table, date, condition) {
+    if(condition == "all") {
+      return this.http.get(this.url_root + table + "?" + "date=eq." + date);
+    } else if(condition == "archived") {
+      return this.http.get(this.url_root + table + "?" + "archived=" + "is.true");
+    } else if(condition == "not_archived") {
+      return this.http.get(this.url_root + table + "?" + "date=eq." + date + "&" + "archived=" + "is.false");
+    }
   }
 
 }
