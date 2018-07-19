@@ -73,6 +73,7 @@ import { ToDoArchivedComponent } from './components/todo/archived/archived.compo
 import { IconsNavComponent } from './components/template/icons-nav/icons-nav.component';
 import { NotificationsComponent } from './components/template/icons-nav/notifications/notifications.component';
 import { CurrentDayListComponent } from './components/todo/current-day-list/current-day-list.component';
+import { ToDoListRowComponent } from './components/todo/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -124,7 +125,8 @@ import { CurrentDayListComponent } from './components/todo/current-day-list/curr
     IconsNavComponent,
     NotificationsComponent,
     ToDoArchivedComponent,
-    CurrentDayListComponent
+    CurrentDayListComponent,
+    ToDoListRowComponent
   ],
   imports: [
     BrowserModule,

@@ -9,12 +9,11 @@ import { Service } from '../../../services/index';
 })
 export class ToDoListComponent implements OnInit {
 
+  todo_list: any = [];
   private current_todo;
 
-  todo_list: any = [];
-  private request_type:string = "";
   private modal_message = {
-    "text": ""
+    "text": "Sei sicuro di voler cancellarlo?"
   };
   private alert_message;
 
@@ -22,26 +21,17 @@ export class ToDoListComponent implements OnInit {
     private service: Service
   ) {}
 
-  // Quando vuoi cancellare un elemento della lista chiami prima questa funzione, che salva i dati dell'oggetto da cancellare
-  private passCurrentRecord(item, request_type) {
-    if(request_type == "archive") {
-      this.request_type = request_type;
-      this.modal_message.text = "Sei sicura di volerlo archiviare?";
-    } else if (request_type == "delete") {
-      this.request_type = request_type;
-      this.modal_message.text = "Sei sicura di volerlo definitivamente cancellare?";
-    }
-    this.current_todo = item;
+  private getData(data){
+    console.log(data);
+    this.current_todo = data;
   }
-  // end
 
-  // Viene chiamato all'apertura del modal, esattamente quando interagisci con esso, il quale restituisce un valore "true" o "false"
   private setConfirm(data) {
     if(data == "true") {
-      if(this.request_type == "archive") {
-        this.archive(this.current_todo);
-      } else if(this.request_type == "delete") {
-        this.delete(this.current_todo);
+      if(this.current_todo.request_type == "archive") {
+        this.archive(this.current_todo.item);
+      } else if(this.current_todo.request_type == "delete") {
+        this.delete(this.current_todo.item);
       }
     }
   }
@@ -62,19 +52,20 @@ export class ToDoListComponent implements OnInit {
     );
   }
 
-  private delete(item) {
+  delete(item) {
     let index = this.todo_list.indexOf(item);
     this.service.delete("todo", "id", item.id).subscribe(
       data => {
-        this.todo_list.splice(index, 1);
-        this.alert_message = "delete";
+        if(index > -1) {
+          this.todo_list.splice(index, 1);
+        }
+        this.alert_message = "success";
       },
       err => {
-        console.log(err)
+        this.alert_message = "rejected";
       }
     );
   }
-  // end
 
   loadAllItems(table, variable, condition) {
     this.service.getAll(table, condition).subscribe(
