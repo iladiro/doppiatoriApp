@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToDoCurrentDayListComponent } from './current-day-list.component';
+import { RowComponent } from './row.component';
 
-describe('ToDoCurrentDayListComponent', () => {
-  let component: ToDoCurrentDayListComponent;
-  let fixture: ComponentFixture<ToDoCurrentDayListComponent>;
+describe('RowComponent', () => {
+  let component: RowComponent;
+  let fixture: ComponentFixture<RowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToDoCurrentDayListComponent ]
+      declarations: [ RowComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToDoCurrentDayListComponent);
+    fixture = TestBed.createComponent(RowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

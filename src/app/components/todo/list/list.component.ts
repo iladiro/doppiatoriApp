@@ -32,11 +32,7 @@ export class ToDoListComponent implements OnInit {
 
   private setConfirm(data) {
     if(data == "true") {
-      if(this.current_todo.request_type == "archive") {
-        this.archive(this.current_todo.item);
-      } else if(this.current_todo.request_type == "delete") {
-        this.delete(this.current_todo.item);
-      }
+      this.delete(this.current_todo.item);
     }
   }
 
@@ -65,5 +61,6 @@ export class ToDoListComponent implements OnInit {
         console.log(err)
       }
     );
+  }
 
 }

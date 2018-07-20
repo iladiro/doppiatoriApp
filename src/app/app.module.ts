@@ -70,10 +70,12 @@ import { ToDoCreateComponent } from './components/todo/create/create.component';
 import { ToDoListComponent } from './components/todo/list/list.component';
 import { ToDoExpiredComponent } from './components/todo/expired/expired.component';
 import { ToDoListRowComponent } from './components/todo/list/row/row.component';
+import { ToDoExpireRowComponent } from './components/todo/expired/row/row.component';
+import { ToDoCurrentDayListComponent } from './components/todo/current-day-list/current-day-list.component';
+import { ToDoCurrentDayRowComponent } from './components/todo/current-day-list/row/row.component';
 
 import { IconsNavComponent } from './components/template/icons-nav/icons-nav.component';
 import { NotificationsComponent } from './components/template/icons-nav/notifications/notifications.component';
-import { CurrentDayListComponent } from './components/todo/current-day-list/current-day-list.component';
 
 @NgModule({
   declarations: [
@@ -124,9 +126,11 @@ import { CurrentDayListComponent } from './components/todo/current-day-list/curr
     ToDoListComponent,
     IconsNavComponent,
     NotificationsComponent,
-    CurrentDayListComponent,
+    ToDoCurrentDayListComponent,
     ToDoListRowComponent,
-    ToDoExpiredComponent
+    ToDoExpiredComponent,
+    ToDoExpireRowComponent,
+    ToDoCurrentDayRowComponent
   ],
   imports: [
     BrowserModule,

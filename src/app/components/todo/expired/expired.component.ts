@@ -26,36 +26,31 @@ export class ToDoExpiredComponent implements OnInit {
     private service: Service
   ) {}
 
-  private passCurrentRecord(item, request_type) {
-    if(request_type == "rollback") {
-      this.request_type = request_type;
-      this.modal_message.text = "Sei sicura di volerlo ripristinare?";
-    } else if (request_type == "delete") {
-      this.request_type = request_type;
-      this.modal_message.text = "Sei sicura di volerlo definitivamente cancellare?";
-    }
-    this.current_todo = item;
+  private getData(data){
+    this.current_todo = data;
+  }
+
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      if(this.request_type == "rollback") {
-        this.rollback(this.current_todo);
-      } else if(this.request_type == "delete") {
-        this.delete(this.current_todo);
-      }
+      this.delete(this.current_todo);
     }
   }
 
-  private delete(item) {
-    let index = this.todo_list.indexOf(item);
-    this.service.delete("todo", "id", item.id).subscribe(
+  delete(data) {
+    let index = this.todo_list.indexOf(data.item);
+    this.service.delete("todo", "id", data.item.id).subscribe(
       data => {
-        this.todo_list.splice(index, 1);
-        this.alert_message = "delete";
+        if(index > -1) {
+          this.todo_list.splice(index, 1);
+        }
+        this.alert_message = "success";
       },
       err => {
-        console.log(err)
+        this.alert_message = "rejected";
       }
     );
   }

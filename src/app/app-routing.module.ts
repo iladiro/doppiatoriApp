@@ -34,6 +34,7 @@ import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/l
 import { ToDoCreateComponent } from './components/todo/create/create.component';
 import { ToDoListComponent } from './components/todo/list/list.component';
 import { ToDoExpiredComponent } from './components/todo/expired/expired.component';
+import { ToDoCurrentDayListComponent } from './components/todo/current-day-list/current-day-list.component';
 
 const appRoutes: Routes = [
 
@@ -50,6 +51,11 @@ const appRoutes: Routes = [
     path: 'todo/list',
     component: ToDoListComponent,
     data: { title: 'To Do lista' }
+  },
+  {
+    path: 'todo/current_list',
+    component: ToDoCurrentDayListComponent,
+    data: { title: 'To Do lista corrente' }
   },
   {
     path: 'todo/expired',

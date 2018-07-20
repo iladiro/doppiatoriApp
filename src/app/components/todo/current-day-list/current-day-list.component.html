@@ -1,6 +1,6 @@
 <div class="container">
-  <!-- <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
+  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="row mb-3">
     <div class="col">
       <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
@@ -16,28 +16,12 @@
           <tr>
             <th>Titolo</th>
             <th>Descrizione</th>
+            <th>Data e ora</th>
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let item of todo_list">
-            <td>{{item.title}}</td>
-            <td>{{item.description | slice:0:60}}...</td>
-            <td class="text-right">
-              <a [routerLink]="['/todo', item.id]" class="btn btn--dark" title="Info">
-                <i class="fa fa-info" aria-hidden="true"></i>
-              </a>
-              <button (click)="passCurrentRecord(item, 'done')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
-                <i class="fa fa-check" aria-hidden="true"></i>
-              </button>
-              <button (click)="passCurrentRecord(item, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
-                <i class="fa fa-archive" aria-hidden="true"></i>
-              </button>
-              <button (click)="passCurrentRecord(item, 'delete')" class="btn btn--dark" data-target="#exampleModal" title="Elimina">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </button>
-            </td>
-          </tr>
+        <tbody class="form--light">
+          <tr todocurrentdayrow [current_data]="item" *ngFor="let item of todo_list" (data)="getData($event)" (msg)="getMessage($event)"></tr>
         </tbody>
       </table>
       <!-- <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator> -->
