@@ -88,3 +88,14 @@
   display: -ms-flexbox;
   display: flex;
 }
+
+@mixin animation($name, $duration) {
+  -webkit-animation-name: $name;
+  animation-name: $name;
+  -webkit-animation-duration: $duration;
+  animation-duration: $duration;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}

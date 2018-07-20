@@ -5,5 +5,15 @@
     line-height: 100%;
     padding: 0;
     @include font-style(1.65rem, white);
+    &:before {
+      content: '';
+      @include radius(5px);
+      @include position(left, 0, top, -3px);
+      right: 0;
+      background-color: #fff;
+      color: #fff;
+      margin: auto;
+      @include animation(flash, 2s);
+    }
   }
 }

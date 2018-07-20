@@ -1,6 +1,7 @@
 <div class="container">
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
   <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
+  <todo-details [riceve]="current_todo"></todo-details>
   <nav class="row mb-3">
     <div class="col">
       <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
