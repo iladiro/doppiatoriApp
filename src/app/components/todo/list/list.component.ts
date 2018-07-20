@@ -13,7 +13,7 @@ export class ToDoListComponent implements OnInit {
   private current_todo;
 
   private modal_message = {
-    "text": "Sei sicuro di voler cancellarlo?"
+    "text": ""
   };
   private alert_message;
 
@@ -22,8 +22,11 @@ export class ToDoListComponent implements OnInit {
   ) {}
 
   private getData(data){
-    console.log(data);
     this.current_todo = data;
+  }
+
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
 
   private setConfirm(data) {
@@ -47,7 +50,8 @@ export class ToDoListComponent implements OnInit {
         this.alert_message = "archive";
       },
       err => {
-        console.log(err)
+        console.log(err);
+        this.alert_message = "rejected";
       }
     );
   }

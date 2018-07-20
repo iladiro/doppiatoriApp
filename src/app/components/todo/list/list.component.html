@@ -16,11 +16,12 @@
           <tr>
             <th>Titolo</th>
             <th>Descrizione</th>
+            <th>Data e ora</th>
             <th></th>
           </tr>
         </thead>
         <tbody class="form--light">
-          <tr [current_data]="item" *ngFor="let item of todo_list" (set_data)="getData($event)" todorow></tr>
+          <tr [current_data]="item" *ngFor="let item of todo_list" (data)="getData($event)" (msg)="getMessage($event)" todorow></tr>
         </tbody>
       </table>
     </div>

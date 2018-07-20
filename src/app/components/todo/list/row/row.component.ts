@@ -11,8 +11,8 @@ import { Service } from '../../../../services/index';
 export class ToDoListRowComponent implements OnInit {
 
   @Input() current_data;
-  //@Output() msg =  new EventEmitter();
-  @Output() set_data = new EventEmitter();
+  @Output() msg =  new EventEmitter();
+  @Output() data = new EventEmitter();
   private missing_days;
 
   constructor(
@@ -28,8 +28,13 @@ export class ToDoListRowComponent implements OnInit {
     console.log(this.missing_days);
   }
 
-  private dismiss(item, request_type) {
-    this.set_data.emit({item: item, request_type: request_type})
+  private passDataToParent(item, request_type) {
+    if(request_type == "archive") {
+      this.msg.emit("Sei sicuro di volerlo archiviare?");
+    } else {
+      this.msg.emit("Sei sicuro di volerlo cancellare?");
+    }
+    this.data.emit({item: item, request_type: request_type})
   }
 
   ngOnInit() {

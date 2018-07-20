@@ -1,17 +1,19 @@
 <td>{{current_data.title}}</td>
 <td>{{current_data.description | slice:0:60}}...</td>
+<td>{{current_data.date}} {{current_data.time}}</td>
 <td class="text-right">
-  <span>{{missing_days}} giorni mancanti</span>
+  <span *ngIf="missing_days >= 0">{{missing_days}} giorni mancanti</span>
+  <span *ngIf="missing_days < 0">Questo promemoria è scaduto. Ti consigliamo di archiviarlo {{missing_days}}</span>
   <a [routerLink]="['/todo', current_data.id]" class="btn btn--dark" title="Info">
     <i class="fa fa-info" aria-hidden="true"></i>
   </a>
   <a [routerLink]="['/todo', current_data.id]" class="btn btn--dark" title="Modifica">
     <i class="fa fa-pencil" aria-hidden="true"></i>
   </a>
-  <button (click)="dismiss(current_data, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
+  <button (click)="passDataToParent(current_data, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
     <i class="fa fa-archive" aria-hidden="true"></i>
   </button>
-  <button (click)="dismiss(current_data, 'delete')" class="btn btn--dark" data-target="#exampleModal" title="Elimina">
+  <button (click)="passDataToParent(current_data, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
     <i class="fa fa-trash" aria-hidden="true"></i>
   </button>
 </td>
