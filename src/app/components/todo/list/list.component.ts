@@ -9,6 +9,7 @@ import { Service } from '../../../services/index';
 })
 export class ToDoListComponent implements OnInit {
 
+  date = new Date();
   todo_list: any = [];
   private current_todo;
 
@@ -39,23 +40,6 @@ export class ToDoListComponent implements OnInit {
     }
   }
 
-  private archive(item) {
-    let index = this.todo_list.indexOf(item);
-    let archived = {
-      "archived": true
-    };
-    this.service.archived("todo", item.id, archived).subscribe(
-      data => {
-        this.todo_list.splice(index, 1);
-        this.alert_message = "archive";
-      },
-      err => {
-        console.log(err);
-        this.alert_message = "rejected";
-      }
-    );
-  }
-
   delete(item) {
     let index = this.todo_list.indexOf(item);
     this.service.delete("todo", "id", item.id).subscribe(
@@ -71,17 +55,15 @@ export class ToDoListComponent implements OnInit {
     );
   }
 
-  loadAllItems(table, variable, condition) {
-    this.service.getAll(table, condition).subscribe(
-      data => {
-        this[variable] = data;
-      },
-      err => {}
-    );
-  }
-
   ngOnInit() {
-    this.loadAllItems("todo", "todo_list", "not_archived");
-  }
+    let current_date = this.date.getFullYear() + "-" + (this.date.getMonth() + 1) + "-" + this.date.getDate();
+    this.service.getByDate("todo", current_date , "gte").subscribe(
+      data => {
+        this.todo_list = data;
+      },
+      err => {
+        console.log(err)
+      }
+    );
 
 }

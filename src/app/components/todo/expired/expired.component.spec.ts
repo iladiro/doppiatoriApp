@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArchivedComponent } from './archived.component';
+import { ExpiredComponent } from './expired.component';
 
-describe('ArchivedComponent', () => {
-  let component: ArchivedComponent;
-  let fixture: ComponentFixture<ArchivedComponent>;
+describe('ExpiredComponent', () => {
+  let component: ExpiredComponent;
+  let fixture: ComponentFixture<ExpiredComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArchivedComponent ]
+      declarations: [ ExpiredComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArchivedComponent);
+    fixture = TestBed.createComponent(ExpiredComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

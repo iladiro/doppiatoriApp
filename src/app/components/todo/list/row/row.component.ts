@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import {differenceInCalendarDays} from 'date-fns'
+
 //Services
 import { Service } from '../../../../services/index';
 
@@ -22,10 +24,10 @@ export class ToDoListRowComponent implements OnInit {
   private missingDays() {
     let event_date = new Date(this.current_data.date);
     let current_date = new Date();
-    let get_event_day = event_date.getDate();
-    let get_current_day = current_date.getDate();
-    this.missing_days = get_event_day - get_current_day;
-    console.log(this.missing_days);
+    this.missing_days = differenceInCalendarDays(
+      new Date(event_date),
+      new Date(current_date)
+    );
   }
 
   private passDataToParent(item, request_type) {

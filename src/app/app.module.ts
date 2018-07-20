@@ -68,12 +68,12 @@ import { ChartEnpalsPaymentsComponent } from './components/enapls_payments/chart
 
 import { ToDoCreateComponent } from './components/todo/create/create.component';
 import { ToDoListComponent } from './components/todo/list/list.component';
-import { ToDoArchivedComponent } from './components/todo/archived/archived.component';
+import { ToDoExpiredComponent } from './components/todo/expired/expired.component';
+import { ToDoListRowComponent } from './components/todo/list/row/row.component';
 
 import { IconsNavComponent } from './components/template/icons-nav/icons-nav.component';
 import { NotificationsComponent } from './components/template/icons-nav/notifications/notifications.component';
 import { CurrentDayListComponent } from './components/todo/current-day-list/current-day-list.component';
-import { ToDoListRowComponent } from './components/todo/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -124,9 +124,9 @@ import { ToDoListRowComponent } from './components/todo/list/row/row.component';
     ToDoListComponent,
     IconsNavComponent,
     NotificationsComponent,
-    ToDoArchivedComponent,
     CurrentDayListComponent,
-    ToDoListRowComponent
+    ToDoListRowComponent,
+    ToDoExpiredComponent
   ],
   imports: [
     BrowserModule,

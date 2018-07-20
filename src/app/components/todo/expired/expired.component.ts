@@ -4,11 +4,13 @@ import { Component, OnInit } from '@angular/core';
 import { Service } from '../../../services/index';
 
 @Component({
-  selector: 'app-archived',
-  templateUrl: './archived.component.html',
-  styleUrls: ['./archived.component.scss']
+  selector: 'app-expired',
+  templateUrl: './expired.component.html',
+  styleUrls: ['./expired.component.scss']
 })
-export class ToDoArchivedComponent implements OnInit {
+export class ToDoExpiredComponent implements OnInit {
+
+  date = new Date();
 
   todo_list: any = [];
   private current_todo;
@@ -45,22 +47,6 @@ export class ToDoArchivedComponent implements OnInit {
     }
   }
 
-  private rollback(item) {
-    let index = this.todo_list.indexOf(item);
-    let archived = {
-      "archived": false
-    };
-    this.service.archived("todo", item.id, archived).subscribe(
-      data => {
-        this.todo_list.splice(index, 1);
-        this.alert_message = "rollback";
-      },
-      err => {
-        console.log(err)
-      }
-    );
-  }
-
   private delete(item) {
     let index = this.todo_list.indexOf(item);
     this.service.delete("todo", "id", item.id).subscribe(
@@ -74,17 +60,16 @@ export class ToDoArchivedComponent implements OnInit {
     );
   }
 
-  loadAllItems(table, variable, condition) {
-    this.service.getAll(table, condition).subscribe(
-      data => {
-        this[variable] = data;
-      },
-      err => {}
-    );
-  }
-
   ngOnInit() {
-    this.loadAllItems("todo", "todo_list", "archived");
+    let current_date = this.date.getFullYear() + "-" + (this.date.getMonth() + 1) + "-" + this.date.getDate();
+    this.service.getByDate("todo", current_date , "lt").subscribe(
+      data => {
+        this.todo_list = data;
+      },
+      err => {
+        console.log(err)
+      }
+    );
   }
 
 }

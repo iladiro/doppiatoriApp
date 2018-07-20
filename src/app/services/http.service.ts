@@ -20,6 +20,10 @@ export class Service {
       return this.http.get(this.url_root + table + "?" + "archived=" + "is.true");
     } else if(condition == "not_archived") {
       return this.http.get(this.url_root + table + "?" + "archived=" + "is.false");
+    } else if(condition == "expired") {
+      return this.http.get(this.url_root + table + "?" + "expired=" + "is.true");
+    } else if(condition == "not_expired") {
+      return this.http.get(this.url_root + table + "?" + "expired=" + "is.false");
     } else if(condition == "default") {
       return this.http.get(this.url_root + table + "?" + "_default=" + "is.true", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
     }
@@ -62,12 +66,12 @@ export class Service {
   }
 
   getByDate(table, date, condition) {
-    if(condition == "all") {
+    if(condition == "equal") {
       return this.http.get(this.url_root + table + "?" + "date=eq." + date);
-    } else if(condition == "archived") {
-      return this.http.get(this.url_root + table + "?" + "archived=" + "is.true");
-    } else if(condition == "not_archived") {
-      return this.http.get(this.url_root + table + "?" + "date=eq." + date + "&" + "archived=" + "is.false");
+    } else if(condition == "gte") {
+      return this.http.get(this.url_root + table + "?" + "date=gte." + date);
+    } else if(condition == "lt") {
+      return this.http.get(this.url_root + table + "?" + "date=lt." + date);
     }
   }
 
