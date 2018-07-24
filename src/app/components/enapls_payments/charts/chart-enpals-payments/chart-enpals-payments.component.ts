@@ -20,6 +20,32 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
   chartOptions = {
     responsive: true
   };
+  public chartColors:Array<any> = [
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // dark grey
+      backgroundColor: 'rgba(77,83,96,0.2)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(77,83,96,1)'
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
   chartLabels = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
 
   constructor(
@@ -80,7 +106,8 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
     });
     let obj = {
       "data": this.months,
-      "label": JSON.stringify(year)
+      "label": JSON.stringify(year),
+      //"colors": ["#ffffff", "#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff","#ffffff"]
     };
     this.chartData.push(obj);
     this.newDataPoint(this.months, JSON.stringify(year))
@@ -92,7 +119,6 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
 
   newDataPoint(dataArr = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100], label) {
     this.chartData.forEach((dataset, index) => {
-      console.log(dataset);
       this.chartData[index] = Object.assign({}, this.chartData[index], {
         data: [...this.chartData[index].data]
       });
