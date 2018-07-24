@@ -14,6 +14,9 @@ import { PagerService } from './components/widgets/paginator/_services/index';
 import { UserService } from './components/user/_services/index';
 import { EnpalsPaymentsService } from './components/enapls_payments/_services/index';
 
+// Helpers
+import { PrintYears } from './helpers/print-years';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -149,7 +152,8 @@ import { ToDoDetailsComponent } from './components/todo/details/details.componen
     InvoiceService,
     UserService,
     PagerService,
-    EnpalsPaymentsService
+    EnpalsPaymentsService,
+    PrintYears
   ],
   bootstrap: [AppComponent]
 })

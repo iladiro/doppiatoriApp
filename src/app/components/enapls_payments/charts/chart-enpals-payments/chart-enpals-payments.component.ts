@@ -5,6 +5,9 @@ import {FormsModule} from '@angular/forms'
 import { Service } from '../../../../services/index';
 import { EnpalsPaymentsService } from '../../_services/index';
 
+// Helpers
+import { PrintYears } from '../../../../helpers/print-years';
+
 @Component({
   selector: 'chart-enpals-payments',
   templateUrl: './chart-enpals-payments.component.html',
@@ -50,15 +53,9 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
 
   constructor(
     private service: Service,
-    private own_service: EnpalsPaymentsService
+    private own_service: EnpalsPaymentsService,
+    private print_years: PrintYears
   ) { }
-
-  printYears(from) {
-    let current_year = this.date.getFullYear();
-    for(let i = from; i <= current_year; i++) {
-      this.years.push(i)
-    }
-  }
 
   checkValidation(year) {
     //cd this.chartData.includes()
@@ -128,7 +125,7 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
 
   ngOnInit() {
     let current_year = this.date.getFullYear();
-    this.printYears("1960");
+    this.years = this.print_years.generate("1960");
     this.getDate(current_year);
   }
 

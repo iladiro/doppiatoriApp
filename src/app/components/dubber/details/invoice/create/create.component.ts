@@ -5,6 +5,9 @@ import { Response } from "@angular/http";
 // Services
 import { Service } from '../../../../../services/index';
 
+// Helpers
+import { PrintYears } from '../../../../../helpers/print-years';
+
 @Component({
   selector: 'formInvoice',
   templateUrl: './create.component.html',
@@ -79,15 +82,9 @@ export class InvoiceCreateComponent implements OnInit {
   ];
   years: any = [];
 
-  printYears(from) {
-    let current_year = this.date.getFullYear();
-    for(let i = from; i <= current_year; i++) {
-      this.years.push(i)
-    }
-  }
-
   constructor(
-    private service: Service
+    private service: Service,
+    private print_years: PrintYears
   ) { }
 
   private calcola_quota_enpals_lavoratore(max_enpals, enpals_parameters) {
@@ -324,7 +321,7 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.printYears("1960");
+    this.years = this.print_years.generate("1960");
     this.loadAllItems("enpals_parameters", "enpals_parameters", "default");
     this.loadAllItems("companies", "companies", "all");
     this.loadAllItems("income_classes", "income_classes", "all");
