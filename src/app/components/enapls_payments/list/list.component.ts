@@ -3,8 +3,12 @@ import { Component, OnInit } from '@angular/core';
 // Services
 import { Service } from '../../../services/index';
 
+// Helpers
+//import { LoadAllItems } from '../../../helpers/load-all-items';
+
 @Component({
   selector: 'app-list',
+  //providers: [LoadAllItems],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
@@ -20,6 +24,7 @@ export class EnpalsPaymentsListComponent implements OnInit {
 
   constructor(
     private service: Service
+    //private loadAllItems: LoadAllItems
   ) {}
 
   private getData(data){
@@ -63,6 +68,7 @@ export class EnpalsPaymentsListComponent implements OnInit {
 
   ngOnInit() {
     this.loadAllItems("enpals_payments", "enpals_payments", "all");
+    //this.enpals_payments = this.loadAllItems.get("enpals_payments", "all");
   }
 
 }

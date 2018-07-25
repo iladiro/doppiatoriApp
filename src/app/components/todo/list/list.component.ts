@@ -23,7 +23,6 @@ export class ToDoListComponent implements OnInit {
   ) {}
 
   private getData(data){
-    console.log(data);
     this.current_todo = data;
   }
 

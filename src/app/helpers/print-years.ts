@@ -1,6 +1,4 @@
 import {Injectable} from "@angular/core";
-// import {Http} from "@angular/http";
-// import {TranslateService} from "ng2-translate";
 
 @Injectable()
 export class PrintYears {
