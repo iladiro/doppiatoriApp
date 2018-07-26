@@ -19,7 +19,7 @@ export class NotificationsComponent implements OnInit {
 
   ngOnInit() {
     let current_day = this.date.getFullYear() + "-" + (this.date.getMonth() + 1) + "-" + this.date.getDate();
-    this.service.getByDate("todo", current_day, "gte").subscribe(
+    this.service.getByDate("todo", current_day, "equal").subscribe(
       data => {
         this.todo_list = data;
       },

@@ -1,19 +1,62 @@
 @import "../../../../../assets/stylesheet/mixin/custom-mixin";
 
 .icons-nav {
+  &__wrapper {}
   &__notify {
     line-height: 100%;
     padding: 0;
-    @include font-style(1.65rem, white);
+    @include font-style(1.2rem, white);
     &:before {
       content: '';
       @include radius(5px);
-      @include position(left, 0, top, -3px);
+      @include position(left, 0, top, -10px);
       right: 0;
       background-color: #fff;
       color: #fff;
       margin: auto;
-      @include animation(flash, 2s);
+      display: block;
+      @include animation(pulse 1s infinite);
     }
+  }
+  &__dropdown {
+    @include box-shadow(0 4px 18px rgba(0,0,0,.5));
+    background-color: black;
+    width: 320px;
+    padding: 15px;
+    &-header {
+      @include spaces(0, 0 0 10px 0);
+      @include font-style(1.5rem, white, normal);
+    }
+    &-body {}
+    &-list {
+      .list-item {
+        &__wrapper {
+          text-decoration: none;
+          display: block;
+        }
+        &__heading {}
+        &__body {}
+      }
+    }
+    &-button {
+      text-decoration: uppercase;
+      display: block;
+      text-align: center;
+      @include spaces(1.1rem 0, .5rem);
+      @include font-style(.9rem, rgba(255,255,255,.7), 600);
+      @include transition(color .3s);
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: transparent;
   }
 }

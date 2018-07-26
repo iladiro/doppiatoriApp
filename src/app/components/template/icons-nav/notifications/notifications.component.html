@@ -1,31 +1,26 @@
-<a href="" data-toggle="dropdown" class="icons-nav__notify" aria-expanded="false"><i class="fa fa-bell" aria-hidden="true"></i></a>
-<div class="dropdown-menu dropdown-menu-right dropdown-menu--block" x-placement="bottom-end" style="position: absolute; transform: translate3d(50px, 37px, 0px); top: 0px; left: 0px; will-change: transform;">
-  <div class="dropdown-header">
-    Notifiche <span class="badge badge-light">{{todo_list.length}}</span>
-    <div class="actions">
-      <a href="messages.html">
-        <i class="fa fa-check-circle" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-  <div class="listview listview--hover" *ngIf="todo_list.length; else noNotifications">
-    <ul class="list-unstyled">
-      <li>
-        <a href="" class="listview__item" *ngFor="let item of todo_list">
-          <div class="listview__content">
-            <div class="listview__heading">
+<div class="icons-nav__wrapper">
+  <a class="icons-nav__notify" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-bell" aria-hidden="true"></i>
+  </a>
+  <div class="icons-nav__dropdown dropdown-menu dropdown-menu-right">
+    <h2 class="icons-nav__dropdown-header">
+      Notifiche <span class="badge badge-light">{{todo_list.length}}</span>
+    </h2>
+    <div class="icons-nav__dropdown-body" *ngIf="todo_list.length; else noNotifications">
+      <ul class="icons-nav__dropdown-list list-unstyled">
+        <li *ngFor="let item of todo_list" class="list-item">
+          <a href="" class="list-item__wrapper">
+            <div class="list-item__heading">
               {{item.title}} <small>{{item.time}}</small>
             </div>
-            <p>{{item.description}}</p>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <div>
-      <a [routerLink]="['/todo/current_list']" class="view-more">Visualizza tuttle le notifiche correnti</a>
+            <p class="list-item__body">{{item.description}}</p>
+          </a>
+        </li>
+      </ul>
+      <a [routerLink]="['/todo/current_list']" class="icons-nav__dropdown-button">Visualizza tuttle le notifiche correnti</a>
     </div>
+    <ng-template #noNotifications>
+      <p class="alert alert-warning mb-0">Non sono presenti notifiche</p>
+    </ng-template>
   </div>
-  <ng-template #noNotifications>
-    <p class="alert alert-warning mb-0">Non sono presenti notifiche</p>
-  </ng-template>
 </div>

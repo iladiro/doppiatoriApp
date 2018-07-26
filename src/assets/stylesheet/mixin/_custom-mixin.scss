@@ -89,13 +89,7 @@
   display: flex;
 }
 
-@mixin animation($name, $duration) {
-  -webkit-animation-name: $name;
-  animation-name: $name;
-  -webkit-animation-duration: $duration;
-  animation-duration: $duration;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
+@mixin animation($args...) {
+  -webkit-animation: $args; /* Safari 4.0 - 8.0 */
+  animation: $args;
 }
