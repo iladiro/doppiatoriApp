@@ -81,6 +81,7 @@ import { ToDoCurrentDayRowComponent } from './components/todo/current-day-list/r
 import { IconsNavComponent } from './components/template/icons-nav/icons-nav.component';
 import { NotificationsComponent } from './components/template/icons-nav/notifications/notifications.component';
 import { ToDoDetailsComponent } from './components/todo/details/details.component';
+import { FilmListRowComponent } from './components/film/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -136,7 +137,8 @@ import { ToDoDetailsComponent } from './components/todo/details/details.componen
     ToDoExpiredComponent,
     ToDoExpireRowComponent,
     ToDoCurrentDayRowComponent,
-    ToDoDetailsComponent
+    ToDoDetailsComponent,
+    FilmListRowComponent
   ],
   imports: [
     BrowserModule,

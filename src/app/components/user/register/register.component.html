@@ -1,8 +1,8 @@
 <div class="container">
   <div class="col-md-6 mx-auto">
     <h2>Register</h2>
-    <div class="generalCard card mb-4">
-      <div class="generalCard__body">
+    <div class="general-card card mb-4">
+      <div class="general-card__body">
         <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="form--light">
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="first_name">First Name</label>

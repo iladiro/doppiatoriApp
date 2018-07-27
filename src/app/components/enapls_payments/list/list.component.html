@@ -10,8 +10,8 @@
       <a [routerLink]="['/enaplspayments/add']" class="btn btn--light">Aggiungi versamento enpals</a>
     </div>
   </nav>
-  <div class="generalCard card mb-4">
-    <div class="generalCard__body">
+  <div class="general-card card mb-4">
+    <div class="general-card__body">
       <table class="table table--striped" *ngIf="enpals_payments.length; else noPayments">
         <thead class="thead--dark">
           <tr>
@@ -39,8 +39,8 @@
   <div class="mt-50">
     <h4>Grafico dei pagamenti</h4>
     <h6>Selezionando l'anno dalla select qua sotto, otterrai un grafico di tutti i pagamenti avvenuti nell'anno richiesto</h6>
-    <div class="generalCard card mb-4">
-      <div class="generalCard__body">
+    <div class="general-card card mb-4">
+      <div class="general-card__body">
         <chart-enpals-payments></chart-enpals-payments>
       </div>
     </div>
