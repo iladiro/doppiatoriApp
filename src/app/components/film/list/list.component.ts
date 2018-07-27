@@ -41,7 +41,7 @@ export class FilmListComponent implements OnInit {
 
   private delete(film) {
     let index = this.films.indexOf(film);
-    this.service.delete("films", "id", film.id).subscribe(
+    this.service.delete("films", "id", film.item.id).subscribe(
       data => {
         this.films.splice(index, 1);
         this.alert_message = "success";
@@ -64,7 +64,6 @@ export class FilmListComponent implements OnInit {
 
   ngOnInit() {
     this.loadAllItems("films", "films", "all");
-    //this.enpals_payments = this.loadAllItems.get("enpals_payments", "all");
   }
 
 }
