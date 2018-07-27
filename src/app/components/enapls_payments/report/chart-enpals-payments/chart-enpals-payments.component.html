@@ -1,6 +1,4 @@
 <div>
-  <h3>Report Versamenti Enpals</h3>
-  <hr>
   <form class="form--light">
     <select id="year" class="form-control black text-capitalize" [ngModel]="selected_date" name="year" (ngModelChange)="getDate($event)">
       <option *ngFor="let year of years" value="{{year}}">

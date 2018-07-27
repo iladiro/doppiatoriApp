@@ -9,10 +9,12 @@
 @import 'assets/stylesheet/partials/tabs';
 @import 'assets/stylesheet/partials/modal';
 @import 'assets/stylesheet/partials/backgrounds';
+@import 'assets/stylesheet/partials/badge';
 
 body {
   background-color: #772036;
-  @include font-style(13px, rgba(255,255,255,.85))
+  @include font-style(13px, rgba(255,255,255,.85));
+  font-size: 16px;
 }
 
 button, a {

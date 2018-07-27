@@ -1,8 +1,17 @@
-.generalCard {
+.general-card {
   background-color: rgba(0,0,0,.2);
   position: relative;
   border-radius: 2px;
   @include box-shadow(0 1px 5px rgba(0,0,0,.1));
+  padding: 15px;
+  &__title {
+    font-size: 1.25rem;
+    color: white;
+  }
+  &__subtitle {
+    @include font-style(1rem, rgba(255,255,255,.7), 400);
+    line-height: 1.5;
+  }
   &__header {
     @include border(1px, rgba(0, 0, 0, 0.09), bottom);
     background-color: transparent;
@@ -10,9 +19,7 @@
     @include font-style(14px, white);
     position: relative;
   }
-  &__body {
-    padding: 15px;
-  }
+  &__body {}
   &__list {
     &-item {
       margin-bottom: 15px;
