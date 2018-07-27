@@ -30,6 +30,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { EnpalsPaymentsCreateComponent } from './components/enapls_payments/create/create.component';
 import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/list.component';
+import { ChartEnpalsPaymentsComponent } from './components/enapls_payments/report/chart-enpals-payments/chart-enpals-payments.component';
 
 import { ToDoCreateComponent } from './components/todo/create/create.component';
 import { ToDoListComponent } from './components/todo/list/list.component';
@@ -169,6 +170,11 @@ const appRoutes: Routes = [
     path: 'enaplspayments/add',
     component: EnpalsPaymentsCreateComponent,
     data: { title: 'Enapls versamenti' }
+  },
+  {
+    path: 'enaplspayments/report',
+    component: ChartEnpalsPaymentsComponent,
+    data: { title: 'Report Enapls versamenti' }
   },
   // otherwise redirect to home
   // {

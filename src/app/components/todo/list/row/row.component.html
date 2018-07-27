@@ -1,8 +1,13 @@
 <td>{{current_data.title}}</td>
-<td>{{current_data.description | slice:0:60}}...</td>
+<td>{{current_data.description | slice:0:50}}...</td>
 <td>{{current_data.date}} {{current_data.time}}</td>
 <td class="text-right">
-  <span>{{missing_days}} giorni mancanti</span>
+  <div class="d-inline-block pr-3" *ngIf="missing_days > 1 || missing_days == 0">
+    <i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{missing_days}} giorni mancanti</span>
+  </div>
+  <div class="d-inline-block pr-3" *ngIf="missing_days == 1">
+    <i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{missing_days}} giorno mancante</span>
+  </div>
   <button (click)="passDataToParent(current_data, '')" class="btn btn--dark" data-toggle="modal" data-target="#todo_details" title="Info">
     <i class="fa fa-info" aria-hidden="true"></i>
   </button>
