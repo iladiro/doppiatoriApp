@@ -13,13 +13,13 @@ export class FilmListRowComponent implements OnInit {
 
   constructor() { }
 
-  private passDataToParent(item, request_type) {
+  private passDataToParent(request_type) {
     if(request_type == "archive") {
       this.msg.emit("Sei sicuro di volerlo archiviare?");
     } else if(request_type == "delete") {
       this.msg.emit("Sei sicuro di volerlo cancellare?");
     }
-    this.data.emit({item: item, request_type: request_type})
+    this.data.emit({item: this.film, request_type: request_type})
   }
 
   ngOnInit() {
