@@ -1,0 +1,20 @@
+<td><span class="avatar radius bg--trasparent">{{dubber.avatar}}</span></td>
+<td class="text-capitalize">{{dubber.name}} {{dubber.surname}}</td>
+<td class="text-capitalize">{{dubber.birth_place}}</td>
+<td>{{dubber.birth_date}}</td>
+<td>{{dubber.email}}</td>
+<td>{{dubber.mobile_phone}}</td>
+<td class="text-right">
+  <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
+    <i class="fa fa-info" aria-hidden="true"></i>
+  </a>
+  <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  </a>
+  <button (click)="passDataToParent('archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
+    <i class="fa fa-archive" aria-hidden="true"></i>
+  </button>
+  <button (click)="passDataToParent('delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Cancella definitivamente">
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  </button>
+</td>

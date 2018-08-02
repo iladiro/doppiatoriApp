@@ -14,57 +14,33 @@ import { Dubber } from '../_models/index';
 export class DubbersListComponent implements OnInit {
 
   private current_dubber;
-  //private DB_table:string = "dubbers";
-
-  dataForRequestSearchComp = {
-    "table": "dubbers",
-    "parameters": ["name", "surname"]
-  };
+  dubbers: Dubber[] = [];
 
   private modal_message = {
     "text": ""
   };
   private alert_message;
 
-  dubbers: Dubber[] = [];
-  private type_request:string = "";
-
   constructor(
     private service: Service
   ) {}
 
-  // Viene chiamata quando viene pushato il componente "paginator". che salva nell'ordine corretto la lista dei dubbers
-  // private dataset(items) {
-  //   this.dubbers = items;
-  // }
-  // end
-
-  // Per la ricerca: dopo aver eseguito la ricerca viene passato dal figlio al padre la lista dei risultati che vengono salvati in dubbers
-  private setFoundValueFromSearch(value){
-    this.dubbers = value;
+  private getData(data){
+    this.current_dubber = data;
   }
-  // end
 
-  // Quando vuoi cancellare un elemento della lista chiami prima questa funzione, che salva i dati dell'oggetto da cancellare
-  private passCurrentDubber(dubber, type_request) {
-    if(type_request == "archive") {
-      this.type_request = type_request;
-      this.modal_message.text = "Sei sicura di volerlo archiviare?";
-    } else if (type_request == "delete") {
-      this.type_request = type_request;
-      this.modal_message.text = "Sei sicura di volerlo definitivamente cancellare?";
-    }
-    this.current_dubber = dubber;
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
-  // end
 
   // Viene chiamato all'apertura del modal, esattamente quando interagisci con esso, il quale restituisce un valore "true" o "false"
   private setConfirm(data) {
+    console.log(this.current_dubber);
     if(data == "true") {
-      if(this.type_request == "archive") {
-        this.archive(this.current_dubber);
-      } else if(this.type_request == "delete") {
-        this.delete(this.current_dubber);
+      if(this.current_dubber.request_type == "archive") {
+        this.archive(this.current_dubber.item);
+      } else if(this.current_dubber.request_type == "delete") {
+        this.delete(this.current_dubber.item);
       }
     }
   }
@@ -97,7 +73,6 @@ export class DubbersListComponent implements OnInit {
       }
     );
   }
-  // end
 
   loadAllItems(table, variable, condition) {
     this.service.getAll(table, condition).subscribe(
@@ -112,3 +87,36 @@ export class DubbersListComponent implements OnInit {
   }
 
 }
+
+//private type_request:string = "";
+//private DB_table:string = "dubbers";
+
+// dataForRequestSearchComp = {
+//   "table": "dubbers",
+//   "parameters": ["name", "surname"]
+// };
+
+// Viene chiamata quando viene pushato il componente "paginator". che salva nell'ordine corretto la lista dei dubbers
+// private dataset(items) {
+//   this.dubbers = items;
+// }
+// end
+
+// Per la ricerca: dopo aver eseguito la ricerca viene passato dal figlio al padre la lista dei risultati che vengono salvati in dubbers
+// private setFoundValueFromSearch(value){
+//   this.dubbers = value;
+// }
+// end
+
+// Quando vuoi cancellare un elemento della lista chiami prima questa funzione, che salva i dati dell'oggetto da cancellare
+// private passCurrentDubber(dubber, type_request) {
+//   if(type_request == "archive") {
+//     this.type_request = type_request;
+//     this.modal_message.text = "Sei sicura di volerlo archiviare?";
+//   } else if (type_request == "delete") {
+//     this.type_request = type_request;
+//     this.modal_message.text = "Sei sicura di volerlo definitivamente cancellare?";
+//   }
+//   this.current_dubber = dubber;
+// }
+// end

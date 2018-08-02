@@ -4,7 +4,7 @@
   <nav class="clearfix mb-3">
     <div class="row">
       <div class="col">
-        <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
+        <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
       </div>
       <div class="align-middle col text-right">
         <a [routerLink]="['/dubbers/add']" class="btn btn--light">Aggiungi nuovo</a>
@@ -26,28 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let dubber of dubbers">
-            <td><span class="avatar radius bg--trasparent">{{dubber.avatar}}</span></td>
-            <td class="text-capitalize">{{dubber.name}} {{dubber.surname}}</td>
-            <td class="text-capitalize">{{dubber.birth_place}}</td>
-            <td>{{dubber.birth_date}}</td>
-            <td>{{dubber.email}}</td>
-            <td>{{dubber.mobile_phone}}</td>
-            <td class="text-right">
-              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
-                <i class="fa fa-info" aria-hidden="true"></i>
-              </a>
-              <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </a>
-              <button (click)="passCurrentDubber(dubber, 'archive')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Archivia">
-                <i class="fa fa-archive" aria-hidden="true"></i>
-              </button>
-              <button (click)="passCurrentDubber(dubber, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Cancella definitivamente">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </button>
-            </td>
-          </tr>
+          <tr [dubber]="dubber" *ngFor="let dubber of dubbers" (data)="getData($event)" (msg)="getMessage($event)" dubber-list-row></tr>
         </tbody>
       </table>
       <!-- <paginator (pagedItems)="dataset($event)" [DB_table]="DB_table"></paginator> -->
