@@ -7,56 +7,34 @@ import { Qualification } from '../_models/index';
 import { Service } from '../../../../services/index';
 
 @Component({
-  // selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
 export class QualificationListComponent implements OnInit {
 
+  private qualifications: Qualification[] = [];
   private current_qualif;
-
-  private DB_table:string = "qualifications";
-
-  qualifications: Qualification[] = [];
 
   private modal_message = {
     "text": ""
   };
   private alert_message;
 
-  // Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
-  dataForRequestSearchComp = {
-    "table": "qualifications",
-    "parameters": ["code", "description"]
-  };
-  // end
-
   constructor(
     private service: Service
   ) { }
 
-  // Valori che ritornano dopo la ricerca
-  private setFoundValueFromSearch(value){
-    this.qualifications = value;
+  private getData(data){
+    this.current_qualif = data;
   }
-  // end
 
-  //----------------------------------------------------------------------------
-
-  // Salva i dati passati dal componente paginator
-  private datasetFromPaginator(items) {
-    this.qualifications = items;
-  }
-  // end
-
-  private passCurrentItem(qualification) {
-    this.modal_message.text = "Sei sicuro di voler cancellare la riga?";
-    this.current_qualif = qualification;
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete(this.current_qualif);
+      this.delete(this.current_qualif.item);
     }
   }
 
@@ -73,7 +51,41 @@ export class QualificationListComponent implements OnInit {
     );
   }
 
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
+      data => {
+        this[variable] = data;
+      },
+      err => {}
+    );
+  }
+
   ngOnInit() {
+    this.loadAllItems("qualifications", "qualifications", "all");
   }
 
 }
+
+//private DB_table:string = "qualifications";
+// Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
+// dataForRequestSearchComp = {
+//   "table": "qualifications",
+//   "parameters": ["code", "description"]
+// };
+// end
+
+// Valori che ritornano dopo la ricerca
+// private setFoundValueFromSearch(value){
+//   this.qualifications = value;
+// }
+// end
+// Salva i dati passati dal componente paginator
+// private datasetFromPaginator(items) {
+//   this.qualifications = items;
+// }
+// end
+//
+// private passCurrentItem(qualification) {
+//   this.modal_message.text = "Sei sicuro di voler cancellare la riga?";
+//   this.current_qualif = qualification;
+// }

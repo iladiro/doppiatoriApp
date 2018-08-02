@@ -84,6 +84,7 @@ import { ToDoDetailsComponent } from './components/todo/details/details.componen
 import { FilmListRowComponent } from './components/film/list/row/row.component';
 import { DubberListRowComponent } from './components/dubber/list/row/row.component';
 import { ArchivedDubberRowComponent } from './components/dubber/archived/row/row.component';
+import { SettingQualificationRowComponent } from './components/settings/qualification/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -142,7 +143,8 @@ import { ArchivedDubberRowComponent } from './components/dubber/archived/row/row
     ToDoDetailsComponent,
     FilmListRowComponent,
     DubberListRowComponent,
-    ArchivedDubberRowComponent
+    ArchivedDubberRowComponent,
+    SettingQualificationRowComponent
   ],
   imports: [
     BrowserModule,
