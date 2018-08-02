@@ -30,6 +30,8 @@ export class ToDoListRowComponent implements OnInit {
       this.msg.emit("Sei sicuro di volerlo archiviare?");
     } else if(request_type == "delete") {
       this.msg.emit("Sei sicuro di volerlo cancellare?");
+    } else if(request_type == "rollback") {
+      this.msg.emit("Sei sicuro di volerlo ripristinare?");
     }
     item.missing_days = this.missing_days;
     this.data.emit({item: item, request_type: request_type})

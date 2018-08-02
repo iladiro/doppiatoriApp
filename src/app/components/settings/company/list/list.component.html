@@ -3,7 +3,7 @@
   <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="row mb-3">
     <div class="col">
-      <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
+      <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
     </div>
     <div class="col text-right">
       <a [routerLink]="['/settings/company/add']" class="btn btn--light">Aggiungi Azienda</a>
@@ -20,26 +20,11 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let company of companies">
-            <td>{{company.name}}</td>
-            <td>{{company.vat}}</td>
-            <td>{{company.address}}</td>
-            <td class="text-right">
-              <a [routerLink]="['/settings/company', company.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
-                <i class="fa fa-info" aria-hidden="true"></i>
-              </a>
-              <a [routerLink]="['/settings/company', company.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </a>
-              <button (click)="passCurrentCompany(company)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </button>
-            </td>
-          </tr>
+        <tbody class="form--light">
+          <tr [company]="company" *ngFor="let company of companies" (data)="getData($event)" (msg)="getMessage($event)" setting-company-row></tr>
         </tbody>
       </table>
-      <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator>
+      <!-- <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator> -->
     </div>
   </div>
   <div class="row">

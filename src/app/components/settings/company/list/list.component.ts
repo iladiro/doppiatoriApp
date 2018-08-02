@@ -12,14 +12,8 @@ import { Company } from '../_models/index';
 })
 export class CompanyListComponent implements OnInit {
 
+  private companies: Company[] = [];
   private current_company;
-  companies: Company[] = [];
-  private DB_table:string = "companies";
-
-  dataForRequestSearchComp = {
-    "table": "companies",
-    "parameters": ["name", "address"]
-  };
 
   private modal_message = {
     "text": ""
@@ -30,27 +24,21 @@ export class CompanyListComponent implements OnInit {
     private service: Service
   ) { }
 
-  private setFoundValueFromSearch(value){
-    this.companies = value;
+  private getData(data){
+    this.current_company = data;
   }
 
-  private datasetFromPaginator(items) {
-    this.companies = items;
-  }
-
-  private passCurrentCompany(company) {
-    this.modal_message.text = "Sei sicuro di volerlo cancellare?";
-    this.current_company = company;
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete(this.current_company);
+      this.delete(this.current_company.item);
     }
   }
 
   private delete(company) {
-    console.log(company.id);
     let index = this.companies.indexOf(company);
     this.service.delete("companies", "id", company.id).subscribe(
       data => {
@@ -63,6 +51,41 @@ export class CompanyListComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
+      data => {
+        this[variable] = data;
+      },
+      err => {}
+    );
+  }
+
+  ngOnInit() {
+    this.loadAllItems("companies", "companies", "all");
+  }
 
 }
+
+// private DB_table:string = "companies";
+// dataForRequestSearchComp = {
+//   "table": "companies",
+//   "parameters": ["name", "address"]
+// };
+// private setFoundValueFromSearch(value){
+//   this.companies = value;
+// }
+//
+// private datasetFromPaginator(items) {
+//   this.companies = items;
+// }
+//
+// private passCurrentCompany(company) {
+//   this.modal_message.text = "Sei sicuro di volerlo cancellare?";
+//   this.current_company = company;
+// }
+//
+// private setConfirm(data) {
+//   if(data == "true") {
+//     this.delete(this.current_company);
+//   }
+// }

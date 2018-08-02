@@ -18,6 +18,8 @@ export class SettingQualificationRowComponent implements OnInit {
       this.msg.emit("Sei sicuro di volerlo archiviare?");
     } else if(request_type == "delete") {
       this.msg.emit("Sei sicuro di volerlo cancellare?");
+    } else if(request_type == "rollback") {
+      this.msg.emit("Sei sicuro di volerlo ripristinare?");
     }
     this.data.emit({item: this.qualification, request_type: request_type})
   }

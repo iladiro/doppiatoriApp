@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: '[dubber-list-row]',
+  selector: '[setting-company-row]',
   templateUrl: './row.component.html',
   styleUrls: ['./row.component.scss']
 })
-export class DubberListRowComponent implements OnInit {
+export class SettingCompanyRowComponent implements OnInit {
 
-  @Input() dubber;
+  @Input() company;
   @Output() msg =  new EventEmitter();
   @Output() data = new EventEmitter();
 
@@ -21,7 +21,7 @@ export class DubberListRowComponent implements OnInit {
     } else if(request_type == "rollback") {
       this.msg.emit("Sei sicuro di volerlo ripristinare?");
     }
-    this.data.emit({item: this.dubber, request_type: request_type})
+    this.data.emit({item: this.company, request_type: request_type})
   }
 
   ngOnInit() {

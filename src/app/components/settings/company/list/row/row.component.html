@@ -1,0 +1,14 @@
+<td>{{company.name}}</td>
+<td>{{company.vat}}</td>
+<td>{{company.address}}</td>
+<td class="text-right">
+  <a [routerLink]="['/settings/company', company.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
+    <i class="fa fa-info" aria-hidden="true"></i>
+  </a>
+  <a [routerLink]="['/settings/company', company.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  </a>
+  <button (click)="passDataToParent('delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  </button>
+</td>
