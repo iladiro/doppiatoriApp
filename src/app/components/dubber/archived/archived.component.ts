@@ -20,29 +20,27 @@ export class DubberArchivedComponent implements OnInit {
 
   private current_dubber;
   dubbers: Dubber[] = [];
+
   private type_request:string = "";
 
   constructor(
     private service: Service
   ) {}
 
-  private passCurrentDubber(dubber, type_request) {
-    if(type_request == "rollback") {
-      this.type_request = type_request;
-      this.modal_message.text = "Sei sicura di volerlo ripristinare?";
-    } else if (type_request == "delete") {
-      this.type_request = type_request;
-      this.modal_message.text = "Sei sicura di volerlo definitivamente cancellare?";
-    }
-    this.current_dubber = dubber;
+  private getData(data){
+    this.current_dubber = data;
+  }
+
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      if(this.type_request == "rollback") {
-        this.rollback(this.current_dubber);
-      } else if(this.type_request == "delete") {
-        this.delete(this.current_dubber);
+      if(this.current_dubber.request_type == "rollback") {
+        this.rollback(this.current_dubber.item);
+      } else if(this.current_dubber.request_type == "delete") {
+        this.delete(this.current_dubber.item);
       }
     }
   }

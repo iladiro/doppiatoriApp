@@ -35,7 +35,6 @@ export class DubbersListComponent implements OnInit {
 
   // Viene chiamato all'apertura del modal, esattamente quando interagisci con esso, il quale restituisce un valore "true" o "false"
   private setConfirm(data) {
-    console.log(this.current_dubber);
     if(data == "true") {
       if(this.current_dubber.request_type == "archive") {
         this.archive(this.current_dubber.item);

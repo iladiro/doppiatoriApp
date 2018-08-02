@@ -83,6 +83,7 @@ import { NotificationsComponent } from './components/template/icons-nav/notifica
 import { ToDoDetailsComponent } from './components/todo/details/details.component';
 import { FilmListRowComponent } from './components/film/list/row/row.component';
 import { DubberListRowComponent } from './components/dubber/list/row/row.component';
+import { ArchivedDubberRowComponent } from './components/dubber/archived/row/row.component';
 
 @NgModule({
   declarations: [
@@ -140,7 +141,8 @@ import { DubberListRowComponent } from './components/dubber/list/row/row.compone
     ToDoCurrentDayRowComponent,
     ToDoDetailsComponent,
     FilmListRowComponent,
-    DubberListRowComponent
+    DubberListRowComponent,
+    ArchivedDubberRowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,17 @@
+<td><span class="avatar radius bg--trasparent">{{dubber.avatar}}</span></td>
+<td class="text-capitalize">{{dubber.name}} {{dubber.surname}}</td>
+<td class="text-capitalize">{{dubber.birth_place}}</td>
+<td>{{dubber.birth_date}}</td>
+<td>{{dubber.email}}</td>
+<td>{{dubber.mobile_phone}}</td>
+<td class="text-right">
+  <!-- <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
+    <i class="fa fa-info" aria-hidden="true"></i>
+  </a> -->
+  <button (click)="passDataToParent('rollback')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Ripristina">
+    <i class="fa fa-reply" aria-hidden="true"></i>
+  </button>
+  <button (click)="passDataToParent('delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Cancella definitivamente">
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  </button>
+</td>
