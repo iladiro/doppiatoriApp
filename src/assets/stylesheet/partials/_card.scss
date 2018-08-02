@@ -5,11 +5,10 @@
   @include box-shadow(0 1px 5px rgba(0,0,0,.1));
   padding: 15px;
   &__title {
-    font-size: 1.25rem;
-    color: white;
+    @include font-style(1rem, white);
   }
   &__subtitle {
-    @include font-style(1rem, rgba(255,255,255,.7), 400);
+    @include font-style(0.9rem, rgba(255,255,255,.7), 400);
     line-height: 1.5;
   }
   &__header {
