@@ -1,0 +1,18 @@
+<td>{{enpals_param.id}}</td>
+<td>{{enpals_param.quota_enpals_lavoratore}}</td>
+<td>{{enpals_param.quota_enpals_ditta}}</td>
+<td>{{enpals_param.minimale_inps}}</td>
+<td>{{enpals_param.percentuale_minimale_inps}}</td>
+<td>{{enpals_param.minimale_enpals}}</td>
+<!-- <td><i class="fa fa-ellipsis-h" aria-hidden="true"></i></td> -->
+<td class="text-right">
+  <a [routerLink]="['/settings/enpals-parameter', enpals_param.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
+    <i class="fa fa-info" aria-hidden="true"></i>
+  </a>
+  <a [routerLink]="['/settings/enpals-parameter', enpals_param.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  </a>
+  <button (click)="passDataToParent('delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  </button>
+</td>

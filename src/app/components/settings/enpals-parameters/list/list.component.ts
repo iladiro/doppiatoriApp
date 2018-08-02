@@ -14,12 +14,6 @@ export class EnpalsParametersListComponent implements OnInit {
 
   private current_enpal_parameter;
   private enpals_parameters: any = [];
-  DB_table:string = "enpals_parameters";
-
-  dataForRequestSearchComp = {
-    "table": "enpals_parameters",
-    "parameters": ["name", "address"]
-  };
 
   private modal_message = {
     "text": ""
@@ -30,14 +24,17 @@ export class EnpalsParametersListComponent implements OnInit {
     private service: Service
   ) { }
 
-  private passCurrentItem(item) {
-    this.modal_message.text = "Sei sicuro di volerlo cancellare?";
-    this.current_enpal_parameter = item;
+  private getData(data){
+    this.current_enpal_parameter = data;
+  }
+
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete(this.current_enpal_parameter);
+      this.delete(this.current_enpal_parameter.item);
     }
   }
 
@@ -54,28 +51,37 @@ export class EnpalsParametersListComponent implements OnInit {
     );
   }
 
-  // ---------------------------------------------------------------------------
-
-  private setFoundValueFromSearch(value){
-    this.enpals_parameters = value;
-  }
-
-  // private datasetFromPaginator(items) {
-  //   this.enpals_parameters = items;
-  // }
-
-  // ---------------------------------------------------------------------------
-
-
-  ngOnInit() {
-    this.service.getAll("enpals_parameters", "all").subscribe(
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
       data => {
-        this.enpals_parameters = data;
+        this[variable] = data;
       },
-      err => {
-        console.log(err)
-      }
+      err => {}
     );
   }
 
+  ngOnInit() {
+    this.loadAllItems("enpals_parameters", "enpals_parameters", "all");
+  }
+
 }
+
+// private passCurrentItem(item) {
+//   this.modal_message.text = "Sei sicuro di volerlo cancellare?";
+//   this.current_enpal_parameter = item;
+// }
+
+// private setFoundValueFromSearch(value){
+//   this.enpals_parameters = value;
+// }
+
+// private datasetFromPaginator(items) {
+//   this.enpals_parameters = items;
+// }
+
+// DB_table:string = "enpals_parameters";
+//
+// dataForRequestSearchComp = {
+//   "table": "enpals_parameters",
+//   "parameters": ["name", "address"]
+// };

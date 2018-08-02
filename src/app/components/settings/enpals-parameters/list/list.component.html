@@ -3,7 +3,7 @@
   <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="row mb-3">
     <div class="col">
-      <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form>
+      <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
     </div>
     <div class="col text-right">
       <a [routerLink]="['/settings/enpals-parameters/add']" class="btn btn--light">Aggiungi parametri enpals</a>
@@ -31,27 +31,8 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let row of enpals_parameters">
-            <td>{{row.id}}</td>
-            <td>{{row.quota_enpals_lavoratore}}</td>
-            <td>{{row.quota_enpals_ditta}}</td>
-            <td>{{row.minimale_inps}}</td>
-            <td>{{row.percentuale_minimale_inps}}</td>
-            <td>{{row.minimale_enpals}}</td>
-            <!-- <td><i class="fa fa-ellipsis-h" aria-hidden="true"></i></td> -->
-            <td class="text-right">
-              <a [routerLink]="['/settings/enpals-parameter', row.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
-                <i class="fa fa-info" aria-hidden="true"></i>
-              </a>
-              <a [routerLink]="['/settings/enpals-parameter', row.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Modifica">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              </a>
-              <button (click)="passCurrentItem(row)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="top" title="Elimina">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </button>
-            </td>
-          </tr>
+        <tbody class="form--light">
+          <tr [enpals_param]="item" *ngFor="let item of enpals_parameters" (data)="getData($event)" (msg)="getMessage($event)" setting-enpals-par-row></tr>
         </tbody>
       </table>
       <!-- <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator> -->
