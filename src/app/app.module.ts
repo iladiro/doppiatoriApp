@@ -67,7 +67,7 @@ import { BackButtonComponent } from './components/widgets/back-button/back-butto
 
 import { EnpalsPaymentsCreateComponent } from './components/enapls_payments/create/create.component';
 import { EnpalsPaymentsListComponent } from './components/enapls_payments/list/list.component';
-import { TableRowEnpalsPaymentsComponent } from './components/enapls_payments/list/viewchild/table-row.component';
+import { EnpalsPaymentsRowComponent } from './components/enapls_payments/list/row/row.component';
 import { ChartEnpalsPaymentsComponent } from './components/enapls_payments/report/chart-enpals-payments/chart-enpals-payments.component';
 
 import { ToDoCreateComponent } from './components/todo/create/create.component';
@@ -131,7 +131,7 @@ import { SettingEnpalsParamRowComponent } from './components/settings/enpals-par
     AddFilmDubberComponent,
     EnpalsPaymentsCreateComponent,
     EnpalsPaymentsListComponent,
-    TableRowEnpalsPaymentsComponent,
+    EnpalsPaymentsRowComponent,
     ChartEnpalsPaymentsComponent,
     ToDoCreateComponent,
     ToDoListComponent,

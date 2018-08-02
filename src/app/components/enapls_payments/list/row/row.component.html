@@ -17,7 +17,7 @@
   <button *ngIf="_readonly" (click)="editable()" class="btn btn--dark" title="Modifica">
     <i class="fa fa-pencil" aria-hidden="true"></i>
   </button>
-  <button (click)="delete(current_data)" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
+  <button (click)="passDataToParent('delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
     <i class="fa fa-trash" aria-hidden="true"></i>
   </button>
 </td>

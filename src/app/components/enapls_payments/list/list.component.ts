@@ -7,7 +7,7 @@ import { Service } from '../../../services/index';
 //import { LoadAllItems } from '../../../helpers/load-all-items';
 
 @Component({
-  selector: 'app-list',
+  //selector: 'app-list',
   //providers: [LoadAllItems],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
@@ -18,7 +18,7 @@ export class EnpalsPaymentsListComponent implements OnInit {
   private current_enpals_payment;
 
   private modal_message = {
-    "text": "Sei sicuro di voler cancellarlo?"
+    "text": ""
   };
   private alert_message;
 
@@ -28,27 +28,24 @@ export class EnpalsPaymentsListComponent implements OnInit {
   ) {}
 
   private getData(data){
-    console.log(data)
     this.current_enpals_payment = data;
+  }
+
+  private getMessage(text) {
+    this.modal_message.text = text;
   }
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete();
+      this.delete(this.current_enpals_payment.item);
     }
   }
 
-  private setMessage(value) {
-    this.alert_message = value;
-  }
-
-  delete() {
-    let index = this.enpals_payments.indexOf(this.current_enpals_payment);
-    this.service.delete("enpals_payments", "id", this.current_enpals_payment.id).subscribe(
+  private delete(item) {
+    let index = this.enpals_payments.indexOf(item);
+    this.service.delete("enpals_payments", "id", item.id).subscribe(
       data => {
-        if(index > -1) {
-          this.enpals_payments.splice(index, 1);
-        }
+        this.enpals_payments.splice(index, 1);
         this.alert_message = "success";
       },
       err => {

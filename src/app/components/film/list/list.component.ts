@@ -35,20 +35,19 @@ export class FilmListComponent implements OnInit {
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete(this.current_film);
+      this.delete(this.current_film.item);
     }
   }
 
   private delete(film) {
     let index = this.films.indexOf(film);
-    this.service.delete("films", "id", film.item.id).subscribe(
+    this.service.delete("films", "id", film.id).subscribe(
       data => {
         this.films.splice(index, 1);
         this.alert_message = "success";
       },
       err => {
         this.alert_message = "rejected";
-        console.log(err);
       }
     );
   }
