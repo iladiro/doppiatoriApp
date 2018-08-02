@@ -60,7 +60,6 @@ import { DetailsUserComponent } from './components/user/details/details.componen
 
 import { AlertMessageComponent } from './components/widgets/alert-message/alert-message.component';
 import { SearchFormComponent } from './components/widgets/search-form/search-form.component';
-import { PaginatorComponent } from './components/widgets/paginator/paginator.component';
 import { ModalPromptComponent } from './components/widgets/modal-prompt/modal-prompt.component';
 import { PageNotFoundComponent } from './components/widgets/page-not-found/page-not-found.component';
 import { BackButtonComponent } from './components/widgets/back-button/back-button.component';
@@ -108,7 +107,6 @@ import { SettingEnpalsParamRowComponent } from './components/settings/enpals-par
     DetailsInvoiceComponent,
     InvoiceCreateComponent,
     InvoiceListComponent,
-    PaginatorComponent,
     ModalPromptComponent,
     DubberPersonalInformationComponent,
     BackButtonComponent,

@@ -25,7 +25,6 @@
           <tr todocurrentdayrow [current_data]="item" *ngFor="let item of todo_list" (data)="getData($event)" (msg)="getMessage($event)"></tr>
         </tbody>
       </table>
-      <!-- <paginator (pagedItems)="datasetFromPaginator($event)" [DB_table]="DB_table"></paginator> -->
     </div>
   </div>
   <div class="row">
