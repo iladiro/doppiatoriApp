@@ -40,10 +40,8 @@ export class ToDoListComponent implements OnInit {
     let index = this.todo_list.indexOf(item);
     this.service.delete("todo", "id", item.id).subscribe(
       data => {
-        if(index > -1) {
-          this.todo_list.splice(index, 1);
-        }
-        this.alert_message = "success";
+        this.todo_list.splice(index, 1);
+        this.alert_message = "delete";
       },
       err => {
         this.alert_message = "rejected";

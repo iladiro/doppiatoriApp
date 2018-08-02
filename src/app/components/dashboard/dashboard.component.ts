@@ -7,8 +7,6 @@ import { Film } from '../film/_models/index';
 
 // Services
 import { Service } from '../../services/index';
-import { DubberService } from '../dubber/_services/dubbers.service';
-import { FilmService } from '../film/_services/index';
 
 @Component({
   moduleId: module.id,
@@ -19,25 +17,27 @@ import { FilmService } from '../film/_services/index';
 export class DashboardComponent implements OnInit {
 
   current_user: User;
-  // dubbers: Dubber[] = [];
   dubbers: any = [];
-  // films: Film[] = [];
   films: any = [];
 
   constructor(
-    private service: Service,
-    private filmService: FilmService,
-    private dubberService: DubberService
+    private service: Service
   ) {
     this.current_user = JSON.parse(localStorage.getItem('current_user'));
   }
 
-  ngOnInit() {
-    this.service.getAll("films", "all").subscribe(
-      data => { this.films = data; }
-    );
-    this.service.getAll("dubbers", "not_archived").subscribe(
-      data => { this.dubbers = data; }
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
+      data => {
+        this[variable] = data;
+      },
+      err => {}
     );
   }
+
+  ngOnInit() {
+    this.loadAllItems("films", "films", "all");
+    this.loadAllItems("dubbers", "dubbers", "not_archived");
+  }
+
 }
