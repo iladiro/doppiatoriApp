@@ -16,6 +16,8 @@ export class FilmListComponent implements OnInit {
   private films: Film[] = [];
   private current_film;
 
+  p: number = 1;
+
   public modal_message = {
     "text": ""
   };

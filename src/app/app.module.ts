@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 // Services
 import { Service } from './services/http.service';
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/dubber/details/invoice/_services/index';
-import { PagerService } from './components/widgets/paginator/_services/index';
 import { UserService } from './components/user/_services/index';
 import { EnpalsPaymentsService } from './components/enapls_payments/_services/index';
 
@@ -154,7 +154,8 @@ import { SettingEnpalsParamRowComponent } from './components/settings/enpals-par
     FormsModule,
     ReactiveFormsModule,  // Add this!
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    NgxPaginationModule
   ],
   providers: [
     Service,
@@ -162,7 +163,6 @@ import { SettingEnpalsParamRowComponent } from './components/settings/enpals-par
     FilmService,
     InvoiceService,
     UserService,
-    PagerService,
     EnpalsPaymentsService,
     PrintYears,
     LoadAllItems
