@@ -2,10 +2,10 @@
 <td>{{current_data.description | slice:0:60}}...</td>
 <td>{{current_data.date}} {{current_data.time}}</td>
 <td class="text-right">
-  <button (click)="passDataToParent(current_data, '')" class="btn btn--dark" data-toggle="modal" data-target="#todo_details" title="Info">
+  <button (click)="passDataToParent('')" class="btn btn--dark" data-toggle="modal" data-target="#todo_details" title="Info">
     <i class="fa fa-info" aria-hidden="true"></i>
   </button>
-  <button (click)="passDataToParent(current_data, 'delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
+  <button (click)="passDataToParent('delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
     <i class="fa fa-trash" aria-hidden="true"></i>
   </button>
 </td>

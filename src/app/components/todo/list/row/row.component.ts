@@ -25,7 +25,7 @@ export class ToDoListRowComponent implements OnInit {
     );
   }
 
-  private passDataToParent(item, request_type) {
+  private passDataToParent(request_type) {
     if(request_type == "archive") {
       this.msg.emit("Sei sicuro di volerlo archiviare?");
     } else if(request_type == "delete") {
@@ -33,8 +33,8 @@ export class ToDoListRowComponent implements OnInit {
     } else if(request_type == "rollback") {
       this.msg.emit("Sei sicuro di volerlo ripristinare?");
     }
-    item.missing_days = this.missing_days;
-    this.data.emit({item: item, request_type: request_type})
+    this.current_data.missing_days = this.missing_days;
+    this.data.emit({item: this.current_data, request_type: request_type})
   }
 
   ngOnInit() {

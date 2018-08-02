@@ -1,13 +1,13 @@
 <div class="modal fade" id="todo_details" tabindex="-1" role="dialog" aria-labelledby="todo_details" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document" *ngIf="riceve">
+  <div class="modal-dialog modal-lg" role="document" *ngIf="details">
     <div class="modal-content" style="color:black">
       <div class="modal-header">
-        <h5 class="modal-title col pl-0">{{riceve.item.title}} <span *ngIf="riceve.item.missing_days > 0" class="badge badge-secondary">{{riceve.item.missing_days}} giorni mancanti</span></h5>
+        <h5 class="modal-title col pl-0">{{todo.item.title}} <span *ngIf="todo.item.missing_days > 0" class="badge badge-secondary">{{todo.item.missing_days}} giorni mancanti</span></h5>
         <div class="col d-flex justify-content-end align-items-center" style="height:30px">
           <div>
-            <i class="fa fa-calendar" aria-hidden="true"></i> {{riceve.item.date}}
+            <i class="fa fa-calendar" aria-hidden="true"></i> {{todo.item.date}}
             <span>|</span>
-            <i class="fa fa-clock-o" aria-hidden="true"></i> {{riceve.item.time}}
+            <i class="fa fa-clock-o" aria-hidden="true"></i> {{todo.item.time}}
           </div>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -15,7 +15,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>{{riceve.item.description}}</p>
+        <p>{{todo.item.description}}</p>
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
