@@ -32,9 +32,12 @@
           </tr>
         </thead>
         <tbody class="form--light">
-          <tr [enpals_param]="item" *ngFor="let item of enpals_parameters" (data)="getData($event)" (msg)="getMessage($event)" setting-enpals-par-row></tr>
+          <tr [enpals_param]="item" *ngFor="let item of enpals_parameters | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" setting-enpals-par-row></tr>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
   <div class="row">

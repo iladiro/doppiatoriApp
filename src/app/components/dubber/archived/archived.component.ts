@@ -13,15 +13,15 @@ import { Dubber } from '../_models/index';
 })
 export class DubberArchivedComponent implements OnInit {
 
+  dubbers: Dubber[] = [];
+  private current_dubber;
+
   private modal_message = {
     "text": ""
   };
   private alert_message;
 
-  private current_dubber;
-  dubbers: Dubber[] = [];
-
-  private type_request:string = "";
+  p: number = 1;
 
   constructor(
     private service: Service

@@ -1,7 +1,7 @@
 <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
 <table class="table table--striped" *ngIf="dubber.invoices.length; else noInvoices">
   <tbody>
-    <tr *ngFor="let invoice of dubber.invoices">
+    <tr *ngFor="let invoice of dubber.invoices | paginate: { itemsPerPage: 2, currentPage: p }">
       <td>Compenso per prestazione d'opera relativa al film <strong>{{invoice.film}}</strong></td>
       <td class="text-right">
         <a [routerLink]="['/invoice', invoice.id, dubber.id]" class="btn btn--dark" title="Visualizza">
@@ -20,3 +20,6 @@
 <ng-template #noInvoices>
   <p class="alert alert-warning mb-30">Non sono ancora state create fatture.</p>
 </ng-template>
+<div class="d-flex justify-content-center" *ngIf="dubber.invoices.length > 0">
+  <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+</div>

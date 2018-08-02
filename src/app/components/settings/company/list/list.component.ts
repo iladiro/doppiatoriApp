@@ -15,6 +15,8 @@ export class CompanyListComponent implements OnInit {
   private companies: Company[] = [];
   private current_company;
 
+  p: number = 1;
+
   private modal_message = {
     "text": ""
   };

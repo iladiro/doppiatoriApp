@@ -22,6 +22,8 @@ export class EnpalsPaymentsListComponent implements OnInit {
   };
   private alert_message;
 
+  p: number = 1;
+
   constructor(
     private service: Service
     //private loadAllItems: LoadAllItems

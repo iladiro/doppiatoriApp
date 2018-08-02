@@ -23,12 +23,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr [dubber]="dubber" *ngFor="let dubber of dubbers" (data)="getData($event)" (msg)="getMessage($event)" archived-dubber-row></tr>
+          <tr [dubber]="dubber" *ngFor="let dubber of dubbers | paginate: { itemsPerPage: 2, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" archived-dubber-row></tr>
         </tbody>
       </table>
       <ng-template #noDubbers>
         <p class="alert alert-warning mb-0">Non ci sono elementi archiviati</p>
       </ng-template>
+      <div class="d-flex justify-content-center" *ngIf="dubbers.length > 0">
+        <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
   <back-button></back-button>

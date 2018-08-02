@@ -22,6 +22,8 @@ export class InvoiceListComponent implements OnInit {
     "text": "Sei sicuro di voler cancellarlo?"
   };
 
+  p: number = 1;
+
   private setConfirm(data) {
     if(data == "true") {
       this.delete(this.current_invoice);

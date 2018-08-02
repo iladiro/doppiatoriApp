@@ -1,0 +1,38 @@
+@import "../mixin/custom-mixin";
+@import '../widgets/variables';
+
+.ngx-pagination {
+  padding: 0;
+}
+// .ngx-pagination {
+//   margin-top: 40px;
+//   li {
+//     @include radius(30px !important);
+//     background-color: rgba(255,255,255,.08);
+//     &.current {
+//       background-color: white !important;
+//       span {
+//         color: black !important;
+//       }
+//     }
+//     a, span {
+//       cursor: pointer;
+//       display: inline-block;
+//       border: 0;
+//       padding: 0;
+//       text-align: center;
+//       @include font-style(12px,rgba(255,255,255,.65));
+//       @include transition(color .3s);
+//       font-size: 0.7rem;
+//       &:hover {
+//         color: black;
+//         @include radius(30px !important);
+//       }
+//     }
+//     .pagination-next {
+//       & > a {
+//         @include size(auto !important, auto !important);
+//       }
+//     }
+//   }
+// }

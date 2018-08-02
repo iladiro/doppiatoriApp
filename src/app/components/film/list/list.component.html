@@ -20,10 +20,12 @@
           </tr>
         </thead>
         <tbody class="form--light">
-          <tr [film]="film" *ngFor="let film of films | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" film-list-row></tr>
+          <tr [film]="film" *ngFor="let film of films | paginate: { itemsPerPage: 2, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" film-list-row></tr>
         </tbody>
       </table>
-      <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+      <div class="d-flex justify-content-center">
+        <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
   <div class="row">

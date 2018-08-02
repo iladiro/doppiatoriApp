@@ -20,6 +20,8 @@ export class ToDoExpiredComponent implements OnInit {
   };
   private alert_message;
 
+  p: number = 1;
+
   private request_type:string = "";
 
   constructor(

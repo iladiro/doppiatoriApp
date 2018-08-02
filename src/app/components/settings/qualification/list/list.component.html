@@ -20,9 +20,12 @@
           </tr>
         </thead>
         <tbody class="form--light">
-          <tr [qualification]="qualification" *ngFor="let qualification of qualifications" (data)="getData($event)" (msg)="getMessage($event)" setting-qualification-row></tr>
+          <tr [qualification]="qualification" *ngFor="let qualification of qualifications | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" setting-qualification-row></tr>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
   <div class="row">

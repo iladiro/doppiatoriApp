@@ -19,6 +19,8 @@ export class ToDoCurrentDayListComponent implements OnInit {
   };
   private alert_message;
 
+  p: number = 1;
+
   constructor(
     private service: Service
   ) {}

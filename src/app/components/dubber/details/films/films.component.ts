@@ -13,6 +13,8 @@ export class DubberFilmsComponent implements OnInit {
   @Input() dubber: any;
   private alert_message;
 
+  p: number = 1;
+
   constructor(
     private service: Service
   ) { }
