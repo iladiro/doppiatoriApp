@@ -89,35 +89,13 @@ export class DubbersListComponent implements OnInit {
 
 }
 
-//private type_request:string = "";
-//private DB_table:string = "dubbers";
-
 // dataForRequestSearchComp = {
 //   "table": "dubbers",
 //   "parameters": ["name", "surname"]
 // };
 
-// Viene chiamata quando viene pushato il componente "paginator". che salva nell'ordine corretto la lista dei dubbers
-// private dataset(items) {
-//   this.dubbers = items;
-// }
-// end
-
 // Per la ricerca: dopo aver eseguito la ricerca viene passato dal figlio al padre la lista dei risultati che vengono salvati in dubbers
 // private setFoundValueFromSearch(value){
 //   this.dubbers = value;
-// }
-// end
-
-// Quando vuoi cancellare un elemento della lista chiami prima questa funzione, che salva i dati dell'oggetto da cancellare
-// private passCurrentDubber(dubber, type_request) {
-//   if(type_request == "archive") {
-//     this.type_request = type_request;
-//     this.modal_message.text = "Sei sicura di volerlo archiviare?";
-//   } else if (type_request == "delete") {
-//     this.type_request = type_request;
-//     this.modal_message.text = "Sei sicura di volerlo definitivamente cancellare?";
-//   }
-//   this.current_dubber = dubber;
 // }
 // end

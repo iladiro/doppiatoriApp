@@ -16,6 +16,11 @@ export class FilmListComponent implements OnInit {
   private films: Film[] = [];
   private current_film;
 
+  private dataForRequestSearchComp = {
+    "table": "films",
+    "parameters": ["title"]
+  };
+
   p: number = 1;
 
   public modal_message = {
@@ -26,6 +31,10 @@ export class FilmListComponent implements OnInit {
   constructor(
     private service: Service
   ) {}
+
+  private setFoundValueFromSearch(value){
+    this.films = value;
+  }
 
   private getData(data){
     this.current_film = data;
