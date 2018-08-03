@@ -21,11 +21,20 @@ export class DubbersListComponent implements OnInit {
   };
   private alert_message;
 
+  private dataForRequestSearchComp = {
+    "table": "dubbers",
+    "parameters": ["name", "surname", "email"]
+  };
+
   p: number = 1;
 
   constructor(
     private service: Service
   ) {}
+
+  private setFoundValueFromSearch(value){
+    this.dubbers = value;
+  }
 
   private getData(data){
     this.current_dubber = data;
@@ -88,14 +97,3 @@ export class DubbersListComponent implements OnInit {
   }
 
 }
-
-// dataForRequestSearchComp = {
-//   "table": "dubbers",
-//   "parameters": ["name", "surname"]
-// };
-
-// Per la ricerca: dopo aver eseguito la ricerca viene passato dal figlio al padre la lista dei risultati che vengono salvati in dubbers
-// private setFoundValueFromSearch(value){
-//   this.dubbers = value;
-// }
-// end
