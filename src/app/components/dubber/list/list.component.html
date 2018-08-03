@@ -26,10 +26,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr [dubber]="dubber" *ngFor="let dubber of dubbers | paginate: { itemsPerPage: 2, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" dubber-list-row></tr>
+          <tr [dubber]="dubber" *ngFor="let dubber of dubbers | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" dubber-list-row></tr>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center" *ngIf="enpals_payments.length >= 10">
         <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>

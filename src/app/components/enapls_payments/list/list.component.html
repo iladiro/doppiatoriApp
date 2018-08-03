@@ -23,10 +23,10 @@
           </tr>
         </thead>
         <tbody class="form--light">
-          <tr [current_data]="item" *ngFor="let item of enpals_payments | paginate: { itemsPerPage: 2, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" enpals-payments-row></tr>
+          <tr [current_data]="item" *ngFor="let item of enpals_payments | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" enpals-payments-row></tr>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center" *ngIf="enpals_payments.length >= 10">
         <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
