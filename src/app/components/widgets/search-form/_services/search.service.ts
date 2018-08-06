@@ -34,7 +34,7 @@ export class SearchService {
       console.log(url);
       return results
     } else {
-      let results = this.getAll()
+      let results = this.getAll();
       return results
     }
   }

@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/distinctUntilChanged";
 
 // Services
 import { SearchService } from './_services/index';
@@ -17,7 +19,8 @@ export class SearchFormComponent {
 
   constructor(private searchService: SearchService) {}
 
-  getValue(value) {
+  getValue($event) {
+    let value = $event.target.value;
     this.searchService.buildUrl(this.setDataForRequest, value).subscribe(
       data => {
         this.results.emit(data)
