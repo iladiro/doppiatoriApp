@@ -1,6 +1,6 @@
 <table class="table table--striped" *ngIf="dubber.films.length; else noFilm">
   <tbody>
-    <tr *ngFor="let film of dubber.films | paginate: { itemsPerPage: 2, currentPage: p }">
+    <tr *ngFor="let film of dubber.films | paginate: { itemsPerPage: 10, currentPage: p }">
       <td>{{film.title}}</td>
       <td class="text-right">
         <a [routerLink]="['/film', film.id]" class="btn btn--dark" title="Modifica">
@@ -16,6 +16,6 @@
 <ng-template #noFilm>
   <p class="alert alert-warning">Non ci sono film associati</p>
 </ng-template>
-<div class="d-flex justify-content-center" *ngIf="dubber.films.length > 0">
+<div class="d-flex justify-content-center" *ngIf="dubber.films.length >= 10">
   <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
 </div>
