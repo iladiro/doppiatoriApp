@@ -1,7 +1,7 @@
-import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/distinctUntilChanged";
+import { Observable } from 'rxjs';
+import 'rxjs/Rx';
 
 // Services
 import { SearchService } from './_services/index';
@@ -16,11 +16,11 @@ export class SearchFormComponent {
 
   @Input() setDataForRequest;
   @Output() results = new EventEmitter();
+  @ViewChild('searchInput') searchInput: ElementRef;
 
   constructor(private searchService: SearchService) {}
 
-  getValue($event) {
-    let value = $event.target.value;
+  submit(value) {
     this.searchService.buildUrl(this.setDataForRequest, value).subscribe(
       data => {
         this.results.emit(data)
@@ -28,5 +28,17 @@ export class SearchFormComponent {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    Observable.fromEvent(this.searchInput.nativeElement, 'keyup')
+      // get value
+      .map((evt: any) => evt.target.value)
+      // text length must be > 2 chars
+      //.filter(res => res.length > 2)
+      // emit after 1s of silence
+      .debounceTime(1000)
+      // emit only if data changes since the last emit
+      .distinctUntilChanged()
+      // subscription
+      .subscribe((text: string) => this.submit(text));
+  }
 }
