@@ -18,6 +18,10 @@ import { EnpalsPaymentsService } from './components/enapls_payments/_services/in
 import { PrintYears } from './helpers/print-years';
 import { LoadAllItems } from './helpers/load-all-items';
 
+// Layouts
+import { LoggedLayoutComponent } from './components/template/layout/logged-layout/logged-layout.component';
+import { NotloggedLayoutComponent } from './components/template/layout/notlogged-layout/notlogged-layout.component';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -148,7 +152,9 @@ import { LoginComponent } from './components/user/login/login.component';
     SettingQualificationRowComponent,
     SettingCompanyRowComponent,
     SettingEnpalsParamRowComponent,
-    LoginComponent
+    LoginComponent,
+    LoggedLayoutComponent,
+    NotloggedLayoutComponent
   ],
   imports: [
     BrowserModule,

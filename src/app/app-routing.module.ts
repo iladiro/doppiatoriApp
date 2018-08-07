@@ -1,6 +1,10 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+// Layouts
+import { LoggedLayoutComponent } from './components/template/layout/logged-layout/logged-layout.component';
+import { NotloggedLayoutComponent } from './components/template/layout/notlogged-layout/notlogged-layout.component';
+
 import { DubbersListComponent } from './components/dubber/list/list.component';
 import { DubberProfileComponent } from './components/dubber/details/details.component';
 import { AddDubberComponent } from './components/dubber/create/create.component';
@@ -40,156 +44,169 @@ import { ToDoCurrentDayListComponent } from './components/todo/current-day-list/
 
 const appRoutes: Routes = [
 
+  //Site routes goes here
   {
     path: '',
-    component: DashboardComponent
+    component: LoggedLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+        pathMatch: 'full',
+        data: { title: 'Dashboard' }
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: { title: 'Dashboard' }
+      },
+      {
+        path: 'todo/list',
+        component: ToDoListComponent,
+        data: { title: 'To Do lista' }
+      },
+      {
+        path: 'todo/current_list',
+        component: ToDoCurrentDayListComponent,
+        data: { title: 'To Do lista corrente' }
+      },
+      {
+        path: 'todo/expired',
+        component: ToDoExpiredComponent,
+        data: { title: 'To Do scaduti' }
+      },
+      {
+        path: 'todo/add',
+        component: ToDoCreateComponent,
+        data: { title: 'To Do nuovo' }
+      },
+      {
+        path: 'users',
+        component: UsersListComponent,
+        data: { title: 'List users' }
+      },
+      {
+        path: 'user/:id',
+        component: DetailsUserComponent
+      },
+      {
+        path: 'dubbers/list',
+        component: DubbersListComponent,
+        data: { title: 'Dubbers List' }
+      },
+      {
+        path: 'dubbers/archived',
+        component: DubberArchivedComponent,
+        data: { title: 'Dubbers Archived' }
+      },
+      {
+        path: 'dubbers/add',
+        component: AddDubberComponent,
+        data: { title: 'Add new dubber' }
+      },
+      {
+        path: 'dubber/:id',
+        component: DubberProfileComponent
+      },
+      {
+        path: 'invoice/:id/:dubber_id',
+        component: DetailsInvoiceComponent
+      },
+      {
+        path: 'films',
+        component: FilmListComponent,
+        data: { title: 'Film List' }
+      },
+      {
+        path: 'films/add',
+        component: AddFilmComponent,
+        data: { title: 'Add new film' }
+      },
+      {
+        path: 'film/:id',
+        component: FilmDetailsComponent
+      },
+      {
+        path: 'settings/company/add',
+        component: CompanyCreateComponent,
+        data: { title: 'Add new company' }
+      },
+      {
+        path: 'settings/companies',
+        component: CompanyListComponent,
+        data: { title: 'Company List' }
+      },
+      {
+        path: 'settings/company/:id',
+        component: CompanyDetailsComponent
+      },
+      {
+        path: 'settings/qualification/add',
+        component: QualificationCreateComponent,
+        data: { title: 'Add new qualification' }
+      },
+      {
+        path: 'settings/qualifications',
+        component: QualificationListComponent,
+        data: { title: 'Qualification list' }
+      },
+      {
+        path: 'settings/qualification/:id',
+        component: QualificationDetailsComponent
+      },
+      {
+        path: 'settings/enpals-parameters',
+        component: EnpalsParametersListComponent,
+        data: { title: 'Enpals Parameters list' }
+      },
+      {
+        path: 'settings/enpals-parameter/:id',
+        component: EnpalsParameterDetailsComponent
+      },
+      {
+        path: 'enaplspayments',
+        component: EnpalsPaymentsListComponent,
+        data: { title: 'Enapls versamenti' }
+      },
+      {
+        path: 'enaplspayments/add',
+        component: EnpalsPaymentsCreateComponent,
+        data: { title: 'Enapls versamenti' }
+      },
+      {
+        path: 'enaplspayments/report',
+        component: ChartEnpalsPaymentsComponent,
+        data: { title: 'Report Enapls versamenti' }
+      }
+      // {
+      //   path: '**',
+      //   component: PageNotFoundComponent
+      // }
+    ]
   },
+
+  // App routes goes here
   // {
   //   path: '',
-  //   redirectTo: '/index',
-  //   pathMatch: 'full'
+  //   component: NotloggedLayoutComponent,
+  //   children: []
   // },
-  {
-    path: 'todo/list',
-    component: ToDoListComponent,
-    data: { title: 'To Do lista' }
-  },
-  {
-    path: 'todo/current_list',
-    component: ToDoCurrentDayListComponent,
-    data: { title: 'To Do lista corrente' }
-  },
-  {
-    path: 'todo/expired',
-    component: ToDoExpiredComponent,
-    data: { title: 'To Do scaduti' }
-  },
-  {
-    path: 'todo/add',
-    component: ToDoCreateComponent,
-    data: { title: 'To Do nuovo' }
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-    data: { title: 'Login' }
-  },
+
+  //no layout routes
   {
     path: 'register',
     component: RegisterComponent,
     data: { title: 'Register' }
   },
   {
-    path: 'users',
-    component: UsersListComponent,
-    data: { title: 'List users' }
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' }
   },
-  {
-    path: 'user/:id',
-    component: DetailsUserComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    data: { title: 'Dashboard' }
-  },
-  {
-    path: 'dubbers/list',
-    component: DubbersListComponent,
-    data: { title: 'Dubbers List' }
-  },
-  {
-    path: 'dubbers/archived',
-    component: DubberArchivedComponent,
-    data: { title: 'Dubbers Archived' }
-  },
-  {
-    path: 'dubbers/add',
-    component: AddDubberComponent,
-    data: { title: 'Add new dubber' }
-  },
-  {
-    path: 'dubber/:id',
-    component: DubberProfileComponent
-  },
-  {
-    path: 'invoice/:id/:dubber_id',
-    component: DetailsInvoiceComponent
-  },
-  {
-    path: 'films',
-    component: FilmListComponent,
-    data: { title: 'Film List' }
-  },
-  {
-    path: 'films/add',
-    component: AddFilmComponent,
-    data: { title: 'Add new film' }
-  },
-  {
-    path: 'film/:id',
-    component: FilmDetailsComponent
-  },
-  {
-    path: 'settings/company/add',
-    component: CompanyCreateComponent,
-    data: { title: 'Add new company' }
-  },
-  {
-    path: 'settings/companies',
-    component: CompanyListComponent,
-    data: { title: 'Company List' }
-  },
-  {
-    path: 'settings/company/:id',
-    component: CompanyDetailsComponent
-  },
-  {
-    path: 'settings/qualification/add',
-    component: QualificationCreateComponent,
-    data: { title: 'Add new qualification' }
-  },
-  {
-    path: 'settings/qualifications',
-    component: QualificationListComponent,
-    data: { title: 'Qualification list' }
-  },
-  {
-    path: 'settings/qualification/:id',
-    component: QualificationDetailsComponent
-  },
-  {
-    path: 'settings/enpals-parameters',
-    component: EnpalsParametersListComponent,
-    data: { title: 'Enpals Parameters list' }
-  },
-  {
-    path: 'settings/enpals-parameter/:id',
-    component: EnpalsParameterDetailsComponent
-  },
-  {
-    path: 'enaplspayments',
-    component: EnpalsPaymentsListComponent,
-    data: { title: 'Enapls versamenti' }
-  },
-  {
-    path: 'enaplspayments/add',
-    component: EnpalsPaymentsCreateComponent,
-    data: { title: 'Enapls versamenti' }
-  },
-  {
-    path: 'enaplspayments/report',
-    component: ChartEnpalsPaymentsComponent,
-    data: { title: 'Report Enapls versamenti' }
-  },
+
   // otherwise redirect to home
-  // {
-  //   path: '**',
-  //   redirectTo: ''
-  // }
   {
-    path: '**',
-    component: PageNotFoundComponent
+    path: '**', redirectTo: ''
   }
 
 ];
