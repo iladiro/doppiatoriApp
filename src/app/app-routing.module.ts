@@ -44,7 +44,7 @@ import { ToDoCurrentDayListComponent } from './components/todo/current-day-list/
 
 const appRoutes: Routes = [
 
-  //Site routes goes here
+  //App routes goes here
   {
     path: '',
     component: LoggedLayoutComponent,
@@ -178,21 +178,21 @@ const appRoutes: Routes = [
         component: ChartEnpalsPaymentsComponent,
         data: { title: 'Report Enapls versamenti' }
       }
-      // {
-      //   path: '**',
-      //   component: PageNotFoundComponent
-      // }
+      {
+        path: '**',
+        component: PageNotFoundComponent
+      }
     ]
   },
 
-  // App routes goes here
+  // Site routes goes here
   // {
   //   path: '',
   //   component: NotloggedLayoutComponent,
   //   children: []
   // },
 
-  //no layout routes
+  // No layout routes
   {
     path: 'register',
     component: RegisterComponent,
@@ -205,9 +205,9 @@ const appRoutes: Routes = [
   },
 
   // otherwise redirect to home
-  {
-    path: '**', redirectTo: ''
-  }
+  // {
+  //   path: '**', redirectTo: ''
+  // }
 
 ];
 
