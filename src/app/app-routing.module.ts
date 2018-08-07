@@ -10,6 +10,7 @@ import { FilmListComponent } from './components/film/list/list.component';
 import { AddFilmComponent } from './components/film/create/create.component';
 import { FilmDetailsComponent } from './components/film/details/details.component';
 
+import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { UsersListComponent } from './components/user/list/list.component';
 import { DetailsUserComponent } from './components/user/details/details.component';
@@ -67,6 +68,11 @@ const appRoutes: Routes = [
     path: 'todo/add',
     component: ToDoCreateComponent,
     data: { title: 'To Do nuovo' }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' }
   },
   {
     path: 'register',

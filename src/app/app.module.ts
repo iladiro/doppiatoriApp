@@ -86,6 +86,7 @@ import { ArchivedDubberRowComponent } from './components/dubber/archived/row/row
 import { SettingQualificationRowComponent } from './components/settings/qualification/list/row/row.component';
 import { SettingCompanyRowComponent } from './components/settings/company/list/row/row.component';
 import { SettingEnpalsParamRowComponent } from './components/settings/enpals-parameters/list/row/row.component';
+import { LoginComponent } from './components/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -146,7 +147,8 @@ import { SettingEnpalsParamRowComponent } from './components/settings/enpals-par
     ArchivedDubberRowComponent,
     SettingQualificationRowComponent,
     SettingCompanyRowComponent,
-    SettingEnpalsParamRowComponent
+    SettingEnpalsParamRowComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
