@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, Output, EventEmitter, Input, OnInit } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+//import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 

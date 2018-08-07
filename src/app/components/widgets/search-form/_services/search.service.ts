@@ -31,7 +31,6 @@ export class SearchService {
       this.query_url += "or=(" + array_params.join(",") + ")";
       let url = this.base_url + this.query_url;
       let results = this.sendSearch(url);
-      console.log(url);
       return results
     } else {
       let results = this.getAll();
