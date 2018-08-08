@@ -178,10 +178,10 @@ const appRoutes: Routes = [
         component: ChartEnpalsPaymentsComponent,
         data: { title: 'Report Enapls versamenti' }
       }
-      {
-        path: '**',
-        component: PageNotFoundComponent
-      }
+      // {
+      //   path: '**',
+      //   component: PageNotFoundComponent
+      // }
     ]
   },
 
@@ -194,20 +194,20 @@ const appRoutes: Routes = [
 
   // No layout routes
   {
-    path: 'register',
+    path: 'signup',
     component: RegisterComponent,
     data: { title: 'Register' }
   },
   {
-    path: 'login',
+    path: 'signin',
     component: LoginComponent,
     data: { title: 'Login' }
   },
 
   // otherwise redirect to home
-  // {
-  //   path: '**', redirectTo: ''
-  // }
+  {
+    path: '**', redirectTo: ''
+  }
 
 ];
 

@@ -1,46 +1,50 @@
 <div class="container">
   <div class="col-md-6 mx-auto">
+    <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
     <h2>Register</h2>
     <div class="general-card card mb-4">
       <div class="general-card__body">
-        <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate class="form--light">
+        <form name="form" (ngSubmit)="f.form.valid && register(f)" #f="ngForm" novalidate class="form--light">
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="first_name">First Name</label>
-            <input type="text" class="form-control black" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
-            <div *ngIf="f.submitted && !first_name.valid" class="is-invalid">First Name is required</div>
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control black" name="firstname" ngModel #firstname="ngModel" required />
+            <div *ngIf="f.submitted && !firstname.valid" class="is-invalid">First Name is required</div>
           </div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="last_name">Last Name</label>
-            <input type="text" class="form-control black" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
-            <div *ngIf="f.submitted && !last_name.valid" class="is-invalid">Last Name is required</div>
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control black" name="lastname" ngModel #lastname="ngModel" required />
+            <div *ngIf="f.submitted && !lastname.valid" class="is-invalid">Last Name is required</div>
           </div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <label for="email">Email</label>
-            <input type="email" class="form-control black" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+            <input type="email" class="form-control black" name="email" ngModel #email="ngModel" required />
             <div *ngIf="f.submitted && !email.valid" class="is-invalid">Email is required</div>
           </div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="username">Username</label>
-            <input type="text" class="form-control black" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+            <input type="text" class="form-control black" name="username" ngModel #username="ngModel" required />
             <div *ngIf="f.submitted && !username.valid" class="is-invalid">Username is required</div>
           </div>
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-            <label for="password">Password</label>
-            <input type="password" class="form-control black" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-            <div *ngIf="f.submitted && !password.valid" class="is-invalid">Password is required</div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !secret.valid }">
+            <label for="secret">Password</label>
+            <input type="password" class="form-control black" name="secret" ngModel #secret="ngModel" required />
+            <div *ngIf="f.submitted && !secret.valid" class="is-invalid">secret is required</div>
           </div>
+          <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !secret.valid }">
+            <label for="confirm_secret">Confirm secret</label>
+            <input type="password" class="form-control black" name="confirm_secret" ngModel #confirm_secret="ngModel" required />
+            <div *ngIf="f.submitted && !confirm_secret.valid" class="is-invalid">secret is required</div>
+          </div> -->
           <div class="form-group">
             <label for="user_type">Type of user</label>
-            <select class="form-control black" name="user_type" [(ngModel)]="model.user_type" #user_type="ngModel" required>
-              <option value="administrator">Administrator</option>
-              <option value="simple_user">Simple user</option>
+            <select class="form-control black" name="user_type" ngModel #user_type="ngModel" required>
+              <option value="0">Administrator</option>
+              <option value="1" selected>Simple user</option>
             </select>
             <div *ngIf="f.submitted && !user_type.valid" class="is-invalid">Type of user field is required</div>
           </div>
           <div class="form-group">
-            <button [disabled]="loading" class="btn btn--light">Register</button>
-            <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-            <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
+            <button [disabled]="loading" class="btn btn--light">Register <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
             <a [routerLink]="['/login']" class="btn btn--light">Cancel</a>
           </div>
         </form>

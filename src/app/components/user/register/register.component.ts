@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '../_models/index';
 
 // Services
-import { UserService } from '../_services/index';
+import { Service } from '../../../services/index';
 
 @Component({
   templateUrl: './register.component.html',
@@ -14,52 +14,52 @@ import { UserService } from '../_services/index';
 
 export class RegisterComponent {
 
-  model: any = {};
   loading = false;
   users: User[] = [];
+  private alert_message;
 
   constructor(
-    private router: Router,
-    private userService: UserService
+    private service: Service,
+    private router: Router
   ) { }
 
-  // getFirstChar(whichModel, property) {
-  //   let createAvatar = whichModel.property.charAt(0);
-  //   whichModel.avatar = createAvatar;
-  // }
-
-  register() {
-    //this.getFirstChar(this.model, "name");
-    this.model.id = Math.floor((Math.random() * 1000000) + 1);
+  register(form) {
     this.loading = true;
     let users_email = [];
     for(let user of this.users) {
       users_email.push(user.email);
     };
-    if(users_email.includes(this.model.email)) {
-      //this.alertService.error("You can't register this user because it's already used");
+    if(users_email.includes(form.value.email)) {
+      this.alert_message = "rejected";
       this.loading = false;
       return;
     } else {
-      this.userService.create(this.model).subscribe(
+      this.service.create("users", form.value).subscribe(
         data => {
-          //this.alertService.success('Registration successful', true);
-          this.router.navigate(['/login']);
+          this.alert_message = "success";
+          form.reset();
+          this.router.navigate(['/signin']);
         },
-        error => {
-          //this.alertService.error(error);
+        err => {
+          console.log(err);
+          this.alert_message = "rejected";
           this.loading = false;
         }
       );
     }
   }
 
-  ngOnInit() {
-    this.userService.getAll().subscribe(
+  loadAllItems(table, variable, condition) {
+    this.service.getAll(table, condition).subscribe(
       data => {
-        this.users = data;
-      }
+        this[variable] = data;
+      },
+      err => {}
     );
+  }
+
+  ngOnInit() {
+    this.loadAllItems("users", "users", "all");
   }
 
 }
