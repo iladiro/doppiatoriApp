@@ -68,14 +68,14 @@
             <div class="col-md-4 mb-3">
               <div class="form-group">
                 <label for="residence_address">Indirizzo</label>
-                <input id="residence_address" type="text" class="form-control black black" placeholder="Indirizzo" [(ngModel)]="address.residence_address" name="residence_address" #residence_address="ngModel" >
+                <input id="residence_address" type="text" class="form-control black black" placeholder="Indirizzo" [(ngModel)]="address.residence_address" name="residence_address" #residence_address="ngModel">
                 <div *ngIf="f.submitted && !residence_address.valid" class="is-invalid">Campo errato</div>
               </div>
             </div>
             <div class="col-md-4 mb-3">
               <div class="form-group">
                 <label for="residence_postcode">Cap</label>
-                <input id="residence_postcode" type="text" class="form-control black black" placeholder="Cap" [(ngModel)]="address.residence_postcode" name="residence_postcode" #residence_postcode="ngModel" >
+                <input id="residence_postcode" type="text" class="form-control black black" placeholder="Cap" [(ngModel)]="address.residence_postcode" name="residence_postcode" #residence_postcode="ngModel">
                 <div *ngIf="f.submitted && !residence_postcode.valid" class="is-invalid">Campo errato</div>
               </div>
             </div>

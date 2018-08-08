@@ -1,4 +1,7 @@
 .form {
+  &__label {
+    font-size: 0.9rem;
+  }
   &--light {
     input, textarea, select {
       border-radius: 2px;
@@ -41,7 +44,6 @@
     }
     &-label {
       padding-left: 15px;
-
     }
   }
 }
