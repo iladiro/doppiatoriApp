@@ -16,7 +16,6 @@ import { Service } from '../../../services/index';
 export class RegisterComponent {
 
   loading = false;
-  users: User[] = [];
   private alert_message;
 
   constructor(
@@ -24,44 +23,35 @@ export class RegisterComponent {
     private router: Router
   ) { }
 
-  register(form) {
+  onCheck(form) {
     this.loading = true;
-    let users_email = [];
-    let md5_psw = md5(form.value.secret);
-    form.value.secret = md5_psw;
-    for(let user of this.users) {
-      users_email.push(user.email);
-    };
-    if(users_email.includes(form.value.email)) {
-      this.alert_message = "prohibition";
-      this.loading = false;
-      return;
-    } else {
-      this.service.create("users", form.value).subscribe(
-        data => {
-          form.reset();
-          this.router.navigate(['/signin']);
-        },
-        err => {
-          console.log(err);
-          this.alert_message = "rejected";
-          this.loading = false;
-        }
-      );
-    }
-  }
-
-  loadAllItems(table, variable, condition) {
-    this.service.getAll(table, condition).subscribe(
-      data => {
-        this[variable] = data;
+    this.service.getBy("users", "email", form.value.email).subscribe(
+      already_registered => {
+        this.loading = false;
+        this.alert_message = "prohibition";
       },
-      err => {}
+      not_registered_yet => {
+        this.onSubmit(form);
+      }
     );
   }
 
-  ngOnInit() {
-    this.loadAllItems("users", "users", "all");
+  onSubmit(form) {
+    let md5_psw = md5(form.value.secret);
+    form.value.secret = md5_psw;
+    this.service.create("users", form.value).subscribe(
+      data => {
+        form.reset();
+        this.router.navigate(['/signin']);
+      },
+      err => {
+        console.log(err);
+        this.alert_message = "rejected";
+        this.loading = false;
+      }
+    );
   }
+
+  ngOnInit() {}
 
 }

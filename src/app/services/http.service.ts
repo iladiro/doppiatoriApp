@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable()
 
@@ -43,6 +43,10 @@ export class Service {
 
   update(table, item) {
     return this.http.patch(this.url_root + table + "?" + "id=eq." + item.id, item);
+  }
+
+  getBy(table, column, data: number) {
+    return this.http.get(this.url_root + table + "?" + column + "=eq." + data, {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
   getById(table, column, id: number) {

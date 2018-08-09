@@ -4,31 +4,26 @@
     <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
     <div class="general-card card mb-4">
       <div class="general-card__body">
-        <form name="form" (ngSubmit)="f.form.valid && register(f)" #f="ngForm" novalidate class="form--light">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="firstname" class="form__label">First Name <span class="text-danger">*</span></label>
+        <form name="form" (ngSubmit)="f.form.valid && onCheck(f)" #f="ngForm" novalidate class="form--light">
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstname.valid }">
+            <label for="firstname" class="form__label">Nome <span class="text-danger">*</span></label>
             <input type="text" class="form-control black" name="firstname" ngModel #firstname="ngModel" required />
-            <div *ngIf="f.submitted && !firstname.valid" class="is-invalid text-danger">First Name is required</div>
+            <!-- <div *ngIf="f.submitted && !firstname.valid" class="is-invalid text-danger">First Name is required</div> -->
           </div>
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="lastname" class="form__label">Last Name <span class="text-danger">*</span></label>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
+            <label for="lastname" class="form__label">Cognome <span class="text-danger">*</span></label>
             <input type="text" class="form-control black" name="lastname" ngModel #lastname="ngModel" required />
-            <div *ngIf="f.submitted && !lastname.valid" class="is-invalid text-danger">Last Name is required</div>
+            <!-- <div *ngIf="f.submitted && !lastname.valid" class="is-invalid text-danger">Last Name is required</div> -->
           </div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <label for="email" class="form__label">Email <span class="text-danger">*</span></label>
             <input type="email" class="form-control black" name="email" ngModel #email="ngModel" required />
-            <div *ngIf="f.submitted && !email.valid" class="is-invalid text-danger">Email is required</div>
-          </div>
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="username" class="form__label">Username <span class="text-danger">*</span></label>
-            <input type="text" class="form-control black" name="username" ngModel #username="ngModel" required />
-            <div *ngIf="f.submitted && !username.valid" class="is-invalid text-danger">Username is required</div>
+            <!-- <div *ngIf="f.submitted && !email.valid" class="is-invalid text-danger">Email is required</div> -->
           </div>
           <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !secret.valid }">
             <label for="secret" class="form__label">Password <span class="text-danger">*</span></label>
             <input type="password" class="form-control black" name="secret" ngModel #secret="ngModel" required />
-            <div *ngIf="f.submitted && !secret.valid" class="is-invalid text-danger">secret is required</div>
+            <!-- <div *ngIf="f.submitted && !secret.valid" class="is-invalid text-danger">secret is required</div> -->
           </div>
           <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !secret.valid }">
             <label for="confirm_secret" class="form__label">Confirm secret</label>
@@ -36,16 +31,16 @@
             <div *ngIf="f.submitted && !confirm_secret.valid" class="is-invalid">secret is required</div>
           </div> -->
           <div class="form-group">
-            <label for="user_type" class="form__label">Type of user <span class="text-danger">*</span></label>
+            <label for="user_type" class="form__label">Tipo di utenza <span class="text-danger">*</span></label>
             <select class="form-control black" name="user_type" ngModel #user_type="ngModel" required>
               <option value="0">Administrator</option>
               <option value="1" selected>Simple user</option>
             </select>
-            <div *ngIf="f.submitted && !user_type.valid" class="is-invalid text-danger">Type of user field is required</div>
+            <!-- <div *ngIf="f.submitted && !user_type.valid" class="is-invalid text-danger">Type of user field is required</div> -->
           </div>
           <div class="mt-30">
-            <button [disabled]="loading" class="btn btn--light">Register <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
-            <a [routerLink]="['/login']" class="btn btn--light">Cancel</a>
+            <button [disabled]="loading" class="btn btn--light">Registrati <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
+            <a [routerLink]="['/login']" class="btn btn--light">Cancella</a>
           </div>
           <p class="mb-0 mt-15 text-right">
             <span class="fa-stack">
