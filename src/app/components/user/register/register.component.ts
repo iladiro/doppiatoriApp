@@ -15,7 +15,7 @@ import { Service } from '../../../services/index';
 
 export class RegisterComponent {
 
-  loading = false;
+  loading:boolean = false;
   private alert_message;
 
   constructor(

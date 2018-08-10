@@ -1,6 +1,8 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './components/user/_auth/auth.guard';
+
 // Layouts
 import { LoggedLayoutComponent } from './components/template/layout/logged-layout/logged-layout.component';
 import { NotloggedLayoutComponent } from './components/template/layout/notlogged-layout/notlogged-layout.component';
@@ -48,17 +50,20 @@ const appRoutes: Routes = [
   {
     path: '',
     component: LoggedLayoutComponent,
+    canActivate:[AuthGuard],
     children: [
       {
         path: '',
         component: DashboardComponent,
         pathMatch: 'full',
         data: { title: 'Dashboard' }
+        //canActivate:[AuthGuard]
       },
       {
         path: 'dashboard',
         component: DashboardComponent,
         data: { title: 'Dashboard' }
+        //canActivate:[AuthGuard]
       },
       {
         path: 'todo/list',

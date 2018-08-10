@@ -14,6 +14,8 @@ import { InvoiceService } from './components/dubber/details/invoice/_services/in
 import { UserService } from './components/user/_services/index';
 import { EnpalsPaymentsService } from './components/enapls_payments/_services/index';
 
+import { AuthGuard } from './components/user/_auth/auth.guard';
+
 // Helpers
 import { PrintYears } from './helpers/print-years';
 import { LoadAllItems } from './helpers/load-all-items';
@@ -173,7 +175,8 @@ import { LoginComponent } from './components/user/login/login.component';
     UserService,
     EnpalsPaymentsService,
     PrintYears,
-    LoadAllItems
+    LoadAllItems,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

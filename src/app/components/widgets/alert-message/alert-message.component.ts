@@ -17,7 +17,7 @@ export class AlertMessageComponent implements OnInit {
   constructor() { }
 
   switchAlert(type) {
-    let message = {"success": 1, "delete": 2, "rejected": 3, "prohibition": 4, "archive": 5, "rollback": 6};
+    let message = {"success": 1, "delete": 2, "rejected": 3, "prohibition": 4, "archive": 5, "rollback": 6, "access-denied": 7};
     switch(message[type]) {
       case 1:
         this.alert = {
@@ -58,6 +58,13 @@ export class AlertMessageComponent implements OnInit {
         this.alert = {
           "text": "Ripristinato con successo!",
           "class": "success",
+          "display": true
+        };
+        break;
+      case 7:
+        this.alert = {
+          "text": "Accesso non consentito. Email o Password non validi",
+          "class": "danger",
           "display": true
         };
         break;
