@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   loading:boolean = false;
   private alert_message;
+  date = new Date();
 
   constructor(
     private router: Router,
@@ -28,7 +29,9 @@ export class LoginComponent implements OnInit {
       data => {
         console.log(data);
         if(data.secret === form.value.secret) {
+          let expire_date = date.setHours(date.getHours() + 2);
           localStorage.setItem('userToken', form.value.secret);
+          localStorage.setItem('expires', (this.expire_date.getTime()).toString());
           this.router.navigate(['/']);
         } else {
           this.alert_message = "access-denied";
@@ -42,7 +45,14 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('expires');
+  }
+
   ngOnInit() {
+    this.logout();
   }
 
 }
