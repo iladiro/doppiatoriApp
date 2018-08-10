@@ -21,6 +21,21 @@ export class LoginComponent implements OnInit {
     private service: Service
   ) { }
 
+  redirect(hash_password, user_obj) {
+    console.log(typeof user_obj.secret);
+    console.log(typeof hash_password);
+    if(user_obj.secret === hash_password) {
+      console.log("uguali");
+      let expire_date = this.date.setHours(this.date.getHours() + 2);
+      localStorage.setItem('userToken', hash_password);
+      localStorage.setItem('expires', (expire_date).toString());
+      this.router.navigate(['/']);
+    } else {
+      console.log("diversi");
+      this.alert_message = "access-denied";
+    }
+  }
+
   login(form) {
     this.loading = true;
     let md5_psw = md5(form.value.secret);
@@ -28,14 +43,7 @@ export class LoginComponent implements OnInit {
     this.service.getBy("users", "email", form.value.email).subscribe(
       data => {
         console.log(data);
-        if(data.secret === form.value.secret) {
-          let expire_date = date.setHours(date.getHours() + 2);
-          localStorage.setItem('userToken', form.value.secret);
-          localStorage.setItem('expires', (this.expire_date.getTime()).toString());
-          this.router.navigate(['/']);
-        } else {
-          this.alert_message = "access-denied";
-        }
+        this.redirect(form.value.secret, data);
       },
       err => {
         console.log(err);

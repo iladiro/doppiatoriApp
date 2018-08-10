@@ -9,12 +9,15 @@ export class AuthGuard implements CanActivate {
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
     // Gets the current time
     let now = new Date();
+    console.log("entrato nel controllo pagine");
 
-    if (localStorage.getItem('userToken') != null && localStorage.getItem('expires') < now.getTime();  ) {
+    if ((localStorage.getItem('userToken') != null) && (now.getTime() < Number(localStorage.getItem('expires')))  ) {
+      console.log("c'è il token e la data di scadenza");
       return true;
     } else {
-      //this.router.navigate(['/signin']);
-      this.router.navigate(['/signin'], { queryParams: { returnUrl: state.url }});
+      console.log("non c'è il token");
+      this.router.navigate(['/signin']);
+      //this.router.navigate(['/signin'], { queryParams: { returnUrl: state.url }});
       return false;
     }
   }
