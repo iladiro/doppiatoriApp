@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
   redirect(hash_password, user_obj) {
     if(user_obj.secret === hash_password) {
       let expire_date = this.date.setHours(this.date.getHours() + 2);
-      localStorage.setItem('userToken', hash_password);
-      localStorage.setItem('expires', (expire_date).toString());
+      sessionStorage.setItem('userToken', hash_password);
+      sessionStorage.setItem('expires', (expire_date).toString());
       this.router.navigate(['/']);
     } else {
       this.loading = false;
@@ -49,15 +49,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('expires');
-  }
-
   ngOnInit() {
     //this.logout();
-    if((localStorage.getItem('userToken') != null) && (this.date.getTime() < Number(localStorage.getItem('expires')))) {
+    if((sessionStorage.getItem('userToken') != null) && (this.date.getTime() < Number(sessionStorage.getItem('expires')))) {
       this.router.navigate(['/']);
     }
   }

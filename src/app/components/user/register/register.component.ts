@@ -54,7 +54,7 @@ export class RegisterComponent {
   }
 
   ngOnInit() {
-    if((localStorage.getItem('userToken') != null) && (this.date.getTime() < Number(localStorage.getItem('expires')))) {
+    if((sessionStorage.getItem('userToken') != null) && (this.date.getTime() < Number(sessionStorage.getItem('expires')))) {
       this.router.navigate(['/']);
     }
   }

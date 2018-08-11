@@ -4,13 +4,14 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 @Injectable()
 export class AuthGuard implements CanActivate {
 
+  // Gets the current time
+  private now = new Date();
+
   constructor(private router : Router){}
 
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
-    // Gets the current time
-    let now = new Date();
 
-    if ((localStorage.getItem('userToken') != null) && (now.getTime() < Number(localStorage.getItem('expires')))  ) {
+    if ((sessionStorage.getItem('userToken') != null) && (this.now.getTime() < Number(sessionStorage.getItem('expires')))  ) {
       return true;
     } else {
       this.router.navigate(['/signin']);

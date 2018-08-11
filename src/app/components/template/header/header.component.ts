@@ -17,6 +17,12 @@ export class HeaderComponent implements OnInit {
     this.current_user = JSON.parse(localStorage.getItem('current_user'));
   }
 
+  logout() {
+    // remove user from local storage to log user out
+    sessionStorage.removeItem('userToken');
+    sessionStorage.removeItem('expires');
+  }
+
   ngOnInit() {}
 
 }
