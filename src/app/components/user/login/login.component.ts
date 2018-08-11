@@ -22,16 +22,13 @@ export class LoginComponent implements OnInit {
   ) { }
 
   redirect(hash_password, user_obj) {
-    console.log(typeof user_obj.secret);
-    console.log(typeof hash_password);
     if(user_obj.secret === hash_password) {
-      console.log("uguali");
       let expire_date = this.date.setHours(this.date.getHours() + 2);
       localStorage.setItem('userToken', hash_password);
       localStorage.setItem('expires', (expire_date).toString());
       this.router.navigate(['/']);
     } else {
-      console.log("diversi");
+      this.loading = false;
       this.alert_message = "access-denied";
     }
   }
@@ -42,7 +39,6 @@ export class LoginComponent implements OnInit {
     form.value.secret = md5_psw;
     this.service.getBy("users", "email", form.value.email).subscribe(
       data => {
-        console.log(data);
         this.redirect(form.value.secret, data);
       },
       err => {
@@ -60,7 +56,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.logout();
+    //this.logout();
+    if((localStorage.getItem('userToken') != null) && (this.date.getTime() < Number(localStorage.getItem('expires')))) {
+      this.router.navigate(['/']);
+    }
   }
 
 }

@@ -17,6 +17,7 @@ export class RegisterComponent {
 
   loading:boolean = false;
   private alert_message;
+  date = new Date();
 
   constructor(
     private service: Service,
@@ -52,6 +53,10 @@ export class RegisterComponent {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if((localStorage.getItem('userToken') != null) && (this.date.getTime() < Number(localStorage.getItem('expires')))) {
+      this.router.navigate(['/']);
+    }
+  }
 
 }
