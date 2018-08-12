@@ -4,6 +4,7 @@ import { md5 } from '../../../helpers/md5';
 
 // Services
 import { Service } from '../../../services/index';
+import { SetGetService } from '../../../services/set_get.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: Service
+    private service: Service,
+    private data_service: SetGetService
   ) { }
 
   redirect(hash_password, user_obj) {
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
     form.value.secret = md5_psw;
     this.service.getBy("users", "email", form.value.email).subscribe(
       data => {
+        this.data_service.set(data);
         this.redirect(form.value.secret, data);
       },
       err => {

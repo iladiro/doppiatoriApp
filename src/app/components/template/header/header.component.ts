@@ -4,6 +4,9 @@ import { Router} from "@angular/router";
 // Models
 import { User } from '../../user/_models/index';
 
+// Services
+import { SetGetService } from '../../../services/set_get.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,16 +16,20 @@ export class HeaderComponent implements OnInit {
 
   current_user: User;
 
-  constructor( private router: Router ) {
-    this.current_user = JSON.parse(localStorage.getItem('current_user'));
-  }
+  constructor(
+    private data_service: SetGetService,
+    private router: Router
+  ) {}
 
   logout() {
     // remove user from local storage to log user out
     sessionStorage.removeItem('userToken');
     sessionStorage.removeItem('expires');
+    this.router.navigate(['/signin']);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.current_user = this.data_service.get();
+  }
 
 }

@@ -8,6 +8,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 // Services
 import { Service } from './services/http.service';
+import { SetGetService } from './services/set_get.service';
 import { DubberService } from './components/dubber/_services/dubbers.service';
 import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/dubber/details/invoice/_services/index';
@@ -169,6 +170,7 @@ import { LoginComponent } from './components/user/login/login.component';
   ],
   providers: [
     Service,
+    SetGetService,
     DubberService,
     FilmService,
     InvoiceService,
