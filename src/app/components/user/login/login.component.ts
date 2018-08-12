@@ -4,7 +4,6 @@ import { md5 } from '../../../helpers/md5';
 
 // Services
 import { Service } from '../../../services/index';
-import { SetGetService } from '../../../services/set_get.service';
 
 @Component({
   selector: 'app-login',
@@ -19,15 +18,16 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: Service,
-    private data_service: SetGetService
+    private service: Service
   ) { }
 
   redirect(hash_password, user_obj) {
     if(user_obj.secret === hash_password) {
+      delete user_obj.secret;
       let expire_date = this.date.setHours(this.date.getHours() + 2);
       sessionStorage.setItem('userToken', hash_password);
       sessionStorage.setItem('expires', (expire_date).toString());
+      sessionStorage.setItem('user', JSON.stringify(user_obj));
       this.router.navigate(['/']);
     } else {
       this.loading = false;
@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
     form.value.secret = md5_psw;
     this.service.getBy("users", "email", form.value.email).subscribe(
       data => {
-        this.data_service.set(data);
         this.redirect(form.value.secret, data);
       },
       err => {

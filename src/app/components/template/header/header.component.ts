@@ -4,9 +4,6 @@ import { Router} from "@angular/router";
 // Models
 import { User } from '../../user/_models/index';
 
-// Services
-import { SetGetService } from '../../../services/set_get.service';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,10 +11,10 @@ import { SetGetService } from '../../../services/set_get.service';
 })
 export class HeaderComponent implements OnInit {
 
-  current_user: User;
+  //current_user: User;
+  private current_user = JSON.parse(sessionStorage.getItem('user'));
 
   constructor(
-    private data_service: SetGetService,
     private router: Router
   ) {}
 
@@ -28,8 +25,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/signin']);
   }
 
-  ngOnInit() {
-    this.current_user = this.data_service.get();
-  }
+  ngOnInit() {}
 
 }
