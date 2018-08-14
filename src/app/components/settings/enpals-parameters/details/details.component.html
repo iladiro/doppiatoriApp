@@ -6,87 +6,123 @@
       <form #form="ngForm" (ngSubmit)="update(form)" novalidate class="form--light">
         <div class="form-row">
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': quota_enpals_lavoratore.invalid && (quota_enpals_lavoratore.dirty || quota_enpals_lavoratore.touched),
+              'has-success': quota_enpals_lavoratore.valid && (quota_enpals_lavoratore.dirty || quota_enpals_lavoratore.touched)
+            }">
               <label for="quota_enpals_lavoratore">Quota enpals lavoratore %</label>
               <input type="text" class="form-control black" name="quota_enpals_lavoratore" [(ngModel)]="enpals_parameter.quota_enpals_lavoratore" #quota_enpals_lavoratore="ngModel" required />
-              <div *ngIf="form.submitted && !quota_enpals_lavoratore.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="quota_enpals_lavoratore.invalid && (quota_enpals_lavoratore.dirty || quota_enpals_lavoratore.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': quota_enpals_ditta.invalid && (quota_enpals_ditta.dirty || quota_enpals_ditta.touched),
+              'has-success': quota_enpals_ditta.valid && (quota_enpals_ditta.dirty || quota_enpals_ditta.touched)
+            }">
               <label for="quota_enpals_ditta">Quota enpals ditta %</label>
               <input type="text" class="form-control black" name="quota_enpals_ditta" [(ngModel)]="enpals_parameter.quota_enpals_ditta" #quota_enpals_ditta="ngModel" required />
-              <div *ngIf="form.submitted && !quota_enpals_ditta.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="quota_enpals_ditta.invalid && (quota_enpals_ditta.dirty || quota_enpals_ditta.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': minimale_inps.invalid && (minimale_inps.dirty || minimale_inps.touched),
+              'has-success': minimale_inps.valid && (minimale_inps.dirty || minimale_inps.touched)
+            }">
               <label for="minimale_inps">Minimale inps</label>
               <input type="text" class="form-control black" name="minimale_inps" [(ngModel)]="enpals_parameter.minimale_inps" #minimale_inps="ngModel" required />
-              <div *ngIf="form.submitted && !minimale_inps.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="minimale_inps.invalid && (minimale_inps.dirty || minimale_inps.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': percentuale_minimale_inps.invalid && (percentuale_minimale_inps.dirty || percentuale_minimale_inps.touched),
+              'has-success': percentuale_minimale_inps.valid && (percentuale_minimale_inps.dirty || percentuale_minimale_inps.touched)
+            }">
               <label for="percentuale_minimale_inps">Percentuale minimale inps %</label>
               <input type="text" class="form-control black" name="percentuale_minimale_inps" [(ngModel)]="enpals_parameter.percentuale_minimale_inps" #percentuale_minimale_inps="ngModel" required />
-              <div *ngIf="form.submitted && !percentuale_minimale_inps.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="percentuale_minimale_inps.invalid && (percentuale_minimale_inps.dirty || percentuale_minimale_inps.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': minimale_enpals.invalid && (minimale_enpals.dirty || minimale_enpals.touched),
+              'has-success': minimale_enpals.valid && (minimale_enpals.dirty || minimale_enpals.touched)
+            }">
               <label for="minimale_enpals">Minimale enpals</label>
               <input type="text" class="form-control black" name="minimale_enpals" [(ngModel)]="enpals_parameter.minimale_enpals" #minimale_enpals="ngModel" required />
-              <div *ngIf="form.submitted && !minimale_enpals.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="minimale_enpals.invalid && (minimale_enpals.dirty || minimale_enpals.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': trattenuta_pensione.invalid && (trattenuta_pensione.dirty || trattenuta_pensione.touched),
+              'has-success': trattenuta_pensione.valid && (trattenuta_pensione.dirty || trattenuta_pensione.touched)
+            }">
               <label for="trattenuta_pensione">Trattenuta pensione</label>
               <input type="text" class="form-control black" name="trattenuta_pensione" [(ngModel)]="enpals_parameter.trattenuta_pensione" #trattenuta_pensione="ngModel" required />
-              <div *ngIf="form.submitted && !trattenuta_pensione.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="trattenuta_pensione.invalid && (trattenuta_pensione.dirty || trattenuta_pensione.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': massimale_enpals_ante.invalid && (massimale_enpals_ante.dirty || massimale_enpals_ante.touched),
+              'has-success': massimale_enpals_ante.valid && (massimale_enpals_ante.dirty || massimale_enpals_ante.touched)
+            }">
               <label for="massimale_enpals_ante">Massimale enpals  &lt; '95</label>
               <input type="text" class="form-control black" name="massimale_enpals_ante" [(ngModel)]="enpals_parameter.massimale_enpals_ante" #massimale_enpals_ante="ngModel" required />
-              <div *ngIf="form.submitted && !massimale_enpals_ante.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="massimale_enpals_ante.invalid && (massimale_enpals_ante.dirty || massimale_enpals_ante.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': massimale_enpals_dopo.invalid && (massimale_enpals_dopo.dirty || massimale_enpals_dopo.touched),
+              'has-success': massimale_enpals_dopo.valid && (massimale_enpals_dopo.dirty || massimale_enpals_dopo.touched)
+            }">
               <label for="massimale_enpals_dopo">Massimale enpals &gt; '95</label>
               <input type="text" class="form-control black" name="massimale_enpals_dopo" [(ngModel)]="enpals_parameter.massimale_enpals_dopo" #massimale_enpals_dopo="ngModel" required />
-              <div *ngIf="form.submitted && !massimale_enpals_dopo.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="massimale_enpals_dopo.invalid && (massimale_enpals_dopo.dirty || massimale_enpals_dopo.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': quota_enpals_ecc_massimale_lavoratore.invalid && (quota_enpals_ecc_massimale_lavoratore.dirty || quota_enpals_ecc_massimale_lavoratore.touched),
+              'has-success': quota_enpals_ecc_massimale_lavoratore.valid && (quota_enpals_ecc_massimale_lavoratore.dirty || quota_enpals_ecc_massimale_lavoratore.touched)
+            }">
               <label for="quota_enpals_ecc_massimale_lavoratore">Quota enpals ecc massimale lavoratore  %</label>
               <input type="text" class="form-control black" name="quota_enpals_ecc_massimale_lavoratore" [(ngModel)]="enpals_parameter.quota_enpals_ecc_massimale_lavoratore" #quota_enpals_ecc_massimale_lavoratore="ngModel" required />
-              <div *ngIf="form.submitted && !quota_enpals_ecc_massimale_lavoratore.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="quota_enpals_ecc_massimale_lavoratore.invalid && (quota_enpals_ecc_massimale_lavoratore.dirty || quota_enpals_ecc_massimale_lavoratore.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': quota_enpals_ecc_massimale_ditta.invalid && (quota_enpals_ecc_massimale_ditta.dirty || quota_enpals_ecc_massimale_ditta.touched),
+              'has-success': quota_enpals_ecc_massimale_ditta.valid && (quota_enpals_ecc_massimale_ditta.dirty || quota_enpals_ecc_massimale_ditta.touched)
+            }">
               <label for="quota_enpals_ecc_massimale_ditta">Quota enpals ecc massimale ditta  %</label>
               <input type="text" class="form-control black" name="quota_enpals_ecc_massimale_ditta" [(ngModel)]="enpals_parameter.quota_enpals_ecc_massimale_ditta" #quota_enpals_ecc_massimale_ditta="ngModel" required />
-              <div *ngIf="form.submitted && !quota_enpals_ecc_massimale_ditta.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="quota_enpals_ecc_massimale_ditta.invalid && (quota_enpals_ecc_massimale_ditta.dirty || quota_enpals_ecc_massimale_ditta.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': minimale_giornaliero_aliquota_aggiuntiva.invalid && (minimale_giornaliero_aliquota_aggiuntiva.dirty || minimale_giornaliero_aliquota_aggiuntiva.touched),
+              'has-success': minimale_giornaliero_aliquota_aggiuntiva.valid && (minimale_giornaliero_aliquota_aggiuntiva.dirty || minimale_giornaliero_aliquota_aggiuntiva.touched)
+            }">
               <label for="minimale_giornaliero_aliquota_aggiuntiva">Minimale giornaliero aliquota aggiuntiva</label>
               <input type="text" class="form-control black" name="minimale_giornaliero_aliquota_aggiuntiva" [(ngModel)]="enpals_parameter.minimale_giornaliero_aliquota_aggiuntiva" #minimale_giornaliero_aliquota_aggiuntiva="ngModel" required />
-              <div *ngIf="form.submitted && !minimale_giornaliero_aliquota_aggiuntiva.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="minimale_giornaliero_aliquota_aggiuntiva.invalid && (minimale_giornaliero_aliquota_aggiuntiva.dirty || minimale_giornaliero_aliquota_aggiuntiva.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="form-group">
+            <div class="form-group" [ngClass]="{
+              'has-danger': percentuale_aliquota_aggiuntiva.invalid && (percentuale_aliquota_aggiuntiva.dirty || percentuale_aliquota_aggiuntiva.touched),
+              'has-success': percentuale_aliquota_aggiuntiva.valid && (percentuale_aliquota_aggiuntiva.dirty || percentuale_aliquota_aggiuntiva.touched)
+            }">
               <label for="percentuale_aliquota_aggiuntiva">Aliquota aggiuntiva %</label>
               <input type="text" class="form-control black" name="percentuale_aliquota_aggiuntiva" [(ngModel)]="enpals_parameter.percentuale_aliquota_aggiuntiva" #percentuale_aliquota_aggiuntiva="ngModel" required />
-              <div *ngIf="form.submitted && !percentuale_aliquota_aggiuntiva.valid" class="is-invalid">Valore non valido</div>
+              <div *ngIf="percentuale_aliquota_aggiuntiva.invalid && (percentuale_aliquota_aggiuntiva.dirty || percentuale_aliquota_aggiuntiva.touched)" class="text-danger pt-5">Valore non valido</div>
             </div>
           </div>
         </div>
