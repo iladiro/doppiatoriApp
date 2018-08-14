@@ -1,4 +1,10 @@
 <td>
+  <input type="text" id="reference_month" [readonly]="_readonly" [class.black]="_readonly" class="form-control text-capitalize" placeholder="Mese" [(ngModel)]="current_data.reference_month" name="reference_month" #reference_month="ngModel" required>
+</td>
+<td>
+  <input type="text" id="reference_year" [readonly]="_readonly" [class.black]="_readonly" class="form-control text-capitalize" placeholder="Anno" [(ngModel)]="current_data.reference_year" name="reference_year" #reference_year="ngModel" required>
+</td>
+<td>
   <input type="text" id="data_payments" [readonly]="_readonly" [class.black]="_readonly" class="form-control text-capitalize" placeholder="Data versamento" [(ngModel)]="current_data.data_payments" name="data_payments" #data_payments="ngModel" required>
 </td>
 <td>

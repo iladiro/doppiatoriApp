@@ -18,6 +18,7 @@ import { AuthGuard } from './components/user/_auth/auth.guard';
 
 // Helpers
 import { PrintYears } from './helpers/print-years';
+import { PrintMonths } from './helpers/print-months';
 import { LoadAllItems } from './helpers/load-all-items';
 
 // Layouts
@@ -175,6 +176,7 @@ import { LoginComponent } from './components/user/login/login.component';
     UserService,
     EnpalsPaymentsService,
     PrintYears,
+    PrintMonths,
     LoadAllItems,
     AuthGuard
   ],

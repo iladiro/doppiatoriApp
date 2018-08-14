@@ -8,9 +8,9 @@
       <li class="nav-item" [class.active]="router.url==='/'">
         <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" [class.active]="router.url==='/dubbers' || router.url==='/dubbers/list' || router.url==='/dubbers/archived'">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Doppiatori
+          Collaboratori
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" [routerLink]="['/dubbers/list']">Lista</a>
@@ -20,17 +20,7 @@
       <li class="nav-item" [class.active]="router.url==='/films'">
         <a class="nav-link" [routerLink]="['/films']">Film</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Impostazioni
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" [routerLink]="['/settings/qualifications']">Qualifiche</a>
-          <a class="dropdown-item" [routerLink]="['/settings/companies']">Aziende</a>
-          <a class="dropdown-item" [routerLink]="['/settings/enpals-parameters']">Parametri Enpals</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" [class.active]="router.url==='/enaplspayments' || router.url==='/enaplspayments/report'">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Enapls versamenti
         </a>
@@ -39,16 +29,23 @@
           <a class="dropdown-item" [routerLink]="['/enaplspayments/report']">Report</a>
         </div>
       </li>
-      <!-- <li class="nav-item" [class.active]="router.url==='/enaplspayments'">
-        <a class="nav-link" [routerLink]="['/enaplspayments']">Enapls versamenti</a>
-      </li> -->
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" [class.active]="router.url==='/todo' || router.url==='/todo/list' || router.url==='/todo/expired'">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           To Do
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" [routerLink]="['/todo/list']">List</a>
           <a class="dropdown-item" [routerLink]="['/todo/expired']">Scaduti</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" [class.active]="router.url==='/settings' || router.url==='/settings/qualifications' || router.url==='/settings/companies' || router.url==='/settings/enpals-parameters'">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          Impostazioni
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="['/settings/qualifications']">Qualifiche</a>
+          <a class="dropdown-item" [routerLink]="['/settings/companies']">Aziende</a>
+          <a class="dropdown-item" [routerLink]="['/settings/enpals-parameters']">Parametri Enpals</a>
         </div>
       </li>
     </ul>

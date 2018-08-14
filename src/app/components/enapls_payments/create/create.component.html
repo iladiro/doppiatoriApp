@@ -4,19 +4,53 @@
     <div class="general-card__body">
       <form name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate class="form--light">
         <div class="mb-30">
-          <div class="form-group" [ngClass]="{
-            'has-danger': data_payments.invalid && (data_payments.dirty || data_payments.touched),
-            'has-success': data_payments.valid && (data_payments.dirty || data_payments.touched)
-          }">
-            <label for="data_payments">Data versamento **</label> <span *ngIf="data_payments.invalid && (data_payments.dirty || data_payments.touched)" class="text-danger">* Campo non valido</span>
-            <input id="data_payments" type="date" class="form-control black text-capitalize" placeholder="Data versamento" [(ngModel)]="enpalspayment.data_payments" name="data_payments" #data_payments="ngModel" required>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group" [ngClass]="{
+                'has-danger': reference_month.invalid && (reference_month.dirty || reference_month.touched),
+                'has-success': reference_month.valid && (reference_month.dirty || reference_month.touched)
+              }">
+                <label for="reference_month">Mese </label> <span *ngIf="f.submitted && reference_month.invalid || reference_month.invalid && (reference_month.dirty || reference_month.touched)" class="text-danger">* Campo non valido</span>
+                <select id="reference_month" class="form-control black text-capitalize" ngModel name="reference_month" #reference_month="ngModel" required>
+                  <option *ngFor="let month of months" [value]="month.text">
+                    {{month.text}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [ngClass]="{
+                'has-danger': reference_year.invalid && (reference_year.dirty || reference_year.touched),
+                'has-success': reference_year.valid && (reference_year.dirty || reference_year.touched)
+              }">
+                <label for="reference_year">Anno </label> <span *ngIf="f.submitted && reference_year.invalid || reference_year.invalid && (reference_year.dirty || reference_year.touched)" class="text-danger">* Campo non valido</span>
+                <select id="reference_year" class="form-control black text-capitalize" ngModel name="reference_year" #reference_year="ngModel" required>
+                  <option *ngFor="let year of years" value="{{year}}">
+                    {{year}}
+                  </option>
+                </select>
+              </div>
+            </div>
           </div>
-          <div class="form-group" [ngClass]="{
-            'has-danger': amount.invalid && (amount.dirty || amount.touched),
-            'has-success': amount.valid && (amount.dirty || amount.touched)
-          }">
-            <label for="amount">Importo **</label> <span *ngIf="amount.invalid && (amount.dirty || amount.touched)" class="text-danger">* Campo non valido</span>
-            <input id="amount" type="number" class="form-control black text-capitalize" placeholder="Importo" [(ngModel)]="enpalspayment.amount" name="amount" #amount="ngModel" required>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group" [ngClass]="{
+                'has-danger': data_payments.invalid && (data_payments.dirty || data_payments.touched),
+                'has-success': data_payments.valid && (data_payments.dirty || data_payments.touched)
+              }">
+                <label for="data_payments">Data versamento </label> <span *ngIf="f.submitted && data_payments.invalid || data_payments.invalid && (data_payments.dirty || data_payments.touched)" class="text-danger">* Campo non valido</span>
+                <input id="data_payments" type="date" class="form-control black text-capitalize" placeholder="Data versamento" ngModel name="data_payments" #data_payments="ngModel" required>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group" [ngClass]="{
+                'has-danger': amount.invalid && (amount.dirty || amount.touched),
+                'has-success': amount.valid && (amount.dirty || amount.touched)
+              }">
+                <label for="amount">Importo </label> <span *ngIf="f.submitted && amount.invalid || amount.invalid && (amount.dirty || amount.touched)" class="text-danger">* Campo non valido</span>
+                <input id="amount" type="number" class="form-control black text-capitalize" placeholder="Importo" ngModel name="amount" #amount="ngModel" required>
+              </div>
+            </div>
           </div>
           <div class="form-row">
             <div class="col">
@@ -24,8 +58,8 @@
                 'has-danger': abi.invalid && (abi.dirty || abi.touched),
                 'has-success': abi.valid && (abi.dirty || abi.touched)
               }">
-                <label for="abi">ABI **</label> <span *ngIf="abi.invalid && (abi.dirty || abi.touched)" class="text-danger">* Campo non valido</span>
-                <input id="abi" type="text" class="form-control black text-capitalize" placeholder="ABI" [(ngModel)]="enpalspayment.abi" name="abi" #abi="ngModel" required>
+                <label for="abi">ABI </label> <span *ngIf="f.submitted && abi.invalid || abi.invalid && (abi.dirty || abi.touched)" class="text-danger">* Campo non valido</span>
+                <input id="abi" type="text" class="form-control black text-capitalize" placeholder="ABI" ngModel name="abi" #abi="ngModel" required>
               </div>
             </div>
             <div class="col">
@@ -33,8 +67,8 @@
                 'has-danger': cab.invalid && (cab.dirty || cab.touched),
                 'has-success': cab.valid && (cab.dirty || cab.touched)
               }">
-                <label for="cab">CAB **</label> <span *ngIf="cab.invalid && (cab.dirty || cab.touched)" class="text-danger">* Campo non valido</span>
-                <input id="cab" type="text" class="form-control black text-capitalize" placeholder="CAB" [(ngModel)]="enpalspayment.cab" name="cab" #cab="ngModel" required>
+                <label for="cab">CAB </label> <span *ngIf="f.submitted && cab.invalid || cab.invalid && (cab.dirty || cab.touched)" class="text-danger">* Campo non valido</span>
+                <input id="cab" type="text" class="form-control black text-capitalize" placeholder="CAB" ngModel name="cab" #cab="ngModel" required>
               </div>
             </div>
           </div>

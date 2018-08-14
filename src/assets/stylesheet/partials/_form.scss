@@ -68,12 +68,12 @@
     color: #bb0808;
   }
   &.has-success {
-    input, textarea {
+    input, textarea, select {
       @include border(1px, #5cb85c);
     }
   }
   &.has-danger {
-    input, textarea {
+    input, textarea, select {
       @include border(1px, #bb0808);
     }
   }
