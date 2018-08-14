@@ -1,6 +1,6 @@
 <header id="header" class="position-sticky navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-  <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">
-    <img src="../../../assets/images/logo.png" alt="Dubbers">
+  <a class="navbar-brand mr-0 mr-md-2" [routerLink]="['/']">
+    VOLTUMNA EDIZIONI
   </a>
 
   <div class="navbar-nav-scroll">
@@ -53,20 +53,22 @@
       </li>
     </ul>
   </div>
-  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-    <li class="nav-item dropdown" *ngIf="current_user">
-      <a class="nav-item nav-link dropdown-toggle mr-md-2 text-capitalize" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{current_user.firstname}} {{current_user.lastname}}
-      </a>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Settings</a>
-        <a class="dropdown-item" (click)="logout()">Logout</a>
-      </div>
-    </li>
-  </ul>
-  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex icons-nav">
-    <icons-nav></icons-nav>
-  </ul>
+  <div class="flex-row ml-md-auto d-none d-md-flex">
+    <ul class="navbar-nav icons-nav">
+      <icons-nav></icons-nav>
+    </ul>
+    <ul class="navbar-nav ml-md-3">
+      <li class="nav-item dropdown" *ngIf="current_user">
+        <a class="dropdown-toggle ml-md-2 text-capitalize" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{current_user.firstname}} {{current_user.lastname}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
   <!-- <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" *ngIf="current_user">
     <li class="nav-item dropdown">
       <a class="nav-item nav-link dropdown-toggle mr-md-2 text-capitalize" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
