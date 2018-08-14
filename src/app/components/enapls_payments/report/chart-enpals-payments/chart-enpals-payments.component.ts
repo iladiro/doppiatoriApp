@@ -125,7 +125,7 @@ export class ChartEnpalsPaymentsComponent implements OnInit {
 
   ngOnInit() {
     let current_year = this.date.getFullYear();
-    this.years = this.print_years.generate("1960");
+    this.years = this.print_years.generate("2004");
     this.getDate(current_year);
   }
 

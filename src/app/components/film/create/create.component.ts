@@ -28,12 +28,9 @@ export class AddFilmComponent {
   ) {}
 
   create(form){
-    let filmObj = Object.assign({}, this.film);
+    let filmObj = Object.assign({}, form.value);
     delete filmObj.dubbers;
-    //Send object film to server
-    this.service.create("films", filmObj)
-      // resp is of type `HttpResponse<Config>`
-    .subscribe(
+    this.service.create("films", filmObj).subscribe(
       resp => {
         let str = resp.headers.get("location");
         let patt = /(\d+)/g;
@@ -52,7 +49,7 @@ export class AddFilmComponent {
 
   private addFilmDubbersInRelationTable(form) {
     let film_id = this.id;
-    let dubbers_selected = this.film.dubbers;
+    let dubbers_selected = form.value.dubbers;
     let film_dubbers = [];
 
     if(this.status == "ok") {
