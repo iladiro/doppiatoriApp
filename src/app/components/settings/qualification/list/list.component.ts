@@ -67,27 +67,3 @@ export class QualificationListComponent implements OnInit {
   }
 
 }
-
-//private DB_table:string = "qualifications";
-// Settare i dati da passare al componente ricerca per eseguire la ricerca sulla giusta tabella del DB e in base a quale parametro
-// dataForRequestSearchComp = {
-//   "table": "qualifications",
-//   "parameters": ["code", "description"]
-// };
-// end
-
-// Valori che ritornano dopo la ricerca
-// private setFoundValueFromSearch(value){
-//   this.qualifications = value;
-// }
-// end
-// Salva i dati passati dal componente paginator
-// private datasetFromPaginator(items) {
-//   this.qualifications = items;
-// }
-// end
-//
-// private passCurrentItem(qualification) {
-//   this.modal_message.text = "Sei sicuro di voler cancellare la riga?";
-//   this.current_qualif = qualification;
-// }

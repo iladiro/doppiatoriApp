@@ -1,14 +1,5 @@
 <div class="container">
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
-  <nav class="row mb-3">
-    <div class="col">
-      <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
-    </div>
-    <div class="col text-right">
-      <a [routerLink]="['/settings/enpals-parameters/add']" class="btn btn--light">Aggiungi parametri enpals</a>
-    </div>
-  </nav>
   <div class="general-card card mb-4">
     <div class="general-card__body">
       <table class="table table--striped">
@@ -20,32 +11,19 @@
             <th>Minimale inps</th>
             <th>Percentuale minimale inps</th>
             <th>Minimale enpals</th>
-            <!--<th>massimale_enpals_ante</th>
-            <th>massimale_enpals_dopo</th>
-            <th>quota_enpals_ecc_massimale_lavoratore</th>
-            <th>quota_enpals_ecc_massimale_ditta</th>
-            <th>minimale_giornaliero_aliquota_aggiuntiva</th>
-            <th>percentuale_aliquota_aggiuntiva</th>
-            <th>trattenuta_pensione</th> -->
-            <!-- <th></th> -->
             <th></th>
           </tr>
         </thead>
         <tbody class="form--light">
-          <tr [enpals_param]="item" *ngFor="let item of enpals_parameters | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" setting-enpals-par-row></tr>
+          <tr [enpals_param]="item" *ngFor="let item of enpals_parameters" setting-enpals-par-row></tr>
         </tbody>
       </table>
-      <div class="d-flex justify-content-center" *ngIf="enpals_parameters.length >= 10">
-        <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
-      </div>
     </div>
   </div>
   <div class="row">
     <div class="col">
       <back-button></back-button>
     </div>
-    <div class="col text-right">
-      <a [routerLink]="['/settings/enpals-parameters/add']" class="btn btn--light">Aggiungi parametri enpals</a>
-    </div>
+    <div class="col text-right"></div>
   </div>
 </div>

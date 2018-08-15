@@ -6,7 +6,6 @@ import { Qualification } from '../_models/index';
 
 // Services
 import { Service } from '../../../../services/index';
-// import { QualificationService } from '../_services/index';
 
 @Component({
   templateUrl: './details.component.html',
@@ -22,7 +21,6 @@ export class QualificationDetailsComponent implements OnInit {
 
   constructor(
     private service: Service,
-    //private qualifService: QualificationService,
     private route: ActivatedRoute
   ) { }
 

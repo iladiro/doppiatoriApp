@@ -7,17 +7,14 @@
           'has-danger': code.invalid && (code.dirty || code.touched),
           'has-success': code.valid && (code.dirty || code.touched)
         }">
-          <label for="code">Codice **</label> <span *ngIf="code.invalid && (code.dirty || code.touched)" class="text-danger">* Campo non valido</span>
+          <label for="code">Codice </label> <span *ngIf="code.invalid && (code.dirty || code.touched)" class="text-danger">* Campo non valido</span>
           <input id="code" type="text" class="form-control black text-capitalize" placeholder="Codice" ngModel name="code" #code="ngModel" maxlength="3" required>
-          <!-- <div *ngIf="code.errors?.maxlength">
-            Name can be max 10 characters long.
-          </div> -->
         </div>
         <div class="form-group" [ngClass]="{
           'has-danger': description.invalid && (description.dirty || description.touched),
           'has-success': description.valid && (description.dirty || description.touched)
         }">
-          <label for="description">Descrizione **</label> <span *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">* Campo non valido</span>
+          <label for="description">Descrizione </label> <span *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">* Campo non valido</span>
           <textarea id="description" class="form-control black" placeholder="Descrizione" ngModel name="description" #description="ngModel" maxlength="100" required></textarea>
         </div>
         <div class="row mt-30 mb-20">
@@ -25,7 +22,7 @@
             <back-button></back-button>
           </div>
           <div class="col text-right">
-            <button type="submit" class="btn btn-outline-success">Crea</button>
+            <button type="submit" class="btn btn-outline-success" [disabled]="f.invalid">Crea</button>
           </div>
         </div>
       </form>

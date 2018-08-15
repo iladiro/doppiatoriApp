@@ -2,9 +2,7 @@
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
   <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
   <nav class="row mb-3">
-    <div class="col">
-      <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
-    </div>
+    <div class="col"></div>
     <div class="col text-right">
       <a [routerLink]="['/settings/qualification/add']" class="btn btn--light">Aggiungi qualificazione</a>
     </div>

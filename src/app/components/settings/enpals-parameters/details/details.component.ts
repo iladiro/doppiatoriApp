@@ -23,7 +23,7 @@ export class EnpalsParameterDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  private update(form) {
+  private update() {
     this.service.update("enpals_parameters", this.enpals_parameter).subscribe(
       data => {
         this.alert_message = "success";
