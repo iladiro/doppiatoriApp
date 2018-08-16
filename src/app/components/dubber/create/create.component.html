@@ -232,21 +232,27 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3">
-              <div class="form-group">
-                <label for="bank_account">Conto Corrente</label>
-                <input id="bank_account" type="text" class="form-control black text-capitalize" placeholder="C/C" [(ngModel)]="bank.bank_account" name="bank_account" #bank_account="ngModel">
+              <div class="form-group" [ngClass]="{
+                'has-danger': bank_account.invalid && (bank_account.dirty || bank_account.touched)
+              }">
+                <label for="bank_account">Conto Corrente</label> <span *ngIf="bank_account.invalid && (bank_account.dirty || bank_account.touched)" class="text-danger">Campo non valido</span>
+                <input id="bank_account" type="text" class="form-control black text-capitalize" placeholder="C/C" [(ngModel)]="bank.bank_account" name="bank_account" #bank_account="ngModel" pattern="[0-9]{12}">
               </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3">
-              <div class="form-group">
-                <label for="abi">ABI</label>
-                <input id="abi" type="text" class="form-control black text-capitalize" placeholder="ABI" [(ngModel)]="bank.abi" name="abi" #abi="ngModel">
+              <div class="form-group" [ngClass]="{
+                'has-danger': abi.invalid && (abi.dirty || abi.touched)
+              }">
+                <label for="abi">ABI</label> <span *ngIf="abi.invalid && (abi.dirty || abi.touched)" class="text-danger">Campo non valido</span>
+                <input id="abi" type="text" class="form-control black text-capitalize" placeholder="ABI" [(ngModel)]="bank.abi" name="abi" #abi="ngModel" pattern="[0-9]{5}">
               </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3">
-              <div class="form-group">
-                <label for="cab">CAB</label>
-                <input id="cab" type="text" class="form-control black text-capitalize" placeholder="CAB" [(ngModel)]="bank.cab" name="cab" #cab="ngModel" >
+              <div class="form-group" [ngClass]="{
+                'has-danger': cab.invalid && (cab.dirty || cab.touched)
+              }">
+                <label for="cab">CAB</label> <span *ngIf="cab.invalid && (cab.dirty || cab.touched)" class="text-danger">Campo non valido</span>
+                <input id="cab" type="text" class="form-control black text-capitalize" placeholder="CAB" [(ngModel)]="bank.cab" name="cab" #cab="ngModel" pattern="[0-9]{5}">
               </div>
             </div>
           </div>

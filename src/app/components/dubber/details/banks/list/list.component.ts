@@ -11,84 +11,40 @@ import { Service } from '../../../../../services/index';
 export class BanksListComponent implements OnInit {
 
   @Input() dubber: any;
-  @Output() event = new EventEmitter();
-
-  private current_bank;
-
-  private modal_message = {
-    "text": "Sei sicuro di voler cancellarlo?"
-  };
+  @Output() msg = new EventEmitter();
+  @Output() current_bank = new EventEmitter();
+  // @Input() current_bank;
 
   constructor(
     private service: Service
   ) { }
 
-  private setConfirm(data) {
-    if(data == "true") {
-      this.delete(this.current_bank);
-    }
+  private getData(data){
+    console.log(data.item);
+    this.current_bank.emit(data.item);
   }
 
-  delete(bank) {
-    let index = this.dubber.banks.indexOf(bank);
-    this.service.delete("banks", "id", bank.id).subscribe(
-      data => {
-        if(index > -1) {
-          this.dubber.banks.splice(index, 1);
-        }
-        this.event.emit("delete");
-      },
-      err => {
-        this.event.emit("rejected");
-      }
-    )
+  private getMessage(text) {
+    this.msg.emit({text: text, type: 'modal'});
   }
 
-  //called from button into view
-  asDefault(bank) {
-    this.resetAllAsDefault(bank)
-  }
-
-  resetAllAsDefault(bank) {
-    let reset = {
-      "_default": false
-    }
-    this.service.resetDefault("banks", bank.dubber_id, reset).subscribe(
-      data => {},
-      err => {
-        console.log(err)
-      },
-      () => this.setAsDefault(bank)
-    )
-  }
-
-  setAsDefault(bank) {
-    let set = {
-      "_default": true
-    }
-    this.service.setAsDefault("banks", bank.id, set).subscribe(
-      data => {
-        this.resetBankArrayValue(bank.id);
-      },
-      err => {
-        console.log(err)
-      }
-    )
-  }
-
-  resetBankArrayValue(bank_id) {
-    this.dubber.banks.map(function(bank) {
-      if(bank.id == bank_id) {
-        bank._default = true
-      } else {
-        bank._default = false
-      }
-    })
-  }
+  // delete(bank) {
+  //   console.log(bank);
+  //   let index = this.dubber.banks.indexOf(bank.item);
+  //   this.service.delete("banks", "id", bank.item.id).subscribe(
+  //     data => {
+  //       if(index > -1) {
+  //         this.dubber.banks.splice(index, 1);
+  //       }
+  //       this.msg.emit("delete");
+  //     },
+  //     err => {
+  //       this.msg.emit("rejected");
+  //     }
+  //   )
+  // }
 
 
-  ngOnInit() {
-    //console.log(this.dubber)
-  }
+  ngOnInit() {}
 
 }

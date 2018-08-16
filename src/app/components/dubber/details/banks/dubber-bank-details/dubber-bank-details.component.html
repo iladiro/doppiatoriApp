@@ -1,0 +1,52 @@
+<form #f="ngForm" novalidate class="form--light">
+  <div class="bg-light p-all-side-20 mb-15">
+    <div class="form-group">
+      <label>Nome Banca <span *ngIf="bank._default == true" class="badge badge-secondary">| Predefinito</span></label>
+      <!-- [] => messo il valore; [()] => messo e preso il valore -->
+      <input type="text" class="form-control black text-capitalize" placeholder="Banca" name="bank_name" [(ngModel)]="bank.bank_name">
+    </div>
+    <div class="form-group">
+      <label>Agenzia</label>
+      <input type="text" class="form-control black text-capitalize" placeholder="Agenzia" name="bank_agency" [(ngModel)]="bank.bank_agency">
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group" [ngClass]="{
+          'has-danger': bank_account.invalid && (bank_account.dirty || bank_account.touched)
+        }">
+          <label>Conto Corrente</label> <span *ngIf="bank_account.invalid && (bank_account.dirty || bank_account.touched)" class="text-danger">Campo non valido</span>
+          <input type="text" class="form-control black text-capitalize" placeholder="C/C" name="bank_account" #bank_account="ngModel" [(ngModel)]="bank.bank_account" pattern="[0-9]{12}">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3 pl-0">
+        <div class="form-group" [ngClass]="{
+          'has-danger': abi.invalid && (abi.dirty || abi.touched)
+        }">
+          <label>ABI</label> <span *ngIf="abi.invalid && (abi.dirty || abi.touched)" class="text-danger">Campo non valido</span>
+          <input type="text" class="form-control black text-capitalize" placeholder="ABI" name="abi" #abi="ngModel" [(ngModel)]="bank.abi" pattern="[0-9]{5}">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-3 pl-0">
+        <div class="form-group" [ngClass]="{
+          'has-danger': cab.invalid && (cab.dirty || cab.touched)
+        }">
+          <label>CAB</label> <span *ngIf="cab.invalid && (cab.dirty || cab.touched)" class="text-danger">Campo non valido</span>
+          <input type="text" class="form-control black text-capitalize" placeholder="CAB" name="cab" #cab="ngModel" [(ngModel)]="bank.cab" pattern="[0-9]{5}">
+        </div>
+      </div>
+    </div>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <button (click)="passDataToParent('delete')" class="btn btn--dark mr-2" data-toggle="modal" data-target="#exampleModal" title="Elimina">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+        <button (click)="f.form.valid && update(f)" class="btn btn-outline-success" [disabled]="f.invalid">Salva modifiche</button>
+      </div>
+      <div class="btn-group" role="group" aria-label="Second group" *ngIf="bank._default != true">
+        <button (click)="asDefault(bank)" class="btn btn-secondary">
+          Seleziona come predefinito
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

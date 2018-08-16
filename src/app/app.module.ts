@@ -94,6 +94,7 @@ import { SettingQualificationRowComponent } from './components/settings/qualific
 import { SettingCompanyRowComponent } from './components/settings/company/list/row/row.component';
 import { SettingEnpalsParamRowComponent } from './components/settings/enpals-parameters/list/row/row.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { DubberBankDetailsComponent } from './components/dubber/details/banks/dubber-bank-details/dubber-bank-details.component';
 
 @NgModule({
   declarations: [
@@ -157,7 +158,8 @@ import { LoginComponent } from './components/user/login/login.component';
     SettingEnpalsParamRowComponent,
     LoginComponent,
     LoggedLayoutComponent,
-    NotloggedLayoutComponent
+    NotloggedLayoutComponent,
+    DubberBankDetailsComponent
   ],
   imports: [
     BrowserModule,

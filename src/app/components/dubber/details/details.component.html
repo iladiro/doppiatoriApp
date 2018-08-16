@@ -10,7 +10,7 @@
         </div>
         <div class="col-sm-10">
           <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-          <!-- <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt> -->
+          <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
@@ -38,7 +38,7 @@
               <tax-information [dubber]="this.dubber"></tax-information>
             </div>
             <div class="tab-pane" id="banks" role="tabpanel">
-              <banksList [dubber]="this.dubber" (event)="setMessage($event)"></banksList>
+              <banksList [dubber]="this.dubber" (current_bank)="setData($event)" (msg)="setMessage($event)"></banksList>
               <bankForm [dubber]="this.dubber" (event)="setMessage($event)"></bankForm>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
