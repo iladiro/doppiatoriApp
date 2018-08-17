@@ -29,48 +29,6 @@ export class DubberBankDetailsComponent implements OnInit {
     this.data.emit({item: this.bank, request_type: request_type})
   }
 
-  //called from button into view
-  asDefault(bank) {
-    this.resetAllAsDefault(bank)
-  }
-
-  resetAllAsDefault(bank) {
-    let reset = {
-      "_default": false
-    }
-    this.service.resetDefault("banks", bank.dubber_id, reset).subscribe(
-      data => {},
-      err => {
-        console.log(err)
-      },
-      () => this.setAsDefault(bank)
-    )
-  }
-
-  setAsDefault(bank) {
-    let set = {
-      "_default": true
-    }
-    this.service.setAsDefault("banks", bank.id, set).subscribe(
-      data => {
-        //this.resetBankArrayValue(bank.id);
-      },
-      err => {
-        console.log(err)
-      }
-    )
-  }
-
-  // resetBankArrayValue(bank_id) {
-  //   this.dubber.banks.map(function(bank) {
-  //     if(bank.id == bank_id) {
-  //       bank._default = true
-  //     } else {
-  //       bank._default = false
-  //     }
-  //   })
-  // }
-
   ngOnInit() {}
 
 }

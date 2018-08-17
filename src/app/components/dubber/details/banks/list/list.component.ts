@@ -13,20 +13,64 @@ export class BanksListComponent implements OnInit {
   @Input() dubber: any;
   @Output() msg = new EventEmitter();
   @Output() current_bank = new EventEmitter();
-  // @Input() current_bank;
 
   constructor(
     private service: Service
   ) { }
 
   private getData(data){
-    console.log(data.item);
     this.current_bank.emit(data.item);
+    if(data.request_type == 'set_default') {
+      this.asDefault(data.item)
+    }
   }
 
   private getMessage(text) {
     this.msg.emit({text: text, type: 'modal'});
   }
+
+  //called from button into view
+  asDefault(bank) {
+    this.resetAllAsDefault(bank)
+  }
+
+  resetAllAsDefault(bank) {
+    let reset = {
+      "_default": false
+    }
+    this.service.resetDefault("banks", bank.dubber_id, reset).subscribe(
+      data => {},
+      err => {
+        console.log(err)
+      },
+      () => this.setAsDefault(bank)
+    )
+  }
+
+  setAsDefault(bank) {
+    let set = {
+      "_default": true
+    }
+    this.service.setAsDefault("banks", bank.id, set).subscribe(
+      data => {
+        this.resetBankArrayValue(bank.id);
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
+  resetBankArrayValue(bank_id) {
+    this.dubber.banks.map(function(bank) {
+      if(bank.id == bank_id) {
+        bank._default = true
+      } else {
+        bank._default = false
+      }
+    })
+  }
+
 
   // delete(bank) {
   //   console.log(bank);

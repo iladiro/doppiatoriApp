@@ -18,11 +18,15 @@ export class BankCreateComponent implements OnInit {
     private service: Service
   ) { }
 
-  create() {
-    this.bank.dubber_id = this.dubber.id;
-    this.service.create("banks", this.bank).subscribe(
+  create(form) {
+    form.value.dubber_id = this.dubber.id;
+    this.service.create("banks", form.value).subscribe(
       data => {
-        this.dubber.banks.push(this.bank);
+        let str = data.headers.get("location");
+        let patt = /(\d+)/g;
+        let result = str.match(patt);
+        form.value.id = Number(result[0]);
+        this.dubber.banks.push(form.value);
         this.event.emit("success");
       },
       err => {

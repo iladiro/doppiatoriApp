@@ -63,6 +63,7 @@ export class Service {
 
   resetDefault(table, item_id, reset) {
     return this.http.patch(this.url_root + table + "?" + "dubber_id=eq." + item_id + "&" + "_default=is." + true, reset);
+    // return this.http.patch(this.url_root + table + "?" + "dubber_id=eq." + item_id, reset);
   }
 
   deleteFilmDubber(table, film_id: number, dubber_id: number) {
