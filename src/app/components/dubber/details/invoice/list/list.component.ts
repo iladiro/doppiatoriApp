@@ -14,40 +14,55 @@ import { Service } from '../../../../../services/index';
 export class InvoiceListComponent implements OnInit {
 
   @Input() dubber: any;
-  @Output() event = new EventEmitter();
-
-  private current_invoice;
-
-  private modal_message = {
-    "text": "Sei sicuro di voler cancellarlo?"
-  };
+  @Output() msg =  new EventEmitter();
+  @Output() current_invoice = new EventEmitter();
 
   p: number = 1;
-
-  private setConfirm(data) {
-    if(data == "true") {
-      this.delete(this.current_invoice);
-    }
-  }
 
   constructor(
     private service: Service
   ) { }
 
-  private delete(invoice) {
-    let index = this.dubber.invoices.indexOf(invoice);
-    this.service.delete("invoices", "id", invoice.id).subscribe(
-      data => {
-        if(index > -1) {
-          this.dubber.invoices.splice(index, 1);
-        }
-        this.event.emit("delete");
-      },
-      err => {
-        this.event.emit("rejected");
-      }
-    )
+  private getData(data){
+    this.current_invoice.emit(data);
   }
+
+  private getMessage(data) {
+    if(data.type == "modal") {
+      this.msg.emit({message: data.message, type: 'modal'});
+    } else if(data.type == "alert") {
+      this.msg.emit({message: data.message, type: 'alert'});
+    }
+  }
+
+  // private current_invoice;
+  //
+  // private modal_message = {
+  //   "text": "Sei sicuro di voler cancellarlo?"
+  // };
+  //
+  // private setConfirm(data) {
+  //   if(data == "true") {
+  //     this.delete(this.current_invoice);
+  //   }
+  // }
+  //
+  //
+  //
+  // private delete(invoice) {
+  //   let index = this.dubber.invoices.indexOf(invoice);
+  //   this.service.delete("invoices", "id", invoice.id).subscribe(
+  //     data => {
+  //       if(index > -1) {
+  //         this.dubber.invoices.splice(index, 1);
+  //       }
+  //       this.event.emit("delete");
+  //     },
+  //     err => {
+  //       this.event.emit("rejected");
+  //     }
+  //   )
+  // }
 
   ngOnInit() {}
 
