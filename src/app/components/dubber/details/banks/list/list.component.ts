@@ -25,8 +25,12 @@ export class BanksListComponent implements OnInit {
     }
   }
 
-  private getMessage(text) {
-    this.msg.emit({text: text, type: 'modal'});
+  private getMessage(data) {
+    if(data.type == "modal") {
+      this.msg.emit({message: data.message, type: 'modal'});
+    } else if(data.type == "alert") {
+      this.msg.emit({message: data.message, type: 'alert'});
+    }
   }
 
   //called from button into view

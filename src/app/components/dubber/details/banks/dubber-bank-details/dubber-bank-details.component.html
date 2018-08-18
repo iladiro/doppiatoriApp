@@ -40,7 +40,7 @@
         <button (click)="passDataToParent('delete')" class="btn btn--dark mr-2" data-toggle="modal" data-target="#exampleModal" title="Elimina">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
-        <button (click)="f.form.valid && up<date(f)" class="btn btn-outline-success" [disabled]="f.invalid">Salva modifiche</button>
+        <button (click)="f.form.valid && update(f)" class="btn btn-outline-success" [disabled]="f.invalid">Salva modifiche</button>
       </div>
       <div class="btn-group" role="group" aria-label="Second group" *ngIf="bank._default != true">
         <button (click)="passDataToParent('set_default')" class="btn btn-secondary">

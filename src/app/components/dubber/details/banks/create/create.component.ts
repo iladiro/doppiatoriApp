@@ -26,10 +26,10 @@ export class BankCreateComponent implements OnInit {
         let result = str.match(patt);
         form.value.id = Number(result[0]);
         this.dubber.banks.push(form.value);
-        this.msg.emit({text: "success", type: 'alert'});
+        this.msg.emit({message: "success", type: 'alert'});
       },
       err => {
-        this.msg.emit("rejected");
+        this.msg.emit({message: "rejected", type: 'alert'});
       }
     );
   }

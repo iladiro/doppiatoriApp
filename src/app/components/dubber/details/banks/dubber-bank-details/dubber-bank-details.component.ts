@@ -20,11 +20,11 @@ export class DubberBankDetailsComponent implements OnInit {
 
   private passDataToParent(request_type) {
     if(request_type == "archive") {
-      this.msg.emit("Sei sicuro di volerlo archiviare?");
+      this.msg.emit({ message: "Sei sicuro di volerlo archiviare?", type: "modal"});
     } else if(request_type == "delete") {
-      this.msg.emit("Sei sicuro di volerlo cancellare?");
+      this.msg.emit({ message: "Sei sicuro di volerlo cancellare?", type: "modal"});
     } else if(request_type == "rollback") {
-      this.msg.emit("Sei sicuro di volerlo ripristinare?");
+      this.msg.emit({ message: "Sei sicuro di volerlo ripristinare?", type: "modal"});
     }
     this.data.emit({
       item: this.bank,
@@ -32,6 +32,19 @@ export class DubberBankDetailsComponent implements OnInit {
       table: "banks",
       property: "banks"
     })
+  }
+
+  update(data) {
+    data.value.id = this.bank.id;
+    this.service.update("banks", data.value).subscribe(
+      data => {
+        this.msg.emit({ message: "success", type: "alert"});
+      },
+      err => {
+        console.log(err);
+        this.msg.emit({ message: "rejected", type: "alert"});
+      }
+    );
   }
 
   ngOnInit() {}
