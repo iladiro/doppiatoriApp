@@ -30,7 +30,7 @@ export class DubberProfileComponent implements OnInit {
   private setMessage(message_obj){
     if(message_obj.type == 'modal') {
       this.modal_message.text = message_obj.text;
-    } else {
+    } else if(message_obj.type == 'alert') {
       this.alert_message = message_obj.text;
     }
   }
