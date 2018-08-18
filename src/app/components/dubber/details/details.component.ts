@@ -12,8 +12,8 @@ import { DubberService } from '../_services/index';
 
 export class DubberProfileComponent implements OnInit {
 
-  public dubber: any;
   private id: number;
+  public dubber: any;
   private return_data;
 
   private alert_message;
@@ -41,18 +41,15 @@ export class DubberProfileComponent implements OnInit {
 
   private setConfirm(data) {
     if(data == "true") {
-      this.delete(this.return_data);
+      this.delete(this.return_data.item, this.return_data.property, this.return_data.table);
     }
   }
 
-  delete(bank) {
-    let index = this.dubber.banks.indexOf(bank);
-    this.service.delete("banks", "id", bank.id).subscribe(
+  delete(data, property, table) {
+    let index = this.dubber[property].indexOf(data);
+    this.service.delete(table, "id", data.id).subscribe(
       data => {
-        // if(index > -1) {
-        //   this.dubber.banks.splice(index, 1);
-        // }
-        this.dubber.banks.splice(index, 1);
+        this.dubber[property].splice(index, 1);
         this.alert_message = "delete";
       },
       err => {

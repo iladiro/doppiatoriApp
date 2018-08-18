@@ -39,7 +39,7 @@
             </div>
             <div class="tab-pane" id="banks" role="tabpanel">
               <banksList [dubber]="this.dubber" (current_bank)="setData($event)" (msg)="setMessage($event)"></banksList>
-              <bankForm [dubber]="this.dubber" (event)="setMessage($event)"></bankForm>
+              <bankForm [dubber]="this.dubber" (msg)="setMessage($event)"></bankForm>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
               <dubber-films [dubber]="this.dubber"></dubber-films>

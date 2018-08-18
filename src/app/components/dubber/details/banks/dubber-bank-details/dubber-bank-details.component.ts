@@ -26,7 +26,12 @@ export class DubberBankDetailsComponent implements OnInit {
     } else if(request_type == "rollback") {
       this.msg.emit("Sei sicuro di volerlo ripristinare?");
     }
-    this.data.emit({item: this.bank, request_type: request_type})
+    this.data.emit({
+      item: this.bank,
+      request_type: request_type,
+      table: "banks",
+      property: "banks"
+    })
   }
 
   ngOnInit() {}

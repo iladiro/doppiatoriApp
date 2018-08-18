@@ -19,7 +19,7 @@ export class BanksListComponent implements OnInit {
   ) { }
 
   private getData(data){
-    this.current_bank.emit(data.item);
+    this.current_bank.emit(data);
     if(data.request_type == 'set_default') {
       this.asDefault(data.item)
     }
@@ -73,7 +73,6 @@ export class BanksListComponent implements OnInit {
 
 
   // delete(bank) {
-  //   console.log(bank);
   //   let index = this.dubber.banks.indexOf(bank.item);
   //   this.service.delete("banks", "id", bank.item.id).subscribe(
   //     data => {
@@ -87,7 +86,6 @@ export class BanksListComponent implements OnInit {
   //     }
   //   )
   // }
-
 
   ngOnInit() {}
 

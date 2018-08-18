@@ -11,8 +11,7 @@ import { Service } from '../../../../../services/index';
 export class BankCreateComponent implements OnInit {
 
   @Input() dubber: any;
-  @Output() event = new EventEmitter();
-  private bank: any = {};
+  @Output() msg = new EventEmitter();
 
   constructor(
     private service: Service
@@ -27,10 +26,10 @@ export class BankCreateComponent implements OnInit {
         let result = str.match(patt);
         form.value.id = Number(result[0]);
         this.dubber.banks.push(form.value);
-        this.event.emit("success");
+        this.msg.emit("success");
       },
       err => {
-        this.event.emit("rejected");
+        this.msg.emit("rejected");
       }
     );
   }
