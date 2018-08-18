@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // Services
 import { Service } from '../../../../services/index';
@@ -11,7 +11,8 @@ import { Service } from '../../../../services/index';
 export class DubberFilmsComponent implements OnInit {
 
   @Input() dubber: any;
-  private alert_message;
+  @Output() msg =  new EventEmitter();
+  @Output() current_film = new EventEmitter();
 
   p: number = 1;
 
@@ -19,22 +20,16 @@ export class DubberFilmsComponent implements OnInit {
     private service: Service
   ) { }
 
-  private delete(film_id) {
-    // Cancella film dalla lista dei film del dubber corrente
-    let current_dubber = this.dubber;
-    this.service.deleteFilmDubber("dubbers_films", film_id, this.dubber.id).subscribe(
-        data => {
-          current_dubber.films.map(function(film, index){
-            if(film.id == film_id) {
-              current_dubber.films.splice(index, 1);
-            }
-          });
-          this.alert_message = "success";
-        },
-        err => {
-          this.alert_message = "rejected";
-        }
-    )
+  private getData(data){
+    this.current_film.emit(data);
+  }
+
+  private getMessage(data) {
+    if(data.type == "modal") {
+      this.msg.emit({message: data.message, type: 'modal'});
+    } else if(data.type == "alert") {
+      this.msg.emit({message: data.message, type: 'alert'});
+    }
   }
 
   ngOnInit() {

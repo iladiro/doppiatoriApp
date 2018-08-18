@@ -32,17 +32,17 @@
           <!-- Tab panes -->
           <div class="tab-content pboth-15">
             <div class="tab-pane active" id="personal-data" role="tabpanel">
-              <personal-information [dubber]="this.dubber" (event)="setMessage($event)"></personal-information>
+              <personal-information [dubber]="this.dubber" (msg)="setMessage($event)"></personal-information>
             </div>
             <div class="tab-pane" id="tax-information" role="tabpanel">
-              <tax-information [dubber]="this.dubber"></tax-information>
+              <tax-information [dubber]="this.dubber" (msg)="setMessage($event)"></tax-information>
             </div>
             <div class="tab-pane" id="banks" role="tabpanel">
               <banksList [dubber]="this.dubber" (current_bank)="setData($event)" (msg)="setMessage($event)"></banksList>
               <bankForm [dubber]="this.dubber" (msg)="setMessage($event)"></bankForm>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
-              <dubber-films [dubber]="this.dubber"></dubber-films>
+              <dubber-films [dubber]="this.dubber" (current_film)="setData($event)" (msg)="setMessage($event)"></dubber-films>
             </div>
             <div class="tab-pane" id="invoices" role="tabpanel">
               <invoicesesList [dubber]="this.dubber" (event)="setMessage($event)"></invoicesesList>

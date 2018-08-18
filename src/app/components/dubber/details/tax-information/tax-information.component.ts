@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // Services
 import { Service } from '../../../../services/index';
@@ -12,26 +11,23 @@ import { Service } from '../../../../services/index';
 export class DubberTaxInformationComponent implements OnInit {
 
   @Input() dubber: any;
-  private address: any = {};
+  @Output() msg = new EventEmitter();
 
   constructor(
-    private service: Service,
-    private http: HttpClient
+    private service: Service
   ) {}
 
   update() {
-    this.service.update("addresses", this.address).subscribe(
+    this.service.update("addresses", this.dubber.addresses[0]).subscribe(
       data => {
-        console.log("ok")
+        this.msg.emit({ message: "success", type: "alert"});
       },
       err => {
-        console.log(err)
+        this.msg.emit({ message: "rejected", type: "alert"});
       }
     )
   }
 
-  ngOnInit() {
-    this.address = this.dubber.addresses[0];
-  }
+  ngOnInit() {}
 
 }

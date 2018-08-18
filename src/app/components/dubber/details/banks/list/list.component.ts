@@ -75,22 +75,6 @@ export class BanksListComponent implements OnInit {
     })
   }
 
-
-  // delete(bank) {
-  //   let index = this.dubber.banks.indexOf(bank.item);
-  //   this.service.delete("banks", "id", bank.item.id).subscribe(
-  //     data => {
-  //       if(index > -1) {
-  //         this.dubber.banks.splice(index, 1);
-  //       }
-  //       this.msg.emit("delete");
-  //     },
-  //     err => {
-  //       this.msg.emit("rejected");
-  //     }
-  //   )
-  // }
-
   ngOnInit() {}
 
 }

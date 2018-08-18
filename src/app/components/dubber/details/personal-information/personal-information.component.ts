@@ -11,7 +11,7 @@ import { Service } from '../../../../services/index';
 export class DubberPersonalInformationComponent implements OnInit {
 
   @Input() dubber: any;
-  @Output() event = new EventEmitter();
+  @Output() msg = new EventEmitter();
 
   private qualifications: any = [];
   private nationalities: any = [];
@@ -20,7 +20,9 @@ export class DubberPersonalInformationComponent implements OnInit {
     private service: Service
   ) { }
 
-  private upDate(){
+  private update(){
+    console.log(this.dubber);
+
     this.dubber.avatar = this.dubber.name.charAt(0);
 
     let dubber_obj = Object.assign({}, this.dubber);
@@ -28,13 +30,15 @@ export class DubberPersonalInformationComponent implements OnInit {
     delete dubber_obj.invoices;
     delete dubber_obj.banks;
     delete dubber_obj.addresses;
+    delete dubber_obj.enpals_categories;
 
     this.service.update("dubbers", dubber_obj).subscribe(
       data => {
-        this.event.emit("success");
+        this.msg.emit({ message: "success", type: "alert"});
       },
       err => {
-        this.event.emit("rejected");
+        console.log(err);
+        this.msg.emit({ message: "rejected", type: "alert"});
       }
     );
   }

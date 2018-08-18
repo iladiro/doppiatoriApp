@@ -34,9 +34,8 @@ export class DubberBankDetailsComponent implements OnInit {
     })
   }
 
-  update(data) {
-    data.value.id = this.bank.id;
-    this.service.update("banks", data.value).subscribe(
+  update() {
+    this.service.update("banks", this.bank).subscribe(
       data => {
         this.msg.emit({ message: "success", type: "alert"});
       },

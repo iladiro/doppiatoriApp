@@ -1,0 +1,9 @@
+<td>{{film.title}}</td>
+<td class="text-right">
+  <a [routerLink]="['/film', film.id]" class="btn btn--dark" title="Modifica">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  </a>
+  <button (click)="passDataToParent('delete')" class="btn btn--dark" data-toggle="modal" data-target="#exampleModal" title="Elimina">
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  </button>
+</td>
