@@ -12,9 +12,9 @@
         </option>
       </select>
     </div>
-    <div class="form-group">
-      <div class="row">
-        <div class="col">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
           <label for="reference_month">Mese di riferimento</label>
           <select id="reference_month" class="form-control black text-capitalize" ngModel name="reference_month">
             <option *ngFor="let month of months" value="{{month.index}}">
@@ -22,7 +22,9 @@
             </option>
           </select>
         </div>
-        <div class="col">
+      </div>
+      <div class="col">
+        <div class="form-group">
           <label for="reference_year">Anno di riferimento</label>
           <select id="reference_year" class="form-control black text-capitalize" ngModel name="reference_year">
             <option *ngFor="let year of years" value="{{year}}">
@@ -32,17 +34,21 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <div class="row">
-        <div class="col">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
           <label for="work_from">Lavoro svolto dal giorno</label>
           <input type="date" id="work_from" class="form-control black" ngModel name="work_from">
         </div>
-        <div class="col">
+      </div>
+      <div class="col">
+        <div class="form-group">
           <label for="work_to">Al giorno</label>
           <input type="date" id="work_to" class="form-control black" ngModel name="work_to">
         </div>
-        <div class="col">
+      </div>
+      <div class="col">
+        <div class="form-group">
           <label for="number_of_days">Numero di giorni</label>
           <input type="number" class="form-control black" id="number_of_days" ngModel name="number_of_days" maxlength="3" required>
         </div>
@@ -60,10 +66,12 @@
         </option>
       </select>
     </div>
+    <div class="form-group">
+      <label>Note</label>
+      <textarea class="form-control black" rows="10"></textarea>
+    </div>
     <div class="text-center">
       <button type="submit" class="btn btn-success" [disabled]="!data.valid">Calcola</button>
-      <!-- <span class="pl-2 pr-2">or</span>
-      <button type="submit" class="btn btn-success" [disabled]="!data.valid">Genera fattura</button> -->
     </div>
   </section>
 </form>

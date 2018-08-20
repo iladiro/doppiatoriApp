@@ -46,7 +46,7 @@
             </div>
             <div class="tab-pane" id="invoices" role="tabpanel">
               <invoicesesList [dubber]="this.dubber" (current_invoice)="setData($event)" (msg)="setMessage($event)"></invoicesesList>
-              <formInvoice [dubber]="this.dubber" (event)="setMessage($event)"></formInvoice>
+              <formInvoice [dubber]="this.dubber" (msg)="setMessage($event)"></formInvoice>
             </div>
           </div>
         </div>

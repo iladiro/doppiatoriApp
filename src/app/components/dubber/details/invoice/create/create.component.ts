@@ -7,6 +7,7 @@ import { Service } from '../../../../../services/index';
 
 // Helpers
 import { PrintYears } from '../../../../../helpers/print-years';
+import { PrintMonths } from '../../../../../helpers/print-months';
 
 @Component({
   selector: 'formInvoice',
@@ -17,7 +18,7 @@ import { PrintYears } from '../../../../../helpers/print-years';
 export class InvoiceCreateComponent implements OnInit {
 
   @Input() dubber: any;
-  @Output() event = new EventEmitter();
+  @Output() msg = new EventEmitter();
   id_enpals_data: number;
   companies: any = [];
   enpals_parameters: any = [];
@@ -30,61 +31,13 @@ export class InvoiceCreateComponent implements OnInit {
   enpals_category_cat_after_ACP = "C";
 
   date = new Date();
-  months = [
-    {
-      "index": 1,
-      "text": "Gennaio"
-    },
-    {
-      "index": 2,
-      "text": "febbraio"
-    },
-    {
-      "index": 3,
-      "text": "marzo"
-    },
-    {
-      "index": 4,
-      "text": "aprile"
-    },
-    {
-      "index": 5,
-      "text": "maggio"
-    },
-    {
-      "index": 6,
-      "text": "giugno"
-    },
-    {
-      "index": 7,
-      "text": "luglio"
-    },
-    {
-      "index": 8,
-      "text": "agosto"
-    },
-    {
-      "index": 9,
-      "text": "settembre"
-    },
-    {
-      "index": 10,
-      "text": "ottobre"
-    },
-    {
-      "index": 11,
-      "text": "novembre"
-    },
-    {
-      "index": 12,
-      "text": "dicembre"
-    }
-  ];
+  months: any = [];
   years: any = [];
 
   constructor(
     private service: Service,
-    private print_years: PrintYears
+    private print_years: PrintYears,
+    private print_months: PrintMonths
   ) { }
 
   private calcola_quota_enpals_lavoratore(max_enpals, enpals_parameters) {
@@ -238,11 +191,9 @@ export class InvoiceCreateComponent implements OnInit {
   private computes() {
     let enpals_category = this.dubber.enpals_categories[0];
     if((this.dubber.vat == "") || (enpals_category.forfettone == 1) || (enpals_category.forfettone == 2)) {
-      console.log("è vuoto");
       this.invoice.vat = 0;
       this.invoice.total_amount = this.invoice.amount;
     } else {
-      console.log("non è vuoto");
       this.invoice.vat = (+this.invoice.amount * 22) / 100;
       this.invoice.total_amount = this.invoice.amount - this.invoice.vat;
     }
@@ -267,13 +218,12 @@ export class InvoiceCreateComponent implements OnInit {
     this.invoice.creation_date = this.date.toLocaleDateString();
     this.invoice.dubber_id = this.dubber.id;
     this.invoice.enpals_data_id = id_enapals_data;
-    console.log(this.invoice);
     this.service.create("invoices", this.invoice).subscribe(
       data => {
-        this.event.emit("success");
+        this.msg.emit("success");
       },
       err => {
-        this.event.emit("rejected");
+        this.msg.emit("rejected");
       }
     );
   }
@@ -291,7 +241,7 @@ export class InvoiceCreateComponent implements OnInit {
         this.reloadList();
       },
       err => {
-        this.event.emit("rejected");
+        this.msg.emit("rejected");
       }
     );
   }
@@ -321,7 +271,8 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.years = this.print_years.generate("1960");
+    this.years = this.print_years.generate("2004");
+    this.months = this.print_months.generate();
     this.loadAllItems("enpals_parameters", "enpals_parameters", "default");
     this.loadAllItems("companies", "companies", "all");
     this.loadAllItems("income_classes", "income_classes", "all");
