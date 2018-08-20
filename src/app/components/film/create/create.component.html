@@ -2,7 +2,7 @@
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
   <div class="general-card card mb-4">
     <div class="general-card__body">
-      <form name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate class="form--light">
+      <form name="form" #f="ngForm" novalidate class="form--light">
         <div class="form-group" [ngClass]="{
           'has-danger': title.invalid && (title.dirty || title.touched)
         }">
@@ -31,7 +31,7 @@
             <back-button></back-button>
           </div>
           <div class="col text-right">
-            <button type="submit" class="btn btn-outline-success" [disabled]="f.invalid">Crea</button>
+            <button type="submit" (click)="f.form.valid && create(f)" class="btn btn-outline-success" [disabled]="f.invalid">Crea</button>
           </div>
         </div>
       </form>
