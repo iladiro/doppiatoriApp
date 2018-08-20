@@ -14,7 +14,6 @@ import { Service } from '../../../../services/index';
 export class EnpalsParameterDetailsComponent implements OnInit {
 
   id: number;
-  private sub: any;
   enpals_parameter: any = {};
   private alert_message;
 
@@ -35,7 +34,7 @@ export class EnpalsParameterDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.service.getById("enpals_parameters", "id", this.id).subscribe(
         data => {

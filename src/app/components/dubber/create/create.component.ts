@@ -45,7 +45,7 @@ export class AddDubberComponent {
 
   check() {
     let results = this.dubbers.some(elem => {
-      return elem.email == this.dubber.email;
+      return elem.fiscal_code == this.dubber.fiscal_code;
     });
     if(results) {
       this.alert_message = "prohibition";
@@ -67,7 +67,7 @@ export class AddDubberComponent {
       },
       err => {
         this.alert_message = "rejected";
-      },
+      }
       () => this.addDataInRelationTable()
     );
   }
@@ -81,7 +81,6 @@ export class AddDubberComponent {
         this.address.home_postcode = this.address.residence_postcode;
         this.address.home_city = this.address.residence_city;
       }
-      console.log(this.dubber);
       this.enpals_categories.dubber_id = this.id;
       this.service.create("banks", this.bank).subscribe(
         err => {
@@ -98,7 +97,7 @@ export class AddDubberComponent {
           console.log("ok");
         },
         err => {
-          console.log("ko");
+          console.log(err)
         }
       );
     }

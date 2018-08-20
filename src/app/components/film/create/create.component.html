@@ -4,23 +4,20 @@
     <div class="general-card__body">
       <form name="form" (ngSubmit)="f.form.valid && create(f)" #f="ngForm" novalidate class="form--light">
         <div class="form-group" [ngClass]="{
-          'has-danger': title.invalid && (title.dirty || title.touched),
-          'has-success': title.valid && (title.dirty || title.touched)
+          'has-danger': title.invalid && (title.dirty || title.touched)
         }">
           <label for="title">Titolo </label> <span *ngIf="title.invalid && (title.dirty || title.touched)" class="text-danger">* Campo non valido</span>
           <input id="title" type="text" class="form-control black text-capitalize" placeholder="Title" ngModel name="title" #title="ngModel" required>
         </div>
         <div class="form-group" [ngClass]="{
-          'has-danger': description.invalid && (description.dirty || description.touched),
-          'has-success': description.valid && (description.dirty || description.touched)
+          'has-danger': description.invalid && (description.dirty || description.touched)
         }">
           <label for="description">Descrizione </label> <span *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">* Campo non valido</span>
           <textarea id="description" class="form-control black" placeholder="Descrizione" ngModel name="description" #description="ngModel" required></textarea>
 
         </div>
         <div class="form-group" [ngClass]="{
-          'has-danger': dubbers.invalid && (dubbers.dirty || dubbers.touched),
-          'has-success': dubbers.valid && (dubbers.dirty || dubbers.touched)
+          'has-danger': dubbers.invalid && (dubbers.dirty || dubbers.touched)
         }">
           <label for="dubbers">Seleziona collaboratori</label>
           <select name="dubbers" class="form-control light" multiple ngModel name="dubbers">
