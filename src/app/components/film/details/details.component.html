@@ -16,6 +16,9 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#collaborators" role="tab">Collaboratori</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#costs" role="tab">Costi sostenuti</a>
+        </li>
       </ul>
 
       <!-- Tab panes -->
@@ -26,6 +29,9 @@
         <div class="tab-pane" id="collaborators" role="tabpanel">
           <film-dubbers-list [film]="this.film" (event)="setMessage($event)"></film-dubbers-list>
           <add-film-dubber [film]="this.film" (event)="setMessage($event)"></add-film-dubber>
+        </div>
+        <div class="tab-pane" id="costs" role="tabpanel">
+          cost
         </div>
       </div>
     </div>

@@ -271,6 +271,7 @@ export class InvoiceCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.dubber);
     this.years = this.print_years.generate("2004");
     this.months = this.print_months.generate();
     this.loadAllItems("enpals_parameters", "enpals_parameters", "default");

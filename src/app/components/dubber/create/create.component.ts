@@ -67,7 +67,7 @@ export class AddDubberComponent {
       },
       err => {
         this.alert_message = "rejected";
-      }
+      },
       () => this.addDataInRelationTable()
     );
   }

@@ -97,6 +97,7 @@ import { LoginComponent } from './components/user/login/login.component';
 import { DubberBankDetailsComponent } from './components/dubber/details/banks/dubber-bank-details/dubber-bank-details.component';
 import { DubberFilmRowComponent } from './components/dubber/details/films/row/row.component';
 import { DubberInvoiceRowComponent } from './components/dubber/details/invoice/list/row/row.component';
+import { FilmCostsComponent } from './components/film/details/costs/costs.component';
 
 @NgModule({
   declarations: [
@@ -163,7 +164,8 @@ import { DubberInvoiceRowComponent } from './components/dubber/details/invoice/l
     NotloggedLayoutComponent,
     DubberBankDetailsComponent,
     DubberFilmRowComponent,
-    DubberInvoiceRowComponent
+    DubberInvoiceRowComponent,
+    FilmCostsComponent
   ],
   imports: [
     BrowserModule,
