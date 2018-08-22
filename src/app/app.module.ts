@@ -9,6 +9,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 // Services
 import { Service } from './services/http.service';
 import { DubberService } from './components/dubber/_services/dubbers.service';
+import { ContractService } from './components/contract/_services/contract.service';
 import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/dubber/details/invoice/_services/index';
 import { UserService } from './components/user/_services/index';
@@ -99,6 +100,8 @@ import { DubberFilmRowComponent } from './components/dubber/details/films/row/ro
 import { DubberInvoiceRowComponent } from './components/dubber/details/invoice/list/row/row.component';
 import { FilmCostsComponent } from './components/film/details/costs/costs.component';
 import { ContractCreateComponent } from './components/contract/create/create.component';
+import { ContractListComponent } from './components/contract/list/list.component';
+import { ContractRowComponent } from './components/contract/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -167,7 +170,9 @@ import { ContractCreateComponent } from './components/contract/create/create.com
     DubberFilmRowComponent,
     DubberInvoiceRowComponent,
     FilmCostsComponent,
-    ContractCreateComponent
+    ContractCreateComponent,
+    ContractListComponent,
+    ContractRowComponent
   ],
   imports: [
     BrowserModule,
@@ -181,6 +186,7 @@ import { ContractCreateComponent } from './components/contract/create/create.com
   providers: [
     Service,
     DubberService,
+    ContractService,
     FilmService,
     InvoiceService,
     UserService,

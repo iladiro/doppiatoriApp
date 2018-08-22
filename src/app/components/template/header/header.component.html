@@ -20,13 +20,13 @@
       <li class="nav-item" [class.active]="router.url==='/films'">
         <a class="nav-link" [routerLink]="['/films']">Film</a>
       </li>
-      <li class="nav-item dropdown" [class.active]="router.url==='/contracts' || router.url==='/contracts/list' || router.url==='/contracts/archived'">
+      <li class="nav-item dropdown" [class.active]="router.url==='/contracts' || router.url==='/contracts/new' || router.url==='/contracts/archived'">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Contratti
         </a>
         <div class="dropdown-menu">
           <a class="dropdown-item" [routerLink]="['/contracts/new']">Nuovo contratto</a>
-          <a class="dropdown-item" [routerLink]="['/contracts/list']">Lista</a>
+          <a class="dropdown-item" [routerLink]="['/contracts']">Lista</a>
           <a class="dropdown-item" [routerLink]="['/contracts/archived']">Archiviati</a>
         </div>
       </li>

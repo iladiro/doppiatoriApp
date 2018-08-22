@@ -22,6 +22,7 @@ export class ContractCreateComponent implements OnInit {
   //@Output() msg = new EventEmitter();
   private alert_message;
 
+  contract:any = {};
   dubber:any = {};
   id_enpals_data: number;
   enpals_parameters: any = [];
@@ -44,13 +45,34 @@ export class ContractCreateComponent implements OnInit {
     private dubberService: DubberService
   ) { }
 
+  private passData(form: NgForm) {
+    let film = form.value.film.split(";");
+    let dubber = form.value.dubber.split(";");
+    this.contract = {
+      "amount": form.value.amount,
+      "film_id": film[0],
+    	"film_title": film[1],
+      "dubber_id": dubber[0],
+      "dubber_fullname": dubber[1] + " " + dubber[2],
+      "work_from": form.value.work_from,
+      "work_to": form.value.work_to,
+      "number_of_days": form.value.number_of_days,
+      "creation_date": this.date.toLocaleDateString()
+    }
+    form.value.film_id = film[0];
+    form.value.dubber_id = dubber[0];
+    delete form.value['film'];
+    delete form.value['dubber'];
+    console.log(form.value);
+    this.recoversData(form.value);
+  }
+
   // Prima recuperare i dati del dubber selezionato
-  private recoversData(form: NgForm) {
-    this.dubberService.getById(form.value.dubber_id).subscribe(
+  private recoversData(form_data) {
+    this.dubberService.getById(form_data.dubber_id).subscribe(
       data => {
         this.dubber = data;
-        this.computesEnpalsData(form.value);
-        form.reset();
+        this.computesEnpalsData(form_data);
       },
       err => {
         console.log(err);
@@ -232,6 +254,19 @@ export class ContractCreateComponent implements OnInit {
     this.invoice.creation_date = this.date.toLocaleDateString();
     this.invoice.enpals_data_id = id_enapals_data;
     this.service.create("invoices", this.invoice).subscribe(
+      data => {
+        //this.alert_message = "success";
+        this.contractCreate(this.contract);
+      },
+      err => {
+        console.log(err);
+        this.alert_message = "rejected";
+      }
+    );
+  }
+
+  private contractCreate(data) {
+    this.service.create("contracts", data).subscribe(
       data => {
         this.alert_message = "success";
       },

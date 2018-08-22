@@ -30,19 +30,27 @@ export class SearchService {
       });
       this.query_url += "or=(" + array_params.join(",") + ")";
       let url = this.base_url + this.query_url;
-      let results = this.sendSearch(url);
+      let results = this.sendSearch(url, dataForRequest.conditions);
       return results
     } else {
-      let results = this.getAll();
+      let results = this.getAll(dataForRequest.conditions);
       return results
     }
   }
 
-  private sendSearch(url) {
-    return this.http.get(url);
+  private sendSearch(url, condition) {
+    if(condition == "not_archived") {
+      return this.http.get(url + "&" + "archived=" + "is.false");
+    } else {
+      return this.http.get(url);
+    }
   }
 
-  private getAll() {
-    return this.http.get(this.base_url + this.table);
+  private getAll(condition) {
+    if(condition == "not_archived") {
+      return this.http.get(this.base_url + this.table + "?" + "archived=" + "is.false");
+    } else {
+      return this.http.get(this.base_url + this.table);
+    }
   }
 }

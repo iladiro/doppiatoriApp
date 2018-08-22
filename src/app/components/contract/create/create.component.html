@@ -1,7 +1,7 @@
 <div class="container">
   <h4 class="mb-20 mt-0">Crea nuova fattura</h4>
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-  <form #data="ngForm" (ngSubmit)="recoversData(data)" class="form--light bg-light p-all-side-20">
+  <form #data="ngForm" class="form--light bg-light p-all-side-20">
     <section>
       <div class="row">
         <div class="col">
@@ -29,8 +29,8 @@
         <div class="col">
           <div class="form-group">
             <label for="film">Scegli film</label>
-            <select name="film_id" class="form-control black" ngModel>
-              <option *ngFor="let film of films" value="{{film.id}}">
+            <select name="film" class="form-control black" ngModel>
+              <option *ngFor="let film of films" value="{{film.id}}; {{film.title}}">
                 {{film.title}}
               </option>
             </select>
@@ -39,8 +39,8 @@
         <div class="col">
           <div class="form-group">
             <label for="film">Scegli collaboratore</label>
-            <select name="dubber_id" class="form-control black" ngModel>
-              <option *ngFor="let dubber of dubbers" value="{{dubber.id}}">
+            <select name="dubber" class="form-control black" ngModel>
+              <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}};{{dubber.surname}}">
                 {{dubber.name}} {{dubber.surname}}
               </option>
             </select>
@@ -84,7 +84,8 @@
         <textarea class="form-control black" rows="10"></textarea>
       </div>
       <div class="text-center">
-        <button type="submit" class="btn btn-success" [disabled]="!data.valid">Calcola</button>
+        <button type="submit" class="btn btn-success" (click)="passData(data)" [disabled]="!data.valid">Calcola</button>
+        <button type="submit" class="btn btn-warning" (click)="data.reset()">Cancella</button>
       </div>
     </section>
   </form>

@@ -45,6 +45,7 @@ import { ToDoExpiredComponent } from './components/todo/expired/expired.componen
 import { ToDoCurrentDayListComponent } from './components/todo/current-day-list/current-day-list.component';
 
 import { ContractCreateComponent } from './components/contract/create/create.component';
+import { ContractListComponent } from './components/contract/list/list.component';
 
 const appRoutes: Routes = [
 
@@ -93,9 +94,14 @@ const appRoutes: Routes = [
         data: { title: 'Nuovo contratto' }
       },
       {
+        path: 'contracts',
+        component: ContractListComponent,
+        data: { title: 'Lista contratti' }
+      },
+      {
         path: 'users',
         component: UsersListComponent,
-        data: { title: 'List users' }
+        data: { title: 'Lista utenti' }
       },
       {
         path: 'user/:id',
@@ -104,17 +110,17 @@ const appRoutes: Routes = [
       {
         path: 'dubbers/list',
         component: DubbersListComponent,
-        data: { title: 'Dubbers List' }
+        data: { title: 'Lista collaboratori' }
       },
       {
         path: 'dubbers/archived',
         component: DubberArchivedComponent,
-        data: { title: 'Dubbers Archived' }
+        data: { title: 'Collaboratori archiviati' }
       },
       {
         path: 'dubbers/add',
         component: AddDubberComponent,
-        data: { title: 'Add new dubber' }
+        data: { title: 'Aggiungi nuovo collaboratore' }
       },
       {
         path: 'dubber/:id',
@@ -127,12 +133,12 @@ const appRoutes: Routes = [
       {
         path: 'films',
         component: FilmListComponent,
-        data: { title: 'Film List' }
+        data: { title: 'Lista film' }
       },
       {
         path: 'films/add',
         component: AddFilmComponent,
-        data: { title: 'Add new film' }
+        data: { title: 'Aggiungi nuovo film' }
       },
       {
         path: 'film/:id',
@@ -141,12 +147,12 @@ const appRoutes: Routes = [
       {
         path: 'settings/company/add',
         component: CompanyCreateComponent,
-        data: { title: 'Add new company' }
+        data: { title: 'Aggiungi nuovo azienda' }
       },
       {
         path: 'settings/companies',
         component: CompanyListComponent,
-        data: { title: 'Company List' }
+        data: { title: 'Lista aziende' }
       },
       {
         path: 'settings/company/:id',
