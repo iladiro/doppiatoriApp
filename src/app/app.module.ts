@@ -98,6 +98,7 @@ import { DubberBankDetailsComponent } from './components/dubber/details/banks/du
 import { DubberFilmRowComponent } from './components/dubber/details/films/row/row.component';
 import { DubberInvoiceRowComponent } from './components/dubber/details/invoice/list/row/row.component';
 import { FilmCostsComponent } from './components/film/details/costs/costs.component';
+import { ContractCreateComponent } from './components/contract/create/create.component';
 
 @NgModule({
   declarations: [
@@ -165,7 +166,8 @@ import { FilmCostsComponent } from './components/film/details/costs/costs.compon
     DubberBankDetailsComponent,
     DubberFilmRowComponent,
     DubberInvoiceRowComponent,
-    FilmCostsComponent
+    FilmCostsComponent,
+    ContractCreateComponent
   ],
   imports: [
     BrowserModule,

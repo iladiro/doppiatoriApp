@@ -44,6 +44,8 @@ import { ToDoListComponent } from './components/todo/list/list.component';
 import { ToDoExpiredComponent } from './components/todo/expired/expired.component';
 import { ToDoCurrentDayListComponent } from './components/todo/current-day-list/current-day-list.component';
 
+import { ContractCreateComponent } from './components/contract/create/create.component';
+
 const appRoutes: Routes = [
 
   //App routes goes here
@@ -84,6 +86,11 @@ const appRoutes: Routes = [
         path: 'todo/add',
         component: ToDoCreateComponent,
         data: { title: 'To Do nuovo' }
+      },
+      {
+        path: 'contracts/new',
+        component: ContractCreateComponent,
+        data: { title: 'Nuovo contratto' }
       },
       {
         path: 'users',
