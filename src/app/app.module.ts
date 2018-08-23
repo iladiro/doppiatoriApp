@@ -102,6 +102,7 @@ import { FilmCostsComponent } from './components/film/details/costs/costs.compon
 import { ContractCreateComponent } from './components/contract/create/create.component';
 import { ContractListComponent } from './components/contract/list/list.component';
 import { ContractRowComponent } from './components/contract/list/row/row.component';
+import { ContractDetailsComponent } from './components/contract/details/details.component';
 
 @NgModule({
   declarations: [
@@ -172,7 +173,8 @@ import { ContractRowComponent } from './components/contract/list/row/row.compone
     FilmCostsComponent,
     ContractCreateComponent,
     ContractListComponent,
-    ContractRowComponent
+    ContractRowComponent,
+    ContractDetailsComponent
   ],
   imports: [
     BrowserModule,

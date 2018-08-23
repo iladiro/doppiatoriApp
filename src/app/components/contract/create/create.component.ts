@@ -10,7 +10,7 @@ import { PrintYears } from '../../../helpers/print-years';
 import { PrintMonths } from '../../../helpers/print-months';
 
 @Component({
-  selector: 'app-create',
+  //selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
@@ -19,7 +19,6 @@ export class ContractCreateComponent implements OnInit {
   private films: any[] = [];
   private dubbers: any[] = [];
   private companies: any[] = [];
-  //@Output() msg = new EventEmitter();
   private alert_message;
 
   contract:any = {};
@@ -63,7 +62,6 @@ export class ContractCreateComponent implements OnInit {
     form.value.dubber_id = dubber[0];
     delete form.value['film'];
     delete form.value['dubber'];
-    console.log(form.value);
     this.recoversData(form.value);
   }
 
@@ -96,7 +94,6 @@ export class ContractCreateComponent implements OnInit {
     commessa.total_enpals = this.calcola_total_enpals(commessa);
     this.enpals_data = commessa;
     this.invoice = form_data;
-    console.log(this.invoice);
   }
 
   private calcola_quota_enpals_lavoratore(max_enpals, enpals_parameters) {
@@ -233,7 +230,6 @@ export class ContractCreateComponent implements OnInit {
   }
 
   private saveEnpalsData() {
-    //this.enpals_data.invoice_id = invoice_id;
     this.enpals_data.dubber_id = this.dubber.id;
     this.service.create("dubber_enpals_data", this.enpals_data).subscribe(
       data => {
@@ -249,14 +245,33 @@ export class ContractCreateComponent implements OnInit {
     );
   }
 
+  private updateRecord(table, parameter, data, id) {
+    let obj = {
+      "id": id,
+      [parameter]: data
+    };
+    this.service.update(table, obj).subscribe(
+      data => {
+        console.log("ok")
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
+
   private saveInvoice(id_enapals_data) {
     this.computes();
     this.invoice.creation_date = this.date.toLocaleDateString();
     this.invoice.enpals_data_id = id_enapals_data;
     this.service.create("invoices", this.invoice).subscribe(
       data => {
-        //this.alert_message = "success";
-        this.contractCreate(this.contract);
+        let str = data.headers.get("location");
+        let patt = /(\d+)/g;
+        let result = str.match(patt);
+        this.invoice.id = Number(result[0]);
+        this.contractCreate();
+        this.updateRecord("dubber_enpals_data", "invoice_id", this.invoice.id, this.enpals_data.id);
       },
       err => {
         console.log(err);
@@ -265,10 +280,18 @@ export class ContractCreateComponent implements OnInit {
     );
   }
 
-  private contractCreate(data) {
-    this.service.create("contracts", data).subscribe(
+  private contractCreate() {
+    this.contract.invoice_id = this.invoice.id;
+    this.contract.enpals_data_id = this.enpals_data.id;
+    this.service.create("contracts", this.contract).subscribe(
       data => {
+        let str = data.headers.get("location");
+        let patt = /(\d+)/g;
+        let result = str.match(patt);
+        this.contract.id = Number(result[0]);
         this.alert_message = "success";
+        this.updateRecord("dubber_enpals_data", "contract_id", this.contract.id, this.enpals_data.id);
+        this.updateRecord("invoices", "contract_id", this.contract.id, this.invoice.id);
       },
       err => {
         console.log(err);

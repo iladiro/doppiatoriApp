@@ -1,7 +1,7 @@
-<td class="text-capitalize">{{contract.dubber_fullname}}</td>
 <td>{{contract.film_title}}</td>
-<td>{{contract.creation_date}}</td>
-<td>{{contract.amount}} €</td>
+<td class="text-capitalize">{{contract.dubber_fullname}}</td>
+<td>{{contract.work_from}} - {{contract.work_to}}</td>
+<td>€ {{contract.amount}}.00</td>
 <td class="text-right">
   <a [routerLink]="['/contract', contract.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
     <i class="fa fa-info" aria-hidden="true"></i>
