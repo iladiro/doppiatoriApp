@@ -1,3 +1,156 @@
-<p>
-  details works!
-</p>
+<form #data="ngForm" *ngIf="contract" class="mb-30">
+  <div class="row">
+    <div class="col">
+      <h3 class="mt-0 mb-0">Dettaglio del contratto</h3>
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/invoice', contract.invoice_id, contract.dubber_id]" class="btn btn--dark" title="Visualizza fattura">
+        <!-- <i class="fa fa-download" aria-hidden="true"></i> -->
+        <!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+        Visualizza fattura
+      </a>
+    </div>
+  </div>
+  <hr class="mb-20">
+  <section class="form--light bg-light p-all-side-20 mb-40">
+    <!-- <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="reference_month">Mese di riferimento</label>
+          <select id="reference_month" class="form-control black text-capitalize" ngModel name="reference_month">
+            <option *ngFor="let month of months" value="{{month.index}}">
+              {{month.text}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="reference_year">Anno di riferimento</label>
+          <select id="reference_year" class="form-control black text-capitalize" ngModel name="reference_year">
+            <option *ngFor="let year of years" value="{{year}}">
+              {{year}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="film_title">Scegli film</label>
+          <input type="text" class="form-control black" name="film_title" [ngModel]="contract.film_title" readonly>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="dubber_fullname">Scegli collaboratore</label>
+          <input type="text" class="form-control black" name="dubber_fullname" [ngModel]="contract.dubber_fullname" readonly>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="work_from">Lavoro svolto dal giorno</label>
+          <input type="text" id="work_from" class="form-control black" [ngModel]="contract.work_from" name="work_from">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="work_to">Al giorno</label>
+          <input type="text" id="work_to" class="form-control black"  [ngModel]="contract.work_to" name="work_to">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="number_of_days">Numero di giorni</label>
+          <input type="text" class="form-control black" id="number_of_days" [ngModel]="contract.number_of_days" name="number_of_days" maxlength="3" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="amount">Importo</label>
+      <input type="text" id="amount" class="form-control black" placeholder="Importo" [ngModel]="contract.amount" name="amount" required>
+    </div>
+    <!-- <div class="form-group">
+      <label for="company">Azienda</label>
+      <input type="text" id="company" class="form-control black" placeholder="Azienda" [ngModel]="contract.company" name="company" required>
+    </div> -->
+    <!-- <div class="form-group">
+      <label>Note</label>
+      <textarea class="form-control black" rows="10"></textarea>
+    </div> -->
+  </section>
+  <h3 class="mt-0 mb-20">Dettagli dati enpals</h3>
+  <hr class="mb-20">
+  <section class="form--light bg-light p-all-side-20">
+    <div class="form-row">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="quota_enpals_lavoratore">Quota enpals lav.</label>
+          <input type="text" id="quota_enpals_lavoratore" class="form-control black" [ngModel]="contract.enpals_data.quota_enpals_lavoratore" name="quota_enpals_lavoratore" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="quota_enpals_ditta">Quota enpals ditta</label>
+          <input type="text" id="quota_enpals_ditta" class="form-control black" [ngModel]="contract.enpals_data.quota_enpals_ditta" name="quota_enpals_ditta" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="max_enpals">Massimale enpals</label>
+          <input type="text" id="max_enpals" class="form-control black" [ngModel]="contract.enpals_data.max_enpals" name="max_enpals" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="amount_ecc_max">Importo eccedente</label>
+          <input type="text" id="amount_ecc_max" class="form-control black" [ngModel]="contract.enpals_data.amount_ecc_max" name="amount_ecc_max" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="quota_enpals_ecc_massimale_lavoratore">Quota enpals ecc. lav.</label>
+          <input type="text" id="quota_enpals_ecc_massimale_lavoratore" class="form-control black" [ngModel]="contract.enpals_data.quota_enpals_ecc_massimale_lavoratore" name="quota_enpals_ecc_massimale_lavoratore" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <label for="quota_enpals_ecc_massimale_ditta">Quota enpals ecc. ditta</label>
+        <input type="text" id="quota_enpals_ecc_massimale_ditta" class="form-control black" [ngModel]="contract.enpals_data.quota_enpals_ecc_massimale_ditta" name="quota_enpals_ecc_massimale_ditta" maxlength="10" readonly required>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="minimale_inps">Minimale Inps</label>
+          <input type="text" id="minimale_inps" class="form-control black" [ngModel]="contract.enpals_data.min_inps" name="min_inps" maxlength="10" readonly>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="min_contribution_inps">Contrib. min. Inps</label>
+          <input type="text" id="min_contribution_inps" class="form-control black" [ngModel]="contract.enpals_data.min_contribution_inps" name="min_contribution_inps" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="additional_rate">Aliquota aggiuntiva</label>
+          <input type="text" id="additional_rate" class="form-control black" [ngModel]="contract.enpals_data.additional_rate" name="additional_rate" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="trattenuta_pensione">Trattenuta pensione</label>
+          <input type="text" id="trattenuta_pensione" class="form-control black" [ngModel]="contract.enpals_data.trattenuta_pensione" name="trattenuta_pensione" maxlength="10" readonly required>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="total_enpals">Totale enpals</label>
+          <input type="text" id="total_enpals" class="form-control black" [ngModel]="contract.enpals_data.total_enpals" name="total_enpals" readonly required>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+<back-button></back-button>

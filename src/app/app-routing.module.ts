@@ -47,6 +47,7 @@ import { ToDoCurrentDayListComponent } from './components/todo/current-day-list/
 import { ContractCreateComponent } from './components/contract/create/create.component';
 import { ContractListComponent } from './components/contract/list/list.component';
 import { ContractDetailsComponent } from './components/contract/details/details.component';
+import { ContractArchivedComponent } from './components/contract/archived/archived.component';
 
 const appRoutes: Routes = [
 
@@ -98,6 +99,11 @@ const appRoutes: Routes = [
         path: 'contracts',
         component: ContractListComponent,
         data: { title: 'Lista contratti' }
+      },
+      {
+        path: 'contracts/archived',
+        component: ContractArchivedComponent,
+        data: { title: 'Lista dei contratti archiviati' }
       },
       {
         path: 'contract/:id',

@@ -14,7 +14,7 @@ export class ContractService {
   ngOnInit(): void {}
 
   getById(id: number) {
-    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,dubber:dubbers(name, surname),films:films(title)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,enpals_data:dubber_enpals_data(*),invoice:invoices(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
 }

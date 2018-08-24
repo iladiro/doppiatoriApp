@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 // Services
 import { Service } from '../../../services/index';
+import { ContractService } from '../_services/index';
 
 @Component({
   selector: 'app-details',
@@ -16,13 +17,14 @@ export class ContractDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: Service
+    private service: Service,
+    private ownservice: ContractService
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.service.getById("contracts", "id", this.id).subscribe(
+      this.ownservice.getById(this.id).subscribe(
         data => {
           console.log(data);
           this.contract = data;
