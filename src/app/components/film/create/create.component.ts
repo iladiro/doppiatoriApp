@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Response } from "@angular/http";
+// import { Response } from "@angular/http";
 
 // Models
 import { Film } from '../_models/index';
-import { Dubber } from '../../dubber/_models/index';
+// import { Dubber } from '../../dubber/_models/index';
 
 // Services
 import { Service } from '../../../services/index';
@@ -17,9 +17,9 @@ import { Service } from '../../../services/index';
 export class AddFilmComponent {
 
   film: any = {};
-  id: number;
-  dubbers: any = [];
-  status: string = "";
+  // id: number;
+  //dubbers: any = [];
+  //status: string = "";
 
   private alert_message;
 
@@ -28,59 +28,59 @@ export class AddFilmComponent {
   ) {}
 
   create(form){
-    let filmObj = Object.assign({}, form.value);
-    delete filmObj.dubbers;
-    this.service.create("films", filmObj).subscribe(
-      resp => {
-        let str = resp.headers.get("location");
-        let patt = /(\d+)/g;
-        let result = str.match(patt);
-        this.id = Number(result[0]);
+    // let filmObj = Object.assign({}, form.value);
+    // delete filmObj.dubbers;
+    this.service.create("films", form.value).subscribe(
+      data => {
+        // let str = data.headers.get("location");
+        // let patt = /(\d+)/g;
+        // let result = str.match(patt);
+        // this.film.id = Number(result[0]);
         this.alert_message = "success";
-        this.status = "ok";
+        //this.status = "ok";
       },
       err => {
-        this.status = "ko";
+        //this.status = "ko";
         this.alert_message = "rejected";
-      },
-      () => this.addFilmDubbersInRelationTable(form)
+      }
+      //() => this.addFilmDubbersInRelationTable(form)
     )
   }
 
-  private addFilmDubbersInRelationTable(form) {
-    let film_id = this.id;
-    let dubbers_selected = form.value.dubbers;
-    let film_dubbers = [];
+  // private addFilmDubbersInRelationTable(form) {
+  //   let film_id = this.id;
+  //   let dubbers_selected = form.value.dubbers;
+  //   let film_dubbers = [];
+  //
+  //   if(this.status == "ok") {
+  //     dubbers_selected.map(function(dubber) {
+  //       let object_pair = {
+  //         "film_id": film_id,
+  //         "dubber_id": dubber
+  //       };
+  //       film_dubbers.push(object_pair);
+  //     });
+  //     this.service.create("dubbers_films", film_dubbers).subscribe(
+  //       data => {
+  //         form.reset();
+  //       },
+  //       err => {
+  //         console.log(err)
+  //       }
+  //     );
+  //   }
+  // }
 
-    if(this.status == "ok") {
-      dubbers_selected.map(function(dubber) {
-        let object_pair = {
-          "film_id": film_id,
-          "dubber_id": dubber
-        };
-        film_dubbers.push(object_pair);
-      });
-      this.service.create("dubbers_films", film_dubbers).subscribe(
-        data => {
-          form.reset();
-        },
-        err => {
-          console.log(err)
-        }
-      );
-    }
-  }
-
-  loadAllItems(table, variable, condition) {
-    this.service.getAll(table, condition).subscribe(
-      data => {
-        this[variable] = data;
-      }
-    );
-  }
+  // loadAllItems(table, variable, condition) {
+  //   this.service.getAll(table, condition).subscribe(
+  //     data => {
+  //       this[variable] = data;
+  //     }
+  //   );
+  // }
 
   ngOnInit() {
-    this.loadAllItems("dubbers", "dubbers", "not_archived");
+    //this.loadAllItems("dubbers", "dubbers", "not_archived");
   }
 
 }
