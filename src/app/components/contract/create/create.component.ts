@@ -292,6 +292,7 @@ export class ContractCreateComponent implements OnInit {
         this.alert_message = "success";
         this.updateRecord("dubber_enpals_data", "contract_id", this.contract.id, this.enpals_data.id);
         this.updateRecord("invoices", "contract_id", this.contract.id, this.invoice.id);
+        //this.addFilmDubbersInRelationTable();
       },
       err => {
         console.log(err);
@@ -299,6 +300,43 @@ export class ContractCreateComponent implements OnInit {
       }
     );
   }
+
+  // private addFilmDubbersInRelationTable() {
+  //   let film_dubber = {
+  //     film_id: this.contract.film_id,
+  //     dubber_id: this.contract.film_id
+  //   }
+  //   this.service.create("dubbers_films", film_dubber).subscribe(
+  //     data => {
+  //       console.log(ok);
+  //     },
+  //     err => {
+  //       console.log(err)
+  //     }
+  //   );
+  // //   let film_id = this.contract.film_id;
+  // //    let dubber_id = this.contract.film_id;
+  // //   let dubbers_selected = form.value.dubbers;
+  // //   let film_dubbers = [];
+  // //
+  // //   if(this.status == "ok") {
+  // //     dubbers_selected.map(function(dubber) {
+  // //       let object_pair = {
+  // //         "film_id": film_id,
+  // //         "dubber_id": dubber
+  // //       };
+  // //       film_dubbers.push(object_pair);
+  // //     });
+  // //     this.service.create("dubbers_films", film_dubbers).subscribe(
+  // //       data => {
+  // //         form.reset();
+  // //       },
+  // //       err => {
+  // //         console.log(err)
+  // //       }
+  // //     );
+  // //   }
+  // }
 
   private computes() {
     let enpals_category = this.dubber.enpals_categories[0];

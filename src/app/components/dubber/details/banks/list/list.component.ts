@@ -10,7 +10,7 @@ import { Service } from '../../../../../services/index';
 })
 export class BanksListComponent implements OnInit {
 
-  @Input() dubber: any;
+  @Input() banks: any;
   @Output() msg = new EventEmitter();
   @Output() current_bank = new EventEmitter();
 
@@ -66,7 +66,7 @@ export class BanksListComponent implements OnInit {
   }
 
   resetBankArrayValue(bank_id) {
-    this.dubber.banks.map(function(bank) {
+    this.banks.map(function(bank) {
       if(bank.id == bank_id) {
         bank._default = true
       } else {

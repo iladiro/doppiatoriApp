@@ -35,17 +35,17 @@
               <personal-information [dubber]="this.dubber" (msg)="setMessage($event)"></personal-information>
             </div>
             <div class="tab-pane" id="tax-information" role="tabpanel">
-              <tax-information [dubber]="this.dubber" (msg)="setMessage($event)"></tax-information>
+              <tax-information [addresses]="this.dubber.addresses" (msg)="setMessage($event)"></tax-information>
             </div>
             <div class="tab-pane" id="banks" role="tabpanel">
-              <banksList [dubber]="this.dubber" (current_bank)="setData($event)" (msg)="setMessage($event)"></banksList>
-              <bankForm [dubber]="this.dubber" (msg)="setMessage($event)"></bankForm>
+              <banksList [banks]="this.dubber.banks" (current_bank)="setData($event)" (msg)="setMessage($event)"></banksList>
+              <bankForm [banks]="this.dubber.banks" (msg)="setMessage($event)"></bankForm>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
-              <dubber-films [dubber]="this.dubber" (current_film)="setData($event)" (msg)="setMessage($event)"></dubber-films>
+              <dubber-films [films]="this.dubber.collaborations" (current_film)="setData($event)" (msg)="setMessage($event)"></dubber-films>
             </div>
             <div class="tab-pane" id="invoices" role="tabpanel">
-              <invoicesesList [dubber]="this.dubber" (current_invoice)="setData($event)" (msg)="setMessage($event)"></invoicesesList>
+              <invoicesesList [invoices]="this.dubber.invoices" (current_invoice)="setData($event)" (msg)="setMessage($event)"></invoicesesList>
               <!-- <formInvoice [dubber]="this.dubber" (msg)="setMessage($event)"></formInvoice> -->
             </div>
           </div>

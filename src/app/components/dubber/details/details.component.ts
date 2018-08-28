@@ -63,7 +63,6 @@ export class DubberProfileComponent implements OnInit {
       this.id = +params['id'];
       this.dubberService.getById(this.id).subscribe(
         data => {
-          //console.log(data);
           this.dubber = data;
         }
       );

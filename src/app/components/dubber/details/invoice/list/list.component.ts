@@ -13,7 +13,7 @@ import { Service } from '../../../../../services/index';
 })
 export class InvoiceListComponent implements OnInit {
 
-  @Input() dubber: any;
+  @Input() invoices: any;
   @Output() msg =  new EventEmitter();
   @Output() current_invoice = new EventEmitter();
 
@@ -34,35 +34,6 @@ export class InvoiceListComponent implements OnInit {
       this.msg.emit({message: data.message, type: 'alert'});
     }
   }
-
-  // private current_invoice;
-  //
-  // private modal_message = {
-  //   "text": "Sei sicuro di voler cancellarlo?"
-  // };
-  //
-  // private setConfirm(data) {
-  //   if(data == "true") {
-  //     this.delete(this.current_invoice);
-  //   }
-  // }
-  //
-  //
-  //
-  // private delete(invoice) {
-  //   let index = this.dubber.invoices.indexOf(invoice);
-  //   this.service.delete("invoices", "id", invoice.id).subscribe(
-  //     data => {
-  //       if(index > -1) {
-  //         this.dubber.invoices.splice(index, 1);
-  //       }
-  //       this.event.emit("delete");
-  //     },
-  //     err => {
-  //       this.event.emit("rejected");
-  //     }
-  //   )
-  // }
 
   ngOnInit() {}
 

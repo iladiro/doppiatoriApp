@@ -30,8 +30,6 @@ export class DubberInvoiceRowComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-    console.log(this.invoice)
-  }
+  ngOnInit() {}
 
 }

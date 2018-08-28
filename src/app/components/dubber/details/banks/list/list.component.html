@@ -1,7 +1,7 @@
 <div class="form--light mb-30">
   <legend>Dati Bancari:</legend>
   <div class="form-row">
-    <div class="col-sm-6" *ngFor="let bank of dubber.banks">
+    <div class="col-sm-6" *ngFor="let bank of banks">
       <app-dubber-bank-details [bank]="bank" (data)="getData($event)" (msg)="getMessage($event)"></app-dubber-bank-details>
     </div>
   </div>

@@ -10,7 +10,7 @@ import { Service } from '../../../../services/index';
 })
 export class DubberTaxInformationComponent implements OnInit {
 
-  @Input() dubber: any;
+  @Input() addresses: any;
   @Output() msg = new EventEmitter();
 
   constructor(
@@ -18,7 +18,7 @@ export class DubberTaxInformationComponent implements OnInit {
   ) {}
 
   update() {
-    this.service.update("addresses", this.dubber.addresses[0]).subscribe(
+    this.service.update("addresses", this.addresses[0]).subscribe(
       data => {
         this.msg.emit({ message: "success", type: "alert"});
       },
@@ -28,6 +28,8 @@ export class DubberTaxInformationComponent implements OnInit {
     )
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.addresses)
+  }
 
 }

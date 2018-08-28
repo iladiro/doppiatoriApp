@@ -10,7 +10,7 @@ import { Service } from '../../../../services/index';
 })
 export class DubberFilmsComponent implements OnInit {
 
-  @Input() dubber: any;
+  @Input() films: any[];
   @Output() msg =  new EventEmitter();
   @Output() current_film = new EventEmitter();
 
@@ -33,6 +33,7 @@ export class DubberFilmsComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.films)
   }
 
 }

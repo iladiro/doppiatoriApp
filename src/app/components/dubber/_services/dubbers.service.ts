@@ -17,7 +17,7 @@ export class DubberService {
   ngOnInit(): void {}
 
   getById(id: number) {
-    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,addresses:addresses(*),banks:banks(*),films:films(id,title),invoices:invoices(*, film:films(title)),enpals_categories:enpals_categories(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,addresses:addresses(*),banks:banks(*),collaborations:contracts(film_id, film_title),invoices:invoices(*, film:films(title)),enpals_categories:enpals_categories(*),contracts:contracts(*)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
   }
 
 }

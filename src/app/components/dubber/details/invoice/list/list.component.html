@@ -1,11 +1,11 @@
-<table class="table table--striped" *ngIf="dubber.invoices.length; else noInvoices">
+<table class="table table--striped" *ngIf="invoices.length; else noInvoices">
   <tbody class="form--light">
-    <tr [dubber_id]="this.dubber.id" [invoice]="invoice" *ngFor="let invoice of dubber.invoices | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" dubber-invoice-row></tr>
+    <tr [dubber_id]="invoice.dubber_id" [invoice]="invoice" *ngFor="let invoice of invoices | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" dubber-invoice-row></tr>
   </tbody>
 </table>
 <ng-template #noInvoices>
   <p class="alert alert-warning mb-30">Non sono ancora state create fatture.</p>
 </ng-template>
-<div class="d-flex justify-content-center" *ngIf="dubber.invoices.length >= 10">
+<div class="d-flex justify-content-center" *ngIf="invoices.length >= 10">
   <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
 </div>
