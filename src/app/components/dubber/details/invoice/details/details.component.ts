@@ -21,7 +21,8 @@ import { Service } from '../../../../../services/index';
 export class DetailsInvoiceComponent implements OnInit {
 
   id: number;
-  private sub: any;
+  private dubber: any;
+  private company: any;
   private address: any;
   private enpals_categories: any;
   private invoice: any;
@@ -44,22 +45,31 @@ export class DetailsInvoiceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      let dubber_id = +params['dubber_id'];
-      this.service.getById("addresses", "dubber_id", dubber_id).subscribe(
-        data => {
-          this.address = data;
-        }
-      );
-      this.service.getById("enpals_categories", "dubber_id", dubber_id).subscribe(
-        data => {
-          this.enpals_categories = data;
-        }
-      );
       this.invoiceService.getById(this.id).subscribe(
         data => {
-          this.invoice = data;
+          this.dubber = data.dubber;
+          this.enpals_categories = data.dubber.enpals_cat[0];
+          this.address = data.dubber.address[0];
+          this.company = data.company;
+          this.enpals_data = data.enpals_data;
+          this.film = data.film;
+          this.invoice = {
+            "reference_month": data.reference_month,
+            "reference_year": data.reference_year,
+            "work_to": data.work_to,
+            "work_from": data.work_from,
+            "number_of_days": data.number_of_days,
+            "creation_date": data.creation_date,
+            "amount": data.amount,
+            "total_amount": data.total_amount,
+            "vat": data.vat,
+            "trattenuta_sindacale": data.trattenuta_sindacale,
+            "total_deductions": data.total_deductions,
+            "total_enpals": data.total_enpals,
+            "total_net": data.total_net
+          }
         }
       );
     });

@@ -94,6 +94,11 @@ export class AddDubberComponent {
       );
       this.service.create("enpals_categories", this.enpals_categories).subscribe(
         data => {
+          let str = data.headers.get("location");
+          let patt = /(\d+)/g;
+          let result = str.match(patt);
+          this.enpals_categories.id = Number(result[0]);
+          this.updateRecord("dubbers", this.id, "enpals_cat_id", this.enpals_categories.id);
           console.log("ok");
         },
         err => {
@@ -101,6 +106,21 @@ export class AddDubberComponent {
         }
       );
     }
+  }
+
+  private updateRecord(table, id_record, column, value) {
+    let obj = {
+      "id": id_record,
+      [column]: value
+    };
+    this.service.update(table, obj).subscribe(
+      data => {
+        console.log("ok")
+      },
+      err => {
+        console.log(err)
+      }
+    )
   }
 
   loadAllItems(table, variable, condition) {
