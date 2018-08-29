@@ -28,8 +28,6 @@ export class DubberTaxInformationComponent implements OnInit {
     )
   }
 
-  ngOnInit() {
-    console.log(this.addresses)
-  }
+  ngOnInit() {}
 
 }

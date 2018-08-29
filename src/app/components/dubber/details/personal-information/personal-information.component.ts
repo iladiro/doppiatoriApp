@@ -21,7 +21,6 @@ export class DubberPersonalInformationComponent implements OnInit {
   ) { }
 
   private update(){
-    console.log(this.dubber);
 
     this.dubber.avatar = this.dubber.name.charAt(0);
 

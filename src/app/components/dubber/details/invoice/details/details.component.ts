@@ -54,14 +54,12 @@ export class DetailsInvoiceComponent implements OnInit {
       );
       this.service.getById("enpals_categories", "dubber_id", dubber_id).subscribe(
         data => {
-          console.log(data);
           this.enpals_categories = data;
         }
       );
       this.invoiceService.getById(this.id).subscribe(
         data => {
           this.invoice = data;
-          console.log(data)
         }
       );
     });

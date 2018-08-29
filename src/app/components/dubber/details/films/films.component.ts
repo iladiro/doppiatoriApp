@@ -10,9 +10,9 @@ import { Service } from '../../../../services/index';
 })
 export class DubberFilmsComponent implements OnInit {
 
-  @Input() films: any[];
-  @Output() msg =  new EventEmitter();
-  @Output() current_film = new EventEmitter();
+  @Input() collaborations: any[];
+  // @Output() msg =  new EventEmitter();
+  // @Output() current_film = new EventEmitter();
 
   p: number = 1;
 
@@ -20,20 +20,18 @@ export class DubberFilmsComponent implements OnInit {
     private service: Service
   ) { }
 
-  private getData(data){
-    this.current_film.emit(data);
-  }
+  // private getData(data){
+  //   this.current_film.emit(data);
+  // }
+  //
+  // private getMessage(data) {
+  //   if(data.type == "modal") {
+  //     this.msg.emit({message: data.message, type: 'modal'});
+  //   } else if(data.type == "alert") {
+  //     this.msg.emit({message: data.message, type: 'alert'});
+  //   }
+  // }
 
-  private getMessage(data) {
-    if(data.type == "modal") {
-      this.msg.emit({message: data.message, type: 'modal'});
-    } else if(data.type == "alert") {
-      this.msg.emit({message: data.message, type: 'alert'});
-    }
-  }
-
-  ngOnInit() {
-    console.log(this.films)
-  }
+  ngOnInit() {}
 
 }

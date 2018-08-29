@@ -25,9 +25,9 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#collaborations" role="tab">Collaborazioni</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#invoices" role="tab">Fatture</a>
-            </li>
+            </li> -->
           </ul>
           <!-- Tab panes -->
           <div class="tab-content pboth-15">
@@ -42,12 +42,12 @@
               <bankForm [banks]="this.dubber.banks" (msg)="setMessage($event)"></bankForm>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
-              <dubber-films [films]="this.dubber.collaborations" (current_film)="setData($event)" (msg)="setMessage($event)"></dubber-films>
+              <dubber-films [collaborations]="this.dubber.collaborations" (current_film)="setData($event)" (msg)="setMessage($event)"></dubber-films>
             </div>
-            <div class="tab-pane" id="invoices" role="tabpanel">
+            <!-- <div class="tab-pane" id="invoices" role="tabpanel">
               <invoicesesList [invoices]="this.dubber.invoices" (current_invoice)="setData($event)" (msg)="setMessage($event)"></invoicesesList>
-              <!-- <formInvoice [dubber]="this.dubber" (msg)="setMessage($event)"></formInvoice> -->
-            </div>
+              <formInvoice [dubber]="this.dubber" (msg)="setMessage($event)"></formInvoice>
+            </div> -->
           </div>
         </div>
       </div>

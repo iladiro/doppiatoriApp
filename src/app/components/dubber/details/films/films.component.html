@@ -1,11 +1,12 @@
-<table class="table table--striped" *ngIf="films.length; else noFilm">
+<table class="table table--striped" *ngIf="collaborations.length; else noFilm">
   <tbody class="form--light">
-    <tr [film]="film" *ngFor="let film of films | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" dubber-film-row></tr>
+    <!-- <tr [collaboration]="collaboration" *ngFor="let collaboration of collaborations | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" dubber-film-row></tr> -->
+    <tr [collaboration]="collaboration" *ngFor="let collaboration of collaborations | paginate: { itemsPerPage: 10, currentPage: p }" dubber-film-row></tr>
   </tbody>
 </table>
 <ng-template #noFilm>
   <p class="alert alert-warning">Non ci sono film associati</p>
 </ng-template>
-<div class="d-flex justify-content-center" *ngIf="films.length >= 10">
+<div class="d-flex justify-content-center" *ngIf="collaborations.length >= 10">
   <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
 </div>
