@@ -2,41 +2,41 @@
   <section class="invoice bg-white mb-40" id="invoice">
     <div>
       <p class="text-capitalize mb-0 font-weight-bold">
-        {{dubber.name}} {{dubber.surname}}
+        {{invoice.dubber.name}} {{invoice.dubber.surname}}
       </p>
       <p class="mb-0">
-        <ng-container *ngIf="dubber.gender == 'M'; else female">Nato</ng-container>
+        <ng-container *ngIf="invoice.dubber.gender == 'M'; else female">Nato</ng-container>
         <ng-template #female>Nata</ng-template> a
-        <span class="text-capitalize">{{dubber.birth_place}}</span> il {{dubber.birth_date}}
+        <span class="text-capitalize">{{invoice.dubber.birth_place}}</span> il {{invoice.dubber.birth_date}}
       </p>
       <p class=" mb-0">
-        Residente a <span class="text-capitalize">{{address.residence_city}}, {{address.residence_address}}, {{address.residence_postcode}}</span>
+        Residente a <span class="text-capitalize">{{invoice.dubber.address[0].residence_city}}, {{invoice.dubber.address[0].residence_address}}, {{invoice.dubber.address[0].residence_postcode}}</span>
       </p>
-      <p class="mb-0" *ngIf="dubber.vat != 0">
-        P.Iva <span class="text-uppercase">{{dubber.vat}}</span>
-      </p>
-      <p class="mb-0">
-        C.F. <span class="text-uppercase">{{dubber.fiscal_code}}</span>
+      <p class="mb-0" *ngIf="invoice.dubber.vat != null">
+        P.Iva <span class="text-uppercase">{{invoice.dubber.vat}}</span>
       </p>
       <p class="mb-0">
-        Enpals <span class="text-uppercase">{{enpals_categories.matricola_enpals}}</span>
+        C.F. <span class="text-uppercase">{{invoice.dubber.fiscal_code}}</span>
+      </p>
+      <p class="mb-0">
+        Enpals <span class="text-uppercase">{{invoice.dubber.enpals_cat.matricola_enpals}}</span>
       </p>
     </div>
     <div class="text-right">
       <p class=" mb-0">
-        Spett.le <span class="font-weight-bold">{{company.name}}</span>
+        Spett.le <span class="font-weight-bold">{{invoice.company.name}}</span>
       </p>
       <p class="mb-0">
-        {{company.address}}
+        {{invoice.company.address}}
       </p>
       <p class="mb-0">
-        C.F. e P.IVA {{company.vat}}
+        C.F. e P.IVA {{invoice.company.vat}}
       </p>
     </div>
     <div class="mb-40">
       <p class="mb-40">
         FATTURA N. <span class="font-weight-bold">{{invoice.id}}</span><br><br>
-        Compenso per prestazione d'opera del film "<strong>{{film.title}}</strong>"
+        Compenso per prestazione d'opera del film "<strong>{{invoice.film.title}}</strong>"
       </p>
       <table class="table table-bordered">
         <tbody>
@@ -72,9 +72,9 @@
         <tbody>
           <tr>
             <td>Tratt. Pens.</td>
-            <td class="text-right">{{enpals_data.trattenuta_pensione}} €</td>
+            <td class="text-right">{{invoice.enpals_data.trattenuta_pensione}} €</td>
           </tr>
-          <tr *ngIf="enpals_categories.trattenuta_sindacale">
+          <tr *ngIf="invoice.dubber.enpals_cat[0].trattenuta_sindacale">
             <td>Tratt. Sind.</td>
             <td class="text-right">{{invoice.trattenuta_sindacale}} €</td>
           </tr>
@@ -82,13 +82,13 @@
             <td>Enpals</td>
             <td class="text-right">{{invoice.total_enpals}} €</td>
           </tr>
-          <tr *ngIf="enpals_categories.ritenuta_acconto == 1">
+          <tr *ngIf="invoice.dubber.enpals_cat[0].ritenuta_acconto == 1">
             <td>Ritenuta acconto</td>
             <td class="text-right">{{invoice.total_deductions}} €</td>
           </tr>
           <tr>
             <td>Aliquota aggiuntiva</td>
-            <td class="text-right">{{enpals_data.additional_rate}} €</td>
+            <td class="text-right">{{invoice.enpals_data.additional_rate}} €</td>
           </tr>
           <tr>
             <td>Totale</td>
@@ -103,7 +103,7 @@
         </tr>
       </table>
     </div>
-    <div *ngIf="enpals_categories.forfettone == 1" class="mb-50">
+    <div *ngIf="invoice.dubber.enpals_cat[0].forfettone == 1" class="mb-50">
       <p class="small">
         Operazione effettuata ai sensi dell'articolo 27 commi 1  e 2 D.L. 6 luglio 2011 n. 98.
       </p>
@@ -114,7 +114,7 @@
         Prestazione non soggetta a ritenuta d’acconto ai sensi del comma 5.2 del Provvedimento Agenzia delle entrate del 22.12.2011 n. 185820.
       </p>
     </div>
-    <div *ngIf="enpals_categories.forfettone == 2" class="mb-50">
+    <div *ngIf="invoice.dubber.enpals_cat[0].forfettone == 2" class="mb-50">
       <p class="small">
         Operazione soggetta a regime forfettario ex art. 1 comma 58 L. 190/14
       </p>
