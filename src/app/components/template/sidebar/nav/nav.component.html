@@ -1,0 +1,53 @@
+<nav class="side-nav">
+  <ul class="nav nav-pills nav-stacked">
+    <!-- <li class="active side-nav__tab">
+      <a href="" class="side-nav__tab-link">
+        <i class="fa fa-dashboard side-nav__tab-icon"></i>
+        <span class="side-nav__tab-voice">Dashboard</span>
+      </a>
+    </li> -->
+    <!-- <li class="side-nav__tab">
+      <a href="" class="side-nav__tab-link">
+        <i class="fa fa-film side-nav__tab-icon"></i>
+        <span class="side-nav__tab-voice">Projects</span>
+      </a>
+    </li> -->
+    <li class="side-nav__tab" [class.active]="router.url==='/todo' || router.url==='/todo/list' || router.url==='/todo/expired'">
+      <a href="#collapseTodo" aria-expanded="true" data-toggle="collapse" class="side-nav__tab-link">
+        <i class="fa fa-list side-nav__icon" aria-hidden="true"></i>
+        <span class="side-nav__tab-voice">Todo</span>
+        <i class="fa fa-caret-down side-nav__tab-arrow" aria-hidden="true"></i>
+      </a>
+      <nav class="side-nav-submenu collapse in" id="collapseTodo" aria-expanded="true">
+        <ul class="nav">
+          <li class="side-nav-submenu__tab">
+            <a class="side-nav-submenu__tab-link" [routerLink]="['/todo/list']">List</a>
+          </li>
+          <li class="side-nav-submenu__tab">
+            <a class="side-nav-submenu__tab-link" [routerLink]="['/todo/expired']">Scaduti</a>
+          </li>
+        </ul>
+      </nav>
+    </li>
+    <!-- <li class="side-nav__tab" [class.active]="router.url==='/settings' || router.url==='/settings/qualifications' || router.url==='/settings/companies' || router.url==='/settings/enpals-parameters'">
+      <a href="#collapseSettings" aria-expanded="true" data-toggle="collapse" class="side-nav__tab-link">
+        <i class="fa fa-cogs side-nav__icon" aria-hidden="true"></i>
+        <span class="side-nav__tab-voice">Impostazioni</span>
+        <i class="fa fa-caret-down side-nav__tab-arrow" aria-hidden="true"></i>
+      </a>
+      <nav class="side-nav-submenu collapse in" id="collapseSettings" aria-expanded="true">
+        <ul class="nav">
+          <li class="side-nav-submenu__tab">
+            <a [routerLink]="['/settings/qualifications']" class="side-nav-submenu__tab-link">Qualifiche</a>
+          </li>
+          <li class="side-nav-submenu__tab">
+            <a [routerLink]="['/settings/companies']" class="side-nav-submenu__tab-link">Aziende</a>
+          </li>
+          <li class="side-nav-submenu__tab">
+            <a [routerLink]="['/settings/enpals-parameters']" class="side-nav-submenu__tab-link">Parametri Enpals</a>
+          </li>
+        </ul>
+      </nav>
+    </li> -->
+  </ul>
+</nav>

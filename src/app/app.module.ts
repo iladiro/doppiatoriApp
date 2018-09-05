@@ -105,6 +105,7 @@ import { ContractRowComponent } from './components/contract/list/row/row.compone
 import { ContractDetailsComponent } from './components/contract/details/details.component';
 import { ContractArchivedComponent } from './components/contract/archived/archived.component';
 import { ContractArchivedRowComponent } from './components/contract/archived/row/row.component';
+import { SideBarNavComponent } from './components/template/sidebar/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -178,7 +179,8 @@ import { ContractArchivedRowComponent } from './components/contract/archived/row
     ContractRowComponent,
     ContractDetailsComponent,
     ContractArchivedComponent,
-    ContractArchivedRowComponent
+    ContractArchivedRowComponent,
+    SideBarNavComponent
   ],
   imports: [
     BrowserModule,

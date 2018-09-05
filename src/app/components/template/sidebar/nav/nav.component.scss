@@ -1,0 +1,70 @@
+@import "../../../../../assets/stylesheet/mixin/custom-mixin";
+
+.side-nav {
+  &__tab {
+    width: 100%;
+    &-link {
+      display: block;
+      @include transition(all .3s ease-out);
+      padding: 10px;
+      position: relative;
+      @include font-style(1rem, white, 300);
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &-arrow {
+      @include position(right, 13px, top, 13px);
+    }
+    &-voice {
+      padding: 0 13px;
+    }
+    &.active {
+      margin-bottom: 4px;
+      .side-nav__tab-link {
+        background-color: rgba(255,255,255,.06);
+      }
+    }
+  }
+  &-submenu {
+    &__tab {
+      width: 100%;
+      &-link {
+        display: block;
+        @include transition(all .3s ease-out);
+        padding: 5px 5px 5px 45px;
+        @include font-style(1rem, white, 300);
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+
+// .side {
+//   &-nav {
+//     margin: 0 0 25px;
+//     .nav {
+//       &-item {}
+//       &-link {
+//         @include font-style(1rem, #fff, 600);
+//         padding: .85rem 1rem;
+//         border-radius: 2px;
+//         @include transition(background-color .3s,color .3s);
+//         display: block;
+//         position: relative;
+//         &.active {
+//           margin-bottom: 4px;
+//           background-color: rgba(255,255,255,.06);
+//         }
+//       }
+//     }
+//   }
+//   &-subnav {
+//     list-style-type: none;
+//     padding: 0;
+//     @include transition(all .3s linear);
+//   }
+// }
