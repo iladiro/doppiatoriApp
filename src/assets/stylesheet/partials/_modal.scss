@@ -1,20 +1,24 @@
-//@import "../mixin/custom-mixin";
-
 .modal {
   $this: &;
   &.message-modal {
     #{$this}-content {
-      background: rgba(0,0,0,.96);
+      background: rgb(255, 255, 255);
       @include box-shadow(0 5px 20px rgba(0,0,0,.3));
+      @include font-style(18px, #545454, 300);
       border-radius: 2px;
+      text-align: center;
+      position: relative;
+      @include spaces(20px, 0)
+      line-height: normal;
     }
     #{$this}-header {
       border-bottom: 0;
       .close {
-        color: white;
+        color: #545454;
       }
     }
     #{$this}-footer {
+      margin: 0 auto;
       border-top: 0;
     }
   }

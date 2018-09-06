@@ -1,5 +1,5 @@
 <div class="modal message-modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -7,11 +7,15 @@
         </button>
       </div>
       <div class="modal-body">
-        {{message.text}}
+        <h2>{{message.text}}</h2>
+        <p>
+          Tutti i dati associati saranno permanentemente rimossi<br>
+          Non sarà più possibile tornare indietro!
+        </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn--light" data-dismiss="modal" (click)="setConfirm('true')">Si</button>
-        <button type="button" class="btn btn--light" data-dismiss="modal" (click)="setConfirm('false')">Annulla</button>
+        <button type="button" class="btn btn-lg btn--dark" data-dismiss="modal" (click)="setConfirm('true')">Si, cancella</button>
+        <button type="button" class="btn btn-lg btn--dark" data-dismiss="modal" (click)="setConfirm('false')">Annulla</button>
       </div>
     </div>
   </div>
