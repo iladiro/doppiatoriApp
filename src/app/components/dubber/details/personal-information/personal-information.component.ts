@@ -15,6 +15,7 @@ export class DubberPersonalInformationComponent implements OnInit {
 
   private qualifications: any = [];
   private nationalities: any = [];
+  private enpals_cat: any = {};
 
   constructor(
     private service: Service
@@ -25,8 +26,8 @@ export class DubberPersonalInformationComponent implements OnInit {
     this.dubber.avatar = this.dubber.name.charAt(0);
 
     let dubber_obj = Object.assign({}, this.dubber);
-    delete dubber_obj.films;
-    delete dubber_obj.invoices;
+    delete dubber_obj.collaborations;
+    //delete dubber_obj.invoices;
     delete dubber_obj.banks;
     delete dubber_obj.addresses;
     delete dubber_obj.enpals_categories;
@@ -53,6 +54,8 @@ export class DubberPersonalInformationComponent implements OnInit {
   ngOnInit() {
     this.loadAllItems("qualifications", "qualifications", "all");
     this.loadAllItems("nationalities", "nationalities", "all");
+    console.log(this.dubber.enpals_categories[0]);
+    this.enpals_cat = this.dubber.enpals_categories[0];
   }
 
 }

@@ -63,20 +63,78 @@
       <div class="col-sm-4 mb-3">
         <div class="form-group">
           <label for="birth_province">Provincia di nascita</label>
-          <input type="text" id="birth_province" class="form-control black text-capitalize" placeholder="Provincia" [(ngModel)]="dubber.birth_province" name="birth_province" #birth_province="ngModel">
+          <input type="text" id="birth_province" class="form-control black text-capitalize" placeholder="Provincia" [(ngModel)]="dubber.birth_province" name="birth_province" #birth_province="ngModel" maxlength="2">
         </div>
       </div>
     </div>
   </fieldset>
   <fieldset class="pl-0 pr-0">
-    <legend>Qualifica:</legend>
-    <div class="form-group">
-      <select id="qualification" class="form-control black" [(ngModel)]="dubber.qualification" name="qualification" #qualification="ngModel">
-        <option [value]="null" selected disabled>Seleziona categoria</option>
-        <option *ngFor="let qualification of qualifications" [value]="qualification.code">
-          {{qualification.description}}
-        </option>
-      </select>
+    <legend>Categorie enpals:</legend>
+    <div class="form-row">
+      <div class="col-sm-12 col-md-4">
+        <div class="form-group">
+          <label for="matricola_enpals">Matricola enpals</label>
+          <input type="text" id="matricola_enpals" class="form-control black text-capitalize" placeholder="Matricola enpals" [(ngModel)]="enpals_cat.matricola_enpals" name="matricola_enpals" #matricola_enpals="ngModel">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="form-group">
+          <label for="qualification">Qualifica</label>
+          <select id="qualification" class="form-control black" [(ngModel)]="dubber.qualification" name="qualification" #qualification="ngModel">
+            <option [value]="null" selected disabled>Seleziona categoria</option>
+            <option *ngFor="let qualification of qualifications" [value]="qualification.code">
+              {{qualification.description}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="form-group">
+          <label for="qualification">Cat. contributiva</label>
+          <select id="cat_contrib" class="form-control black text-capitalize" [(ngModel)]="enpals_cat.cat_contrib" name="cat_contrib" #cat_contrib="ngModel">
+            <option [value]="null" selected disabled>Seleziona categoria</option>
+            <option value="A">Ante '95</option>
+            <option value="B">Dopo '95</option>
+            <option value="C">Dopo '95 (a.c.p.)</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="pensionato" value="pensionato" [(ngModel)]="enpals_cat.pensionato" name="pensionato">
+            <label class="form-check-label" for="pensionato">Pensionato</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="iscrizione_sindacato" value="iscrizione_sindacato" [(ngModel)]="enpals_cat.iscrizione_sindacato" name="iscrizione_sindacato">
+            <label class="form-check-label" for="iscrizione_sindacato">Iscr. sindacato</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="ritenuta_acconto" value="ritenuta_acconto" [(ngModel)]="enpals_cat.ritenuta_acconto" name="ritenuta_acconto" checked="checked">
+            <label class="form-check-label" for="ritenuta_acconto">Rit. acconto</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="trattenuta_sindacale" value="trattenuta_sindacale" [(ngModel)]="enpals_cat.trattenuta_sindacale" name="trattenuta_sindacale">
+            <label class="form-check-label" for="trattenuta_sindacale">Tratt. sindacale</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="forfettone" id="forfettone_0" value="0" [(ngModel)]="enpals_cat.forfettone">
+            <label class="form-check-label" for="forfettone_0">Regime Normale</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="forfettone" id="forfettone_1" value="1" [(ngModel)]="enpals_cat.forfettone">
+            <label class="form-check-label" for="forfettone_1">Regime Minimo</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="forfettone" id="forfettone_2" value="2" [(ngModel)]="enpals_cat.forfettone">
+            <label class="form-check-label" for="forfettone_2">Regime Forfettario</label>
+          </div>
+        </div>
+      </div>
     </div>
   </fieldset>
   <fieldset class="pl-0 pr-0">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'sidebar-nav',
@@ -7,17 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarNavComponent implements OnInit {
 
-  public open:boolean = false;
-
-  constructor() { }
-
-  openMenu() {
-    if(this.open == false) {
-      this.open = true;
-    } else {
-      this.open = false;
-    }
-  }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {}
 
