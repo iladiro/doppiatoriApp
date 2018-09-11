@@ -140,7 +140,7 @@
             <div class="col-sm-12 col-md-4 mb-3">
               <div class="form-group">
                 <label for="matricola_enpals">Matricola enpals</label>
-                <input id="matricola_enpals" type="text" class="form-control black text-capitalize" placeholder="Matricola" [(ngModel)]="enpals_categories.matricola_enpals" name="matricola_enpals" #matricola_enpals="ngModel">
+                <input id="matricola_enpals" type="number" class="form-control black text-capitalize" placeholder="Matricola" [(ngModel)]="enpals_categories.matricola_enpals" name="matricola_enpals" #matricola_enpals="ngModel" pattern="^[0-9]$">
               </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3">
