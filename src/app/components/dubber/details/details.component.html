@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-2">
           <figure class="m-0">
-            <img src="/assets/images/user_placeholder_man.png" alt="The Pulpit Rock" class="img-fluid img-thumbnail">
+            <img src="/assets/images/user_placeholder_man.png" alt="{{dubber.name}} {{dubber.surname}}" class="img-fluid img-thumbnail">
             <h5 class="mt-10 text-capitalize">{{dubber.name}} {{dubber.surname}}</h5>
           </figure>
         </div>
@@ -21,6 +21,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#banks" role="tab">Coordinate bancarie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#enpals-cat" role="tab">Categorie enpals</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#collaborations" role="tab">Collaborazioni</a>
@@ -40,6 +43,9 @@
             <div class="tab-pane" id="banks" role="tabpanel">
               <banksList [banks]="this.dubber.banks" (current_bank)="setData($event)" (msg)="setMessage($event)"></banksList>
               <bankForm [banks]="this.dubber.banks" (msg)="setMessage($event)"></bankForm>
+            </div>
+            <div class="tab-pane" id="enpals-cat" role="tabpanel">
+              <dubber-enpals-cat [enpals_cat]="this.dubber.enpals_categories[0]" (msg)="setMessage($event)"></dubber-enpals-cat>
             </div>
             <div class="tab-pane" id="collaborations" role="tabpanel">
               <dubber-films [collaborations]="this.dubber.collaborations" (current_film)="setData($event)" (msg)="setMessage($event)"></dubber-films>

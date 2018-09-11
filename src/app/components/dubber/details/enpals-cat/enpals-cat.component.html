@@ -1,0 +1,67 @@
+<form name="form" (ngSubmit)="f.form.valid && update()" #f="ngForm" novalidate class="form--light bg-light p-all-side-20">
+  <fieldset class="pl-0 pr-0">
+    <legend>Categorie enpals:</legend>
+    <div class="form-row">
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+          <label for="matricola_enpals">Matricola enpals</label>
+          <input type="text" id="matricola_enpals" class="form-control black text-capitalize" placeholder="Matricola enpals" [(ngModel)]="enpals_cat.matricola_enpals" name="matricola_enpals" #matricola_enpals="ngModel">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+          <label for="qualification">Qualifica</label>
+          <select id="qualification" class="form-control black" [(ngModel)]="enpals_cat.qualification" name="qualification" #qualification="ngModel">
+            <option [value]="null" selected disabled>Seleziona categoria</option>
+            <option *ngFor="let qualification of qualifications" [value]="qualification.code">
+              {{qualification.description}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+          <label for="qualification">Cat. contributiva</label>
+          <select id="cat_contrib" class="form-control black text-capitalize" [(ngModel)]="enpals_cat.cat_contrib" name="cat_contrib" #cat_contrib="ngModel">
+            <option [value]="null" selected disabled>Seleziona categoria</option>
+            <option value="A">Ante '95</option>
+            <option value="B">Dopo '95</option>
+            <option value="C">Dopo '95 (a.c.p.)</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group">
+          <label for="forfettone">Regime</label>
+          <select id="forfettone" class="form-control black text-capitalize" [(ngModel)]="enpals_cat.forfettone" name="forfettone" #forfettones="ngModel">
+            <option [value]="null" selected disabled>Seleziona categoria</option>
+            <option value="0">Normale</option>
+            <option value="1">Minimo</option>
+            <option value="2">Forfettario</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-xs-12 mt-20">
+        <div class="form-group">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="pensionato" value="pensionato" [(ngModel)]="enpals_cat.pensionato" name="pensionato">
+            <label class="form-check-label" for="pensionato">Pensionato</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="iscrizione_sindacato" value="iscrizione_sindacato" [(ngModel)]="enpals_cat.iscrizione_sindacato" name="iscrizione_sindacato">
+            <label class="form-check-label" for="iscrizione_sindacato">Iscr. sindacato</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="ritenuta_acconto" value="ritenuta_acconto" [(ngModel)]="enpals_cat.ritenuta_acconto" name="ritenuta_acconto" checked="checked">
+            <label class="form-check-label" for="ritenuta_acconto">Rit. acconto</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="trattenuta_sindacale" value="trattenuta_sindacale" [(ngModel)]="enpals_cat.trattenuta_sindacale" name="trattenuta_sindacale">
+            <label class="form-check-label" for="trattenuta_sindacale">Tratt. sindacale</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <button type="submit" class="btn btn-outline-success btn-block">Salva modifiche</button>
+</form>

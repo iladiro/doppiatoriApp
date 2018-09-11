@@ -148,7 +148,7 @@
                   'has-danger': qualification.invalid && (qualification.dirty || qualification.touched)
                 }">
                 <label for="qualification">Qualifica</label>
-                <select id="qualification" class="form-control black text-capitalize" [(ngModel)]="dubber.qualification" name="qualification" #qualification="ngModel">
+                <select id="qualification" class="form-control black text-capitalize" [(ngModel)]="enpals_categories.qualification" name="qualification" #qualification="ngModel">
                   <option [value]="null" selected disabled>Seleziona categoria</option>
                   <option *ngFor="let qualification of qualifications" [value]="qualification.code">
                     {{qualification.description}}

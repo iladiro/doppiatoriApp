@@ -106,6 +106,7 @@ import { ContractDetailsComponent } from './components/contract/details/details.
 import { ContractArchivedComponent } from './components/contract/archived/archived.component';
 import { ContractArchivedRowComponent } from './components/contract/archived/row/row.component';
 import { SideBarNavComponent } from './components/template/sidebar/nav/nav.component';
+import { DubberEnpalsCatComponent } from './components/dubber/details/enpals-cat/enpals-cat.component';
 
 @NgModule({
   declarations: [
@@ -180,7 +181,8 @@ import { SideBarNavComponent } from './components/template/sidebar/nav/nav.compo
     ContractDetailsComponent,
     ContractArchivedComponent,
     ContractArchivedRowComponent,
-    SideBarNavComponent
+    SideBarNavComponent,
+    DubberEnpalsCatComponent
   ],
   imports: [
     BrowserModule,
