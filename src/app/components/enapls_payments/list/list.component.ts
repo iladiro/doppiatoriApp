@@ -33,8 +33,12 @@ export class EnpalsPaymentsListComponent implements OnInit {
     this.current_enpals_payment = data;
   }
 
-  private getMessage(text) {
-    this.modal_message.text = text;
+  private getMessage(data) {
+    if(data.type == "modal") {
+      this.modal_message.text = data.message;
+    } else if(data.type == "alert") {
+      this.alert_message = data.message;
+    }
   }
 
   private setConfirm(data) {

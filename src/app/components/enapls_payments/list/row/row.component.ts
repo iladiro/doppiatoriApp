@@ -3,6 +3,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 // Services
 import { Service } from '../../../../services/index';
 
+// Helpers
+import { PrintYears } from '../../../../helpers/print-years';
+import { PrintMonths } from '../../../../helpers/print-months';
+
 @Component({
   selector: '[enpals-payments-row]',
   templateUrl: './row.component.html',
@@ -14,8 +18,13 @@ export class EnpalsPaymentsRowComponent {
   @Output() data = new EventEmitter();
   _readonly:boolean = true;
 
+  years: any = [];
+  months: any = [];
+
   constructor(
-    private service: Service
+    private service: Service,
+    private print_years: PrintYears,
+    private print_months: PrintMonths
   ) {}
 
   private editable() {
@@ -27,22 +36,31 @@ export class EnpalsPaymentsRowComponent {
     this.update();
   }
 
+  private annull() {
+    this._readonly = true;
+  }
+
   private update() {
     this.service.update("enpals_payments", this.current_data).subscribe(
       data => {
-        this.msg.emit("success");
+        this.msg.emit({ message: "success", type: "alert"});
       }
     );
   }
 
   private passDataToParent(request_type) {
     if(request_type == "archive") {
-      this.msg.emit("Sei sicuro di volerlo archiviare?");
+      this.msg.emit({ message: "Sei sicuro di volerlo archiviare?", type: "modal"});
     } else if(request_type == "delete") {
-      this.msg.emit("Sei sicuro di volerlo cancellare?");
+      this.msg.emit({ message: "Sei sicuro di volerlo cancellare?", type: "modal"});
     } else if(request_type == "rollback") {
-      this.msg.emit("Sei sicuro di volerlo ripristinare?");
+      this.msg.emit({ message: "Sei sicuro di volerlo ripristinare?", type: "modal"});
     }
     this.data.emit({item: this.current_data, request_type: request_type})
+  }
+
+  ngOnInit() {
+    this.years = this.print_years.generate("2004").reverse();
+    this.months = this.print_months.generate();
   }
 }
