@@ -28,6 +28,7 @@
               }">
                 <label for="gender">Sesso</label> <span *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="text-danger">Campo non valido</span>
                 <select class="form-control black" name="gender" [(ngModel)]="dubber.gender" #gender="ngModel">
+                  <!-- <option value="" disabled>Seleziona sesso</option> -->
                   <option value="F">Femmina</option>
                   <option value="M">Maschio</option>
                 </select>
@@ -45,7 +46,7 @@
               <div class="form-group">
                 <label for="nationality">Nazionalità</label>
                 <select id="nationality" class="form-control black text-capitalize" [(ngModel)]="dubber.nationality" name="nationality" #nationality="ngModel">
-                  <option [value]="null" selected disabled>Seleziona categoria</option>
+                  <option value="" disabled>Seleziona nazionalità</option>
                   <option *ngFor="let nationality of nationalities" [value]="nationality.nationality">
                     {{nationality.nationality}}
                   </option>

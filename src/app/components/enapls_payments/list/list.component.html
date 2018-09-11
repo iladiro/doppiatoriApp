@@ -1,56 +1,54 @@
-<div class="container">
-  <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-  <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
-  <nav class="row mb-3">
-    <div class="col">
-      <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
-      <back-button></back-button>
+<alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+<modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
+<nav class="row mb-3">
+  <div class="col">
+    <!-- <search-form [setDataForRequest]="dataForRequestSearchComp" (results)="setFoundValueFromSearch($event)"></search-form> -->
+    <back-button></back-button>
+  </div>
+  <div class="col text-right">
+    <a [routerLink]="['/enaplspayments/add']" class="btn btn--light">Aggiungi versamento enpals</a>
+  </div>
+</nav>
+<div class="general-card card mb-4">
+  <div class="general-card__body">
+    <table class="table table--striped" *ngIf="enpals_payments.length; else noPayments">
+      <thead class="thead--dark">
+        <tr>
+          <th>Mese</th>
+          <th>Anno</th>
+          <th>Data</th>
+          <th>Importo</th>
+          <th>ABI</th>
+          <th>CAB</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="form--light">
+        <tr [current_data]="item" *ngFor="let item of enpals_payments | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" enpals-payments-row></tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center" *ngIf="enpals_payments.length >= 10">
+      <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
     </div>
-    <div class="col text-right">
-      <a [routerLink]="['/enaplspayments/add']" class="btn btn--light">Aggiungi versamento enpals</a>
-    </div>
-  </nav>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <back-button></back-button>
+  </div>
+  <div class="col text-right">
+    <a [routerLink]="['/enaplspayments/add']" class="btn btn--light">Aggiungi versamento enpals</a>
+  </div>
+</div>
+<!-- <div class="mt-50">
+  <h4>Grafico dei pagamenti</h4>
+  <h6>Selezionando l'anno dalla select qua sotto, otterrai un grafico di tutti i pagamenti avvenuti nell'anno richiesto</h6>
   <div class="general-card card mb-4">
     <div class="general-card__body">
-      <table class="table table--striped" *ngIf="enpals_payments.length; else noPayments">
-        <thead class="thead--dark">
-          <tr>
-            <th>Mese</th>
-            <th>Anno</th>
-            <th>Data</th>
-            <th>Importo</th>
-            <th>ABI</th>
-            <th>CAB</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody class="form--light">
-          <tr [current_data]="item" *ngFor="let item of enpals_payments | paginate: { itemsPerPage: 10, currentPage: p }" (data)="getData($event)" (msg)="getMessage($event)" enpals-payments-row></tr>
-        </tbody>
-      </table>
-      <div class="d-flex justify-content-center" *ngIf="enpals_payments.length >= 10">
-        <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
-      </div>
+      <chart-enpals-payments></chart-enpals-payments>
     </div>
   </div>
-  <div class="row mb-3">
-    <div class="col">
-      <back-button></back-button>
-    </div>
-    <div class="col text-right">
-      <a [routerLink]="['/enaplspayments/add']" class="btn btn--light">Aggiungi versamento enpals</a>
-    </div>
-  </div>
-  <!-- <div class="mt-50">
-    <h4>Grafico dei pagamenti</h4>
-    <h6>Selezionando l'anno dalla select qua sotto, otterrai un grafico di tutti i pagamenti avvenuti nell'anno richiesto</h6>
-    <div class="general-card card mb-4">
-      <div class="general-card__body">
-        <chart-enpals-payments></chart-enpals-payments>
-      </div>
-    </div>
-  </div> -->
-</div>
+</div> -->
 <ng-template #noPayments>
   <p class="alert alert-warning mb-0">Questa lista è ancora vuota.</p>
 </ng-template>

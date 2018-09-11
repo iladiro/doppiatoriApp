@@ -8,6 +8,7 @@
           <div class="form-group">
             <label for="reference_month">Mese di riferimento</label>
             <select id="reference_month" class="form-control black text-capitalize" ngModel name="reference_month">
+              <option value="" disabled>Seleziona il mese</option>
               <option *ngFor="let month of months" value="{{month.index}}">
                 {{month.text}}
               </option>
@@ -18,6 +19,7 @@
           <div class="form-group">
             <label for="reference_year">Anno di riferimento</label>
             <select id="reference_year" class="form-control black text-capitalize" ngModel name="reference_year">
+              <option value="" disabled>Seleziona l'anno</option>
               <option *ngFor="let year of years" value="{{year}}">
                 {{year}}
               </option>
@@ -30,6 +32,7 @@
           <div class="form-group">
             <label for="film">Scegli film</label>
             <select name="film" class="form-control black" ngModel>
+              <option value="" disabled>Seleziona il film</option>
               <option *ngFor="let film of films" value="{{film.id}}; {{film.title}}">
                 {{film.title}}
               </option>
@@ -40,6 +43,7 @@
           <div class="form-group">
             <label for="film">Scegli collaboratore</label>
             <select name="dubber" class="form-control black text-capitalize" ngModel>
+              <option value="" disabled>Seleziona il collaboratore</option>
               <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}};{{dubber.surname}}">
                 {{dubber.name}} {{dubber.surname}}
               </option>
@@ -74,6 +78,7 @@
       <div class="form-group">
         <label for="company">Azienda</label>
         <select class="form-control black" required ngModel name="company_id">
+          <option value="" disabled>Seleziona azienda</option>
           <option *ngFor="let company of companies" value="{{company.id}}">
             {{company.name}}
           </option>
