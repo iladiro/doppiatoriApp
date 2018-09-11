@@ -39,7 +39,7 @@
         <div class="col">
           <div class="form-group">
             <label for="film">Scegli collaboratore</label>
-            <select name="dubber" class="form-control black" ngModel>
+            <select name="dubber" class="form-control black text-capitalize" ngModel>
               <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}};{{dubber.surname}}">
                 {{dubber.name}} {{dubber.surname}}
               </option>
@@ -81,7 +81,7 @@
       </div>
       <div class="form-group">
         <label>Note</label>
-        <textarea class="form-control black" rows="10"></textarea>
+        <textarea class="form-control black" rows="10" ngModel name="note"></textarea>
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-success" (click)="passData(data)" [disabled]="!data.valid">Calcola</button>

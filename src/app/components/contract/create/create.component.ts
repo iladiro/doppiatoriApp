@@ -56,12 +56,17 @@ export class ContractCreateComponent implements OnInit {
       "work_from": form.value.work_from,
       "work_to": form.value.work_to,
       "number_of_days": form.value.number_of_days,
-      "creation_date": this.date.toLocaleDateString()
+      "creation_date": this.date.toLocaleDateString(),
+      "note": form.value.note,
+      "reference_month": form.value.reference_month,
+      "reference_year": form.value.reference_year,
+      "company_id": form.value.company_id
     }
     form.value.film_id = film[0];
     form.value.dubber_id = dubber[0];
     delete form.value['film'];
     delete form.value['dubber'];
+    delete form.value['note'];
     this.recoversData(form.value);
   }
 
