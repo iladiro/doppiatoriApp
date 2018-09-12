@@ -1,6 +1,6 @@
 <td>
   <select id="reference_month" [disabled]="_readonly" [class.black]="_readonly" class="form-control black" [(ngModel)]="current_data.reference_month" name="reference_month" #reference_month="ngModel" required>
-    <option *ngFor="let month of months" [value]="month.text">
+    <option *ngFor="let month of months" [value]="month.index">
       {{month.text}}
     </option>
   </select>

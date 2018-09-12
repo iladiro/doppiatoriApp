@@ -11,7 +11,7 @@ export class PrintMonths {
   generate() {
     for(let i = 0; i <= 11; i++) {
       let obj = {
-        index: i,
+        index: i + 1,
         text: this.months_string[i]
       };
       this.months.push(obj)
