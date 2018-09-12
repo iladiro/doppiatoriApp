@@ -236,6 +236,7 @@ export class ContractCreateComponent implements OnInit {
 
   private saveEnpalsData() {
     this.enpals_data.dubber_id = this.dubber.id;
+    this.enpals_data.film_id = this.contract.film_id;
     this.service.create("dubber_enpals_data", this.enpals_data).subscribe(
       data => {
         let str = data.headers.get("location");
