@@ -49,6 +49,8 @@ import { ContractListComponent } from './components/contract/list/list.component
 import { ContractDetailsComponent } from './components/contract/details/details.component';
 import { ContractArchivedComponent } from './components/contract/archived/archived.component';
 
+import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
+
 const appRoutes: Routes = [
 
   //App routes goes here
@@ -155,6 +157,11 @@ const appRoutes: Routes = [
       {
         path: 'film/:id',
         component: FilmDetailsComponent
+      },
+      {
+        path: 'settings/retribution-bands',
+        component: RetributionBandsListComponent,
+        data: { title: 'Elenco Fasce retributive' }
       },
       {
         path: 'settings/company/add',

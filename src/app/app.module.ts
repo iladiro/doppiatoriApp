@@ -109,6 +109,7 @@ import { SideBarNavComponent } from './components/template/sidebar/nav/nav.compo
 import { DubberEnpalsCatComponent } from './components/dubber/details/enpals-cat/enpals-cat.component';
 import { RetributionBandsCreateComponent } from './components/settings/enpals-parameters/retribution-bands/create/create.component';
 import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
+import { RetributionBandRowComponent } from './components/settings/enpals-parameters/retribution-bands/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -186,7 +187,8 @@ import { RetributionBandsListComponent } from './components/settings/enpals-para
     SideBarNavComponent,
     DubberEnpalsCatComponent,
     RetributionBandsCreateComponent,
-    RetributionBandsListComponent
+    RetributionBandsListComponent,
+    RetributionBandRowComponent
   ],
   imports: [
     BrowserModule,

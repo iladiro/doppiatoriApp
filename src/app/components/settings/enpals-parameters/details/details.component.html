@@ -1,6 +1,13 @@
 <div class="container">
-  <h4 class="mb-20 mt-0">Dati Enpals/Inps</h4>
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <nav class="row mb-3">
+    <div class="col">
+      <h4 class="mboth-0">Dati Enpals/Inps</h4>
+    </div>
+    <div class="col text-right">
+      <a [routerLink]="['/settings/retribution-bands']" class="btn btn--light">Fasce retributive</a>
+    </div>
+  </nav>
   <div class="general-card card mb-4">
     <div class="general-card__body">
       <form #form="ngForm" (ngSubmit)="update(form)" novalidate class="form--light">

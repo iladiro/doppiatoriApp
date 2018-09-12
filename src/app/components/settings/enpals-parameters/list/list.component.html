@@ -1,5 +1,10 @@
 <div class="container">
   <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
+  <nav class="row mb-3">
+    <div class="col text-right">
+      <a [routerLink]="['/settings/retribution-bands']" class="btn btn--light">Fasce retributive</a>
+    </div>
+  </nav>
   <div class="general-card card mb-4">
     <div class="general-card__body">
       <table class="table table--striped">
