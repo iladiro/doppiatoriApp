@@ -107,6 +107,8 @@ import { ContractArchivedComponent } from './components/contract/archived/archiv
 import { ContractArchivedRowComponent } from './components/contract/archived/row/row.component';
 import { SideBarNavComponent } from './components/template/sidebar/nav/nav.component';
 import { DubberEnpalsCatComponent } from './components/dubber/details/enpals-cat/enpals-cat.component';
+import { RetributionBandsCreateComponent } from './components/settings/enpals-parameters/retribution-bands/create/retribution-bands.component';
+import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
 
 @NgModule({
   declarations: [
@@ -182,7 +184,9 @@ import { DubberEnpalsCatComponent } from './components/dubber/details/enpals-cat
     ContractArchivedComponent,
     ContractArchivedRowComponent,
     SideBarNavComponent,
-    DubberEnpalsCatComponent
+    DubberEnpalsCatComponent,
+    RetributionBandsCreateComponent,
+    RetributionBandsListComponent
   ],
   imports: [
     BrowserModule,
