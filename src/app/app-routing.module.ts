@@ -51,6 +51,8 @@ import { ContractArchivedComponent } from './components/contract/archived/archiv
 
 import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
 
+import { ReportFilmCostComponent } from './components/reports/report-film-cost/report-film-cost.component';
+
 const appRoutes: Routes = [
 
   //App routes goes here
@@ -71,6 +73,11 @@ const appRoutes: Routes = [
         component: DashboardComponent,
         data: { title: 'Dashboard' }
         //canActivate:[AuthGuard]
+      },
+      {
+        path: 'reports/film-cost',
+        component: ReportFilmCostComponent,
+        data: { title: 'Report Costo film' }
       },
       {
         path: 'todo/list',

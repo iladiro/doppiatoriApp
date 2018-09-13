@@ -13,6 +13,7 @@ import { ContractService } from './components/contract/_services/contract.servic
 import { FilmService } from './components/film/_services/index';
 import { InvoiceService } from './components/dubber/details/invoice/_services/index';
 import { UserService } from './components/user/_services/index';
+import { ReportService } from './components/reports/_services/report.service';
 import { EnpalsPaymentsService } from './components/enapls_payments/_services/index';
 
 import { AuthGuard } from './components/user/_auth/auth.guard';
@@ -110,6 +111,7 @@ import { DubberEnpalsCatComponent } from './components/dubber/details/enpals-cat
 import { RetributionBandsCreateComponent } from './components/settings/enpals-parameters/retribution-bands/create/create.component';
 import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
 import { RetributionBandRowComponent } from './components/settings/enpals-parameters/retribution-bands/list/row/row.component';
+import { ReportFilmCostComponent } from './components/reports/report-film-cost/report-film-cost.component';
 
 @NgModule({
   declarations: [
@@ -188,7 +190,8 @@ import { RetributionBandRowComponent } from './components/settings/enpals-parame
     DubberEnpalsCatComponent,
     RetributionBandsCreateComponent,
     RetributionBandsListComponent,
-    RetributionBandRowComponent
+    RetributionBandRowComponent,
+    ReportFilmCostComponent
   ],
   imports: [
     BrowserModule,
@@ -206,6 +209,7 @@ import { RetributionBandRowComponent } from './components/settings/enpals-parame
     FilmService,
     InvoiceService,
     UserService,
+    ReportService,
     EnpalsPaymentsService,
     PrintYears,
     PrintMonths,
