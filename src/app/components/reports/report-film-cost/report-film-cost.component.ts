@@ -32,37 +32,39 @@ export class ReportFilmCostComponent implements OnInit {
     //private print_months: PrintMonths
   ) { }
 
-  onChange(type, value) {
+  onChange(value) {
     this.selected_year = true;
-    if(type == "year") {
-      this.value_selected_year = value;
-      this.ownService.getFilmsListFromYear(value).subscribe(
-        data => {
-          //console.log(data);
-          this.films = data;
-        },
-        err => {
-          console.log(err)
-        }
-      );
-    } else if(type == "film") {
-      this.ownService.getCostFilm(value, this.value_selected_year).subscribe(
-        data => {
-          let result: any = data;
-          console.log(data);
-          let amounts: any[] = [];
-          let totals_enpals: any[] = [];
-          result.map(function(entry) {
-            amounts.push(entry.amount);
-            totals_enpals.push(entry.dubber_enpals_data.total_enpals);
-          });
-          this.sum(amounts, totals_enpals);
-        },
-        err => {
-          console.log(err)
-        }
-      );
-    }
+    this.value_selected_year = value;
+    this.ownService.getFilmsListFromYear(value).subscribe(
+      data => {
+        this.films = data;
+      },
+      err => {
+        console.log(err)
+      }
+    );
+  }
+
+  search(data) {
+    let reference_year = +data.value.reference_year;
+    let film_id = +data.value.film_id;
+    console.log(typeof film_id);
+    this.ownService.getCostFilm(film_id, reference_year).subscribe(
+      data => {
+        let result: any = data;
+        console.log(data);
+        let amounts: any[] = [];
+        let totals_enpals: any[] = [];
+        result.map(function(entry) {
+          amounts.push(entry.amount);
+          totals_enpals.push(entry.dubber_enpals_data.quota_enpals_ditta);
+        });
+        this.sum(amounts, totals_enpals);
+      },
+      err => {
+        console.log(err)
+      }
+    );
   }
 
   sum(amounts, totals_enpals) {

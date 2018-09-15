@@ -15,7 +15,7 @@ export class ReportService {
   }
 
   getCostFilm(film_id, ref_year) {
-    return this.http.get(this.url_root + "?film_id=eq." + film_id + "&reference_year=eq." + ref_year + "&select=amount,dubber_enpals_data:dubber_enpals_data(total_enpals)");
+    return this.http.get(this.url_root + "?film_id=eq." + film_id + "&reference_year=eq." + ref_year + "&select=amount,dubber_enpals_data:dubber_enpals_data(quota_enpals_ditta)");
   }
 
   getMonthlyCostFilm(ref_month, ref_year) {
