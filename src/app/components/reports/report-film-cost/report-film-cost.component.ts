@@ -48,9 +48,11 @@ export class ReportFilmCostComponent implements OnInit {
     } else if(type == "film") {
       this.ownService.getCostFilm(value, this.value_selected_year).subscribe(
         data => {
+          let result: any = data;
+          console.log(data);
           let amounts: any[] = [];
           let totals_enpals: any[] = [];
-          data.forEach(function(entry) {
+          result.map(function(entry) {
             amounts.push(entry.amount);
             totals_enpals.push(entry.dubber_enpals_data.total_enpals);
           });

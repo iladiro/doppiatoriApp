@@ -1,0 +1,39 @@
+<div>
+  <h6>Filtra</h6>
+  <form #filtering="ngForm" name="form">
+    <select id="reference_month" class="form-control black" (change)="onChange()" ngModel name="reference_month">
+      <option value="" disabled>Seleziona mese</option>
+      <option *ngFor="let month of months" value="{{month.index}}">
+        {{month.text}}
+      </option>
+    </select>
+    <select id="reference_year" [disabled]="!selected_month" class="form-control black" ngModel name="reference_year">
+      <option value="" disabled>Seleziona anno</option>
+      <option *ngFor="let year of years" value="{{year}}">
+        {{year}}
+      </option>
+    </select>
+    <button type="submit" (click)="search(filtering)">Cerca</button>
+  </form>
+  <table  class="table table--striped" *ngIf="films_list.length; else noResults">
+    <thead class="thead--dark">
+      <tr>
+        <th>Titolo</th>
+        <th>Importo Enpals</th>
+      </tr>
+    </thead>
+    <tbody class="form--light">
+      <tr *ngFor="let film of films_list">
+        <td>{{film.title}}</td>
+        <td>{{film.amount_enpals.total_enpals}}</td>
+      </tr>
+      <tr>
+        <td><strong>Totale Enpals</strong></td>
+        <td><strong>{{result_tot_enpals}}</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noResults>
+    <p class="alert alert-warning">Non ci sono risultati</p>
+  </ng-template>
+</div>

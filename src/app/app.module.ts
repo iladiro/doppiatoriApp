@@ -112,6 +112,7 @@ import { RetributionBandsCreateComponent } from './components/settings/enpals-pa
 import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
 import { RetributionBandRowComponent } from './components/settings/enpals-parameters/retribution-bands/list/row/row.component';
 import { ReportFilmCostComponent } from './components/reports/report-film-cost/report-film-cost.component';
+import { ReportMonthlyCostEnpalsComponent } from './components/reports/report-monthly-cost-enpals/report-monthly-cost-enpals.component';
 
 @NgModule({
   declarations: [
@@ -191,7 +192,8 @@ import { ReportFilmCostComponent } from './components/reports/report-film-cost/r
     RetributionBandsCreateComponent,
     RetributionBandsListComponent,
     RetributionBandRowComponent,
-    ReportFilmCostComponent
+    ReportFilmCostComponent,
+    ReportMonthlyCostEnpalsComponent
   ],
   imports: [
     BrowserModule,
