@@ -20,7 +20,7 @@ export class ReportMonthlyCostEnpalsComponent implements OnInit {
 
   selected_month: boolean = false;
   result_tot_enpals:number;
-  films_list: any[] = [];
+  films_list: any = [];
 
   constructor(
     private service: Service,

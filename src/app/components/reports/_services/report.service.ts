@@ -14,6 +14,18 @@ export class ReportService {
     return this.http.get(this.url_root + "?reference_year=eq." + ref_year + "&select=film_id, film_title");
   }
 
+  getDubbersListFromYear(ref_year) {
+    return this.http.get(this.url_root + "?reference_year=eq." + ref_year + "&select=dubber_id, dubber_fullname");
+  }
+
+  getAllDubbersOfThatYear(ref_year) {
+    return this.http.get(this.url_root + "?reference_year=eq." + ref_year + "&select=dubber_id, dubber_fullname");
+  }
+
+  getDubberSelected(dubber_id, ref_year) {
+    return this.http.get(this.url_root + "?reference_year=eq." + ref_year + "&" + "dubber_id=eq." + dubber_id + "&select=dubber_fullname");
+  }
+
   getCostFilm(film_id, ref_year) {
     return this.http.get(this.url_root + "?film_id=eq." + film_id + "&reference_year=eq." + ref_year + "&select=amount,dubber_enpals_data:dubber_enpals_data(quota_enpals_ditta)");
   }

@@ -53,6 +53,7 @@ import { RetributionBandsListComponent } from './components/settings/enpals-para
 
 import { ReportFilmCostComponent } from './components/reports/report-film-cost/report-film-cost.component';
 import { ReportMonthlyCostEnpalsComponent } from './components/reports/report-monthly-cost-enpals/report-monthly-cost-enpals.component';
+import { ReportEnpalsCertificationComponent } from './components/reports/report-enpals-certification/list/list.component';
 
 const appRoutes: Routes = [
 
@@ -83,6 +84,11 @@ const appRoutes: Routes = [
       {
         path: 'reports/monthly-enpals-cost',
         component: ReportMonthlyCostEnpalsComponent,
+        data: { title: 'Report Costo film' }
+      },
+      {
+        path: 'reports/enpals-certification',
+        component: ReportEnpalsCertificationComponent,
         data: { title: 'Report Costo film' }
       },
       {
