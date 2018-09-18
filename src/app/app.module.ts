@@ -115,6 +115,8 @@ import { ReportFilmCostComponent } from './components/reports/report-film-cost/r
 import { ReportMonthlyCostEnpalsComponent } from './components/reports/report-monthly-cost-enpals/report-monthly-cost-enpals.component';
 import { ReportEnpalsCertificationComponent } from './components/reports/report-enpals-certification/list/list.component';
 import { EnpalsCertificationRowComponent } from './components/reports/report-enpals-certification/list/row/row.component';
+import { FilterFormComponent } from './components/reports/report-enpals-certification/filter-form/filter-form.component';
+import { EnpalsCertificationDetailsComponent } from './components/reports/report-enpals-certification/details/details.component';
 
 @NgModule({
   declarations: [
@@ -197,7 +199,9 @@ import { EnpalsCertificationRowComponent } from './components/reports/report-enp
     ReportFilmCostComponent,
     ReportMonthlyCostEnpalsComponent,
     ReportEnpalsCertificationComponent,
-    EnpalsCertificationRowComponent
+    EnpalsCertificationRowComponent,
+    FilterFormComponent,
+    EnpalsCertificationDetailsComponent
   ],
   imports: [
     BrowserModule,

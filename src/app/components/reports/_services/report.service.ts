@@ -34,4 +34,8 @@ export class ReportService {
     return this.http.get(this.url_root + "?" + "reference_month=eq." + ref_month + "&reference_year=eq." + ref_year + "&select=title:film_title,amount_enpals:dubber_enpals_data(total_enpals)");
   }
 
+  getDetailsEnpalsCertification(ref_year, dubber_id) {
+    return this.http.get(this.url_root + "?" + "reference_year=eq." + ref_year + "&dubber_id=eq." + dubber_id + "&select=reference_year,enpals_data:dubber_enpals_data(quota_enpals_lavoratore,quota_enpals_ecc_massimale_lavoratore,additional_rate,quota_enpals_ditta,quota_enpals_ecc_massimale_ditta),dubber:dubbers(name,surname,fiscal_code),company:companies(*)");
+  }
+
 }

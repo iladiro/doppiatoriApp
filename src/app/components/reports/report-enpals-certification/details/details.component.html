@@ -1,0 +1,39 @@
+<div class="container" *ngIf="data" class="bg-white" id="enpals_certification">
+  <h3 class="text-center text-uppercase mb-30">
+    Attestazione e Certificazione Enpals
+  </h3>
+  <p class="mb-60">
+    La Società {{data.company.name}}<br>
+    Sede legale in {{data.company.city}}<br>
+    {{data.company.address}}<br>
+    C.F/P.I. {{data.company.vat}}
+  </p>
+  <h4 class="text-center text-uppercase mb-30">
+    Attesta e certifica di aver versato
+  </h4>
+  <p>
+    a titolo di ritenute per contributi Enpals effettuate per l'anno {{year}} a favore di <span class="text-uppercase">{{data.dubber.name}} {{data.dubber.surname}}</span>
+    C.F. <span class="text-uppercase">DRSLRI88B56F205D</span> la somma complessiva di Euro {{enpals_total}} come di seguito specificato:
+  </p>
+  <table class="table table-bordered mb-60" *ngIf="enpals_employee || enpals_company">
+    <tbody>
+      <tr>
+        <td>Enpals a carico del percipiente</td>
+        <td class="text-right font-weight-bold">Euro {{enpals_employee}}</td>
+      </tr>
+      <tr>
+        <td>Enpals a carico del committente</td>
+        <td class="text-right font-weight-bold">Euro {{enpals_company}}</td>
+      </tr>
+      <tr>
+        <td>Totale contributi Enpals versati</td>
+        <td class="text-right font-weight-bold">Euro {{enpals_total}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Roma li</p>
+  <p>
+    Firmato<br>
+    {{data.company.name}}
+  </p>
+</div>
