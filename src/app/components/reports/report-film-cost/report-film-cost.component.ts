@@ -33,9 +33,11 @@ export class ReportFilmCostComponent implements OnInit {
   ) { }
 
   onChange(value) {
+    let table_query = "contracts";
+    let postgrest_query = "reference_year=eq." + value + "&select=film_id, film_title";
     this.selected_year = true;
     this.value_selected_year = value;
-    this.ownService.getFilmsListFromYear(value).subscribe(
+    this.ownService.getdata(table_query, postgrest_query).subscribe(
       data => {
         this.films = data;
       },
@@ -48,11 +50,11 @@ export class ReportFilmCostComponent implements OnInit {
   search(data) {
     let reference_year = +data.value.reference_year;
     let film_id = +data.value.film_id;
-    console.log(typeof film_id);
-    this.ownService.getCostFilm(film_id, reference_year).subscribe(
+    let table_query = "contracts";
+    let postgrest_query = "film_id=eq." + film_id + "&reference_year=eq." + reference_year + "&select=amount,dubber_enpals_data:dubber_enpals_data(quota_enpals_ditta)";
+    this.ownService.getdata(table_query, postgrest_query).subscribe(
       data => {
         let result: any = data;
-        console.log(data);
         let amounts: any[] = [];
         let totals_enpals: any[] = [];
         result.map(function(entry) {

@@ -35,7 +35,9 @@ export class FilterFormComponent implements OnInit {
   onChange(value) {
     this.selected_year = true;
     this.value_selected_year.emit(value);
-    this.ownService.getDubbersListFromYear(value).subscribe(
+    let table_query = "contracts";
+    let postgrest_query = "reference_year=eq." + value + "&select=dubber_id, dubber_fullname"
+    this.ownService.getdata(table_query, postgrest_query).subscribe(
       data => {
         this.dubbers = data;
       },
@@ -46,22 +48,22 @@ export class FilterFormComponent implements OnInit {
   }
 
   search(data) {
+    let table_query = "contracts";
     if(data.value.dubber == "all") {
-      console.log("tutti");
-      this.ownService.getAllDubbersOfThatYear(Number(data.value.reference_year)).subscribe(
+      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&select=dubber_id, dubber_fullname";
+      this.ownService.getdata(table_query, sql_query).subscribe(
         data => {
           this.list.emit(data);
-          console.log(data);
         },
         err => {
           console.log(err)
         }
       );
     } else {
-      this.ownService.getDubberSelected(Number(data.value.dubber), Number(data.value.reference_year)).subscribe(
+      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&" + "dubber_id=eq." + Number(data.value.dubber) + "&select=dubber_id, dubber_fullname";
+      this.ownService.getdata(table_query, sql_query).subscribe(
         data => {
           this.list.emit(data);
-          console.log(data);
         },
         err => {
           console.log(err)

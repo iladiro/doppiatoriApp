@@ -1,7 +1,7 @@
-<form #filtering="ngForm" name="form" class="filtering form-inline">
+<form #filtering="ngForm" name="form" class="filtering form-inline form--light">
   <div class="form-row align-items-center">
     <div class="col-auto">
-      <select id="reference_year" (change)="onChange($event.target.value)" class="filtering__field form-control mb-2" ngModel name="reference_year">
+      <select id="reference_year" (change)="onChange($event.target.value)" class="filtering__field form-control black mb-2" ngModel name="reference_year">
         <option value="" disabled>Seleziona anno</option>
         <option *ngFor="let year of years" value="{{year}}" [selected]="year == date_fullYear">
           {{year}}
@@ -9,7 +9,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <select id="dubber_id" [disabled]="!selected_year" class="filtering__field form-control mb-2" ngModel name="dubber">
+      <select id="dubber_id" [disabled]="!selected_year" class="filtering__field form-control black mb-2" ngModel name="dubber">
         <option value="" disabled>Seleziona collaboratore</option>
         <option value="all">Tutti</option>
         <option *ngFor="let dubber of dubbers" value="{{dubber.dubber_id}}">

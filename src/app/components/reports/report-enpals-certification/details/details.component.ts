@@ -45,9 +45,11 @@ export class EnpalsCertificationDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      let id = +params['id']; // (+) converts string 'id' to a number
+      let dubber_id = +params['id']; // (+) converts string 'id' to a number
       this.year = +params['year'];
-      this.ownService.getDetailsEnpalsCertification(this.year, id).subscribe(
+      let postgrest_query = "reference_year=eq." + this.year + "&dubber_id=eq." + dubber_id + "&select=reference_year,enpals_data:dubber_enpals_data(quota_enpals_lavoratore,quota_enpals_ecc_massimale_lavoratore,additional_rate,quota_enpals_ditta,quota_enpals_ecc_massimale_ditta),dubber:dubbers(name,surname,fiscal_code),company:companies(*)";
+      let table_query = "contracts";
+      this.ownService.getdata(table_query, postgrest_query).subscribe(
         data => {
           this.data = data[0];
           this.enpals_data = data;

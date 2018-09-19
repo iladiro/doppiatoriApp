@@ -34,7 +34,9 @@ export class ReportMonthlyCostEnpalsComponent implements OnInit {
   }
 
   search(data) {
-    this.ownService.getMonthlyCostFilm(data.value.reference_month, data.value.reference_year).subscribe(
+    let table_query = "contracts";
+    let postgrest_query = "reference_month=eq." + data.value.reference_month + "&reference_year=eq." + data.value.reference_year + "&select=title:film_title,amount_enpals:dubber_enpals_data(total_enpals)";
+    this.ownService.getdata(table_query, postgrest_query).subscribe(
       data => {
         this.films_list = data;
         let result: any = data;

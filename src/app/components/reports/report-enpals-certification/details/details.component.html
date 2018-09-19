@@ -13,7 +13,7 @@
   </h4>
   <p>
     a titolo di ritenute per contributi Enpals effettuate per l'anno {{year}} a favore di <span class="text-uppercase">{{data.dubber.name}} {{data.dubber.surname}}</span>
-    C.F. <span class="text-uppercase">DRSLRI88B56F205D</span> la somma complessiva di Euro {{enpals_total}} come di seguito specificato:
+    C.F. <span class="text-uppercase">{{data.dubber.fiscal_code}}</span> la somma complessiva di Euro {{enpals_total}} come di seguito specificato:
   </p>
   <table class="table table-bordered mb-60" *ngIf="enpals_employee || enpals_company">
     <tbody>

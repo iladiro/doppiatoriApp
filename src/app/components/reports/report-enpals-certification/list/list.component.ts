@@ -21,7 +21,6 @@ export class ReportEnpalsCertificationComponent implements OnInit {
   }
 
   private getSelectedYear(year) {
-    console.log(year);
     this.selected_year = year;
   }
 
