@@ -1,0 +1,27 @@
+<div>
+  <h2 class="mb-3">Report Libretto Enpals</h2>
+  <div class="general-card card mb-4">
+    <h6 class="mb-15">Filtra</h6>
+    <enpals-booklet-filter-form (list)="getData($event)" (value_selected_year)="getSelectedYear($event)"></enpals-booklet-filter-form>
+  </div>
+  <div class="general-card card mb-4" *ngIf="list.length > 0">
+    <div class="general-card__body">
+      <table  class="table table--striped mb-0">
+        <thead class="thead--dark">
+          <tr>
+            <th>Periodo</th>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th>Qualifica</th>
+            <th>Importo</th>
+            <th>Contributi Enpals</th>
+            <th>% Enpals</th>
+          </tr>
+        </thead>
+        <tbody class="form--light">
+          <tr [data]="current_value" [year]="selected_year" *ngFor="let current_value of list" enpals-booklet-list-row></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

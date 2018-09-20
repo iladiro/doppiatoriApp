@@ -55,6 +55,8 @@ import { ReportFilmCostComponent } from './components/reports/report-film-cost/r
 import { ReportMonthlyCostEnpalsComponent } from './components/reports/report-monthly-cost-enpals/report-monthly-cost-enpals.component';
 import { ReportEnpalsCertificationComponent } from './components/reports/report-enpals-certification/list/list.component';
 import { EnpalsCertificationDetailsComponent } from './components/reports/report-enpals-certification/details/details.component';
+import { ReportEnaplsBookletListComponent } from './components/reports/report-enpals-booklet/list/list.component';
+
 
 const appRoutes: Routes = [
 
@@ -91,6 +93,11 @@ const appRoutes: Routes = [
         path: 'reports/enpals-certification',
         component: ReportEnpalsCertificationComponent,
         data: { title: 'Report Certificazione Enpals' }
+      },
+      {
+        path: 'reports/enpals-booklet',
+        component: ReportEnaplsBookletListComponent,
+        data: { title: 'Report Libretto Enpals' }
       },
       {
         path: 'enpals-certification/:year/:id',
