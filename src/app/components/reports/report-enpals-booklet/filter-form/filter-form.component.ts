@@ -50,9 +50,12 @@ export class EnpalsBookletFilterFormComponent implements OnInit {
   search(data) {
     let table_query = "contracts";
     if(data.value.dubber == "all") {
-      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&select=dubber_id, dubber_fullname";
-      this.ownService.getdata(table_query, sql_query).subscribe(
+      let postgrest_query = "reference_year=eq." + Number(data.value.reference_year) + "&select=reference_month,reference_year,amount,enpals_data:dubber_enpals_data(quota_enpals_lavoratore,quota_enpals_ecc_massimale_lavoratore,quota_enpals_ditta,quota_enpals_ecc_massimale_ditta),dubber:dubbers(name,surname,enpals_cat:enpals_categories(qualification_id, qualification: qualifications(code,description)))";
+      this.ownService.getdata(table_query, postgrest_query).subscribe(
         data => {
+          data.forEach((item, index) => {
+            item.enpals_data.sum_results = this.sumEnpalsData(item.enpals_data);
+          });
           this.list.emit(data);
         },
         err => {
@@ -60,15 +63,32 @@ export class EnpalsBookletFilterFormComponent implements OnInit {
         }
       );
     } else {
-      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&" + "dubber_id=eq." + Number(data.value.dubber) + "&select=dubber_id, dubber_fullname";
-      this.ownService.getdata(table_query, sql_query).subscribe(
+      let postgrest_query = "reference_year=eq." + Number(data.value.reference_year) + "&" + "dubber_id=eq." + Number(data.value.dubber) + "&select=reference_month,reference_year,amount,enpals_data:dubber_enpals_data(quota_enpals_lavoratore,quota_enpals_ecc_massimale_lavoratore,quota_enpals_ditta,quota_enpals_ecc_massimale_ditta),dubber:dubbers(name,surname,enpals_cat:enpals_categories(qualification_id, qualification: qualifications(code,description)))";
+      this.ownService.getdata(table_query, postgrest_query).subscribe(
         data => {
+          data.forEach((item, index) => {
+            item.enpals_data.sum_results = this.sumEnpalsData(item.enpals_data);
+          });
           this.list.emit(data);
         },
         err => {
           console.log(err)
         }
       );
+    }
+  }
+
+  sumEnpalsData(current_element) {
+    let total_enpals_worker = current_element.quota_enpals_lavoratore + current_element.quota_enpals_ecc_massimale_lavoratore;
+    let total_enpals_company = current_element.quota_enpals_ditta + current_element.quota_enpals_ecc_massimale_ditta;
+    let enpals_contributions = total_enpals_worker + total_enpals_company;
+    let percentage_enpals = current_element.quota_enpals_lavoratore + current_element.quota_enpals_ditta;
+
+    return {
+      "total_enpals_worker": total_enpals_worker,
+      "total_enpals_company": total_enpals_company,
+      "enpals_contributions": enpals_contributions,
+      "percentage_enpals": percentage_enpals
     }
   }
 

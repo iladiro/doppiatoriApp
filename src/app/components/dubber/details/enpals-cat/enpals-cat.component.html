@@ -10,10 +10,10 @@
       </div>
       <div class="col-sm-12 col-md-6">
         <div class="form-group">
-          <label for="qualification">Qualifica</label>
-          <select id="qualification" class="form-control black" [(ngModel)]="enpals_cat.qualification" name="qualification" #qualification="ngModel">
+          <label for="qualification_id">Qualifica</label>
+          <select id="qualification_id" class="form-control black" [(ngModel)]="enpals_cat.qualification_id" name="qualification_id" #qualification="ngModel">
             <option [value]="null" selected disabled>Seleziona categoria</option>
-            <option *ngFor="let qualification of qualifications" [value]="qualification.code">
+            <option *ngFor="let qualification of qualifications" [value]="qualification.id">
               {{qualification.description}}
             </option>
           </select>
