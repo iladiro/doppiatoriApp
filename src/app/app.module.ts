@@ -22,6 +22,7 @@ import { AuthGuard } from './components/user/_auth/auth.guard';
 import { PrintYears } from './helpers/print-years';
 import { PrintMonths } from './helpers/print-months';
 import { LoadAllItems } from './helpers/load-all-items';
+import { CalculationEnpalsData } from './components/contract/helpers/calc-enpals-data';
 
 // Layouts
 import { LoggedLayoutComponent } from './components/template/layout/logged-layout/logged-layout.component';
@@ -230,6 +231,7 @@ import { EnpalsBookletRowComponent } from './components/reports/report-enpals-bo
     PrintYears,
     PrintMonths,
     LoadAllItems,
+    CalculationEnpalsData,
     AuthGuard
   ],
   bootstrap: [AppComponent]

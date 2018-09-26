@@ -8,24 +8,28 @@ import { DubberService } from '../../dubber/_services/index';
 // Helpers
 import { PrintYears } from '../../../helpers/print-years';
 import { PrintMonths } from '../../../helpers/print-months';
+import { CalculationEnpalsData } from '../helpers/calc-enpals-data';
 
 @Component({
-  //selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
 export class ContractCreateComponent implements OnInit {
 
+  date = new Date();
+  months: string[] = [];
+  years: number[] = [];
+  alert_message: string;
+
   private films: any[] = [];
   private dubbers: any[] = [];
   private companies: any[] = [];
-  private alert_message;
+  private enpals_parameters: any = [];
+  private income_classes: any = [];
 
   contract:any = {};
   dubber:any = {};
-  id_enpals_data: number;
-  enpals_parameters: any = [];
-  income_classes: any = [];
+  //id_enpals_data: number;
   invoice: any = {};
   enpals_data: any = {};
 
@@ -33,11 +37,8 @@ export class ContractCreateComponent implements OnInit {
   enpals_category_cat_after = "B";
   enpals_category_cat_after_ACP = "C";
 
-  date = new Date();
-  months: any = [];
-  years: any = [];
-
   constructor(
+    private enpals_data_helpers: CalculationEnpalsData,
     private service: Service,
     private print_years: PrintYears,
     private print_months: PrintMonths,
@@ -86,148 +87,21 @@ export class ContractCreateComponent implements OnInit {
   private computesEnpalsData(form_data) {
     let commessa: any = {};
     let enpals_category = this.dubber.enpals_categories[0];
-    commessa.max_enpals = this.calcola_massimale_enpals(form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
-    commessa.amount_ecc_max = this.calcola_importo_eccedente_massimale(form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
-    commessa.quota_enpals_lavoratore = this.calcola_quota_enpals_lavoratore(commessa.max_enpals, this.enpals_parameters);
-    commessa.quota_enpals_ditta = this.calcola_quota_enpals_ditta(commessa.max_enpals, this.enpals_parameters);
-    commessa.quota_enpals_ecc_massimale_lavoratore = this.calcola_quota_enpals_eccedente_lavoratore(commessa.amount_ecc_max, this.enpals_parameters);
-    commessa.quota_enpals_ecc_massimale_ditta = this.calcola_quota_enpals_eccedente_ditta(commessa.amount_ecc_max, this.enpals_parameters);
-    commessa.min_inps = this.calcola_minimale_inps(form_data.amount, form_data.number_of_days, this.enpals_parameters);
-    commessa.min_contribution_inps = this.calcola_contributo_minimale_inps(commessa.min_inps, this.enpals_parameters);
-    commessa.additional_rate = this.calcola_aliquota_aggiuntiva(form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters);
-    commessa.trattenuta_pensione = this.calcola_trattenuta_pensione(commessa);
-    commessa.total_enpals = this.calcola_total_enpals(commessa);
+    commessa.amount = form_data.amount;
+    commessa.max_enpals = this.enpals_data_helpers.massimale_enpals(this.enpals_category_cat_before, this.enpals_category_cat_after_ACP, form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
+    commessa.amount_ecc_max = this.enpals_data_helpers.importo_eccedente_massimale(this.enpals_category_cat_before, this.enpals_category_cat_after_ACP, form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters, this.income_classes);
+    commessa.quota_enpals_lavoratore = this.enpals_data_helpers.quota_enpals_lavoratore(commessa.max_enpals, this.enpals_parameters);
+    commessa.quota_enpals_ditta = this.enpals_data_helpers.quota_enpals_ditta(commessa.max_enpals, this.enpals_parameters);
+    commessa.quota_enpals_ecc_massimale_lavoratore = this.enpals_data_helpers.quota_enpals_eccedente_lavoratore(commessa.amount_ecc_max, this.enpals_parameters);
+    commessa.quota_enpals_ecc_massimale_ditta = this.enpals_data_helpers.quota_enpals_eccedente_ditta(commessa.amount_ecc_max, this.enpals_parameters);
+    commessa.min_inps = this.enpals_data_helpers.minimale_inps(form_data.amount, form_data.number_of_days, this.enpals_parameters);
+    commessa.min_contribution_inps = this.enpals_data_helpers.contributo_minimale_inps(commessa.min_inps, this.enpals_parameters);
+    commessa.additional_rate = this.enpals_data_helpers.aliquota_aggiuntiva(this.enpals_category_cat_before, form_data.amount, form_data.number_of_days, enpals_category, this.enpals_parameters);
+    commessa.trattenuta_pensione = this.enpals_data_helpers.trattenuta_pensione(commessa);
+    commessa.total_enpals = this.enpals_data_helpers.total_enpals(commessa);
+
     this.enpals_data = commessa;
     this.invoice = form_data;
-  }
-
-  private calcola_quota_enpals_lavoratore(max_enpals, enpals_parameters) {
-    return (+max_enpals * enpals_parameters.quota_enpals_lavoratore) / 100;
-  }
-
-  private calcola_quota_enpals_ditta(max_enpals, enpals_parameters) {
-    return (+max_enpals * enpals_parameters.quota_enpals_ditta) / 100;
-  }
-
-  private calcola_massimale_enpals(amount, days, enpals_category, enpals_parameters, income_classes) {
-    let max_enpals:number;
-    let max_per_days:number;
-
-    if(enpals_category.cat_contrib == this.enpals_category_cat_before || enpals_category.cat_contrib == this.enpals_category_cat_after_ACP) {
-      let amount_per_day = +amount / days;
-      let amount_income_classes_per_day = this.get_importo_fascia_retributiva(amount_per_day, this.income_classes);
-      if(amount_income_classes_per_day == null) {
-        max_per_days = +enpals_parameters.massimale_enpals_ante * days;
-        if(amount <= max_per_days) {
-          max_enpals = amount;
-        } else {
-          max_enpals = max_per_days
-        }
-      } else {
-        max_enpals = +amount_income_classes_per_day * days;
-      }
-    } else {
-      max_per_days = +enpals_parameters.massimale_enpals_dopo * days;
-      if(amount <= max_per_days) {
-        max_enpals = amount;
-      } else {
-        max_enpals = max_per_days;
-      }
-    }
-
-    return max_enpals
-  }
-
-  private calcola_importo_eccedente_massimale(amount, days, enpals_category, enpals_parameters, income_classes) {
-    let amount_ecc_max = 0.0;
-    let max_per_days:number;
-
-    if(enpals_category.cat_contrib == this.enpals_category_cat_before || enpals_category.cat_contrib == this.enpals_category_cat_after_ACP) {
-      let amount_per_day = +amount / days;
-      let amount_income_classes_per_day = this.get_importo_fascia_retributiva(amount_per_day, this.income_classes);
-      if(amount_income_classes_per_day == null) {
-        max_per_days = +enpals_parameters.massimale_enpals_ante * days;
-        if(amount > max_per_days) {
-          amount_ecc_max = +amount - max_per_days;
-        }
-      } else{
-        amount_ecc_max = amount - (+amount_income_classes_per_day * days);
-      }
-    } else {
-      max_per_days = +enpals_parameters.massimale_enpals_dopo * days;
-      if(amount > max_per_days) {
-        amount_ecc_max = +amount - max_per_days;
-      }
-    }
-
-    return amount_ecc_max
-  }
-
-  private calcola_quota_enpals_eccedente_lavoratore(amount_ecc_max, enpals_parameters) {
-    return (+amount_ecc_max * enpals_parameters.quota_enpals_ecc_massimale_lavoratore) / 100;
-  }
-
-  private calcola_quota_enpals_eccedente_ditta(amount_ecc_max, enpals_parameters) {
-    return (+amount_ecc_max * enpals_parameters.quota_enpals_ecc_massimale_ditta) / 100;
-  }
-
-  private calcola_minimale_inps(amount, days, enpals_parameters) {
-    let min_inps:number;
-    if((+amount / days) < enpals_parameters.minimale_inps) {
-      min_inps = amount;
-    } else {
-      min_inps = (+enpals_parameters.minimale_inps * days)
-    }
-
-    return min_inps
-  }
-
-  private calcola_contributo_minimale_inps(min_inps, enpals_parameters) {
-    return (+min_inps * enpals_parameters.percentuale_minimale_inps) / 100;
-  }
-
-  private calcola_aliquota_aggiuntiva(amount, days, enpals_category, enpals_parameters) {
-    let additional_rate = 0.0;
-    let taxable;
-    if(enpals_category.cat_contrib == this.enpals_category_cat_before) {
-      if((amount > (enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days)) && (amount < (enpals_parameters.massimale_enpals_ante * days))) {
-        taxable = amount - (+enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days);
-        additional_rate = (+taxable * 1) / 100;
-      }
-    } else if((amount > (enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days)) && (amount > (enpals_parameters.massimale_enpals_ante * days))) {
-      taxable = (+enpals_parameters.massimale_enpals_ante * days) - (+enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days);
-      additional_rate = (+taxable * 1) / 100;
-    } else {
-      if((amount > (enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days)) && (amount < (enpals_parameters.massimale_enpals_dopo * days))) {
-        taxable = amount - (+enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days);
-        additional_rate = (+taxable * 1) / 100;
-      } else if ((amount > (+enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days)) && (amount > (+enpals_parameters.massimale_enpals_dopo * days))) {
-        taxable = (+enpals_parameters.massimale_enpals_dopo * days) - (+enpals_parameters.minimale_giornaliero_aliquota_aggiuntiva * days);
-        additional_rate = (+taxable * 1) / 100;
-      }
-    }
-
-    return additional_rate
-  }
-
-  private get_importo_fascia_retributiva(amount, income_classes) {
-    let result:number;
-    income_classes.forEach((item, index) => {
-      if((amount >= item.starting_from) && (amount <= item.up_to)) {
-        result = item.euro;
-      } else {
-        result = null;
-      }
-    });
-    return result
-  }
-
-  private calcola_trattenuta_pensione(commessa) {
-    return 0.0
-  }
-
-  private calcola_total_enpals(commessa) {
-    return +(commessa.quota_enpals_lavoratore + commessa.quota_enpals_ditta + commessa.quota_enpals_ecc_massimale_lavoratore + commessa.quota_enpals_ecc_massimale_ditta);
   }
 
   private save() {
@@ -257,9 +131,6 @@ export class ContractCreateComponent implements OnInit {
       [parameter]: data
     };
     this.service.update(table, obj).subscribe(
-      data => {
-        console.log("ok")
-      },
       err => {
         console.log(err)
       }
@@ -307,43 +178,6 @@ export class ContractCreateComponent implements OnInit {
     );
   }
 
-  // private addFilmDubbersInRelationTable() {
-  //   let film_dubber = {
-  //     film_id: this.contract.film_id,
-  //     dubber_id: this.contract.film_id
-  //   }
-  //   this.service.create("dubbers_films", film_dubber).subscribe(
-  //     data => {
-  //       console.log(ok);
-  //     },
-  //     err => {
-  //       console.log(err)
-  //     }
-  //   );
-  // //   let film_id = this.contract.film_id;
-  // //    let dubber_id = this.contract.film_id;
-  // //   let dubbers_selected = form.value.dubbers;
-  // //   let film_dubbers = [];
-  // //
-  // //   if(this.status == "ok") {
-  // //     dubbers_selected.map(function(dubber) {
-  // //       let object_pair = {
-  // //         "film_id": film_id,
-  // //         "dubber_id": dubber
-  // //       };
-  // //       film_dubbers.push(object_pair);
-  // //     });
-  // //     this.service.create("dubbers_films", film_dubbers).subscribe(
-  // //       data => {
-  // //         form.reset();
-  // //       },
-  // //       err => {
-  // //         console.log(err)
-  // //       }
-  // //     );
-  // //   }
-  // }
-
   private computes() {
     let enpals_category = this.dubber.enpals_categories[0];
     if((this.dubber.vat == "") || (enpals_category.forfettone == 1) || (enpals_category.forfettone == 2)) {
@@ -377,7 +211,7 @@ export class ContractCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.years = this.print_years.generate("2004").reverse();
+    this.years = this.print_years.generate(2004).reverse();
     this.months = this.print_months.generate();
     this.loadAllItems("companies", "companies", "all");
     this.loadAllItems("films", "films", "all");
