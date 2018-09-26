@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Response } from "@angular/http";
+import { CodiceFiscale } from 'codice-fiscale-js';
 
 // Services
 import { Service } from '../../../services/index';
@@ -40,10 +41,27 @@ export class AddDubberComponent {
   }
 
   create(){
-    this.check();
+    this.generateFiscalCode();
+    this.checkRecordAlreqdyPresent();
   }
 
-  check() {
+  generateFiscalCode() {
+    let birth_date = this.dubber.birth_date.split("-");
+    let fiscal_code = new CodiceFiscale({
+      name: this.dubber.name,
+      surname: this.dubber.surname,
+      gender: this.dubber.gender,
+      day: +birth_date[2],
+      month: +birth_date[1],
+      year: +birth_date[0],
+      birthplace: this.dubber.birth_place
+      //birthplaceProvincia: this.dubber.birth_province
+    });
+    console.log(fiscal_code.cf);
+    this.dubber.fiscal_code = fiscal_code.cf;
+  }
+
+  checkRecordAlreqdyPresent() {
     let results = this.dubbers.some(elem => {
       return elem.fiscal_code == this.dubber.fiscal_code;
     });

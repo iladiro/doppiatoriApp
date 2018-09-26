@@ -26,22 +26,22 @@
               <div class="form-group" [ngClass]="{
                 'has-danger': gender.invalid && (gender.dirty || gender.touched)
               }">
-                <label for="gender">Sesso</label> <span *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="text-danger">Campo non valido</span>
-                <select class="form-control black" name="gender" [(ngModel)]="dubber.gender" #gender="ngModel">
+                <label for="gender">Sesso *</label> <span *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="text-danger">Campo non valido</span>
+                <select class="form-control black" name="gender" [(ngModel)]="dubber.gender" #gender="ngModel" required>
                   <!-- <option value="" disabled>Seleziona sesso</option> -->
                   <option value="F">Femmina</option>
                   <option value="M">Maschio</option>
                 </select>
               </div>
             </div>
-            <div class="col-sm-6 mb-3">
+            <!-- <div class="col-sm-6 mb-3">
               <div class="form-group" [ngClass]="{
                 'has-danger': fiscal_code.invalid && (fiscal_code.dirty || fiscal_code.touched)
               }">
                 <label for="fiscal_code">Codice fiscale *</label><span *ngIf="fiscal_code.invalid && (fiscal_code.dirty || fiscal_code.touched)" class="text-danger">Campo non valido</span>
                 <input type="text" id="fiscal_code" class="form-control black text-uppercase" placeholder="Codice fiscale" [(ngModel)]="dubber.fiscal_code" name="fiscal_code" #fiscal_code="ngModel" pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$" required>
               </div>
-            </div>
+            </div> -->
             <div class="col-sm-6 mb-3">
               <div class="form-group">
                 <label for="nationality">Nazionalità</label>
@@ -53,13 +53,15 @@
                 </select>
               </div>
             </div>
-            <div class="col-sm-4 mb-3">
-              <div class="form-group">
-                <label for="birth_date">Data di nascita</label>
-                <input type="date" id="birth_date" class="form-control black" placeholder="DD/MM/YYYY" [(ngModel)]="dubber.birth_date" name="birth_date" #birth_date="ngModel">
+            <div class="col-sm-6 mb-3">
+              <div class="form-group" [ngClass]="{
+                'has-danger': birth_date.invalid && (birth_date.dirty || birth_date.touched)
+              }">
+                <label for="birth_date">Data di nascita *</label>  <span *ngIf="birth_date.invalid && (birth_date.dirty || birth_date.touched)" class="text-danger">Campo non valido</span>
+                <input type="date" id="birth_date" class="form-control black" placeholder="DD/MM/YYYY" [(ngModel)]="dubber.birth_date" name="birth_date" #birth_date="ngModel" required>
               </div>
             </div>
-            <div class="col-sm-4 mb-3">
+            <div class="col-sm-6 mb-3">
               <div class="form-group" [ngClass]="{
                 'has-danger': birth_place.invalid && (birth_place.dirty || birth_place.touched)
               }">
@@ -67,12 +69,12 @@
                 <input type="text" id="birth_place" class="form-control black text-capitalize" placeholder="Città" [(ngModel)]="dubber.birth_place" name="birth_place" #birth_place="ngModel" required>
               </div>
             </div>
-            <div class="col-sm-4 mb-3">
+            <div class="col-sm-6 mb-3">
               <div class="form-group" [ngClass]="{
                 'has-danger': birth_province.invalid && (birth_province.dirty || birth_province.touched)
               }">
                 <label for="birth_province">Provincia di nascita</label> <span *ngIf="birth_province.invalid && (birth_province.dirty || birth_province.touched)" class="text-danger">Campo non valido</span>
-                <input type="text" id="birth_province" class="form-control black text-capitalize" placeholder="Provincia" [(ngModel)]="dubber.birth_province" name="birth_province" #birth_province="ngModel"  maxlength="2">
+                <input type="text" id="birth_province" class="form-control black text-uppercase" placeholder="Provincia" [(ngModel)]="dubber.birth_province" name="birth_province" #birth_province="ngModel" maxlength="2">
               </div>
             </div>
           </div>
