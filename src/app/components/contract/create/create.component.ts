@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
+import {differenceInCalendarDays} from 'date-fns';
+
 // Services
 import { Service } from '../../../services/index';
 import { DubberService } from '../../dubber/_services/index';
@@ -15,6 +17,8 @@ import { CalculationEnpalsData } from '../helpers/calc-enpals-data';
   styleUrls: ['./create.component.scss']
 })
 export class ContractCreateComponent implements OnInit {
+
+  number_of_days: number[] = [];
 
   date = new Date();
   months: string[] = [];
@@ -37,6 +41,9 @@ export class ContractCreateComponent implements OnInit {
   enpals_category_cat_after = "B";
   enpals_category_cat_after_ACP = "C";
 
+  private work_from;
+  private work_to;
+
   constructor(
     private enpals_data_helpers: CalculationEnpalsData,
     private service: Service,
@@ -44,6 +51,28 @@ export class ContractCreateComponent implements OnInit {
     private print_months: PrintMonths,
     private dubberService: DubberService
   ) { }
+
+  getValue(value, input) {
+    let result;
+    if(input == 'work_from') {
+      this.work_from = value;
+    } else {
+      this.work_to = value;
+    }
+    if(this.work_from && this.work_to) {
+      let diff_days = differenceInCalendarDays(
+        new Date(this.work_from),
+        new Date(this.work_to)
+      );
+
+      let diff_days_str = diff_days.toString();
+      let diff_str_split = diff_days_str.split("-");
+      let value = diff_str_split[1];
+      for(let i = 0; i <= Number(value); i++) {
+        this.number_of_days.push(i + 1)
+      }
+    }
+  }
 
   private passData(form: NgForm) {
     let film = form.value.film.split(";");

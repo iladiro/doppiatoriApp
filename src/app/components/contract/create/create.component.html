@@ -55,19 +55,21 @@
         <div class="col">
           <div class="form-group">
             <label for="work_from">Lavoro svolto dal giorno</label>
-            <input type="date" id="work_from" class="form-control black" ngModel name="work_from">
+            <input type="date" class="form-control black" ngModel name="work_from" #work_from="ngModel" (blur)="getValue(work_from.value, 'work_from')" required>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="work_to">Al giorno</label>
-            <input type="date" id="work_to" class="form-control black" ngModel name="work_to">
+            <input type="date" class="form-control black" ngModel name="work_to" #work_to="ngModel" (blur)="getValue(work_to.value, 'work_to')" required>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="number_of_days">Numero di giorni</label>
-            <input type="number" class="form-control black" id="number_of_days" ngModel name="number_of_days" maxlength="3" required>
+            <select class="form-control black" required ngModel name="number_of_days" required>
+              <option *ngFor="let day of number_of_days" value="{{day}}">{{day}}</option>
+            </select>
           </div>
         </div>
       </div>
