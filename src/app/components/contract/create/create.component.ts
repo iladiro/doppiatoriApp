@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
-import {differenceInCalendarDays} from 'date-fns';
-
 // Services
 import { Service } from '../../../services/index';
 import { DubberService } from '../../dubber/_services/index';
@@ -10,6 +8,7 @@ import { DubberService } from '../../dubber/_services/index';
 // Helpers
 import { PrintYears } from '../../../helpers/print-years';
 import { PrintMonths } from '../../../helpers/print-months';
+import { DiffBetweenTwoDaysService } from '../../../helpers/diff-between-two-days';
 import { CalculationEnpalsData } from '../helpers/calc-enpals-data';
 
 @Component({
@@ -45,6 +44,7 @@ export class ContractCreateComponent implements OnInit {
   private work_to;
 
   constructor(
+    private diff_two_days: DiffBetweenTwoDaysService,
     private enpals_data_helpers: CalculationEnpalsData,
     private service: Service,
     private print_years: PrintYears,
@@ -52,25 +52,14 @@ export class ContractCreateComponent implements OnInit {
     private dubberService: DubberService
   ) { }
 
-  getValue(value, input) {
-    let result;
+  listOfDaysWorked(value, input) {
     if(input == 'work_from') {
       this.work_from = value;
     } else {
       this.work_to = value;
     }
     if(this.work_from && this.work_to) {
-      let diff_days = differenceInCalendarDays(
-        new Date(this.work_from),
-        new Date(this.work_to)
-      );
-
-      let diff_days_str = diff_days.toString();
-      let diff_str_split = diff_days_str.split("-");
-      let value = diff_str_split[1];
-      for(let i = 0; i <= Number(value); i++) {
-        this.number_of_days.push(i + 1)
-      }
+      this.number_of_days = this.diff_two_days.generate(this.work_from, this.work_to);
     }
   }
 

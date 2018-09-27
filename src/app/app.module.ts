@@ -19,6 +19,7 @@ import { EnpalsPaymentsService } from './components/enapls_payments/_services/in
 import { AuthGuard } from './components/user/_auth/auth.guard';
 
 // Helpers
+import { DiffBetweenTwoDaysService } from './helpers/diff-between-two-days';
 import { PrintYears } from './helpers/print-years';
 import { PrintMonths } from './helpers/print-months';
 import { LoadAllItems } from './helpers/load-all-items';
@@ -230,6 +231,7 @@ import { EnpalsBookletRowComponent } from './components/reports/report-enpals-bo
     EnpalsPaymentsService,
     PrintYears,
     PrintMonths,
+    DiffBetweenTwoDaysService,
     LoadAllItems,
     CalculationEnpalsData,
     AuthGuard
