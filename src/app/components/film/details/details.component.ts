@@ -19,12 +19,7 @@ export class FilmDetailsComponent implements OnInit {
 
   private id: number;
   private film: any;
-  return_data;
-
-  private alert_message;
-  private modal_message = {
-    "text": ""
-  };
+  private dubbers: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -32,49 +27,21 @@ export class FilmDetailsComponent implements OnInit {
     private filmService: FilmService
   ) {}
 
-  private setMessage(message_obj){
-    console.log(message_obj);
-    if(message_obj.type == 'modal') {
-      this.modal_message.text = message_obj.message;
-    } else if(message_obj.type == 'alert') {
-      this.alert_message = message_obj.message;
-    }
-  }
-
-  private setData(data){
-    console.log(data);
-    this.return_data = data;
-  }
-
-  private setConfirm(data) {
-    if(data == "true") {
-      this.delete(this.return_data.item, this.return_data.property, this.return_data.table);
-    }
-  }
-
-  delete(data, property, table) {
-    console.log(data);
-    console.log(property);
-    console.log(table);
-    let index = this.film[property].indexOf(data);
-    console.log(index);
-    // this.service.delete(table, "id", data.id).subscribe(
-    //   data => {
-    //     this.film[property].splice(index, 1);
-    //     this.alert_message = "delete";
-    //   },
-    //   err => {
-    //     this.alert_message = "rejected";
-    //   }
-    // )
-  }
-
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.filmService.getById(this.id).subscribe(
         data => {
-          this.film = data;
+          let film_info = data[0];
+          this.film = {
+            "id": film_info.film_id,
+            "title": film_info.title,
+            "description": film_info.description
+          };
+          this.dubbers = data;
+        },
+        err => {
+          console.log(err)
         }
       );
     });

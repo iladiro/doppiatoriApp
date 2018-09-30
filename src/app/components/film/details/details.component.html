@@ -7,8 +7,6 @@
       </figure>
     </div>
     <div class="col-sm-10">
-      <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-      <modalPrompt [message]="modal_message" (confirm)="setConfirm($event)"></modalPrompt>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -28,7 +26,7 @@
           <film-main-informations [film]="this.film" (event)="setMessage($event)"></film-main-informations>
         </div>
         <div class="tab-pane" id="collaborators" role="tabpanel">
-          <film-dubbers-list [dubbers]="this.film.dubbers" (msg)="setMessage($event)" (data)="setData($event)"></film-dubbers-list>
+          <film-dubbers-list [dubbers]="this.dubbers" (msg)="setMessage($event)" (data)="setData($event)"></film-dubbers-list>
           <!-- <add-film-dubber [film]="this.film" (event)="setMessage($event)"></add-film-dubber> -->
         </div>
         <div class="tab-pane" id="costs" role="tabpanel">

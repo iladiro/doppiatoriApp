@@ -10,7 +10,7 @@ export class FilmService {
 
   //headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
 
-  private url_root = "http://localhost:3000/films";
+  private url_root = "http://localhost:3000/dubbers_per_film";
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {}
@@ -18,7 +18,7 @@ export class FilmService {
   ngOnInit(): void {}
 
   getById(id: number) {
-    return this.http.get(this.url_root + "?id=eq." + id + "&select=*,dubbers:dubbers(id,name,surname)", {headers: {'Accept': 'application/vnd.pgrst.object+json'}});
+    return this.http.get(this.url_root + "?film_id=eq." + id + "&select=*");
   }
 
 }
