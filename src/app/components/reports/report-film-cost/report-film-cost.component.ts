@@ -33,8 +33,8 @@ export class ReportFilmCostComponent implements OnInit {
   ) { }
 
   onChange(value) {
-    let table_query = "contracts";
-    let postgrest_query = "reference_year=eq." + value + "&select=film_id, film_title";
+    let table_query = "film_by_year_reference";
+    let postgrest_query = "reference_year=eq." + value + "&select=id, title";
     this.selected_year = true;
     this.value_selected_year = value;
     this.ownService.getdata(table_query, postgrest_query).subscribe(

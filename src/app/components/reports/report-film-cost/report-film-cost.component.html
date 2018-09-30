@@ -15,8 +15,8 @@
         <div class="col-auto">
           <select id="film_id" [disabled]="!selected_year" class="filtering__field form-control mb-2" ngModel name="film_id">
             <option value="" disabled>Seleziona film</option>
-            <option *ngFor="let film of films" value="{{film.film_id}}">
-              {{film.film_title}}
+            <option *ngFor="let film of films" value="{{film.id}}">
+              {{film.title}}
             </option>
           </select>
         </div>

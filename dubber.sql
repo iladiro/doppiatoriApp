@@ -80,3 +80,10 @@ ALTER TABLE home_address RENAME TO home_addresses;
 UPDATE enpals_categories
 SET forfettone = 2
 WHERE id = 1;
+
+create view dubbers_per_film as
+select f.title, f.description, c.film_id, d.id, d.name, d.surname
+from films f
+inner join contracts c on f.id = c.film_id
+inner join dubbers d on c.dubber_id = d.id
+group by f.title, f.description, c.film_id, d.id, d.name, d.surname;
