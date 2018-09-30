@@ -9,6 +9,9 @@
   &__inner {
     position: relative;
   }
+  &__empty {
+    @include position(right, 0, top, 0);
+  }
   &__text {
     background-color: rgba(255,255,255,.08);
     color: rgba(255,255,255,.85);
