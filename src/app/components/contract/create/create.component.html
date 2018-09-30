@@ -29,10 +29,12 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="form-group">
-            <label for="film">Scegli film</label>
-            <select name="film" class="form-control black" ngModel>
-              <option value="" disabled>Seleziona il film</option>
+          <div class="form-group" [ngClass]="{
+            'has-danger': film.invalid && (film.dirty || film.touched)
+          }">
+            <label for="film">Scegli film *</label> <span *ngIf="film.invalid && (film.dirty || film.touched)" class="text-danger">Campo non valido</span>
+            <select name="film" class="form-control black" ngModel required #film="ngModel">
+              <option value="" disabled>Seleziona</option>
               <option *ngFor="let film of films" value="{{film.id}}; {{film.title}}">
                 {{film.title}}
               </option>
@@ -40,10 +42,12 @@
           </div>
         </div>
         <div class="col">
-          <div class="form-group">
-            <label for="film">Scegli collaboratore</label>
-            <select name="dubber" class="form-control black text-capitalize" ngModel>
-              <option value="" disabled>Seleziona il collaboratore</option>
+          <div class="form-group" [ngClass]="{
+            'has-danger': dubber.invalid && (dubber.dirty || dubber.touched)
+          }">
+            <label for="dubber">Scegli collaboratore *</label> <span *ngIf="dubber.invalid && (dubber.dirty || dubber.touched)" class="text-danger">Campo non valido</span>
+            <select name="dubber" class="form-control black text-capitalize" ngModel required #dubber="ngModel">
+              <option value="" disabled>Seleziona</option>
               <option *ngFor="let dubber of dubbers" value="{{dubber.id}};{{dubber.name}};{{dubber.surname}}">
                 {{dubber.name}} {{dubber.surname}}
               </option>
@@ -53,33 +57,44 @@
       </div>
       <div class="row">
         <div class="col">
-          <div class="form-group">
-            <label for="work_from">Lavoro svolto dal giorno</label>
+          <div class="form-group" [ngClass]="{
+            'has-danger': work_from.invalid && (work_from.dirty || work_from.touched)
+          }">
+            <label for="work_from">Lavoro svolto dal giorno *</label> <span *ngIf="work_from.invalid && (work_from.dirty || work_from.touched)" class="text-danger">Campo non valido</span>
             <input type="date" class="form-control black" ngModel name="work_from" #work_from="ngModel" (blur)="listOfDaysWorked(work_from.value, 'work_from')" required>
           </div>
         </div>
         <div class="col">
-          <div class="form-group">
-            <label for="work_to">Al giorno</label>
+          <div class="form-group" [ngClass]="{
+            'has-danger': work_to.invalid && (work_to.dirty || work_to.touched)
+          }">
+            <label for="work_to">Al giorno *</label> <span *ngIf="work_to.invalid && (work_to.dirty || work_to.touched)" class="text-danger">Campo non valido</span>
             <input type="date" class="form-control black" ngModel name="work_to" #work_to="ngModel" (blur)="listOfDaysWorked(work_to.value, 'work_to')" required>
           </div>
         </div>
         <div class="col">
-          <div class="form-group">
-            <label for="number_of_days">Numero di giorni</label>
-            <select class="form-control black" required ngModel name="number_of_days" required>
+          <div class="form-group" [ngClass]="{
+            'has-danger': number_of_days.invalid && (number_of_days.dirty || number_of_days.touched)
+          }">
+            <label for="number_of_days">Numero di giorni *</label> <span *ngIf="number_of_days.invalid && (number_of_days.dirty || number_of_days.touched)" class="text-danger">Campo non valido</span>
+            <select class="form-control black" ngModel name="number_of_days" required>
+              <option value="" disabled>Seleziona</option>
               <option *ngFor="let day of number_of_days" value="{{day}}">{{day}}</option>
             </select>
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="amount">Importo</label>
-        <input type="number" id="amount" class="form-control black" placeholder="Importo" ngModel name="amount" required>
+      <div class="form-group" [ngClass]="{
+        'has-danger': amount.invalid && (amount.dirty || amount.touched)
+      }">
+        <label for="amount">Importo *</label> <span *ngIf="amount.invalid && (amount.dirty || amount.touched)" class="text-danger">Campo non valido</span>
+        <input type="number" id="amount" class="form-control black" placeholder="Importo" ngModel name="amount" required #amount="ngModel">
       </div>
-      <div class="form-group">
-        <label for="company">Azienda</label>
-        <select class="form-control black" required ngModel name="company_id">
+      <div class="form-group" [ngClass]="{
+        'has-danger': company_id.invalid && (company_id.dirty || company_id.touched)
+      }">
+        <label for="company_id">Azienda *</label> <span *ngIf="company_id.invalid && (company_id.dirty || company_id.touched)" class="text-danger">Campo non valido</span>
+        <select class="form-control black" ngModel name="company_id" #company_id="ngModel" required>
           <option value="" disabled>Seleziona azienda</option>
           <option *ngFor="let company of companies" value="{{company.id}}">
             {{company.name}}
