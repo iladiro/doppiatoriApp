@@ -1,18 +1,12 @@
-<table class="table table--striped" *ngIf="film.dubbers.length; else noDubbers">
-  <tbody>
-    <tr *ngFor="let dubber of film.dubbers">
-      <td class="text-capitalize">{{dubber.name}} {{dubber.surname}}</td>
-      <td class="text-right">
-        <a [routerLink]="['/dubber', dubber.id]" class="btn btn--dark">
-          <i class="fa fa-info" aria-hidden="true"></i>
-        </a>
-        <button (click)="delete(dubber)" class="btn btn--dark">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<ng-template #noDubbers>
-  <p class="alert alert-warning">Non ci sono doppiatori associati</p>
-</ng-template>
+<div class="general-card card mb-4">
+  <div class="general-card__body">
+    <table class="table table--striped" *ngIf="dubbers.length; else noDubbers">
+      <tbody>
+        <tr [dubber]="dubber" *ngFor="let dubber of dubbers" (data)="getData($event)" (msg)="getMessage($event)" film-dubbers-list-row></tr>
+      </tbody>
+    </table>
+    <ng-template #noDubbers>
+      <p class="alert alert-warning">Non ci sono doppiatori associati</p>
+    </ng-template>
+  </div>
+</div>

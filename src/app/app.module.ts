@@ -122,6 +122,7 @@ import { EnpalsCertificationDetailsComponent } from './components/reports/report
 import { ReportEnaplsBookletListComponent } from './components/reports/report-enpals-booklet/list/list.component';
 import { EnpalsBookletFilterFormComponent } from './components/reports/report-enpals-booklet/filter-form/filter-form.component';
 import { EnpalsBookletRowComponent } from './components/reports/report-enpals-booklet/list/row/row.component';
+import { FilmDubbersListRowComponent } from './components/film/details/dubbers/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -209,7 +210,8 @@ import { EnpalsBookletRowComponent } from './components/reports/report-enpals-bo
     EnpalsCertificationDetailsComponent,
     ReportEnaplsBookletListComponent,
     EnpalsBookletFilterFormComponent,
-    EnpalsBookletRowComponent
+    EnpalsBookletRowComponent,
+    FilmDubbersListRowComponent
   ],
   imports: [
     BrowserModule,

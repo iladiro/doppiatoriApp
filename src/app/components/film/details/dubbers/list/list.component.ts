@@ -10,38 +10,46 @@ import { Service } from '../../../../../services/index';
 })
 export class FilmDubbersListComponent implements OnInit {
 
-  @Input() film: any;
-  @Output() event = new EventEmitter();
-
-  private modal_message = {
-    "text": "Sei sicuro di volerlo cancellare?"
-  };
+  @Input() dubbers: any;
+  @Output() msg =  new EventEmitter();
+  @Output() data = new EventEmitter();
 
   constructor(
     private service: Service,
   ) { }
 
-  private setConfirm(data) {
-    if(data == "true") {
-      this.delete(this.film);
+  private getData(data){
+    this.data.emit(data);
+  }
+
+  private getMessage(data) {
+    if(data.type == "modal") {
+      this.msg.emit({message: data.message, type: 'modal'});
+    } else if(data.type == "alert") {
+      this.msg.emit({message: data.message, type: 'alert'});
     }
   }
 
-  private delete(dubber) {
-    let index = this.film.dubbers.indexOf(dubber);
-    this.service.deleteFilmDubber("dubbers_films", this.film.id, dubber.id).subscribe(
-      data => {
-        if(index > -1) {
-          this.film.dubbers.splice(index, 1);
-        }
-        this.event.emit("success");
-      },
-      err => {
-        this.event.emit("rejected");
-      }
-    );
-  }
+  // private setConfirm(data) {
+  //   if(data == "true") {
+  //     this.delete(this.film);
+  //   }
+  // }
 
-  ngOnInit() {}
+  // private delete(dubber) {
+  //   let index = this.dubbers.indexOf(dubber);
+  //   this.service.delete("dubbers", "id", dubber.id).subscribe(
+  //     data => {
+  //       this.dubbers.splice(index, 1);
+  //       this.alert_message = "delete";
+  //     },
+  //     err => {
+  //       console.log(err)
+  //     }
+  //   );
+  // }
+
+  ngOnInit() {
+  }
 
 }
