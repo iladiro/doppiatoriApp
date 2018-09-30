@@ -9,6 +9,7 @@ export class DiffBetweenTwoDaysService {
   constructor() {}
 
   generate(first_date, second_date) {
+    this.number_of_days = [];
     let diff_days = differenceInCalendarDays(
       new Date(first_date),
       new Date(second_date)
