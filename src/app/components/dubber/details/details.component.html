@@ -1,12 +1,19 @@
 <div class="container" *ngIf="dubber">
-  <div class="general-card card mb-4">
+  <div class="general-card general-card--light card mb-4">
     <div class="general-card__body">
       <div class="row">
         <div class="col-sm-2">
-          <figure class="m-0">
-            <img src="/assets/images/user_placeholder_man.png" alt="{{dubber.name}} {{dubber.surname}}" class="img-fluid img-thumbnail">
-            <h5 class="mt-10 text-capitalize">{{dubber.name}} {{dubber.surname}}</h5>
-          </figure>
+          <div class="m-0">
+            <figure class="ml-0 mr-0 mb-0 mt-10" *ngIf="dubber.gender == 'M'; else UserFemale">
+              <img src="/assets/images/user-male.svg" alt="{{dubber.name}} {{dubber.surname}}" class="img-fluid img-thumbnail">
+            </figure>
+            <ng-template #UserFemale>
+              <figure class="ml-0 mr-0 mb-0 mt-10">
+                <img src="/assets/images/user-female.svg" alt="{{dubber.name}} {{dubber.surname}}" class="img-fluid img-thumbnail">
+              </figure>
+            </ng-template>
+            <figcaption class="mt-10 text-capitalize weight--light">{{dubber.name}} {{dubber.surname}}</figcaption>
+          </div>
         </div>
         <div class="col-sm-10">
           <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>

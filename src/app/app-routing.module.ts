@@ -49,7 +49,7 @@ import { ContractListComponent } from './components/contract/list/list.component
 import { ContractDetailsComponent } from './components/contract/details/details.component';
 import { ContractArchivedComponent } from './components/contract/archived/archived.component';
 
-import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
+import { RetributionBandsListComponent } from './components/settings/retribution-bands/list/list.component';
 
 import { ReportFilmCostComponent } from './components/reports/report-film-cost/report-film-cost.component';
 import { ReportMonthlyCostEnpalsComponent } from './components/reports/report-monthly-cost-enpals/report-monthly-cost-enpals.component';

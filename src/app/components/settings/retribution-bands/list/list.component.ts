@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Services
-import { Service } from '../../../../../services/index';
+import { Service } from '../../../../services/index';
 
 @Component({
   selector: 'app-list',

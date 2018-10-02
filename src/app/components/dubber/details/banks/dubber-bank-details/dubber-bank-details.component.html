@@ -1,7 +1,7 @@
 <form #f="ngForm" novalidate class="form--light">
   <div class="bg-light p-all-side-20 mb-15">
     <div class="form-group">
-      <label>Nome Banca <span *ngIf="bank._default == true" class="badge badge-secondary">| Predefinito</span></label>
+      <label>Nome Banca <span *ngIf="bank._default == true" class="badge badge-secondary">Predefinito</span></label>
       <!-- [] => messo il valore; [()] => messo e preso il valore -->
       <input type="text" class="form-control black text-capitalize" placeholder="Banca" name="bank_name" [(ngModel)]="bank.bank_name">
     </div>

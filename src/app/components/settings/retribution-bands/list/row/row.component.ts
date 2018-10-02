@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 // Services
-import { Service } from '../../../../../../services/index';
+import { Service } from '../../../../../services/index';
 
 @Component({
   selector: '[retribution-bands-row]',

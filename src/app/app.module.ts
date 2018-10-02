@@ -110,9 +110,9 @@ import { ContractArchivedComponent } from './components/contract/archived/archiv
 import { ContractArchivedRowComponent } from './components/contract/archived/row/row.component';
 import { SideBarNavComponent } from './components/template/sidebar/nav/nav.component';
 import { DubberEnpalsCatComponent } from './components/dubber/details/enpals-cat/enpals-cat.component';
-import { RetributionBandsCreateComponent } from './components/settings/enpals-parameters/retribution-bands/create/create.component';
-import { RetributionBandsListComponent } from './components/settings/enpals-parameters/retribution-bands/list/list.component';
-import { RetributionBandRowComponent } from './components/settings/enpals-parameters/retribution-bands/list/row/row.component';
+import { RetributionBandsCreateComponent } from './components/settings/retribution-bands/create/create.component';
+import { RetributionBandsListComponent } from './components/settings/retribution-bands/list/list.component';
+import { RetributionBandRowComponent } from './components/settings/retribution-bands/list/row/row.component';
 import { ReportFilmCostComponent } from './components/reports/report-film-cost/report-film-cost.component';
 import { ReportMonthlyCostEnpalsComponent } from './components/reports/report-monthly-cost-enpals/report-monthly-cost-enpals.component';
 import { ReportEnpalsCertificationComponent } from './components/reports/report-enpals-certification/list/list.component';
