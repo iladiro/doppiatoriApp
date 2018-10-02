@@ -38,6 +38,7 @@ export class EnpalsPaymentsRowComponent {
 
   private annull() {
     this._readonly = true;
+    location.reload();
   }
 
   private update() {
