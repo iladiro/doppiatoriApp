@@ -10,8 +10,8 @@
     </div>
     <div class="col-auto">
       <select id="dubber_id" [disabled]="!selected_year" class="filtering__field form-control black mb-2" ngModel name="dubber">
-        <option value="" disabled>Seleziona collaboratore</option>
-        <option value="all">Tutti</option>
+        <option value="" disabled>Seleziona</option>
+        <option value="all" *ngIf="dubbers.length">Tutti</option>
         <option *ngFor="let dubber of dubbers" value="{{dubber.id}}">
           {{dubber.name}}
           {{dubber.surname}}
@@ -19,7 +19,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <button type="submit" (click)="search(filtering)" class="filtering__btn btn btn--dark mb-2">Cerca</button>
+      <button type="submit" [disabled]="dubbers.length < 1" (click)="search(filtering)" class="filtering__btn btn btn--dark mb-2">Cerca</button>
     </div>
   </div>
 </form>

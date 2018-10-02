@@ -51,6 +51,7 @@ export class EnpalsCertificationDetailsComponent implements OnInit {
       let table_query = "contracts";
       this.ownService.getdata(table_query, postgrest_query).subscribe(
         data => {
+          console.log(data);
           this.data = data[0];
           this.enpals_data = data;
         },
