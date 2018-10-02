@@ -4,9 +4,9 @@
     <h6 class="mb-15">Filtra</h6>
     <filter-form (list)="getData($event)" (value_selected_year)="getSelectedYear($event)"></filter-form>
   </div>
-  <div class="general-card card mb-4" *ngIf="list.length > 0">
+  <div class="general-card card mb-4">
     <div class="general-card__body">
-      <table  class="table table--striped mb-0">
+      <table  class="table table--striped mb-0" *ngIf="list.length > 0; else noResults">
         <thead class="thead--dark">
           <tr>
             <th>Nome & Cognome</th>
@@ -17,6 +17,9 @@
           <tr [data]="current_value" [year]="selected_year" *ngFor="let current_value of list" enpals-certification-list-row></tr>
         </tbody>
       </table>
+      <ng-template #noResults>
+        <p class="alert alert-warning mb-0">Non ci sono risultati</p>
+      </ng-template>
     </div>
   </div>
 </div>
