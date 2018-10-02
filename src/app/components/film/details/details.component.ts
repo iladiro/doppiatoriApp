@@ -17,9 +17,8 @@ import { FilmService } from '../_services/index';
 
 export class FilmDetailsComponent implements OnInit {
 
-  private id: number;
-  private film: any;
-  private dubbers: any[] = [];
+  private film: Film;
+  private dubbers: any = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -29,8 +28,8 @@ export class FilmDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
-      this.filmService.getById(this.id).subscribe(
+      let id = +params['id']; // (+) converts string 'id' to a number
+      this.filmService.getById(id).subscribe(
         data => {
           let film_info = data[0];
           this.film = {

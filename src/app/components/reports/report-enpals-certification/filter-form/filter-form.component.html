@@ -12,8 +12,9 @@
       <select id="dubber_id" [disabled]="!selected_year" class="filtering__field form-control black mb-2" ngModel name="dubber">
         <option value="" disabled>Seleziona collaboratore</option>
         <option value="all">Tutti</option>
-        <option *ngFor="let dubber of dubbers" value="{{dubber.dubber_id}}">
-          {{dubber.dubber_fullname}}
+        <option *ngFor="let dubber of dubbers" value="{{dubber.id}}">
+          {{dubber.name}}
+          {{dubber.surname}}
         </option>
       </select>
     </div>

@@ -6,7 +6,7 @@ import { ReportService } from '../../_services/report.service';
 
 // Helpers
 import { PrintYears } from '../../../../helpers/print-years';
-import { PrintMonths } from '../../../../helpers/print-months';
+//import { PrintMonths } from '../../../../helpers/print-months';
 
 @Component({
   selector: 'filter-form',
@@ -29,14 +29,14 @@ export class FilterFormComponent implements OnInit {
     private service: Service,
     private ownService: ReportService,
     private print_years: PrintYears,
-    private print_months: PrintMonths
+    //private print_months: PrintMonths
   ) { }
 
   onChange(value) {
     this.selected_year = true;
     this.value_selected_year.emit(value);
-    let table_query = "contracts";
-    let postgrest_query = "reference_year=eq." + value + "&select=dubber_id, dubber_fullname"
+    let table_query = "dubbers_by_year_reference";
+    let postgrest_query = "reference_year=eq." + value + "&select=id, name, surname"
     this.ownService.getdata(table_query, postgrest_query).subscribe(
       data => {
         this.dubbers = data;
@@ -48,9 +48,9 @@ export class FilterFormComponent implements OnInit {
   }
 
   search(data) {
-    let table_query = "contracts";
+    let table_query = "dubbers_by_year_reference";
     if(data.value.dubber == "all") {
-      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&select=dubber_id, dubber_fullname";
+      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&select=id, name, surname";
       this.ownService.getdata(table_query, sql_query).subscribe(
         data => {
           this.list.emit(data);
@@ -60,7 +60,7 @@ export class FilterFormComponent implements OnInit {
         }
       );
     } else {
-      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&" + "dubber_id=eq." + Number(data.value.dubber) + "&select=dubber_id, dubber_fullname";
+      let sql_query = "reference_year=eq." + Number(data.value.reference_year) + "&" + "id=eq." + Number(data.value.dubber) + "&select=id, name, surname";
       this.ownService.getdata(table_query, sql_query).subscribe(
         data => {
           this.list.emit(data);
@@ -85,7 +85,7 @@ export class FilterFormComponent implements OnInit {
     this.date_fullYear = this.date.getFullYear();
     this.loadAllItems("dubbers", "dubbers", "all");
     this.years = this.print_years.generate(2004).reverse();
-    this.months = this.print_months.generate();
+    //this.months = this.print_months.generate();
   }
 
 }

@@ -17,6 +17,7 @@ export class ReportEnpalsCertificationComponent implements OnInit {
   ) { }
 
   private getData(data){
+    console.log(data);
     this.list = data;
   }
 

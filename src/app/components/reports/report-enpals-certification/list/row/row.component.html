@@ -1,6 +1,6 @@
-<td>{{data.dubber_fullname}}</td>
+<td class="text-capitalize">{{data.name}} {{data.surname}}</td>
 <td class="text-right">
-  <a [routerLink]="['/enpals-certification', year, data.dubber_id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
+  <a [routerLink]="['/enpals-certification', year, data.id]" class="btn btn--dark" data-toggle="tooltip" data-placement="top" title="Info">
     <!-- <i class="fa fa-info" aria-hidden="true"></i> -->
     Guarda certificazione
   </a>
