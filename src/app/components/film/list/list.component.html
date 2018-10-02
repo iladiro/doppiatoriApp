@@ -9,9 +9,9 @@
       <a [routerLink]="['/films/add']" class="btn btn--light">Aggiungi Film</a>
     </div>
   </nav>
-  <div class="general-card card mb-4">
+  <div class="general-card general-card--light card mb-4">
     <div class="general-card__body">
-      <table class="table table--striped" *ngIf="films.length; else noFilms">
+      <table class="table table--striped mb-0" *ngIf="films.length; else noFilms">
         <thead class="thead--dark">
           <tr>
             <th>Titolo</th>

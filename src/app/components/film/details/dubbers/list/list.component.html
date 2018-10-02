@@ -1,12 +1,8 @@
-<div class="general-card card mb-4">
-  <div class="general-card__body">
-    <table class="table table--striped" *ngIf="dubbers.length; else noDubbers">
-      <tbody>
-        <tr [dubber]="dubber" *ngFor="let dubber of dubbers" (data)="getData($event)" (msg)="getMessage($event)" film-dubbers-list-row></tr>
-      </tbody>
-    </table>
-    <ng-template #noDubbers>
-      <p class="alert alert-warning">Non ci sono doppiatori associati</p>
-    </ng-template>
-  </div>
-</div>
+<table class="table table--striped mb-0" *ngIf="dubbers.length; else noDubbers">
+  <tbody>
+    <tr [dubber]="dubber" *ngFor="let dubber of dubbers" (data)="getData($event)" (msg)="getMessage($event)" film-dubbers-list-row></tr>
+  </tbody>
+</table>
+<ng-template #noDubbers>
+  <p class="alert alert-warning">Non ci sono doppiatori associati</p>
+</ng-template>

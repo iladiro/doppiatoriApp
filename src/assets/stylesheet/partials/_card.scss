@@ -1,8 +1,16 @@
 .general-card {
-  background-color: rgba(0,0,0,.2);
+  &--light {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  &--dark {
+    background-color: rgba(0,0,0,.2);
+  }
+  &--shadow {
+    @include box-shadow(0 1px 5px rgba(0,0,0,.1));
+  }
   position: relative;
-  border-radius: 2px;
-  @include box-shadow(0 1px 5px rgba(0,0,0,.1));
+  border-radius: 0px;
+  border: 0;
   padding: 15px;
   &__title {
     @include font-style(1rem, white);
