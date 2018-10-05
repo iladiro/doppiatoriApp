@@ -35,15 +35,15 @@ export class ContractListComponent implements OnInit {
     this.contracts = value;
   }
 
-  private getData(data){
+  private getData(data): void{
     this.current_contract = data;
   }
 
-  private getMessage(text) {
+  private getMessage(text): void {
     this.modal_message.text = text;
   }
 
-  private setConfirm(data) {
+  private setConfirm(data): void {
     if(data == "true") {
       if(this.current_contract.request_type == "archive") {
         this.archive(this.current_contract.item);
@@ -53,7 +53,7 @@ export class ContractListComponent implements OnInit {
     }
   }
 
-  private archive(contract) {
+  private archive(contract): void {
     let index = this.contracts.indexOf(contract);
     let archived = {
       "archived": true
@@ -69,7 +69,7 @@ export class ContractListComponent implements OnInit {
     );
   }
 
-  private delete(contract) {
+  private delete(contract): void {
     let index = this.contracts.indexOf(contract);
     this.service.delete("contracts", "id", contract.id).subscribe(
       data => {
@@ -82,7 +82,7 @@ export class ContractListComponent implements OnInit {
     );
   }
 
-  loadAllItems(table, variable, condition) {
+  loadAllItems(table, variable, condition): void {
     this.service.getAll(table, condition).subscribe(
       data => {
         this[variable] = data;

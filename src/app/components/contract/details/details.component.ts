@@ -26,7 +26,6 @@ export class ContractDetailsComponent implements OnInit {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.ownservice.getById(this.id).subscribe(
         data => {
-          console.log(data);
           this.contract = data;
         }
       );
