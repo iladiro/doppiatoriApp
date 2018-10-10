@@ -20,9 +20,6 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
   months: any = [];
   years: number[] = [];
   result_filtering: any = [];
-  active:boolean = false;
-
-  private params: string = "";
 
   constructor(
     private service: Service,
@@ -30,46 +27,6 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
     private print_years: PrintYears,
     private print_months: PrintMonths
   ) { }
-
-  onChange(value, param) {
-    let table_query = "contracts";
-    let postgrest_query;
-    if(param == 'month') {
-      if(this.params == '') {
-        this.params = "reference_month=eq." + value;
-      } else {
-        this.params += "&reference_month=eq." + value;
-      }
-    } else if(param == 'year') {
-      if(this.params == '') {
-        this.params = "reference_year=eq." + value;
-      } else {
-        this.params += "&reference_year=eq." + value;
-      }
-    } else if(param == 'dubber') {
-      if(this.params == '') {
-        this.params = "dubber_id=eq." + value;
-      } else {
-        this.params += "&dubber_id=eq." + value;
-      }
-    } else if(param == 'film') {
-      if(this.params == '') {
-        this.params = "film_id=eq." + value;
-      } else {
-        this.params += "&film_id=eq." + value;
-      }
-    }
-    postgrest_query = this.params + "&select=reference_year, reference_month, film_id, film_title, dubber_id, dubber_fullname";
-    this.ownService.getdata(table_query, postgrest_query).subscribe(
-      data => {
-        this.active = true;
-        this.result_filtering = data;
-      },
-      err => {
-        console.log(err)
-      }
-    );
-  }
 
   getOutNotEmptyParams(obj) {
     let data = {};
@@ -81,30 +38,41 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
     return data;
   }
 
-  search(data) {
-    let not_empty_params = this.getOutNotEmptyParams(data.value);
-    let query = this.buildUrl(not_empty_params);
-    this.sendRequest(query);
+  buildUrl(obj_params, select_data) {
+    let postgrest_query: any[] = [];
+    for (var key in obj_params) {
+      postgrest_query.push(key + "=eq." + obj_params[key]);
+    }
+    return postgrest_query.join("&") + select_data;
   }
 
-  buildUrl(obj_params) {
-    let postgrest_query: string = "";
-    for (var key in obj_params) {
-      if(postgrest_query == '') {
-        postgrest_query = key + "=eq." + obj_params[key];
-      } else {
-        postgrest_query += "&" + key + "=eq." + obj_params[key];
+  onChange(data) {
+    let table_query = "contracts";
+    let params_not_empty = this.getOutNotEmptyParams(data.value);
+    let select_data = "&select=reference_year, reference_month, film_id, film_title, dubber_id, dubber_fullname";
+    let postgrest_query = this.buildUrl(params_not_empty, select_data);
+    console.log(postgrest_query);
+    this.ownService.getdata(table_query, postgrest_query).subscribe(
+      data => {
+        this.result_filtering = data;
+      },
+      err => {
+        console.log(err)
       }
-    }
-    postgrest_query += "&select=dubber_fullname,film_title,work_from,work_to,number_of_days,amount";
-    return postgrest_query;
+    );
+  }
+
+  search(data) {
+    let select_data = "&select=dubber_fullname,film_title,work_from,work_to,number_of_days,amount";
+    let not_empty_params = this.getOutNotEmptyParams(data.value);
+    let query = this.buildUrl(not_empty_params, select_data);
+    this.sendRequest(query);
   }
 
   sendRequest(query) {
     let table_query = "contracts";
     this.ownService.getdata(table_query, query).subscribe(
       data => {
-        console.log(data);
         this.list.emit(data);
       },
       err => {
@@ -117,18 +85,18 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
     this.result_filtering = [];
   }
 
-  loadAllItems(table, variable, condition) {
-    this.service.getAll(table, condition).subscribe(
-      data => {
-        this[variable] = data;
-      },
-      err => {}
-    );
-  }
+  // loadAllItems(table, variable, condition) {
+  //   this.service.getAll(table, condition).subscribe(
+  //     data => {
+  //       this[variable] = data;
+  //     },
+  //     err => {}
+  //   );
+  // }
 
   ngOnInit() {
-    this.loadAllItems("dubbers", "dubbers", "all");
-    this.loadAllItems("films", "films", "all");
+    // this.loadAllItems("dubbers", "dubbers", "all");
+    // this.loadAllItems("films", "films", "all");
     this.years = this.print_years.generate(2004).reverse();
     this.months = this.print_months.generate();
   }

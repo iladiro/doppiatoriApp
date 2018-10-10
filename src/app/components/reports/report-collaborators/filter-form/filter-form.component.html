@@ -1,7 +1,7 @@
 <form #filtering="ngForm" name="form" class="filtering form-inline form--light">
   <div class="form-row align-items-center">
     <div class="col-auto">
-      <select id="reference_month" (change)="onChange($event.target.value, 'month')" class="filtering__field form-control black mb-2" ngModel name="reference_month">
+      <select id="reference_month" (change)="onChange(filtering)" class="filtering__field form-control black mb-2" ngModel name="reference_month">
         <option value="" disabled>Seleziona mese</option>
         <option *ngFor="let month of months" value="{{month.index}}">
           {{month.text}}
@@ -9,7 +9,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <select id="reference_year" (change)="onChange($event.target.value, 'year')" class="filtering__field form-control black mb-2" ngModel name="reference_year" required>
+      <select id="reference_year" (change)="onChange(filtering)" class="filtering__field form-control black mb-2" ngModel name="reference_year" required>
         <option value="" disabled>Seleziona anno</option>
         <option *ngFor="let year of years" value="{{year}}">
           {{year}}
@@ -17,7 +17,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <select id="dubber_id" [disabled]="!active" (change)="onChange($event.target.value, 'dubber')" class="filtering__field form-control black mb-2" ngModel name="dubber_id" required>
+      <select id="dubber_id" class="filtering__field form-control black mb-2" ngModel name="dubber_id" required>
         <option value="" disabled>Seleziona collaboratore</option>
         <option *ngFor="let dubber of result_filtering" value="{{dubber.dubber_id}}">
           {{dubber.dubber_fullname}}
@@ -25,7 +25,7 @@
       </select>
     </div>
     <div class="col-auto">
-      <select id="film_id" [disabled]="!active" (change)="onChange($event.target.value, 'film')" class="filtering__field form-control black mb-2" ngModel name="film_id" required>
+      <select id="film_id" class="filtering__field form-control black mb-2" ngModel name="film_id" required>
         <option value="" disabled>Seleziona film</option>
         <option *ngFor="let film of result_filtering" value="{{film.film_id}}">
           {{film.film_title}}
