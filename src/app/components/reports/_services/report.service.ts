@@ -13,7 +13,6 @@ export class ReportService {
   ) {}
 
   getdata(table, query) {
-    // return this.http.get<any[]>(this.url_root + table + "?" + query);
     return this.http.get<any[]>(this.url_root + table + "?" + query);
   }
 

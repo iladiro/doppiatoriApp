@@ -15,17 +15,14 @@ import { PrintMonths } from '../../../../helpers/print-months';
 })
 export class FilterFormReportCollaboratorsComponent implements OnInit {
 
+  @Output() list = new EventEmitter();
+
   months: any = [];
   years: number[] = [];
-  dubbers: any = [];
-  films_dubbers: any = [];
-  @Output() list = new EventEmitter();
+  result_filtering: any = [];
   active:boolean = false;
 
-  reference_month: string;
-  reference_year: string;
-
-  query: string = "";
+  private params: string = "";
 
   constructor(
     private service: Service,
@@ -35,40 +32,38 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
   ) { }
 
   onChange(value, param) {
-    console.log(value);
     let table_query = "contracts";
-    let postgrest_query: string = "";
+    let postgrest_query;
     if(param == 'month') {
-      this.reference_month = value;
-      if(this.reference_year) {
-        postgrest_query = "reference_month=eq." + value + "&reference_year=eq." + this.reference_year + "&select=reference_year, film_id, film_title, dubber_id, dubber_fullname";
+      if(this.params == '') {
+        this.params = "reference_month=eq." + value;
       } else {
-        postgrest_query = "reference_month=eq." + value + "&select=reference_year, film_id, film_title, dubber_id, dubber_fullname";
+        this.params += "&reference_month=eq." + value;
       }
     } else if(param == 'year') {
-      this.reference_year = value;
-      if(this.reference_month) {
-        postgrest_query = "reference_month=eq." + this.reference_month + "&reference_year=eq." + value + "&select=reference_year,reference_month,film_id, film_title, dubber_id, dubber_fullname";
+      if(this.params == '') {
+        this.params = "reference_year=eq." + value;
       } else {
-        postgrest_query = "reference_year=eq." + value + "&select=reference_year,reference_month,film_id, film_title, dubber_id, dubber_fullname";
+        this.params += "&reference_year=eq." + value;
       }
     } else if(param == 'dubber') {
-      if(this.reference_year && this.reference_month) {
-        console.log("anno e mese");
-        postgrest_query = "reference_month=eq." + this.reference_month + "&reference_year=eq." + this.reference_year + "&dubber_id=eq." + value + "&select=reference_year,reference_month,film_id, film_title, dubber_id, dubber_fullname";
-      } else if(this.reference_year) {
-        console.log("solo anno");
-        postgrest_query = "reference_year=eq." + this.reference_year + "&dubber_id=eq." + value + "&select=reference_year,reference_month,film_id, film_title, dubber_id, dubber_fullname";
-      } else if(this.reference_month) {
-        console.log("solo mese");
-        postgrest_query = "reference_month=eq." + this.reference_month + "&dubber_id=eq." + value + "&select=reference_year,reference_month,film_id, film_title, dubber_id, dubber_fullname";
+      if(this.params == '') {
+        this.params = "dubber_id=eq." + value;
+      } else {
+        this.params += "&dubber_id=eq." + value;
+      }
+    } else if(param == 'film') {
+      if(this.params == '') {
+        this.params = "film_id=eq." + value;
+      } else {
+        this.params += "&film_id=eq." + value;
       }
     }
+    postgrest_query = this.params + "&select=reference_year, reference_month, film_id, film_title, dubber_id, dubber_fullname";
     this.ownService.getdata(table_query, postgrest_query).subscribe(
       data => {
-        console.log(data);
         this.active = true;
-        this.films_dubbers = data;
+        this.result_filtering = data;
       },
       err => {
         console.log(err)
@@ -119,7 +114,7 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
   }
 
   resetFilter() {
-    this.films_dubbers = [];
+    this.result_filtering = [];
   }
 
   loadAllItems(table, variable, condition) {

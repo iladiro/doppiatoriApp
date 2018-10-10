@@ -19,21 +19,21 @@
     <div class="col-auto">
       <select id="dubber_id" [disabled]="!active" (change)="onChange($event.target.value, 'dubber')" class="filtering__field form-control black mb-2" ngModel name="dubber_id" required>
         <option value="" disabled>Seleziona collaboratore</option>
-        <option *ngFor="let dubber of films_dubbers" value="{{dubber.dubber_id}}">
+        <option *ngFor="let dubber of result_filtering" value="{{dubber.dubber_id}}">
           {{dubber.dubber_fullname}}
         </option>
       </select>
     </div>
     <div class="col-auto">
-      <select id="film_id" [disabled]="!active" class="filtering__field form-control black mb-2" ngModel name="film_id" required>
+      <select id="film_id" [disabled]="!active" (change)="onChange($event.target.value, 'film')" class="filtering__field form-control black mb-2" ngModel name="film_id" required>
         <option value="" disabled>Seleziona film</option>
-        <option *ngFor="let film of films_dubbers" value="{{film.film_id}}">
+        <option *ngFor="let film of result_filtering" value="{{film.film_id}}">
           {{film.film_title}}
         </option>
       </select>
     </div>
     <div class="col-auto">
-      <button type="submit" [disabled]="dubbers.length < 1" (click)="search(filtering)" class="filtering__btn btn btn--dark mb-2">Cerca</button>
+      <button type="submit" (click)="search(filtering)" class="filtering__btn btn btn--dark mb-2">Cerca</button>
       <button type="button" (click)="resetFilter()" class="filtering__btn btn btn--dark mb-2">Annulla filtri</button>
     </div>
   </div>
