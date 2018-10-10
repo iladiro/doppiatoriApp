@@ -1,0 +1,27 @@
+@import "../../../../../assets/stylesheet/mixin/custom-mixin";
+
+.filtering {
+  &__field {
+    background-color: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.85);
+    border: 0;
+    border-radius: 2px;
+    //@include size(100%, 2.9rem);
+    //padding-left: 3rem;
+    @include transition(background-color .3s,color .3s);
+    @include placeholder(white);
+    font-size: 0.8rem;
+    min-height: 38px;
+    option {
+      color: black;
+    }
+  }
+  &__btn {
+    min-height: 38px;
+  }
+  .form-control {
+    &:focus {
+      @include box-shadow(none);
+    }
+  }
+}

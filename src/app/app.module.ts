@@ -123,6 +123,9 @@ import { ReportEnaplsBookletListComponent } from './components/reports/report-en
 import { EnpalsBookletFilterFormComponent } from './components/reports/report-enpals-booklet/filter-form/filter-form.component';
 import { EnpalsBookletRowComponent } from './components/reports/report-enpals-booklet/list/row/row.component';
 import { FilmDubbersListRowComponent } from './components/film/details/dubbers/list/row/row.component';
+import { ReportCollaboratorsListComponent } from './components/reports/report-collaborators/list/list.component';
+import { FilterFormReportCollaboratorsComponent } from './components/reports/report-collaborators/filter-form/filter-form.component';
+import { CollaboratorsReportRowComponent } from './components/reports/report-collaborators/list/row/row.component';
 
 @NgModule({
   declarations: [
@@ -211,7 +214,10 @@ import { FilmDubbersListRowComponent } from './components/film/details/dubbers/l
     ReportEnaplsBookletListComponent,
     EnpalsBookletFilterFormComponent,
     EnpalsBookletRowComponent,
-    FilmDubbersListRowComponent
+    FilmDubbersListRowComponent,
+    ReportCollaboratorsListComponent,
+    FilterFormReportCollaboratorsComponent,
+    CollaboratorsReportRowComponent
   ],
   imports: [
     BrowserModule,

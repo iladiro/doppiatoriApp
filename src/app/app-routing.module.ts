@@ -56,6 +56,7 @@ import { ReportMonthlyCostEnpalsComponent } from './components/reports/report-mo
 import { ReportEnpalsCertificationComponent } from './components/reports/report-enpals-certification/list/list.component';
 import { EnpalsCertificationDetailsComponent } from './components/reports/report-enpals-certification/details/details.component';
 import { ReportEnaplsBookletListComponent } from './components/reports/report-enpals-booklet/list/list.component';
+import { ReportCollaboratorsListComponent } from './components/reports/report-collaborators/list/list.component';
 
 
 const appRoutes: Routes = [
@@ -78,6 +79,11 @@ const appRoutes: Routes = [
         component: DashboardComponent,
         data: { title: 'Dashboard' }
         //canActivate:[AuthGuard]
+      },
+      {
+        path: 'reports/collaborators',
+        component: ReportCollaboratorsListComponent,
+        data: { title: 'Report Costo Collaboratori' }
       },
       {
         path: 'reports/film-cost',

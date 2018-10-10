@@ -60,7 +60,9 @@
           <a class="dropdown-item" [routerLink]="['/settings/retribution-bands']">Fasce retributive</a>
         </div>
       </li>
-      <li class="nav-item dropdown" [class.active]="router.url==='/reports' || router.url==='/reports/film-cost' || router.url==='/reports/monthly-enpals-cost'  || router.url==='/reports/enpals-certification'">
+      <li class="nav-item dropdown" [class.active]="router.url==='/reports' || router.url==='/reports/film-cost'
+        || router.url==='/reports/monthly-enpals-cost' || router.url==='/reports/enpals-certification'
+        || router.url==='/reports/collaborators'">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           Reports
         </a>
@@ -69,6 +71,7 @@
           <a class="dropdown-item" [routerLink]="['/reports/monthly-enpals-cost']">Costo enpals mensile</a>
           <a class="dropdown-item" [routerLink]="['/reports/enpals-certification']">Certificazioni Enpals</a>
           <a class="dropdown-item" [routerLink]="['/reports/enpals-booklet']">Libretto Enpals</a>
+          <a class="dropdown-item" [routerLink]="['/reports/collaborators']">Collaboratori</a>
         </div>
       </li>
     </ul>
