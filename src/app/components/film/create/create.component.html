@@ -12,8 +12,7 @@
       'has-danger': description.invalid && (description.dirty || description.touched)
     }">
       <label for="description">Descrizione </label> <span *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">* Campo non valido</span>
-      <textarea id="description" class="form-control black" placeholder="Descrizione" ngModel name="description" #description="ngModel" required rows="10"></textarea>
-
+      <textarea id="description" class="form-control black" placeholder="Descrizione" ngModel name="description" #description="ngModel" rows="10" [attr.maxLength]="255"></textarea>
     </div>
     <div class="row mt-20">
       <div class="col">
