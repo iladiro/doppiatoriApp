@@ -7,6 +7,7 @@ import { ReportService } from '../../_services/report.service';
 // Helpers
 import { PrintYears } from '../../../../helpers/print-years';
 import { PrintMonths } from '../../../../helpers/print-months';
+import { TakeOutNotEmptyParams } from '../../../../helpers/take-out-not-empty-params';
 
 @Component({
   selector: 'report-collaborators-filter-form',
@@ -25,18 +26,19 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
     private service: Service,
     private ownService: ReportService,
     private print_years: PrintYears,
-    private print_months: PrintMonths
+    private print_months: PrintMonths,
+    private takeOutNotEmptyParams: TakeOutNotEmptyParams
   ) { }
 
-  getOutNotEmptyParams(obj) {
-    let data = {};
-    for (var key in obj) {
-      if (obj[key] !== null && obj[key] != "") {
-        data[key] = obj[key]
-      }
-    }
-    return data;
-  }
+  // takeOutNotEmptyParams(obj) {
+  //   let data = {};
+  //   for (var key in obj) {
+  //     if (obj[key] !== null && obj[key] != "") {
+  //       data[key] = obj[key]
+  //     }
+  //   }
+  //   return data;
+  // }
 
   buildUrl(obj_params, select_data) {
     let postgrest_query: any[] = [];
@@ -48,7 +50,7 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
 
   onChange(data) {
     let table_query = "contracts";
-    let params_not_empty = this.getOutNotEmptyParams(data.value);
+    let params_not_empty = this.takeOutNotEmptyParams.run(data.value);
     let select_data = "&select=reference_year, reference_month, film_id, film_title, dubber_id, dubber_fullname";
     let postgrest_query = this.buildUrl(params_not_empty, select_data);
     console.log(postgrest_query);
@@ -64,7 +66,7 @@ export class FilterFormReportCollaboratorsComponent implements OnInit {
 
   search(data) {
     let select_data = "&select=dubber_fullname,film_title,work_from,work_to,number_of_days,amount";
-    let not_empty_params = this.getOutNotEmptyParams(data.value);
+    let not_empty_params = this.takeOutNotEmptyParams.run(data.value);
     let query = this.buildUrl(not_empty_params, select_data);
     this.sendRequest(query);
   }
