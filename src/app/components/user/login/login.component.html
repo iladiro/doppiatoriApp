@@ -2,25 +2,21 @@
   <div class="col-md-6 mx-auto">
     <h2 class="text-center mb-30">Voltumna edizioni</h2>
     <alertMessage [message]="alert_message" *ngIf="alert_message"></alertMessage>
-    <div class="general-card card mb-4 p-all-side-30">
-      <div class="general-card__body">
-        <form name="form" (ngSubmit)="f.form.valid && login(f)" #f="ngForm" novalidate class="form--light">
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-            <label for="username">Email</label>
-            <input type="text" class="form-control black" name="email" ngModel #email="ngModel" required />
-            <div *ngIf="f.submitted && !email.valid" class="is-invalid">email is required</div>
-          </div>
-          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !secret.valid }">
-            <label for="secret">Password</label>
-            <input type="password" class="form-control black" name="secret" ngModel #secret="ngModel" required />
-            <div *ngIf="f.submitted && !secret.valid" class="is-invalid">secret is required</div>
-          </div>
-          <div class="form-group">
-            <button [disabled]="loading" class="btn btn-lg btn--light btn-block">Entra <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
-          </div>
-          <p class="mt-30">Se non hai ancora un account <a [routerLink]="['/signup']">clicca qui</a></p>
-        </form>
+    <form name="form" (ngSubmit)="f.form.valid && login(f)" #f="ngForm" novalidate class="form--light bg-light p-all-side-20">
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+        <label for="username">Email</label>
+        <input type="text" class="form-control black" name="email" ngModel #email="ngModel" required />
+        <div *ngIf="f.submitted && !email.valid" class="is-invalid">Campo obbligatorio</div>
       </div>
-    </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !secret.valid }">
+        <label for="secret">Password</label>
+        <input type="password" class="form-control black" name="secret" ngModel #secret="ngModel" required />
+        <div *ngIf="f.submitted && !secret.valid" class="is-invalid">Campo obbligatorio</div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-lg btn--light btn-block">Entra <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-fw"></i></button>
+      </div>
+      <p class="mt-30">Se non hai ancora un account <a [routerLink]="['/signup']" class="btn btn__link btn__link--white">clicca qui</a></p>
+    </form>
   </div>
 </div>
